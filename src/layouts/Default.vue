@@ -6,6 +6,7 @@
         <default-view />
         <div class="second_layer" v-if="!drawer">
           <v-btn
+            color="red"
             icon="mdi-microsoft-xbox-controller-menu"
             @click.stop="drawer = !drawer"
           />
