@@ -1,13 +1,9 @@
-const hostnameGenericBackend = import.meta.env.VITE_HOSTNAME_GENERICBACKED;
-const hostnameSellerDashboard = import.meta.env.VITE_HOSTNAME_FASTSITE;
-const apiKey = import.meta.env.VITE_API_KEY;
+const hostname = import.meta.env.VITE_HOSTNAME;
 
 
-const postRequest = (endpoint, body, func, method = 'POST', genericBackend = false) => {
+const postRequest = (endpoint, body, func, method = 'POST') => {
   let headers = {'Content-Type': 'application/json'};
-  if (genericBackend)
-    headers['Authorization'] = apiKey
-  fetch(`${hostnameGenericBackend}${endpoint}`, {
+  fetch(`${hostname}${endpoint}`, {
     method: method,
     headers: headers,
     body: JSON.stringify(body)
@@ -24,7 +20,7 @@ const postRequest = (endpoint, body, func, method = 'POST', genericBackend = fal
 
 
 const getRequest = (endpoint, params, func, method = 'GET') => {
-  const url = new URL(`${hostnameSellerDashboard}${endpoint}`);
+  const url = new URL(`${hostname}${endpoint}`);
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
 
   fetch(url, {
