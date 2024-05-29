@@ -34,7 +34,7 @@
       </v-row>
     </v-container>
     <p class="white_text">
-      © 2016 <b>netti</b>architetti.
+      © 2024 <b>netti</b>architetti.
     </p>
   </v-navigation-drawer>
 </template>
