@@ -1,6 +1,6 @@
 <template>
     <v-carousel
-      ref="carouselRef"
+      ref="carousel"
       style="height: 100vh;"
       :show-arrows="false"
       @keydown.left="prev"
@@ -35,7 +35,8 @@
   </template>
   
   <script setup>
-  import { ref } from 'vue';
+  import { ref, onMounted } from 'vue';
+  import { carousel } from '@/utils/focusCarousel.js'; // Importa il riferimento del carosello
   
   import immagine1 from '@/assets/817321E2-3ABC-453A-9336-C1A5A0DFDAAE-homepage.jpeg';
   import immagine2 from '@/assets/IMG_9243-homepage.jpg';
@@ -68,6 +69,14 @@
   const next = () => {
     selected.value = (selected.value + 1) % imgArray.length;
   };
+  
+  // Imposta il riferimento al carosello e applica il focus all'avvio
+  onMounted(() => {
+    carousel.value = document.querySelector('.v-carousel');
+    if (carousel.value) {
+      carousel.value.focus();
+    }
+  });
   </script>
   
   <style scoped>
