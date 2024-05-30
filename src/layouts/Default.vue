@@ -5,8 +5,9 @@
       <v-main>
         <default-view />
         <div class="second_layer" v-if="!drawer">
-          <v-btn color="red" icon="mdi-microsoft-xbox-controller-menu" @click.stop="toggleDrawer" />
-          <p class="title"><b>netti</b>architetti</p>
+          <v-btn color="red" style="
+              float: left;" icon="mdi-microsoft-xbox-controller-menu" @click.stop="toggleDrawer" />
+          <p style="color: white; float: left" class="title"><b>netti</b>architetti</p>
         </div>
       </v-main>
     </v-layout>
@@ -49,11 +50,13 @@ onMounted(() => {
   left: 16px;
   z-index: 3;
   display: flex;
+  align-items: center;
 }
 
 .title {
   margin-left: 20px;
-  color: white;
+  color: "red";
+  /* Colore arancio-rosso */
   font-size: 35px;
 }
 </style>

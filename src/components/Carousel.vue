@@ -5,6 +5,9 @@
     :show-arrows="false"
     @keydown.left="prev"
     @keydown.right="next"
+    @click="resetTimer"
+    @touchstart="resetTimer"
+    @wheel="handleWheel"
     v-model="selected"
     hide-delimiters
     tabindex="0"
@@ -21,15 +24,14 @@
       align="end"
       justify="end"
     >
-      <v-btn
+      <v-icon
         v-for="(img, index) in imgArray"
         :key="index"
-        :class="['mx-2', { 'v-btn--active': selected === index }]"
-        class="custom-dot"
-        small
-        icon
+        :class="['mx-1', 'custom-dot', { 'v-icon--active': selected === index }]"
         @click="selected = index; resetTimer()"
-      ></v-btn>
+      >
+        mdi-circle
+      </v-icon>
     </v-row>
   </v-carousel>
 </template>
@@ -38,9 +40,9 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { carousel } from '@/utils/focusCarousel.js'; // Importa il riferimento del carosello
 
-import immagine1 from '@/assets/M_03-homepage.jpg';
+import immagine1 from '@/assets/817321E2-3ABC-453A-9336-C1A5A0DFDAAE-homepage.jpeg';
 import immagine2 from '@/assets/IMG_9243-homepage.jpg';
-import immagine3 from '@/assets/817321E2-3ABC-453A-9336-C1A5A0DFDAAE-homepage.jpeg';
+import immagine3 from '@/assets/M_03-homepage.jpg';
 import immagine4 from '@/assets/Netti-10-bis.jpg';
 import immagine5 from '@/assets/PLANOVOLUMETRICO-SALV02.jpg';
 import immagine6 from '@/assets/Prova.jpg';
@@ -62,6 +64,7 @@ const imgArray = [
 
 const selected = ref(0);
 const intervalId = ref(null);
+let isThrottled = false; // Variabile per gestire il throttling degli eventi wheel
 
 const prev = () => {
   selected.value = (selected.value + imgArray.length - 1) % imgArray.length;
@@ -86,6 +89,22 @@ const resetTimer = () => {
 
 const handleUserInteraction = () => {
   resetTimer();
+};
+
+const handleWheel = (event) => {
+  event.preventDefault(); // Preveniamo il comportamento di default dello scroll
+  if (!isThrottled) {
+    if (event.deltaY < 0) {
+      prev();
+    } else if (event.deltaY > 0) {
+      next();
+    }
+    resetTimer();
+    isThrottled = true;
+    setTimeout(() => {
+      isThrottled = false;
+    }, 850); // Imposta un breve intervallo di throttling per evitare scorrimenti troppo rapidi
+  }
 };
 
 // Imposta il riferimento al carosello e avvia il timer all'avvio
@@ -127,13 +146,10 @@ onBeforeUnmount(() => {
 }
 
 .custom-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #fff;
+  font-size: 12px;
 }
 
-.v-btn--active {
-  background-color: red; /* Cambia il colore del pallino attivo */
+.v-icon--active {
+  color: red; /* Cambia il colore del pallino attivo */
 }
 </style>
