@@ -5,6 +5,8 @@
       @click-outside="$emit('update:modelValue', false); $emit('close')"
       temporary
       color="red"
+      app
+      class="drawer-content"
     >
       <v-list-item style="margin-top: 20px;">
         <p style="font-size: xx-large;"><b>netti</b>architetti</p>
@@ -19,24 +21,26 @@
         <v-list-item title="Contatti" />
       </v-list>
       <v-divider />
-      <p class="white_text">
-        Progettare architetture per il mondo reale e al contempo ricercare nuove forme espressive,
-        attenti ai temi della storia, dell’ambiente, del paesaggio urbano ed extraurbano,
-        costituisce il nostro impegno e ci rende consapevoli della responsabilità di esserearchitetti.
-      </p>
-      <v-container>
-        <v-row>
-          <v-col>
-            <v-icon icon="mdi-facebook" />
-          </v-col>
-          <v-col>
-            <v-icon icon="mdi-instagram" />
-          </v-col>
-        </v-row>
-      </v-container>
-      <p class="white_text">
-        © 2024 <b>netti</b>architetti.
-      </p>
+      <div class="bottom-section">
+        <p class="white_text">
+          Progettare architetture per il mondo reale e al contempo ricercare <b>nuove forme espressive</b>,
+          attenti ai temi della storia, dell’ambiente, del paesaggio urbano ed extraurbano,
+          costituisce il nostro impegno e ci rende consapevoli della responsabilità di <b>essere architetti</b>.
+        </p>
+        <v-container>
+          <v-row>
+            <v-col>
+              <v-icon icon="mdi-facebook" />
+            </v-col>
+            <v-col>
+              <v-icon icon="mdi-instagram" />
+            </v-col>
+          </v-row>
+        </v-container>
+        <p class="white_text">
+          © 2024 <b>netti</b>architetti.
+        </p>
+      </div>
     </v-navigation-drawer>
   </template>
     
@@ -44,18 +48,30 @@
   const props = defineProps({
     modelValue: {
       type: Boolean,
-      required: true,
+        required: true,
     },
   });
   
   const emit = defineEmits(['update:modelValue', 'close']);
   </script>
-  
+    
   <style scoped>
-  .white_text {
-    font-size: smaller;
-    margin-left: 10px;
-    margin-right: 10px;
+  .drawer-content {
+    background-color: red; /* Imposta il colore di sfondo del drawer */
   }
+  
+.white_text {
+    font-size: x-small;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+  
+.bottom-section {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}
   </style>
   
