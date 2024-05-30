@@ -1,6 +1,14 @@
 <template>
-  <v-carousel ref="carousel" style="height: 100vh;" :show-arrows="false" @keydown.left="prev" @keydown.right="next"
-    v-model="selected" hide-delimiters tabindex="0">
+  <v-carousel
+    ref="carousel"
+    style="height: 100vh;"
+    :show-arrows="false"
+    @keydown.left="prev"
+    @keydown.right="next"
+    v-model="selected"
+    hide-delimiters
+    tabindex="0"
+  >
     <v-carousel-item v-for="(img, index) in imgArray" :key="index" :src="img" cover />
     <template #prev>
       <!-- Empty template to remove default arrows -->
@@ -8,20 +16,31 @@
     <template #next>
       <!-- Empty template to remove default arrows -->
     </template>
-    <v-row class="custom-controls" align="end" justify="end">
-      <v-btn v-for="(img, index) in imgArray" :key="index" :class="['mx-2', { 'v-btn--active': selected === index }]"
-        class="custom-dot" small icon @click="selected = index"></v-btn>
+    <v-row
+      class="custom-controls"
+      align="end"
+      justify="end"
+    >
+      <v-btn
+        v-for="(img, index) in imgArray"
+        :key="index"
+        :class="['mx-2', { 'v-btn--active': selected === index }]"
+        class="custom-dot"
+        small
+        icon
+        @click="selected = index; resetTimer()"
+      ></v-btn>
     </v-row>
   </v-carousel>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { carousel } from '@/utils/focusCarousel.js'; // Importa il riferimento del carosello
 
-import immagine1 from '@/assets/817321E2-3ABC-453A-9336-C1A5A0DFDAAE-homepage.jpeg';
+import immagine1 from '@/assets/M_03-homepage.jpg';
 import immagine2 from '@/assets/IMG_9243-homepage.jpg';
-import immagine3 from '@/assets/M_03-homepage.jpg';
+import immagine3 from '@/assets/817321E2-3ABC-453A-9336-C1A5A0DFDAAE-homepage.jpeg';
 import immagine4 from '@/assets/Netti-10-bis.jpg';
 import immagine5 from '@/assets/PLANOVOLUMETRICO-SALV02.jpg';
 import immagine6 from '@/assets/Prova.jpg';
@@ -42,6 +61,7 @@ const imgArray = [
 ];
 
 const selected = ref(0);
+const intervalId = ref(null);
 
 const prev = () => {
   selected.value = (selected.value + imgArray.length - 1) % imgArray.length;
@@ -51,12 +71,48 @@ const next = () => {
   selected.value = (selected.value + 1) % imgArray.length;
 };
 
-// Imposta il riferimento al carosello e applica il focus all'avvio
+const startTimer = () => {
+  intervalId.value = setInterval(() => {
+    next();
+  }, 10000); // 10 secondi
+};
+
+const resetTimer = () => {
+  if (intervalId.value) {
+    clearInterval(intervalId.value);
+    startTimer();
+  }
+};
+
+const handleUserInteraction = () => {
+  resetTimer();
+};
+
+// Imposta il riferimento al carosello e avvia il timer all'avvio
 onMounted(() => {
   carousel.value = document.querySelector('.v-carousel');
   if (carousel.value) {
     carousel.value.focus();
   }
+  startTimer();
+
+  // Aggiungi ascoltatori globali per resettare il timer su qualsiasi interazione dell'utente
+  window.addEventListener('mousemove', handleUserInteraction);
+  window.addEventListener('click', handleUserInteraction);
+  window.addEventListener('keydown', handleUserInteraction);
+  window.addEventListener('touchstart', handleUserInteraction);
+});
+
+onBeforeUnmount(() => {
+  if (intervalId.value) {
+    clearInterval(intervalId.value);
+  }
+
+  // Rimuovi gli ascoltatori globali quando il componente viene smontato
+  window.removeEventListener('mousemove', handleUserInteraction);
+  window.removeEventListener('click', handleUserInteraction);
+  window.removeEventListener('keydown', handleUserInteraction);
+  window.removeEventListener('touchstart', handleUserInteraction);
 });
 </script>
 
@@ -78,7 +134,6 @@ onMounted(() => {
 }
 
 .v-btn--active {
-  background-color: red;
-  /* Cambia il colore del pallino attivo */
+  background-color: red; /* Cambia il colore del pallino attivo */
 }
 </style>
