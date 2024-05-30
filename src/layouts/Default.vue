@@ -18,24 +18,24 @@
 </template>
 
 <script setup>
-  import DefaultView from './View.vue';
-  import LateralMenu from './LateralMenu.vue';
-  import { ref } from 'vue';
+import DefaultView from './View.vue';
+import LateralMenu from './LateralMenu.vue';
+import { ref } from 'vue';
 
-  const drawer = ref(false);
+const drawer = ref(false);
 </script>
 
 <style scoped>
-  .second_layer {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    z-index: 3;
-    display: flex;
-  }
-  .title {
-    margin-left: 20px;
-    color: white;
-    font-size: 35px;
-  }
+.second_layer {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 3;
+  display: flex;
+}
+.title {
+  margin-left: 20px;
+  color: white;
+  font-size: 35px;
+}
 </style>
