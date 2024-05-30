@@ -5,11 +5,7 @@
       <v-main>
         <default-view />
         <div class="second_layer" v-if="!drawer">
-          <v-btn
-            color="red"
-            icon="mdi-microsoft-xbox-controller-menu"
-            @click.stop="toggleDrawer"
-          />
+          <v-btn color="red" icon="mdi-microsoft-xbox-controller-menu" @click.stop="toggleDrawer" />
           <p class="title"><b>netti</b>architetti</p>
         </div>
       </v-main>
@@ -54,6 +50,7 @@ onMounted(() => {
   z-index: 3;
   display: flex;
 }
+
 .title {
   margin-left: 20px;
   color: white;
