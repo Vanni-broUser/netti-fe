@@ -13,15 +13,27 @@
     <v-list-item class="list-item">
       <v-btn icon="mdi-microsoft-xbox-controller-menu" class="white-btn" @click="closeDrawer" />
       <p class="white-title"><b>netti</b>architetti</p>
-    </v-list-item>
+    </v-list-item><br>
     <v-divider />
     <v-list density="compact" nav>
-      <v-list-item prepend-icon="mdi-ruler-square" title="Architetture" />
-      <v-list-item prepend-icon="mdi-text-box-multiple-outline" title="Progetti" />
-      <v-list-item prepend-icon="mdi-text-box-search" title="Ricerche" />
-      <v-list-item title="Chi siamo" />
-      <v-list-item title="Agenda" />
-      <v-list-item title="Contatti" />
+      <v-list-item>
+        <b>Architetture</b>
+      </v-list-item>
+      <v-list-item>
+        <b>Progetti</b>
+      </v-list-item>
+      <v-list-item>
+        <b>Ricerche</b>
+      </v-list-item>
+      <v-list-item>
+        Chi siamo
+      </v-list-item>
+      <v-list-item>
+        Agenda
+      </v-list-item>
+      <v-list-item>
+        Contatti
+      </v-list-item>
     </v-list>
     <v-divider />
     <div class="bottom-section">
@@ -90,7 +102,7 @@ const closeDrawer = () => {
 }
 
 .white_text {
-  font-size: x-small;
+  font-size: small;
   margin-left: 8px;
   margin-right: 8px;
 }
