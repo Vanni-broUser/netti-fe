@@ -1,11 +1,11 @@
 <template>
     <v-navigation-drawer :model-value="modelValue" @update:model-value="$emit('update:modelValue', $event)"
         @click-outside="$emit('update:modelValue', false); $emit('close')" temporary color="#ff0000" app
-        class="drawer-content" width="320" max-width="320">
+        class="drawer-content" width="380" max-width="380" style="padding-top: 6px;">
         <v-list-item class="list-item">
             <div class="title-container">
                 <p class="white-title v-elevation-3"><b>netti</b>architetti</p>
-                <v-btn color="#ff0000" icon="mdi-reorder-horizontal" class="white-btn" @click="closeDrawer" small />
+                <v-btn color="#ff0000" icon="mdi-reorder-horizontal" class="white-btn" @click="closeDrawer" small style="margin-top: -9px;"/>
             </div>
         </v-list-item>
         <v-divider />
@@ -34,7 +34,9 @@
             <p class="white_text">
                 Progettare architetture per il mondo reale e al contempo ricercare <b>nuove forme espressive</b>,
                 attenti ai temi della storia, dell’ambiente, del paesaggio urbano ed extraurbano,
-                costituisce il nostro impegno e ci rende consapevoli della responsabilità di <b>essere architetti</b>.
+                è l'impegno che ci rende consapevoli della responsabilità dell'<b>essere architetti</b>.<br><br>
+                <b>Lorenzo Netti</b><br>
+            <b>Gloria Valente</b>
             </p>
             <v-container>
                 <v-row>
@@ -88,11 +90,14 @@ const closeDrawer = () => {
 }
 
 .white-title {
-    color: white;
-    font-size: 35px;
-    padding: 10px;
-    border-radius: 4px;
-    flex-grow: 1;
+  margin-right: 10px;
+  color: white;
+  /* Colore arancio-rosso */
+  font-size: 40px; /* Modifica l'altezza del font a 40px */
+  padding: 10px;
+  padding-top: 13px;
+  /* Aggiungi padding per consistenza visiva */
+  border-radius: 4px;
 }
 
 .white-btn {
@@ -102,12 +107,13 @@ const closeDrawer = () => {
     /* Assicurati che il border-radius sia coerente */
     min-width: 40px;
     min-height: 40px;
-    margin: 2 10px;
+    margin: 0 10px;
     /* Distanza tra gli elementi */
 }
 
 .white_text {
     font-size: small;
+    color: white;
     margin-left: 8px;
     margin-right: 8px;
 }

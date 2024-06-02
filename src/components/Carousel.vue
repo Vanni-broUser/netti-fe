@@ -152,6 +152,6 @@ onBeforeUnmount(() => {
 }
 
 .custom-dot--active {
-  background-color: red; /* Cambia il colore del pallino attivo */
+  background-color: #ff0000; /* Cambia il colore del pallino attivo */
 }
 </style>
