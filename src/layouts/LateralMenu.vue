@@ -5,7 +5,10 @@
         <v-list-item class="list-item">
             <div class="title-container">
                 <p class="white-title v-elevation-3"><b>netti</b>architetti</p>
-                <v-btn color="#ff0000" icon="mdi-reorder-horizontal" class="white-btn" @click="closeDrawer" small style="margin-top: -9px;"/>
+                <v-btn v-if="!isMobile" color="#ff0000" icon="mdi-reorder-horizontal" class="white-btn"
+                    @click="closeDrawer" small />
+                <v-btn v-if="isMobile" color="#ff0000" icon="mdi-reorder-horizontal" class="white-btn-mobile"
+                    @click="closeDrawer" small />
             </div>
         </v-list-item>
         <v-divider />
@@ -32,11 +35,12 @@
         <v-divider />
         <div class="bottom-section">
             <p class="white_text">
-                Progettare architetture per il mondo reale e al contempo ricercare <b>nuove forme espressive</b>,
-                attenti ai temi della storia, dell’ambiente, del paesaggio urbano ed extraurbano,
-                è l'impegno che ci rende consapevoli della responsabilità dell'<b>essere architetti</b>.<br><br>
-                <b>Lorenzo Netti</b><br>
-            <b>Gloria Valente</b>
+                Progettare architetture per il mondo reale e al contempo ricercare
+                <b>nuove forme espressive</b>, attenti ai temi della storia,
+                dell’ambiente, del paesaggio urbano ed extraurbano, è l'impegno che ci
+                rende consapevoli della responsabilità dell'<b>essere architetti</b>.<br /><br />
+                <b>Lorenzo Netti</b><br />
+                <b>Gloria Valente</b>
             </p>
             <v-container>
                 <v-row>
@@ -56,6 +60,10 @@
 </template>
 
 <script setup>
+
+
+import mobile from '@/utils/mobile.js'; // Importa la funzione per rilevare i dispositivi mobili
+
 const props = defineProps({
     modelValue: {
         type: Boolean,
@@ -63,11 +71,13 @@ const props = defineProps({
     },
 });
 
-const emit = defineEmits(['update:modelValue', 'close']);
+const emit = defineEmits(["update:modelValue", "close"]);
+
+const isMobile = mobile.setupMobileUtils(); // Rileva se il dispositivo è mobile
 
 const closeDrawer = () => {
-    emit('update:modelValue', false);
-    emit('close');
+    emit("update:modelValue", false);
+    emit("close");
 };
 </script>
 
@@ -90,25 +100,46 @@ const closeDrawer = () => {
 }
 
 .white-title {
-  margin-right: 10px;
-  color: white;
-  /* Colore arancio-rosso */
-  font-size: 40px; /* Modifica l'altezza del font a 40px */
-  padding: 10px;
-  padding-top: 13px;
-  /* Aggiungi padding per consistenza visiva */
-  border-radius: 4px;
+    color: white;
+    /* Colore arancio-rosso */
+    font-size: 40px;
+    /* Modifica l'altezza del font a 40px */
+    padding: 10px;
+    padding-top: 13px;
+    /* Aggiungi padding per consistenza visiva */
+    border-radius: 4px;
 }
 
 .white-btn {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     border-radius: 0px;
     /* Assicurati che il border-radius sia coerente */
-    min-width: 40px;
-    min-height: 40px;
-    margin: 0 10px;
-    /* Distanza tra gli elementi */
+    min-width: 25px;
+    min-height: 25px;
+    margin: -07px 18px 0 0;
+    /* Abbassa il bottone e spostalo a sinistra */
+    display: flex;
+    align-items: center;
+    /* Allinea il contenuto del bottone verticalmente al centro */
+    justify-content: center;
+    /* Allinea il contenuto del bottone orizzontalmente al centro */
+}
+
+.white-btn-mobile {
+    width: 25px;
+    height: 25px;
+    border-radius: 0px;
+    /* Assicurati che il border-radius sia coerente */
+    min-width: 25px;
+    min-height: 25px;
+    margin: -7px 10px 0 0;
+    /* Abbassa il bottone e spostalo a sinistra */
+    display: flex;
+    align-items: center;
+    /* Allinea il contenuto del bottone verticalmente al centro */
+    justify-content: center;
+    /* Allinea il contenuto del bottone orizzontalmente al centro */
 }
 
 .white_text {

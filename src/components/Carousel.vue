@@ -47,6 +47,7 @@ import immagine6 from '@/assets/Prova.jpg';
 import immagine7 from '@/assets/slide_1.jpg';
 import immagine8 from '@/assets/slide_2.jpg';
 import immagine9 from '@/assets/slide_6.jpg';
+import mobile from '@/utils/mobile.js'; // Importa la funzione per rilevare i dispositivi mobili
 
 const imgArray = [
   immagine1,
@@ -89,6 +90,8 @@ const handleUserInteraction = () => {
   resetTimer();
 };
 
+const isMobile = mobile.setupMobileUtils(); // Rileva se il dispositivo è mobile
+
 const handleWheel = (event) => {
   event.preventDefault(); // Preveniamo il comportamento di default dello scroll
   if (!isThrottled) {
@@ -105,6 +108,13 @@ const handleWheel = (event) => {
   }
 };
 
+// Impedisci lo scroll verticale su dispositivi mobili
+const handleTouchMove = (event) => {
+  if (isMobile) {
+    event.preventDefault();
+  }
+};
+
 // Imposta il riferimento al carosello e avvia il timer all'avvio
 onMounted(() => {
   carousel.value = document.querySelector('.v-carousel');
@@ -118,6 +128,7 @@ onMounted(() => {
   window.addEventListener('click', handleUserInteraction);
   window.addEventListener('keydown', handleUserInteraction);
   window.addEventListener('touchstart', handleUserInteraction);
+  window.addEventListener('touchmove', handleTouchMove, { passive: false }); // Impedisci lo scroll verticale su dispositivi mobili
 });
 
 onBeforeUnmount(() => {
@@ -130,10 +141,12 @@ onBeforeUnmount(() => {
   window.removeEventListener('click', handleUserInteraction);
   window.removeEventListener('keydown', handleUserInteraction);
   window.removeEventListener('touchstart', handleUserInteraction);
+  window.removeEventListener('touchmove', handleTouchMove); // Rimuovi l'evento touchmove
 });
 </script>
 
 <style scoped>
+
 .custom-controls {
   position: absolute;
   bottom: 16px;
@@ -153,5 +166,16 @@ onBeforeUnmount(() => {
 
 .custom-dot--active {
   background-color: #ff0000; /* Cambia il colore del pallino attivo */
+}
+
+/* Stile specifico per disabilitare lo scroll verticale sui dispositivi mobili */
+@media (max-width: 768px) {
+  body {
+    overflow: hidden;
+  }
+
+  .v-carousel {
+    overflow: auto; /* Permetti lo scroll solo per il carosello */
+  }
 }
 </style>

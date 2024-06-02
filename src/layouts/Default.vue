@@ -70,12 +70,12 @@ onMounted(() => {
 }
 
 .square-btn {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   border-radius: 0px;
   /* Assicurati che il border-radius sia coerente */
-  min-width: 40px;
-  min-height: 40px;
+  min-width: 25px;
+  min-height: 25px;
   margin: 0 10px;
   /* Distanza tra gli elementi */
   display: flex;
