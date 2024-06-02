@@ -24,14 +24,12 @@
       align="end"
       justify="end"
     >
-      <v-icon
+      <div
         v-for="(img, index) in imgArray"
         :key="index"
-        :class="['mx-1', 'custom-dot', { 'v-icon--active': selected === index }]"
+        :class="['mx-1', 'my-3', 'custom-dot', { 'custom-dot--active': selected === index }]"
         @click="selected = index; resetTimer()"
-      >
-        mdi-circle
-      </v-icon>
+      ></div>
     </v-row>
   </v-carousel>
 </template>
@@ -77,7 +75,7 @@ const next = () => {
 const startTimer = () => {
   intervalId.value = setInterval(() => {
     next();
-  }, 10000); // 10 secondi
+  }, 5000); // 10 secondi
 };
 
 const resetTimer = () => {
@@ -146,10 +144,14 @@ onBeforeUnmount(() => {
 }
 
 .custom-dot {
-  font-size: 12px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
 }
 
-.v-icon--active {
-  color: red; /* Cambia il colore del pallino attivo */
+.custom-dot--active {
+  background-color: red; /* Cambia il colore del pallino attivo */
 }
 </style>

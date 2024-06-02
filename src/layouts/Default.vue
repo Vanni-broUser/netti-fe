@@ -4,10 +4,10 @@
       <lateral-menu :modelValue="drawer" @update:modelValue="handleDrawerUpdate" />
       <v-main>
         <default-view />
-        <div class="second_layer" v-if="!drawer">
-          <v-btn color="red" style="
-              float: left;" icon="mdi-microsoft-xbox-controller-menu" @click.stop="toggleDrawer" />
-          <p style="color: white; float: left" class="title"><b>netti</b>architetti</p>
+        <div class="second_layer" >
+          <p class="title v-elevation-3"><b>netti</b>architetti</p>
+          <v-btn color="#ff0000" icon="mdi-reorder-horizontal" @click.stop="toggleDrawer" class="square-btn" small />
+          <p class="year v-elevation-3"><b>2024</b></p>
         </div>
       </v-main>
     </v-layout>
@@ -54,9 +54,35 @@ onMounted(() => {
 }
 
 .title {
-  margin-left: 20px;
-  color: "red";
+  margin-right: 10px;
+  color: white;
   /* Colore arancio-rosso */
   font-size: 35px;
+  padding: 10px;
+  /* Aggiungi padding per consistenza visiva */
+  border-radius: 4px;
+  /* Aggiungi border-radius per consistenza visiva */
+}
+
+.square-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 0px;
+  /* Assicurati che il border-radius sia coerente */
+  min-width: 40px;
+  min-height: 40px;
+  margin: 0 10px;
+  /* Distanza tra gli elementi */
+}
+
+.year {
+  margin-left: 10px;
+  color: white;
+  /* Colore arancio-rosso */
+  font-size: 35px;
+  padding: 10px;
+  /* Aggiungi padding per consistenza visiva */
+  border-radius: 4px;
+  /* Aggiungi border-radius per consistenza visiva */
 }
 </style>
