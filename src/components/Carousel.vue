@@ -159,7 +159,7 @@ onBeforeUnmount(() => {
   }
 
   .custom-controls {
-    bottom: 48px
+    bottom: 96px
   }
 }
 </style>

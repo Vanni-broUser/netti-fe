@@ -179,8 +179,13 @@
   /* Media query per abilitare lo scroll nel menu laterale sui dispositivi mobili */
   @media (max-width: 768px) {
     .drawer-content {
-      overflow: hidden;
+      overflow: auto;
     }
+
+    .bottom-section {
+    bottom: 96px
+    }
+
   }
   </style>
   
