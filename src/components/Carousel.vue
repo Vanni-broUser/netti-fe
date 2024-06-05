@@ -91,11 +91,11 @@ const handleWheel = (event) => {
 };
 
 // Impedisci lo scroll verticale su dispositivi mobili
-const handleTouchMove = (event) => {
+/*const handleTouchMove = (event) => {
   if (isMobile) {
     event.preventDefault();
   }
-};
+};*/
 
 // Imposta il riferimento al carosello e avvia il timer all'avvio
 onMounted(() => {
@@ -110,7 +110,7 @@ onMounted(() => {
   window.addEventListener('click', handleUserInteraction);
   window.addEventListener('keydown', handleUserInteraction);
   window.addEventListener('touchstart', handleUserInteraction);
-  window.addEventListener('touchmove', handleTouchMove, { passive: false }); // Impedisci lo scroll verticale su dispositivi mobili
+  //window.addEventListener('touchmove', handleTouchMove, { passive: false }); // Impedisci lo scroll verticale su dispositivi mobili
 });
 
 onBeforeUnmount(() => {
@@ -123,7 +123,7 @@ onBeforeUnmount(() => {
   window.removeEventListener('click', handleUserInteraction);
   window.removeEventListener('keydown', handleUserInteraction);
   window.removeEventListener('touchstart', handleUserInteraction);
-  window.removeEventListener('touchmove', handleTouchMove); // Rimuovi l'evento touchmove
+  //window.removeEventListener('touchmove', handleTouchMove); // Rimuovi l'evento touchmove
 });
 </script>
 
