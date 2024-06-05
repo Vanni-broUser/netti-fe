@@ -152,7 +152,7 @@
     /* Assicurati che il border-radius sia coerente */
     min-width: 25px;
     min-height: 25px;
-    margin: -7px 10px 0 0;
+    margin: -7px 0px 0 0;
     /* Abbassa il bottone e spostalo a sinistra */
     display: flex;
     align-items: center;

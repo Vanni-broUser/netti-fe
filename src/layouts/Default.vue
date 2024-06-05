@@ -59,7 +59,6 @@ onMounted(() => {
 .title {
   margin-right: 10px;
   color: white;
-  /* Colore arancio-rosso */
   font-size: 40px; /* Modifica l'altezza del font a 40px */
   padding: 10px;
   padding-top: 18px;
