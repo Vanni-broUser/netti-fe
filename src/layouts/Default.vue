@@ -9,7 +9,6 @@
           <v-btn color="#ff0000" icon="mdi-reorder-horizontal" @click.stop="toggleDrawer" class="square-btn" small />
           <p v-if="!isMobile" class="year v-elevation-3"><b>2024</b></p>
         </div>
-        <v-row v-if="isMobile" class="year v-elevation-3"><b>2024</b></v-row>
       </v-main>
     </v-layout>
   </v-app>

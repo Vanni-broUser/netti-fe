@@ -1,17 +1,6 @@
 <template>
-  <v-carousel
-    ref="carousel"
-    style="height: 100vh;"
-    :show-arrows="false"
-    @keydown.left="prev"
-    @keydown.right="next"
-    @click="resetTimer"
-    @touchstart="resetTimer"
-    @wheel="handleWheel"
-    v-model="selected"
-    hide-delimiters
-    tabindex="0"
-  >
+  <v-carousel ref="carousel" style="height: 100vh;" :show-arrows="false" @keydown.left="prev" @keydown.right="next"
+    @click="resetTimer" @touchstart="resetTimer" @wheel="handleWheel" v-model="selected" hide-delimiters tabindex="0">
     <v-carousel-item v-for="(img, index) in imgArray" :key="index" :src="img" cover />
     <template #prev>
       <!-- Empty template to remove default arrows -->
@@ -19,17 +8,10 @@
     <template #next>
       <!-- Empty template to remove default arrows -->
     </template>
-    <v-row
-      class="custom-controls"
-      align="end"
-      justify="end"
-    >
-      <div
-        v-for="(img, index) in imgArray"
-        :key="index"
+    <v-row class="custom-controls" align="end" justify="end">
+      <div v-for="(img, index) in imgArray" :key="index"
         :class="['mx-1', 'my-3', 'custom-dot', { 'custom-dot--active': selected === index }]"
-        @click="selected = index; resetTimer()"
-      ></div>
+        @click="selected = index; resetTimer()"></div>
     </v-row>
   </v-carousel>
 </template>
@@ -76,7 +58,7 @@ const next = () => {
 const startTimer = () => {
   intervalId.value = setInterval(() => {
     next();
-  }, 5000); // 10 secondi
+  }, 5000); // 5 secondi
 };
 
 const resetTimer = () => {
@@ -146,7 +128,6 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-
 .custom-controls {
   position: absolute;
   bottom: 16px;
@@ -165,17 +146,20 @@ onBeforeUnmount(() => {
 }
 
 .custom-dot--active {
-  background-color: #ff0000; /* Cambia il colore del pallino attivo */
+  background-color: #ff0000;
+  /* Cambia il colore del pallino attivo */
 }
 
-/* Stile specifico per disabilitare lo scroll verticale sui dispositivi mobili */
+/* Stile specifico per disabilitare lo scroll verticale sui dispositivi la cui estensione massima è... */
 @media (max-width: 768px) {
-  body {
-    overflow: hidden;
-  }
 
   .v-carousel {
-    overflow: auto; /* Permetti lo scroll solo per il carosello */
+    overflow: auto;
+    /* Permetti lo scroll solo per il carosello */
+  }
+
+  .custom-controls {
+    bottom: 48px
   }
 }
 </style>
