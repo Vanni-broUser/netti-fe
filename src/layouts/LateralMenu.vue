@@ -183,7 +183,7 @@
     }
 
     .bottom-section {
-    bottom: 96px
+    bottom: 72px
     }
 
   }

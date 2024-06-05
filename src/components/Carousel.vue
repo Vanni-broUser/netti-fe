@@ -154,12 +154,19 @@ onBeforeUnmount(() => {
 @media (max-width: 768px) {
 
   .v-carousel {
-    overflow: auto;
-    /* Permetti lo scroll solo per il carosello */
+    overflow-x: scroll;
+    /* Permetti lo scroll solo orizzontalmente */
+    scroll-snap-type: x mandatory;
+    /* Abilita il comportamento di scroll snap */
+  }
+
+  .v-carousel-item {
+    scroll-snap-align: start;
+    /* Fai in modo che ogni item del carousel si blocchi quando viene scorruto */
   }
 
   .custom-controls {
-    bottom: 96px
+    bottom: 72px;
   }
 }
 </style>
