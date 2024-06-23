@@ -3,24 +3,62 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 const routes = [
   {
     path: '/',
-    component: () => import('@/layouts/Default.vue'),
+    
     children: [
-      /*
-      {
-        path: '/:id',
-        name: 'Demo Home',
-        component: () => import('@/views/Home.vue')
-      },
-      */
       {
         path: '/',
-        name: 'Production Home',
-        component: () => import('@/views/Home.vue')
+        name: ' Home Layout',
+        component: () => import('@/layouts/Default.vue'),
+        children: [
+          {
+            path: '/',
+            name: ' Home',
+            component: () => import('@/views/Home.vue')
+          }
+        ]
+      },
+      {
+        path: '/na',
+        name: ' Complex Layout',
+        component: () => import('@/layouts/Default copy.vue'),
+        children: [
+          {
+            path: '/architetture',
+            name: ' Architetture',
+            component: () => import('@/views/Architetture.vue')
+          },
+          {
+            path: '/progetti',
+            name: ' Progetti',
+            component: () => import('@/views/Progetti.vue')
+          },
+          {
+            path: '/ricerche',
+            name: ' Ricerche',
+            component: () => import('@/views/Ricerche.vue')
+          },
+          {
+            path: '/chi-siamo',
+            name: ' Chi siamo',
+            component: () => import('@/views/ChiSiamo.vue')
+          },
+          {
+            path: '/agenda',
+            name: ' Agenda',
+            component: () => import('@/views/Agenda.vue')
+          },
+          {
+            path: '/contatti',
+            name: ' Contatti',
+            component: () => import('@/views/Contatti.vue')
+          },  
+        ]
       }
     ]
   }
 ];
 
+        
 const router = createRouter({
   history: createWebHashHistory(),
   routes,

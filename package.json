@@ -11,9 +11,12 @@
     "core-js": "^3.29.0",
     "crypto-js": "^4.2.0",
     "dotenv": "^16.4.5",
+    "mitt": "^3.0.1",
     "pinia": "^2.1.7",
     "roboto-fontface": "*",
     "vue": "^3.3.4",
+    "vue-masonry": "^0.16.0",
+    "vue-masonry-css": "^1.0.3",
     "vue-router": "^4.0.0",
     "vuetify": "^3.0.0"
   },
