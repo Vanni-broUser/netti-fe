@@ -73,6 +73,12 @@
           <v-col>
             <v-icon icon="mdi-instagram" />
           </v-col>
+          <v-col>
+            <v-icon :style="{ backgroundImage: `url(${devisare})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }" />
+          </v-col>
+          <v-col>
+            <v-icon :style="{ backgroundImage: `url(${archilovers})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }" />
+          </v-col>
         </v-row>
       </v-container>
       <p class="white_text">
@@ -83,6 +89,8 @@
 </template>
 
 <script setup>
+import devisare from '@/assets/social/devisare.png';
+import archilovers from '@/assets/social/archilovers.png';
 import mobile from '@/utils/mobile.js'; // Importa la funzione per rilevare i dispositivi mobili
 
 const props = defineProps({
