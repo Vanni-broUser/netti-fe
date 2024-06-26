@@ -9,7 +9,7 @@ const checkMobile = () => {
 };
 
 
-const setupMobileUtils = () => {
+export const setupMobileUtils = () => {
   onMounted(() => {
     checkMobile();
     window.addEventListener('resize', checkMobile);
@@ -24,4 +24,8 @@ const setupMobileUtils = () => {
 
 export default {
   setupMobileUtils
+};
+
+export const isMobileCongi = () => {
+  return isMobile.value = window.innerWidth < 600;
 };
