@@ -11,7 +11,9 @@
     <v-list-item class="list-item">
       <div class="title-container">
         <p class="color-title v-elevation-3">
+					<router-link to="/" class="title-link">
           <b class="red-title">netti</b><span class="black-title">architetti</span>
+				</router-link>
         </p>
       </div>
     </v-list-item>
@@ -119,5 +121,8 @@ const isMobile = mobile.setupMobileUtils(); // Rileva se il dispositivo è mobil
 	.bottom-section {
     display: none;
   }
+}
+.title-link {
+  text-decoration: none; /* Rimuove la sottolineatura dai link */
 }
 </style>

@@ -9,7 +9,7 @@
         </v-col>
       </v-row>
     </div>
-    <div v-else v-masonry class="masonry" item-selector=".item" originLeft:false horizontalOrder:true :gutter="gutter">
+    <div v-else v-masonry class="masonry" item-selector=".item" originLeft:false horizontalOrder:true gutter="2">
       <center>
         <div v-masonry-tile class="item" v-for="(image, index) in images" :key="index" :style="{ height: randomHeight() + 'px' }">
           <div class="image-container">
@@ -65,7 +65,7 @@ const images = ref([
 const isMobile = setupMobileUtils();
 
 // Gutter dinamico in base al dispositivo
-const gutter = computed(() => (isMobile.value ? 6 : 13));
+const gutter = 2;
 </script>
 
 <style scoped>
@@ -76,7 +76,7 @@ const gutter = computed(() => (isMobile.value ? 6 : 13));
 /* Definisce la larghezza della colonna */
 .item {
   width: 24%; /* 4 colonne */
-  margin-bottom: 13px;
+  margin-bottom: 20px;
   /* L'altezza viene impostata dinamicamente dalla funzione randomHeight */
 }
 
@@ -87,7 +87,7 @@ const gutter = computed(() => (isMobile.value ? 6 : 13));
 /* Stile per la colonna mobile */
 .item-mobile {
   width: 100%; /* 1 colonna */
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 /* Stile per il contenitore dell'immagine */

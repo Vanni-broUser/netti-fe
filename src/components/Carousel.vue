@@ -128,6 +128,7 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
+
 .custom-controls {
   position: absolute;
   bottom: 16px;
