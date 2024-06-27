@@ -2,6 +2,10 @@
   color: #ff0000;
 }
 
+html, body, #app {
+  overflow: auto;
+}
+
 .v-carousel__controls__item{
   margin: 0 0px;
 }

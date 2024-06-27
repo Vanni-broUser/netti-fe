@@ -5,7 +5,9 @@
       <v-main>
         <default-view />
         <div class="second_layer">
-          <p class="title v-elevation-3"><b>netti</b>architetti</p>
+          <router-link to="/" class="title-link">
+            <p class="title v-elevation-3"><b>netti</b>architetti</p>
+          </router-link>
           <v-btn color="#ff0000" icon="mdi-reorder-horizontal" @click.stop="toggleDrawer" class="square-btn" small />
           <p v-if="!isMobile" class="year v-elevation-3"><b>2024</b></p>
         </div>
@@ -48,7 +50,7 @@ onMounted(() => {
 
 <style scoped>
 .second_layer {
-  position: absolute;
+  position: fixed;
   top: 16px;
   left: 16px;
   z-index: 3;
@@ -95,4 +97,9 @@ onMounted(() => {
   display: flex;
   align-items: center; /* Allinea il contenuto del paragrafo verticalmente al centro */
 }
+
+.title-link {
+  text-decoration: none; /* Rimuove la sottolineatura dai link */
+}
+
 </style>
