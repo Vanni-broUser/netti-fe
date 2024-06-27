@@ -1,68 +1,43 @@
 <template>
   <v-navigation-drawer 
-    :model-value="modelValue" 
-    @update:model-value="$emit('update:modelValue', $event)"
-    @click-outside="$emit('update:modelValue', false); $emit('close')" 
-    temporary 
-    color="#ff0000" 
+    permanent 
+    color="#ffffff" 
     app
     class="drawer-content" 
     width="360"
     max-width="360" 
-    style="padding-top: 6px; height: 100vh;"
+    style="padding-top: 6px; height: 100vh; position: fixed;"
   >
     <v-list-item class="list-item">
       <div class="title-container">
-        <p class="white-title v-elevation-3"><b>netti</b>architetti</p>
-        <v-btn 
-          v-if="!isMobile" 
-          color="#ff0000" 
-          icon="mdi-reorder-horizontal" 
-          class="white-btn"
-          @click="closeDrawer" 
-          small 
-        />
-        <v-btn 
-          v-if="isMobile" 
-          color="#ff0000" 
-          icon="mdi-reorder-horizontal" 
-          class="white-btn-mobile"
-          @click="closeDrawer" 
-          small 
-        />
+        <p class="color-title v-elevation-3">
+					<router-link to="/" class="title-link">
+          <b class="red-title">netti</b><span class="black-title">architetti</span>
+				</router-link>
+        </p>
       </div>
     </v-list-item>
-    <v-divider />
-    <v-list density="compact" nav>
+    <v-list density="compact" nav class="flex-grow-1">
       <v-list-item to="/architetture">
         <b>Architetture</b>
       </v-list-item>
-      <v-list-item>
+      <v-list-item to="/progetti">
         <b>Progetti</b>
       </v-list-item>
-      <v-list-item>
+      <v-list-item to="/ricerche">
         <b>Ricerche</b>
       </v-list-item>
-      <v-list-item>
+      <v-list-item to="/chi-siamo">
         Chi siamo
       </v-list-item>
-      <v-list-item>
+      <v-list-item to="/agenda">
         Agenda
       </v-list-item>
-      <v-list-item>
+      <v-list-item to="/contatti">
         Contatti
       </v-list-item>
     </v-list>
-    <v-divider />
     <div class="bottom-section">
-      <p class="white_text">
-        Progettare architetture per il mondo reale e al contempo ricercare
-        <b>nuove forme espressive</b>, attenti ai temi della storia,
-        dell’ambiente, del paesaggio urbano ed extraurbano, è l'impegno che ci
-        rende consapevoli della responsabilità dell'<b>essere architetti</b>.<br /><br />
-        <b>Lorenzo Netti</b><br />
-        <b>Gloria Valente</b>
-      </p>
       <v-container>
         <v-row>
           <v-col>
@@ -73,7 +48,7 @@
           </v-col>
         </v-row>
       </v-container>
-      <p class="white_text">
+      <p class="black_text">
         © 2024 <b>netti</b>architetti.
       </p>
     </div>
@@ -82,28 +57,13 @@
 
 <script setup>
 import mobile from '@/utils/mobile.js'; // Importa la funzione per rilevare i dispositivi mobili
-
-const props = defineProps({
-  modelValue: {
-    type: Boolean,
-    required: true,
-  },
-});
-
-const emit = defineEmits(["update:modelValue", "close"]);
-
 const isMobile = mobile.setupMobileUtils(); // Rileva se il dispositivo è mobile
-
-const closeDrawer = () => {
-  emit("update:modelValue", false);
-  emit("close");
-};
 </script>
 
 <style scoped>
+
 .drawer-content {
-  background-color: #ff0000;
-  /* Imposta il colore di sfondo del drawer */
+  background-color: #ffffff;
 }
 
 .list-item {
@@ -118,54 +78,31 @@ const closeDrawer = () => {
   width: 100%;
 }
 
-.white-title {
-  color: white;
-  /* Colore arancio-rosso */
+.color-title {
   font-size: 40px;
-  /* Modifica l'altezza del font a 40px */
   padding: 10px;
   padding-top: 13px;
-  /* Aggiungi padding per consistenza visiva */
   border-radius: 4px;
 }
 
-.white-btn {
-  width: 25px;
-  height: 25px;
-  border-radius: 0px;
-  /* Assicurati che il border-radius sia coerente */
-  min-width: 25px;
-  min-height: 25px;
-  margin: -07px 0px 0 0;
-  /* Abbassa il bottone e spostalo a sinistra */
-  display: flex;
-  align-items: center;
-  /* Allinea il contenuto del bottone verticalmente al centro */
-  justify-content: center;
-  /* Allinea il contenuto del bottone orizzontalmente al centro */
+.red-title {
+  color: #ff0000;
 }
 
-.white-btn-mobile {
-  width: 25px;
-  height: 25px;
-  border-radius: 0px;
-  /* Assicurati che il border-radius sia coerente */
-  min-width: 25px;
-  min-height: 25px;
-  margin: -7px 0px 0 0;
-  /* Abbassa il bottone e spostalo a sinistra */
-  display: flex;
-  align-items: center;
-  /* Allinea il contenuto del bottone verticalmente al centro */
-  justify-content: center;
-  /* Allinea il contenuto del bottone orizzontalmente al centro */
+.black-title {
+  color: #000000;
 }
 
-.white_text {
+.black_text {
   font-size: small;
-  color: white;
+  color: black;
   margin-left: 8px;
   margin-right: 8px;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+  overflow-y: auto;
 }
 
 .bottom-section {
@@ -181,9 +118,11 @@ const closeDrawer = () => {
   .drawer-content {
     overflow: auto;
   }
-
-  .bottom-section {
-    bottom: 72px
+	.bottom-section {
+    display: none;
   }
+}
+.title-link {
+  text-decoration: none; /* Rimuove la sottolineatura dai link */
 }
 </style>

@@ -13,7 +13,9 @@
   >
     <v-list-item class="list-item">
       <div class="title-container">
-        <p class="white-title v-elevation-3"><b>netti</b>architetti</p>
+        <router-link to="/" class="title-link">
+            <p class="white-title v-elevation-3"><b>netti</b>architetti</p>
+        </router-link>
         <v-btn 
           v-if="!isMobile" 
           color="#ff0000" 
@@ -37,19 +39,19 @@
       <v-list-item to="/architetture">
         <b>Architetture</b>
       </v-list-item>
-      <v-list-item>
+      <v-list-item to="/progetti">
         <b>Progetti</b>
       </v-list-item>
-      <v-list-item>
+      <v-list-item to="/ricerche">
         <b>Ricerche</b>
       </v-list-item>
-      <v-list-item>
+      <v-list-item to="/chi-siamo">
         Chi siamo
       </v-list-item>
-      <v-list-item>
+      <v-list-item to="/agenda">
         Agenda
       </v-list-item>
-      <v-list-item>
+      <v-list-item to="/contatti">
         Contatti
       </v-list-item>
     </v-list>
@@ -71,6 +73,12 @@
           <v-col>
             <v-icon icon="mdi-instagram" />
           </v-col>
+          <v-col>
+            <v-icon :style="{ backgroundImage: `url(${devisare})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }" />
+          </v-col>
+          <v-col>
+            <v-icon :style="{ backgroundImage: `url(${archilovers})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat' }" />
+          </v-col>
         </v-row>
       </v-container>
       <p class="white_text">
@@ -81,6 +89,8 @@
 </template>
 
 <script setup>
+import devisare from '@/assets/social/devisare.png';
+import archilovers from '@/assets/social/archilovers.png';
 import mobile from '@/utils/mobile.js'; // Importa la funzione per rilevare i dispositivi mobili
 
 const props = defineProps({
@@ -185,5 +195,9 @@ const closeDrawer = () => {
   .bottom-section {
     bottom: 72px
   }
+}
+
+.title-link {
+  text-decoration: none; /* Rimuove la sottolineatura dai link */
 }
 </style>
