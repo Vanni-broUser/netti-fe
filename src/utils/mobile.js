@@ -9,6 +9,7 @@ const checkMobile = () => {
 };
 
 
+// EXPORT CONST ??
 export const setupMobileUtils = () => {
   onMounted(() => {
     checkMobile();
@@ -24,8 +25,4 @@ export const setupMobileUtils = () => {
 
 export default {
   setupMobileUtils
-};
-
-export const isMobileCongi = () => {
-  return isMobile.value = window.innerWidth < 600;
 };
