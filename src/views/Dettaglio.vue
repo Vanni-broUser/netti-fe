@@ -1,11 +1,19 @@
 <template>
-  <div>
-    <Carousel mode="home" :player="false" :content="images" />
-  </div>
+  <v-dialog v-model="dialog" max-width="80vw" persistent>
+    <v-card>
+        <Carousel mode="detail" :player="true" :content="images" />
+    </v-card>
+  </v-dialog>
 </template>
 
 <script setup>
+import { ref, watchEffect } from 'vue';
+import { useRouter } from 'vue-router';
 import Carousel from '@/components/Carousel.vue';
+
+const { id, content } = defineProps(['id', 'content']);
+const router = useRouter();
+const dialog = ref(false);
 
 import immagine1 from '@/assets/817321E2-3ABC-453A-9336-C1A5A0DFDAAE-homepage.jpeg';
 import immagine2 from '@/assets/IMG_9243-homepage.jpg';
@@ -27,4 +35,14 @@ const images = [
   { src: immagine8 },
   { src: immagine9 },
 ];
+
+watchEffect(() => {
+  // Monitoriamo il cambiamento dell'ID per aprire automaticamente il dialog
+  dialog.value = !!router.currentRoute.value.params.id;
+});
+
 </script>
+
+<style scoped>
+/* Aggiungi qui gli stili specifici per la vista Detail.vue */
+</style>

@@ -3,19 +3,21 @@
     <div v-if="isMobile">
       <div class="red-band"></div>
       <v-row>
-        <v-col cols="12" v-for="(image, index) in images" :key="index">
-          <div 
-            class="image-container" 
-            :style="{ backgroundColor: image.backgroundColor || 'transparent' }"
-            @mouseenter="showImage(index)"
-            @mouseleave="hideImage(index)"
-          >
-            <div v-if="image.backgroundColor && showOverlay[index]" class="overlay">
-              <div class="description">{{ image.description }}</div>
-              <div class="year">{{ image.year }}</div>
+        <v-col cols="12" v-for="(image, index) in content" :key="index">
+          <router-link :to="{ name: 'Dettaglio', params: { id: index } }">
+            <div 
+              class="image-container" 
+              :style="{ backgroundColor: image.backgroundColor || 'transparent' }"
+              @mouseenter="showImage(index)"
+              @mouseleave="hideImage(index)"
+            >
+              <div v-if="image.backgroundColor && showOverlay[index]" class="overlay">
+                <div class="description">{{ image.description }}</div>
+                <div class="year">{{ image.year }}</div>
+              </div>
+              <img v-show="!showOverlay[index] || !image.backgroundColor" :src="image.src" :alt="'Image ' + index" />
             </div>
-            <img v-show="!showOverlay[index] || !image.backgroundColor" :src="image.src" :alt="'Image ' + index" />
-          </div>
+          </router-link>
         </v-col>
       </v-row>
     </div>
@@ -24,19 +26,21 @@
         <div 
           v-masonry-tile 
           class="item" 
-          v-for="(image, index) in images" 
+          v-for="(image, index) in content" 
           :key="index" 
           :style="{ height: image.height + 'px', backgroundColor: image.backgroundColor || 'transparent' }"
           @mouseenter="showImage(index)"
           @mouseleave="hideImage(index)"
         >
-          <div class="image-container">
-            <div v-if="image.backgroundColor && showOverlay[index]" class="overlay">
-              <div class="description">{{ image.description }}</div>
-              <div class="year">{{ image.year }}</div>
+        <router-link :to="{ name: 'Dettaglio', params: { id: index } }">
+            <div class="image-container">
+              <div v-if="image.backgroundColor && showOverlay[index]" class="overlay">
+                <div class="description">{{ image.description }}</div>
+                <div class="year">{{ image.year }}</div>
+              </div>
+              <img v-show="!showOverlay[index] || !image.backgroundColor" :src="image.src" :alt="'Image ' + index" />
             </div>
-            <img v-show="!showOverlay[index] || !image.backgroundColor" :src="image.src" :alt="'Image ' + index" />
-          </div>
+          </router-link>
         </div>
       </center>
     </div>
@@ -44,42 +48,32 @@
 </template>
 
 <script setup>
-import immagine1 from '@/assets/817321E2-3ABC-453A-9336-C1A5A0DFDAAE-homepage.jpeg';
-import immagine2 from '@/assets/IMG_9243-homepage.jpg';
-import immagine3 from '@/assets/M_03-homepage.jpg';
-import immagine4 from '@/assets/Netti-10-bis.jpg';
-import immagine5 from '@/assets/PLANOVOLUMETRICO-SALV02.jpg';
-import immagine6 from '@/assets/Prova.jpg';
-import immagine7 from '@/assets/slide_1.jpg';
-import immagine8 from '@/assets/slide_2.jpg';
-import immagine9 from '@/assets/slide_6.jpg';
+
+const props = defineProps({
+  id: {
+    type: Number,
+    default: 232323
+  },
+  player: {
+    type: Boolean,
+    default: false
+  },
+  content: {
+    type: Array,
+    required: true
+  }
+
+});
+
 
 import { ref } from 'vue';
 import { setupMobileUtils } from '@/utils/mobile.js';
-
-// Funzione che restituisce un numero casuale tra 160, 320, 640
-const randomHeight = () => {
-  const height = [160, 320, 640];
-  return height[Math.floor(Math.random() * height.length)];
-};
-
-// Array delle immagini con altezza calcolata una volta
-const images = ref([
-  { src: immagine1, backgroundColor: '#ffcccc', description: 'Descrizione 1', year: '2021', height: randomHeight() },
-  { src: immagine2, height: randomHeight() },
-  { src: immagine3, backgroundColor: '#ccffcc', description: 'Descrizione 3', year: '2020', height: randomHeight() },
-  { src: immagine4, height: randomHeight() },
-  { src: immagine6, backgroundColor: '#ccccff', description: 'Descrizione 6', year: '2019', height: randomHeight() },
-  { src: immagine7, height: randomHeight() },
-  { src: immagine8, backgroundColor: '#ffccff', description: 'Descrizione 8', year: '2022', height: randomHeight() },
-  { src: immagine9, height: randomHeight() },
-]);
 
 // Setup rilevamento dispositivo mobile
 const isMobile = setupMobileUtils();
 
 // Stato per mostrare/nascondere l'overlay
-const showOverlay = ref(Array(images.value.length).fill(true));
+const showOverlay = ref(Array(props.content.length).fill(true));
 
 const showImage = (index) => {
   showOverlay.value[index] = false;

@@ -21,7 +21,7 @@ const routes = [
   },
   {
     path: '/',
-    component: () => import('@/layouts/DefaultCopy.vue'),
+    component: () => import('@/layouts/TopSections.vue'),
     children: [
       {
         path: 'architetture',
@@ -36,7 +36,13 @@ const routes = [
       {
         path: 'ricerche',
         name: 'Ricerche',
-        component: () => import('@/views/Ricerche.vue')
+        component: () => import('@/views/Ricerche.vue'),
+      },
+      {
+        path: 'ricerche/:id',
+        name: 'Dettaglio',
+        component: () => import('@/views/Dettaglio.vue'),
+        props: true
       },
       {
         path: 'chi-siamo',
