@@ -1,7 +1,10 @@
 <template>
   <v-dialog v-model="dialog" max-width="80vw" persistent>
     <v-card>
-        <Carousel mode="detail" :player="true" :content="images" />
+      <Carousel mode="detail" :player="true" :content="images" />
+      <v-btn icon class="close-button" @click="goToRicerche">
+        <v-icon>mdi-close</v-icon>
+      </v-btn>
     </v-card>
   </v-dialog>
 </template>
@@ -19,7 +22,6 @@ import immagine1 from '@/assets/817321E2-3ABC-453A-9336-C1A5A0DFDAAE-homepage.jp
 import immagine2 from '@/assets/IMG_9243-homepage.jpg';
 import immagine3 from '@/assets/M_03-homepage.jpg';
 import immagine4 from '@/assets/Netti-10-bis.jpg';
-import immagine5 from '@/assets/PLANOVOLUMETRICO-SALV02.jpg';
 import immagine6 from '@/assets/Prova.jpg';
 import immagine7 from '@/assets/slide_1.jpg';
 import immagine8 from '@/assets/slide_2.jpg';
@@ -41,8 +43,29 @@ watchEffect(() => {
   dialog.value = !!router.currentRoute.value.params.id;
 });
 
+function goToRicerche() {
+  router.push('/ricerche');
+}
 </script>
 
 <style scoped>
-/* Aggiungi qui gli stili specifici per la vista Detail.vue */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff0000;  /* Sfondo rosso */
+  color: white;  /* Testo bianco */
+  border-radius: 4px;  /* Angoli arrotondati per rendere il bottone quadrato */
+  width: 36px;  /* Larghezza del bottone */
+  height: 36px;  /* Altezza del bottone */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-button .v-icon {
+  font-size: 24px;  /* Dimensione della "x" */
+  color: white;  /* Colore della "x" */
+}
 </style>
+
