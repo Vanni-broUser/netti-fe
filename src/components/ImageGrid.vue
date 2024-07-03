@@ -12,8 +12,10 @@
               @mouseleave="hideImage(index)"
             >
               <div v-if="image.backgroundColor && showOverlay[index]" class="overlay">
-                <div class="description">{{ image.description }}</div>
-                <div class="year">{{ image.year }}</div>
+                <div class="text-container">
+                  <div class="description">{{ image.description }}</div>
+                  <div class="year">{{ image.year }}</div>
+                </div>
               </div>
               <img v-show="!showOverlay[index] || !image.backgroundColor" :src="image.src" :alt="'Image ' + index" />
             </div>
@@ -32,11 +34,13 @@
           @mouseenter="showImage(index)"
           @mouseleave="hideImage(index)"
         >
-        <router-link :to="{ name: 'Dettaglio', params: { id: index } }">
+          <router-link :to="{ name: 'Dettaglio', params: { id: index } }">
             <div class="image-container">
               <div v-if="image.backgroundColor && showOverlay[index]" class="overlay">
-                <div class="description">{{ image.description }}</div>
-                <div class="year">{{ image.year }}</div>
+                <div class="text-container">
+                  <div class="description">{{ image.description }}</div>
+                  <div class="year">{{ image.year }}</div>
+                </div>
               </div>
               <img v-show="!showOverlay[index] || !image.backgroundColor" :src="image.src" :alt="'Image ' + index" />
             </div>
@@ -46,6 +50,7 @@
     </div>
   </div>
 </template>
+
 
 <script setup>
 
@@ -149,12 +154,23 @@ const gutter = 13;
   background-color: rgba(0, 0, 0, 0.5); /* Aggiunge un overlay semi-trasparente per migliorare la leggibilità del testo */
 }
 
+.text-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
 .description {
   font-size: 1.5rem;
+  margin: 0;
 }
 
 .year {
   font-size: 1rem;
-  margin-top: 0.5rem;
+  margin: 0;
 }
 </style>

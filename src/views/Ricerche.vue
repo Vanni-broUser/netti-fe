@@ -15,14 +15,14 @@ import immagine9 from '@/assets/slide_6.jpg';
 
 import { randomHeight } from '@/utils/gridUtils';
 const images = [
-{ src: immagine1, backgroundColor: '#ffcccc', description: 'Descrizione 1', year: '2021', height: randomHeight() },
-  { src: immagine3, backgroundColor: '#ccffcc', description: 'Descrizione 3', year: '2020', height: randomHeight() },
-  { src: immagine6, backgroundColor: '#ccccff', description: 'Descrizione 6', year: '2019', height: randomHeight() },
-  { src: immagine8, backgroundColor: '#ffccff', description: 'Descrizione 8', year: '2022', height: randomHeight() },
-	{ src: immagine2, backgroundColor: '#ffcccc', description: 'Descrizione 1', year: '2021', height: randomHeight() },
-  { src: immagine4, backgroundColor: '#ccffcc', description: 'Descrizione 3', year: '2020', height: randomHeight() },
-  { src: immagine7, backgroundColor: '#ccccff', description: 'Descrizione 6', year: '2019', height: randomHeight() },
-  { src: immagine5, backgroundColor: '#ffccff', description: 'Descrizione 8', year: '2022', height: randomHeight() },
+{ src: immagine1, backgroundColor: 'red', description: 'D', year: '2021', height: randomHeight() },
+  { src: immagine3, backgroundColor: 'purple', description: 'D', year: '2020', height: randomHeight() },
+  { src: immagine6, backgroundColor: 'grey', description: 'DA', year: '2019', height: randomHeight() },
+  { src: immagine8, backgroundColor: 'red', description: 'ACA', year: '2022', height: randomHeight() },
+	{ src: immagine2, backgroundColor: 'blue', description: 'DA', year: '2021', height: randomHeight() },
+  { src: immagine4, backgroundColor: 'grey', description: 'ACA', year: '2020', height: randomHeight() },
+  { src: immagine7, backgroundColor: 'purple', description: 'TDL', year: '2019', height: randomHeight() },
+  { src: immagine5, backgroundColor: 'blue', description: 'TDL', year: '2022', height: randomHeight() },
 ];
 import ImageGrid from '@/components/ImageGrid.vue'
 </script>

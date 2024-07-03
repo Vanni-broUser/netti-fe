@@ -59,9 +59,9 @@
     <div class="bottom-section">
       <p class="white_text">
         Progettare architetture per il mondo reale e al contempo ricercare
-        <b>nuove forme espressive</b>, attenti ai temi della storia,
+        nuove forme espressive, attenti ai temi della storia,
         dell’ambiente, del paesaggio urbano ed extraurbano, è l'impegno che ci
-        rende consapevoli della responsabilità dell'<b>essere architetti</b>.<br /><br />
+        rende consapevoli della responsabilità dell'essere architetti.<br /><br />
         <b>Lorenzo Netti</b><br />
         <b>Gloria Valente</b>
       </p>

@@ -37,6 +37,18 @@
         Contatti
       </v-list-item>
     </v-list>
+    <div v-if="isRicerchePage" class="central-section">
+      <img src="../assets/dinettica.gif" alt="Dinettica">
+      <p class="central-text">
+        <b>Attività didattiche dei corsi di Composizione e Disegno dell’Architettura di Lorenzo Netti al Politecnico di Bari</b><br><br>
+        <span class="small-text">
+          <b>D</b> CdL in Disegno Industriale (DISEGNO)<br>
+          <b>DA</b> CdLM in Ingegneria Edile-Architettura (DISEGNO DELL’ARCHITETTURA II)<br>
+          <b>ACA</b> CdLM in Ingegneria Edile-Architettura (ARCHITETTURA E COMPOSIZIONE ARCHITETTONICA)<br>
+          <b>TDL</b> (TESI DI LAUREA)
+        </span>
+      </p>
+    </div>
     <div class="bottom-section">
       <v-container>
         <v-row>
@@ -45,6 +57,12 @@
           </v-col>
           <v-col>
             <v-icon icon="mdi-instagram" />
+          </v-col>
+            <v-col>
+            <v-icon :style="{ backgroundImage: `url(${devisare})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', filter: 'invert(100%)' }" />
+            </v-col>
+          <v-col>
+            <v-icon :style="{ backgroundImage: `url(${archilovers})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', filter: 'invert(100%)'  }" />
           </v-col>
         </v-row>
       </v-container>
@@ -56,8 +74,15 @@
 </template>
 
 <script setup>
+import { useRoute } from 'vue-router';
+import { computed } from 'vue';
+import devisare from '@/assets/social/devisare.png';
+import archilovers from '@/assets/social/archilovers.png';
 import mobile from '@/utils/mobile.js'; // Importa la funzione per rilevare i dispositivi mobili
 const isMobile = mobile.setupMobileUtils(); // Rileva se il dispositivo è mobile
+
+const route = useRoute();
+const isRicerchePage = computed(() => route.path === '/ricerche');
 </script>
 
 <style scoped>
@@ -93,16 +118,24 @@ const isMobile = mobile.setupMobileUtils(); // Rileva se il dispositivo è mobil
   color: #000000;
 }
 
-.black_text {
-  font-size: small;
-  color: black;
-  margin-left: 8px;
-  margin-right: 8px;
+.central-text {
+  font-size: 14px; /* Font size leggermente inferiore */
+}
+
+.small-text {
+  font-size: 12px; /* Font size ancora più piccolo */
 }
 
 .flex-grow-1 {
   flex-grow: 1;
   overflow-y: auto;
+}
+
+.central-section {
+  /* Stili per la sezione centrale */
+  padding: 16px;
+  border-radius: 4px;
+  margin: 16px 0;
 }
 
 .bottom-section {
