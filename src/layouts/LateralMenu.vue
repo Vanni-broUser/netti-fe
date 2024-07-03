@@ -6,10 +6,7 @@
     temporary 
     color="#ff0000" 
     app
-    class="drawer-content" 
-    width="360"
-    max-width="360" 
-    style="padding-top: 6px; height: 100vh;"
+    :style="{width: isMobile ? '100%' : '360px'}"
   >
   <v-list density="compact" nav>
       <v-list-item>
@@ -44,9 +41,6 @@
         <b>Lorenzo Netti &nbsp; Gloria Valente</b>
       </p>
       <SocialLinks />
-      <p class="white_text">
-        © 2024 <b>netti</b>architetti.
-      </p>
     </div>
   </v-navigation-drawer>
 </template>
@@ -54,6 +48,10 @@
 <script setup>
 import MainTitle from './MainTitle';
 import SocialLinks from './SocialLinks';
+
+import mobile from '@/utils/mobile';
+
+const isMobile = mobile.setupMobileUtils();
 
 const props = defineProps({
   modelValue: {
@@ -85,9 +83,5 @@ const closeDrawer = () => {
   padding: 5px;
   box-sizing: border-box;
   overflow: auto;
-}
-
-.title-link {
-  text-decoration: none; /* Rimuove la sottolineatura dai link */
 }
 </style>

@@ -1,11 +1,11 @@
 <template>
   <div class="second_layer">
     <router-link to="/" class="title-link">
-      <span class="black title" v-if="alwaysMenu"><b class="red">netti</b>architetti</span>
+      <p class="black title" v-if="alwaysMenu"><b class="red">netti</b>architetti</p>
       <p class="white title" v-else><b>netti</b>architetti</p>
     </router-link>
-    <v-btn v-if="!alwaysMenu || isMobile" color="#ff0000" icon="mdi-reorder-horizontal" @click.stop="emits('toggleDrawer')" class="square-btn" small />
-    <p v-if="year && !isMobile" class="white year"><b>2024</b></p>
+    <v-btn v-if="!alwaysMenu || isMobile" variant="text" color="white" icon="mdi-reorder-horizontal" @click.stop="emits('toggleDrawer')" class="square-btn" />
+    <p v-if="year && !isMobile" class="white year">2024</p>
   </div>
 </template>
 
@@ -38,6 +38,7 @@ const { year, alwaysMenu } = defineProps(['year', 'alwaysMenu']);
 }
 
 .square-btn {
+  background-color: red;
   width: 25px;
   height: 25px;
   border-radius: 0px;
@@ -51,11 +52,9 @@ const { year, alwaysMenu } = defineProps(['year', 'alwaysMenu']);
 
 .year {
   margin-left: 10px;
-  font-size: 35px;
+  font-size: 40px;
   padding: 10px;
   padding-top: 20px;
-  border-radius: 4px;
-  font-weight: 200;
   display: flex;
   align-items: center;
 }
