@@ -8,16 +8,14 @@
             <div 
               class="image-container" 
               :style="{ backgroundColor: image.backgroundColor || 'transparent' }"
-              @mouseenter="showImage(index)"
-              @mouseleave="hideImage(index)"
             >
-              <div v-if="image.backgroundColor && showOverlay[index]" class="overlay">
+              <div v-if="image.backgroundColor" class="overlay">
                 <div class="text-container">
                   <div class="description">{{ image.description }}</div>
                   <div class="year">{{ image.year }}</div>
                 </div>
               </div>
-              <img v-show="!showOverlay[index] || !image.backgroundColor" :src="image.src" :alt="'Image ' + index" />
+              <img :src="image.src" :alt="'Image ' + index" />
             </div>
           </router-link>
         </v-col>
@@ -31,18 +29,16 @@
           v-for="(image, index) in content" 
           :key="index" 
           :style="{ height: image.height + 'px', backgroundColor: image.backgroundColor || 'transparent' }"
-          @mouseenter="showImage(index)"
-          @mouseleave="hideImage(index)"
         >
           <router-link :to="{ name: 'Dettaglio', params: { id: index } }">
             <div class="image-container">
-              <div v-if="image.backgroundColor && showOverlay[index]" class="overlay">
+              <div v-if="image.backgroundColor" class="overlay">
                 <div class="text-container">
                   <div class="description">{{ image.description }}</div>
                   <div class="year">{{ image.year }}</div>
                 </div>
               </div>
-              <img v-show="!showOverlay[index] || !image.backgroundColor" :src="image.src" :alt="'Image ' + index" />
+              <img :src="image.src" :alt="'Image ' + index" />
             </div>
           </router-link>
         </div>
@@ -50,6 +46,7 @@
     </div>
   </div>
 </template>
+
 
 
 <script setup>
@@ -115,7 +112,7 @@ const gutter = 13;
   margin-bottom: 4px;
 }
 
-/* Stile per il contenitore dell'immagine */
+
 .image-container {
   width: 100%;
   height: 100%;
@@ -123,7 +120,6 @@ const gutter = 13;
   position: relative;
 }
 
-/* Stile per l'immagine all'interno del contenitore */
 .image-container img {
   width: 100%;
   height: 100%;
@@ -149,23 +145,25 @@ const gutter = 13;
   color: white;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   background-color: rgba(0, 0, 0, 0.5); /* Aggiunge un overlay semi-trasparente per migliorare la leggibilità del testo */
+  padding: 1vw;
+  transition: background-color 0.3s ease; /* Aggiunge una transizione */
+}
+
+.image-container:hover .overlay {
+  background-color: rgba(0, 0, 0, 0); /* Rimuove il colore di sfondo quando si passa il mouse sopra */
 }
 
 .text-container {
-  position: absolute;
-  top: 10px;
-  left: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: flex-start;
 }
 
 .description {
-  font-size: 1.5rem;
+  font-size: 5rem;
   margin: 0;
 }
 
