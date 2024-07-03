@@ -13,25 +13,7 @@
   >
     <v-list-item class="list-item">
       <div class="title-container">
-        <router-link to="/" class="title-link">
-            <p class="white-title v-elevation-3"><b>netti</b>architetti</p>
-        </router-link>
-        <v-btn 
-          v-if="!isMobile" 
-          color="#ff0000" 
-          icon="mdi-reorder-horizontal" 
-          class="white-btn"
-          @click="closeDrawer" 
-          small 
-        />
-        <v-btn 
-          v-if="isMobile" 
-          color="#ff0000" 
-          icon="mdi-reorder-horizontal" 
-          class="white-btn-mobile"
-          @click="closeDrawer" 
-          small 
-        />
+        <MainTitle @toggleDrawer="closeDrawer" />
       </div>
     </v-list-item>
     <v-divider />
@@ -89,9 +71,10 @@
 </template>
 
 <script setup>
+import MainTitle from './MainTitle';
+
 import devisare from '@/assets/social/devisare.png';
 import archilovers from '@/assets/social/archilovers.png';
-import mobile from '@/utils/mobile.js'; // Importa la funzione per rilevare i dispositivi mobili
 
 const props = defineProps({
   modelValue: {
@@ -101,8 +84,6 @@ const props = defineProps({
 });
 
 const emit = defineEmits(["update:modelValue", "close"]);
-
-const isMobile = mobile.setupMobileUtils(); // Rileva se il dispositivo è mobile
 
 const closeDrawer = () => {
   emit("update:modelValue", false);
@@ -126,49 +107,6 @@ const closeDrawer = () => {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-}
-
-.white-title {
-  color: white;
-  /* Colore arancio-rosso */
-  font-size: 40px;
-  /* Modifica l'altezza del font a 40px */
-  padding: 10px;
-  padding-top: 13px;
-  /* Aggiungi padding per consistenza visiva */
-  border-radius: 4px;
-}
-
-.white-btn {
-  width: 25px;
-  height: 25px;
-  border-radius: 0px;
-  /* Assicurati che il border-radius sia coerente */
-  min-width: 25px;
-  min-height: 25px;
-  margin: -07px 0px 0 0;
-  /* Abbassa il bottone e spostalo a sinistra */
-  display: flex;
-  align-items: center;
-  /* Allinea il contenuto del bottone verticalmente al centro */
-  justify-content: center;
-  /* Allinea il contenuto del bottone orizzontalmente al centro */
-}
-
-.white-btn-mobile {
-  width: 25px;
-  height: 25px;
-  border-radius: 0px;
-  /* Assicurati che il border-radius sia coerente */
-  min-width: 25px;
-  min-height: 25px;
-  margin: -7px 0px 0 0;
-  /* Abbassa il bottone e spostalo a sinistra */
-  display: flex;
-  align-items: center;
-  /* Allinea il contenuto del bottone verticalmente al centro */
-  justify-content: center;
-  /* Allinea il contenuto del bottone orizzontalmente al centro */
 }
 
 .white_text {
