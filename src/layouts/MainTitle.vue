@@ -1,10 +1,11 @@
 <template>
   <div class="second_layer">
     <router-link to="/" class="title-link">
-      <p class="title v-elevation-3"><b>netti</b>architetti</p>
+      <span class="black title" v-if="alwaysMenu"><b class="red">netti</b>architetti</span>
+      <p class="white title" v-else><b>netti</b>architetti</p>
     </router-link>
-    <v-btn color="#ff0000" icon="mdi-reorder-horizontal" @click.stop="emits('toggleDrawer')" class="square-btn" small />
-    <p v-if="!isMobile && year" class="year v-elevation-3"><b>2024</b></p>
+    <v-btn v-if="!alwaysMenu || isMobile" color="#ff0000" icon="mdi-reorder-horizontal" @click.stop="emits('toggleDrawer')" class="square-btn" small />
+    <p v-if="year && !isMobile" class="white year"><b>2024</b></p>
   </div>
 </template>
 
@@ -15,7 +16,7 @@ const isMobile = mobile.setupMobileUtils();
 
 const emits = defineEmits(['toggleDrawer']);
 
-const { year } = defineProps(['year']);
+const { year, alwaysMenu } = defineProps(['year', 'alwaysMenu']);
 </script>
 
 <style scoped>
@@ -30,7 +31,6 @@ const { year } = defineProps(['year']);
 
 .title {
   margin-right: 10px;
-  color: white;
   font-size: 40px;
   padding: 10px;
   padding-top: 18px;
@@ -51,7 +51,6 @@ const { year } = defineProps(['year']);
 
 .year {
   margin-left: 10px;
-  color: white;
   font-size: 35px;
   padding: 10px;
   padding-top: 20px;

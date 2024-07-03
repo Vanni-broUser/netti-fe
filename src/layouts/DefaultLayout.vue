@@ -3,8 +3,8 @@
     <v-layout>
       <LateralMenu :modelValue="drawer" @update:modelValue="handleDrawerUpdate" />
       <v-main>
-        <router-view />
         <MainTitle @toggleDrawer="toggleDrawer" :year="true" />
+        <router-view />
       </v-main>
     </v-layout>
   </v-app>
