@@ -1,23 +1,48 @@
 <template>
   <div>
+    <v-dialog v-model="dialog" max-width="500px">
+      <v-card>
+        <v-card-title>{{ selectedImage.title }}</v-card-title>
+        <v-card-text>{{ selectedImage.longDescription }}</v-card-text>
+        <v-card-actions>
+          <v-btn 
+          color="#ff0000" 
+          icon="mdi-reorder-horizontal" 
+          class="white-btn"
+          @click="dialog = false"
+          size="x-small"/>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
     <div v-if="isMobile">
       <div class="red-band"></div>
       <v-row>
         <v-col cols="12" v-for="(image, index) in content" :key="index">
-          <router-link :to="{ name: 'Dettaglio', params: { id: index } }">
+          
             <div 
               class="image-container" 
               :style="{ backgroundColor: image.backgroundColor || 'transparent' }"
             >
-              <div v-if="image.backgroundColor" class="overlay">
-                <div class="text-container">
-                  <div class="description">{{ image.description }}</div>
-                  <div class="year">{{ image.year }}</div>
-                </div>
+              <div 
+                :class="['overlay', image.backgroundColor ? 'colored-overlay' : 'red-overlay']" 
+                :style="image.backgroundColor ? { '--overlay-color': image.backgroundColor } : {}"
+              >
+              <div class="text-container">
+                <div v-if="!image.year" class="description-little">{{ image.description }}</div>
+                <div v-if="image.year" class="description">{{ image.description }}</div>
+                <div v-if="image.year" class="year">{{ image.year }}</div>
               </div>
-              <img :src="image.src" :alt="'Image ' + index" />
+              </div>
+              <router-link :to="{ name: 'Dettaglio', params: { id: index } }">
+                <img :src="image.src" :alt="'Image ' + index" />
+              </router-link>
+              <v-btn
+              color="#ff0000"
+              icon="mdi-reorder-horizontal" 
+              class="details-button-mobile"
+              @click="showDetails(image)"
+              size="x-small"/>
             </div>
-          </router-link>
         </v-col>
       </v-row>
     </div>
@@ -30,26 +55,40 @@
           :key="index" 
           :style="{ height: image.height + 'px', backgroundColor: image.backgroundColor || 'transparent' }"
         >
-          <router-link :to="{ name: 'Dettaglio', params: { id: index } }">
             <div class="image-container">
-              <div v-if="image.backgroundColor" class="overlay">
+              <div 
+                :class="['overlay', image.backgroundColor ? 'colored-overlay' : 'red-overlay']" 
+                :style="image.backgroundColor ? { '--overlay-color': image.backgroundColor } : {}"
+              >
                 <div class="text-container">
-                  <div class="description">{{ image.description }}</div>
-                  <div class="year">{{ image.year }}</div>
+                  <div v-if="!image.year" class="description-little">{{ image.description }}</div>
+                  <div v-if="image.year" class="description">{{ image.description }}</div>
+                  <div v-if="image.year" class="year">{{ image.year }}</div>
                 </div>
               </div>
-              <img :src="image.src" :alt="'Image ' + index" />
+              <router-link :to="{ name: 'Dettaglio', params: { id: index } }">
+                <img :src="image.src" :alt="'Image ' + index" />
+              </router-link>
+              <v-btn
+              color="#ff0000"
+              icon="mdi-reorder-horizontal"
+              @click="showDetails(image)"
+              class="details-button"
+              size="x-small"/>
             </div>
-          </router-link>
         </div>
       </center>
     </div>
   </div>
 </template>
 
-
-
 <script setup>
+const dialog = ref(false);
+const selectedImage = ref({ title: '', longDescription: '' });
+const showDetails = (image) => {
+  selectedImage.value = image;
+  dialog.value = true;
+};
 
 const props = defineProps({
   id: {
@@ -64,9 +103,7 @@ const props = defineProps({
     type: Array,
     required: true
   }
-
 });
-
 
 import { ref } from 'vue';
 import { setupMobileUtils } from '@/utils/mobile.js';
@@ -74,56 +111,70 @@ import { setupMobileUtils } from '@/utils/mobile.js';
 // Setup rilevamento dispositivo mobile
 const isMobile = setupMobileUtils();
 
-// Stato per mostrare/nascondere l'overlay
-const showOverlay = ref(Array(props.content.length).fill(true));
-
-const showImage = (index) => {
-  showOverlay.value[index] = false;
-};
-
-const hideImage = (index) => {
-  showOverlay.value[index] = true;
-};
-
 // Gutter dinamico in base al dispositivo
 const gutter = 13;
 </script>
-
 
 <style scoped>
 .masonry {
   margin-left: 13px;
   margin-top: 113px;
 }
-/* Definisce la larghezza della colonna */
+
 .item {
   width: 24%; /* 4 colonne */
   margin-bottom: 20px;
-  /* L'altezza viene impostata dinamicamente dalla funzione randomHeight */
 }
 
 .masonry-mobile {
   margin-top: 113px;
 }
 
-/* Stile per la colonna mobile */
 .item-mobile {
   width: 100%; /* 1 colonna */
   margin-bottom: 4px;
 }
 
+.details-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #ff0000;
+  margin: -07px 0px 0 0;
+  color: white;
+  border-radius: 0px; /* Rendi il pulsante quadrato */
+  padding: 0; /* Rimuove qualsiasi padding */
+  width: 25px;  /* Imposta la larghezza esatta */
+  height: 25px; /* Imposta l'altezza esatta */
+}
+
+.details-button-mobile {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #ff0000;
+  color: white;
+  width: 40px;  /* Imposta la larghezza esatta */
+  height: 40px; /* Imposta l'altezza esatta */
+  margin: -07px 0px 0 0;
+  border-radius: 0; /* Rendi il pulsante quadrato */
+  min-width: 0; /* Rimuove qualsiasi larghezza minima predefinita */
+  padding: 0; /* Rimuove qualsiasi padding */
+}
+
+
 
 .image-container {
   width: 100%;
   height: 100%;
-  overflow: hidden; /* Nasconde parti dell'immagine che eccedono i limiti del contenitore */
+  overflow: hidden;
   position: relative;
 }
 
 .image-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Crop centrale dell'immagine per adattarsi al contenitore */
+  object-fit: cover;
   display: block;
 }
 
@@ -147,13 +198,25 @@ const gutter = 13;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: rgba(0, 0, 0, 0.5); /* Aggiunge un overlay semi-trasparente per migliorare la leggibilità del testo */
   padding: 1vw;
-  transition: background-color 0.3s ease; /* Aggiunge una transizione */
+  transition: background-color 0.3s ease;
 }
 
-.image-container:hover .overlay {
-  background-color: rgba(0, 0, 0, 0); /* Rimuove il colore di sfondo quando si passa il mouse sopra */
+.red-overlay {
+  background-color: rgba(255, 0, 0, 0);
+}
+
+.image-container:hover .red-overlay {
+  background-color: rgba(255, 0, 0, 0.7);
+}
+
+.colored-overlay {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.image-container:hover .colored-overlay {
+  background-color: var(--overlay-color, rgba(255, 0, 0, 0.7));
+  opacity: 0.7;
 }
 
 .text-container {
@@ -167,8 +230,20 @@ const gutter = 13;
   margin: 0;
 }
 
+.description-little {
+  font-size: 1rem;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-container:hover .description-little {
+  opacity: 1;
+}
+
 .year {
   font-size: 1rem;
   margin: 0;
 }
+
 </style>
