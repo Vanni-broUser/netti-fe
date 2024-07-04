@@ -9,10 +9,13 @@
               class="image-container" 
               :style="{ backgroundColor: image.backgroundColor || 'transparent' }"
             >
-              <div v-if="image.backgroundColor" class="overlay">
+              <div 
+                :class="['overlay', image.backgroundColor ? 'colored-overlay' : 'red-overlay']" 
+                :style="image.backgroundColor ? { '--overlay-color': image.backgroundColor } : {}"
+              >
                 <div class="text-container">
                   <div class="description">{{ image.description }}</div>
-                  <div class="year">{{ image.year }}</div>
+                  <div v-if="image.year" class="year">{{ image.year }}</div>
                 </div>
               </div>
               <img :src="image.src" :alt="'Image ' + index" />
@@ -32,10 +35,13 @@
         >
           <router-link :to="{ name: 'Dettaglio', params: { id: index } }">
             <div class="image-container">
-              <div v-if="image.backgroundColor" class="overlay">
+              <div 
+                :class="['overlay', image.backgroundColor ? 'colored-overlay' : 'red-overlay']" 
+                :style="image.backgroundColor ? { '--overlay-color': image.backgroundColor } : {}"
+              >
                 <div class="text-container">
                   <div class="description">{{ image.description }}</div>
-                  <div class="year">{{ image.year }}</div>
+                  <div v-if="image.year" class="year">{{ image.year }}</div>
                 </div>
               </div>
               <img :src="image.src" :alt="'Image ' + index" />
@@ -47,10 +53,7 @@
   </div>
 </template>
 
-
-
 <script setup>
-
 const props = defineProps({
   id: {
     type: Number,
@@ -64,9 +67,7 @@ const props = defineProps({
     type: Array,
     required: true
   }
-
 });
-
 
 import { ref } from 'vue';
 import { setupMobileUtils } from '@/utils/mobile.js';
@@ -74,56 +75,41 @@ import { setupMobileUtils } from '@/utils/mobile.js';
 // Setup rilevamento dispositivo mobile
 const isMobile = setupMobileUtils();
 
-// Stato per mostrare/nascondere l'overlay
-const showOverlay = ref(Array(props.content.length).fill(true));
-
-const showImage = (index) => {
-  showOverlay.value[index] = false;
-};
-
-const hideImage = (index) => {
-  showOverlay.value[index] = true;
-};
-
 // Gutter dinamico in base al dispositivo
 const gutter = 13;
 </script>
-
 
 <style scoped>
 .masonry {
   margin-left: 13px;
   margin-top: 113px;
 }
-/* Definisce la larghezza della colonna */
+
 .item {
   width: 24%; /* 4 colonne */
   margin-bottom: 20px;
-  /* L'altezza viene impostata dinamicamente dalla funzione randomHeight */
 }
 
 .masonry-mobile {
   margin-top: 113px;
 }
 
-/* Stile per la colonna mobile */
 .item-mobile {
   width: 100%; /* 1 colonna */
   margin-bottom: 4px;
 }
 
-
 .image-container {
   width: 100%;
   height: 100%;
-  overflow: hidden; /* Nasconde parti dell'immagine che eccedono i limiti del contenitore */
+  overflow: hidden;
   position: relative;
 }
 
 .image-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Crop centrale dell'immagine per adattarsi al contenitore */
+  object-fit: cover;
   display: block;
 }
 
@@ -147,13 +133,25 @@ const gutter = 13;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  background-color: rgba(0, 0, 0, 0.5); /* Aggiunge un overlay semi-trasparente per migliorare la leggibilità del testo */
   padding: 1vw;
-  transition: background-color 0.3s ease; /* Aggiunge una transizione */
+  transition: background-color 0.3s ease;
 }
 
-.image-container:hover .overlay {
-  background-color: rgba(0, 0, 0, 0); /* Rimuove il colore di sfondo quando si passa il mouse sopra */
+.red-overlay {
+  background-color: rgba(255, 0, 0, 0);
+}
+
+.image-container:hover .red-overlay {
+  background-color: rgba(255, 0, 0, 0.7);
+}
+
+.colored-overlay {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.image-container:hover .colored-overlay {
+  background-color: var(--overlay-color, rgba(255, 0, 0, 0.7));
+  opacity: 0.7;
 }
 
 .text-container {
