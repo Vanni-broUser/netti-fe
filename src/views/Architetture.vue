@@ -16,7 +16,7 @@ import immagine9 from '@/assets/slide_6.jpg';
 import { randomHeight } from '@/utils/gridUtils';
 
 const images = [
-  { src: immagine1, height: randomHeight() },
+  { src: immagine1, height: randomHeight(), description: "ciao", longDescription: "oiafhsoifhdoihgoighdoihosihgfos"},
   { src: immagine2, height: randomHeight() },
   { src: immagine3, height: randomHeight() },
   { src: immagine4, height: randomHeight() },
