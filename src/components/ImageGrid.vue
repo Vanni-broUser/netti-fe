@@ -10,7 +10,7 @@
           icon="mdi-reorder-horizontal" 
           class="white-btn"
           @click="dialog = false"
-          small/>
+          size="x-small"/>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -40,7 +40,8 @@
               color="#ff0000"
               icon="mdi-reorder-horizontal" 
               class="details-button-mobile"
-              @click="showDetails(image)" />
+              @click="showDetails(image)"
+              size="x-small"/>
             </div>
         </v-col>
       </v-row>
@@ -72,7 +73,8 @@
               color="#ff0000"
               icon="mdi-reorder-horizontal"
               @click="showDetails(image)"
-              class="details-button"/>
+              class="details-button"
+              size="x-small"/>
             </div>
         </div>
       </center>
@@ -138,8 +140,12 @@ const gutter = 13;
   bottom: 10px;
   right: 10px;
   background-color: #ff0000;
-  color: white; /* Assicurati che il pulsante sia quadrato */
+  margin: -07px 0px 0 0;
+  color: white;
   border-radius: 0px; /* Rendi il pulsante quadrato */
+  padding: 0; /* Rimuove qualsiasi padding */
+  width: 25px;  /* Imposta la larghezza esatta */
+  height: 25px; /* Imposta l'altezza esatta */
 }
 
 .details-button-mobile {
@@ -148,10 +154,14 @@ const gutter = 13;
   right: 10px;
   background-color: #ff0000;
   color: white;
-  min-width: 1px; /* Assicurati che il pulsante sia quadrato */
-  height: 1px; /* Assicurati che il pulsante sia quadrato */
+  width: 40px;  /* Imposta la larghezza esatta */
+  height: 40px; /* Imposta l'altezza esatta */
+  margin: -07px 0px 0 0;
   border-radius: 0; /* Rendi il pulsante quadrato */
+  min-width: 0; /* Rimuove qualsiasi larghezza minima predefinita */
+  padding: 0; /* Rimuove qualsiasi padding */
 }
+
 
 
 .image-container {
