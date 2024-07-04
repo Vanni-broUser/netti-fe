@@ -10,6 +10,18 @@ html, body, #app {
   margin: 0 0px;
 }
 
+.black {
+  color: black;
+}
+
+.red {
+  color: red;
+}
+
+.white {
+  color: white;
+}
+
 @font-face {
   font-family: 'ITCAvantGarde';
   src: url('/woff2/ITC - ITCAvantGardeStd-Bk.woff2') format('woff2'),
