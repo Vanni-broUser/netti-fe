@@ -22,19 +22,15 @@ const { year, alwaysMenu } = defineProps(['year', 'alwaysMenu']);
 <style scoped>
 .second_layer {
   position: fixed;
-  top: 16px;
-  left: 16px;
+  top: 30px;
+  left: 15px;
   z-index: 3;
   display: flex;
   align-items: center;
 }
 
 .title {
-  margin-right: 10px;
   font-size: 40px;
-  padding: 10px;
-  padding-top: 18px;
-  border-radius: 4px;
 }
 
 .square-btn {
@@ -42,21 +38,13 @@ const { year, alwaysMenu } = defineProps(['year', 'alwaysMenu']);
   width: 25px;
   height: 25px;
   border-radius: 0px;
-  min-width: 25px;
-  min-height: 25px;
-  margin: 0 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-top: -5px;
+  margin-left: 15px;
 }
 
 .year {
-  margin-left: 10px;
   font-size: 40px;
-  padding: 10px;
-  padding-top: 20px;
-  display: flex;
-  align-items: center;
+  margin-left: 15px;
 }
 
 .title-link {

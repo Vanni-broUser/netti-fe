@@ -1,5 +1,5 @@
 <template>
-  Ciao
+  Work in progress
 </template>
 
 <script setup>
