@@ -39,7 +39,7 @@ const routes = [
         component: () => import('@/views/Ricerche.vue'),
       },
       {
-        path: 'ricerche/:id',
+        path: ':id',
         name: 'Dettaglio',
         component: () => import('@/views/Dettaglio.vue'),
         props: true
