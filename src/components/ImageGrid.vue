@@ -6,11 +6,12 @@
         <v-card-text>{{ selectedImage.longDescription }}</v-card-text>
         <v-card-actions>
           <v-btn 
-          color="#ff0000" 
-          icon="mdi-reorder-horizontal" 
-          class="white-btn"
-          @click="dialog = false"
-          size="x-small"/>
+            color="#ff0000" 
+            icon="mdi-reorder-horizontal" 
+            class="white-btn"
+            @click="dialog = false"
+            size="x-small"
+          />
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -18,31 +19,31 @@
       <div class="red-band"></div>
       <v-row>
         <v-col cols="12" v-for="(image, index) in content" :key="index">
-          
-            <div 
-              class="image-container" 
-              :style="{ backgroundColor: image.backgroundColor || 'transparent' }"
-            >
+          <div 
+            class="image-container" 
+            :style="{ backgroundColor: image.backgroundColor || 'transparent' }"
+          >
+            <router-link :to="{ name: 'Dettaglio', params: { id: index } }">
+              <img :src="image.src" :alt="'Image ' + index" />
               <div 
                 :class="['overlay', image.backgroundColor ? 'colored-overlay' : 'red-overlay']" 
                 :style="image.backgroundColor ? { '--overlay-color': image.backgroundColor } : {}"
               >
-              <div class="text-container">
-                <div v-if="!image.year" class="description-little">{{ image.description }}</div>
-                <div v-if="image.year" class="description">{{ image.description }}</div>
-                <div v-if="image.year" class="year">{{ image.year }}</div>
+                <div class="text-container">
+                  <div v-if="!image.year" class="description-little">{{ image.description }}</div>
+                  <div v-if="image.year" class="description">{{ image.description }}</div>
+                  <div v-if="image.year" class="year">{{ image.year }}</div>
+                </div>
               </div>
-              </div>
-              <router-link :to="{ name: 'Dettaglio', params: { id: index } }">
-                <img :src="image.src" :alt="'Image ' + index" />
-              </router-link>
-              <v-btn
+            </router-link>
+            <v-btn
               color="#ff0000"
               icon="mdi-reorder-horizontal" 
               class="details-button-mobile"
-              @click="showDetails(image)"
-              size="x-small"/>
-            </div>
+              @click.stop="showDetails(image)"
+              size="x-small"
+            />
+          </div>
         </v-col>
       </v-row>
     </div>
@@ -55,7 +56,9 @@
           :key="index" 
           :style="{ height: image.height + 'px', backgroundColor: image.backgroundColor || 'transparent' }"
         >
-            <div class="image-container">
+          <div class="image-container">
+            <router-link :to="{ name: 'Dettaglio', params: { id: index } }">
+              <img :src="image.src" :alt="'Image ' + index" />
               <div 
                 :class="['overlay', image.backgroundColor ? 'colored-overlay' : 'red-overlay']" 
                 :style="image.backgroundColor ? { '--overlay-color': image.backgroundColor } : {}"
@@ -66,21 +69,22 @@
                   <div v-if="image.year" class="year">{{ image.year }}</div>
                 </div>
               </div>
-              <router-link :to="{ name: 'Dettaglio', params: { id: index } }">
-                <img :src="image.src" :alt="'Image ' + index" />
-              </router-link>
-              <v-btn
+            </router-link>
+            <v-btn
               color="#ff0000"
               icon="mdi-reorder-horizontal"
-              @click="showDetails(image)"
+              @click.stop="showDetails(image)"
               class="details-button"
-              size="x-small"/>
-            </div>
+              size="x-small"
+            />
+          </div>
         </div>
       </center>
     </div>
   </div>
 </template>
+
+
 
 <script setup>
 const dialog = ref(false);

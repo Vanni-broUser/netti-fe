@@ -2,7 +2,7 @@
   <v-dialog v-model="dialog" max-width="80vw" persistent>
     <v-card>
       <Carousel mode="detail" :player="true" :content="images" />
-      <v-btn icon class="close-button" @click="goToRicerche">
+      <v-btn icon class="close-button">
         <v-icon>mdi-close</v-icon>
       </v-btn>
     </v-card>
