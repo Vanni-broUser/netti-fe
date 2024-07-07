@@ -49,12 +49,12 @@
     </div>
     <div v-else v-masonry class="masonry" item-selector=".item" originLeft:false horizontalOrder:true :gutter="gutter">
       <center>
-        <div 
-          v-masonry-tile 
-          class="item" 
+        <div  
+          v-masonry-tile
+          class="item"
           v-for="(image, index) in content" 
           :key="index" 
-          :style="{ height: image.height + 'px', backgroundColor: image.backgroundColor || 'transparent' }"
+          :style="getStyle(image)"
         >
           <div class="image-container">
             <router-link :to="{ name: 'Dettaglio', params: { id: index } }">
@@ -106,6 +106,10 @@ const props = defineProps({
   content: {
     type: Array,
     required: true
+  },
+  numCols: {
+    type: Number,
+    default: 4
   }
 });
 
@@ -115,18 +119,24 @@ import { setupMobileUtils } from '@/utils/mobile.js';
 // Setup rilevamento dispositivo mobile
 const isMobile = setupMobileUtils();
 
-// Gutter dinamico in base al dispositivo
+const getStyle = (image) => {
+  if (props.numCols < 1) props.numCols = 1;
+  return {
+    width: `${(100/props.numCols) - 1}%`,
+    height: image.height + 'px',
+    backgroundColor: image.backgroundColor || 'transparent'
+  };
+};
+
 const gutter = 13;
 </script>
 
 <style scoped>
 .masonry {
   margin-left: 13px;
-  margin-top: 113px;
 }
 
 .item {
-  width: 24%; /* 4 colonne */
   margin-bottom: 20px;
 }
 
@@ -235,7 +245,7 @@ const gutter = 13;
 }
 
 .description-little {
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin: 0;
   opacity: 0;
   transition: opacity 0.3s ease;
