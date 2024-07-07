@@ -5,7 +5,7 @@
       <AlwaysMenu v-else />
       <v-main>
         <MainTitle @toggleDrawer="toggleDrawer" v-if="isMobile" />
-        <router-view />
+        <router-view style="margin-top: 12vh"/>
       </v-main>
     </v-layout>
   </v-app>
