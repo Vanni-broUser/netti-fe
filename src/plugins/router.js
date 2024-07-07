@@ -14,7 +14,7 @@ const routes = [
         path: '/admin',
         name: 'Admin Panel',
         beforeEnter() {
-          window.location.href = 'https://fastsite.it/#/login';
+          window.location.href = 'https://fastsite.it/login';
         }
       }
     ]
