@@ -1,11 +1,14 @@
+const apiKey = import.meta.env.VITE_API_KEY;
 const hostname = import.meta.env.VITE_HOSTNAME;
 
 
 const postRequest = (endpoint, body, func, method = 'POST') => {
-  let headers = {'Content-Type': 'application/json'};
   fetch(`${hostname}${endpoint}`, {
     method: method,
-    headers: headers,
+    headers: {
+      'Authorization': apiKey,
+      'Content-Type': 'application/json'
+    },
     body: JSON.stringify(body)
   }).then(response => {
     if (!response.ok)
@@ -25,7 +28,10 @@ const getRequest = (endpoint, params, func, method = 'GET') => {
 
   fetch(url, {
     method: method,
-    headers: {'Content-Type': 'application/json'}
+    headers: {
+      'Authorization': apiKey,
+      'Content-Type': 'application/json'
+    }
   }).then(response => {
     if (!response.ok)
       throw new Error(`Errore nella risposta del server: ${response.status} - ${response.statusText}`);
