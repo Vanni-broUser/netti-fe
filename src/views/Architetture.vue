@@ -13,13 +13,17 @@
   const loading = ref(false);
 
   http.getRequest('blog/post', {
+    // 'topics': ['Architetture']
   }, function (data) {
     let contents = [];
+    // eliminare forEach
     data.posts.forEach(post => {
       contents.push({
         title: post.title,
+        // grid options
         height: randomHeight(),
         description: post.subtitle,
+        longDescription: post.content,
         src: post.files ? post.files[0] : 'default'
       });
     });
