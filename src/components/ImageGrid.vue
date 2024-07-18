@@ -5,7 +5,7 @@
         <v-card-actions>
           <v-btn 
             color="#ff0000" 
-            icon="mdi-reorder-horizontal" 
+            icon="mdi-close-circle-outline" 
             @click="dialog = false"
             size="x-small"
           />

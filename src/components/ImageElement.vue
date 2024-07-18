@@ -19,11 +19,12 @@
     </router-link>
     <v-btn
       color="#ff0000"
-      icon="mdi-reorder-horizontal" 
       class="details-button-mobile"
       @click="emits('showDetails', element)"
       size="x-small"
-    />
+    >
+      <svg-icon type="mdi" :path="mdiInformationSlabCircleOutline"></svg-icon>
+    </v-btn>
   </div>
   <div v-else class="image-container">
     <router-link :to="`/dettaglio/${index}`">
@@ -41,16 +42,19 @@
     </router-link>
     <v-btn
       color="#ff0000"
-      icon="mdi-reorder-horizontal"
-      @click="emits('showDetails', element)"
       class="details-button"
+      @click="emits('showDetails', element)"
       size="x-small"
-    />
+    >
+      <svg-icon type="mdi" :path="mdiInformationSlabCircleOutline" />
+    </v-btn>
   </div>
 </template>
 
 <script setup>
+  import SvgIcon from '@jamescoyle/vue-icon';
   import { setupMobileUtils } from '@/utils/mobile.js';
+  import { mdiInformationSlabCircleOutline } from '@mdi/js';
 
   const isMobile = setupMobileUtils();
 
@@ -59,15 +63,14 @@
   const props = defineProps({
     index: {
       type: Number,
-      required: 0
+      required: true
     },
     element: {
       type: Object,
-      default: {}
+      required: true
     }
   });
 </script>
-
 <style scoped>
   .details-button {
     position: absolute;
@@ -78,8 +81,8 @@
     color: white;
     border-radius: 0px;
     padding: 0;
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
   }
 
   .details-button-mobile {
@@ -88,8 +91,8 @@
     right: 10px;
     background-color: #ff0000;
     color: white;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     margin: -07px 0px 0 0;
     border-radius: 0;
     min-width: 0;
