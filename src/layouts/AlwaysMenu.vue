@@ -5,10 +5,10 @@
     app
     width="360"
   >
-  <v-list density="compact" nav>
-    <v-list-item>
-      <MainTitle :alwaysMenu="true" />
-    </v-list-item><br><br>
+    <v-list density="compact" nav>
+      <v-list-item>
+        <MainTitle :alwaysMenu="true" />
+      </v-list-item><br><br>
       <v-list-item to="/architetture">
         <b>Architetture</b>
       </v-list-item>
@@ -36,15 +36,15 @@
 </template>
 
 <script setup>
-import MainTitle from './MainTitle';
-import SocialLinks from './SocialLinks';
-import ResearchLegend from './ResearchLegend';
+  import MainTitle from './MainTitle';
+  import SocialLinks from './SocialLinks';
+  import ResearchLegend from './ResearchLegend';
 
-import { useRoute } from 'vue-router';
-import { computed } from 'vue';
+  import { useRoute } from 'vue-router';
+  import { computed } from 'vue';
 
-const route = useRoute();
-const isRicerchePage = computed(() => route.path === '/ricerche');
+  const route = useRoute();
+  const isRicerchePage = computed(() => route.path === '/ricerche');
 </script>
 
 <style scoped>

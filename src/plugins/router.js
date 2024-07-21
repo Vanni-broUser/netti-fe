@@ -24,38 +24,38 @@ const routes = [
     component: () => import('@/layouts/PagesLayout.vue'),
     children: [
       {
-        path: 'architetture',
+        path: '/architetture',
         name: 'Architetture',
         component: () => import('@/views/Architetture.vue')
       },
       {
-        path: 'progetti',
+        path: '/progetti',
         name: 'Progetti',
         component: () => import('@/views/Progetti.vue')
       },
       {
-        path: 'ricerche',
+        path: '/ricerche',
         name: 'Ricerche',
         component: () => import('@/views/Ricerche.vue'),
       },
       {
-        path: ':id',
+        path: '/dettaglio/:id',
         name: 'Dettaglio',
         component: () => import('@/views/Dettaglio.vue'),
         props: true
       },
       {
-        path: 'chi-siamo',
+        path: '/chi-siamo',
         name: 'ChiSiamo',
         component: () => import('@/views/ChiSiamo.vue')
       },
       {
-        path: 'agenda',
+        path: '/agenda',
         name: 'Agenda',
         component: () => import('@/views/Agenda.vue')
       },
       {
-        path: 'contatti',
+        path: '/contatti',
         name: 'Contatti',
         component: () => import('@/views/Contatti.vue')
       }
