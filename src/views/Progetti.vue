@@ -3,15 +3,15 @@
 </template>
 
 <script setup>
-import immagine1 from '@/assets/817321E2-3ABC-453A-9336-C1A5A0DFDAAE-homepage.jpeg';
-import immagine2 from '@/assets/IMG_9243-homepage.jpg';
-import immagine3 from '@/assets/M_03-homepage.jpg';
-import immagine4 from '@/assets/Netti-10-bis.jpg';
-import immagine5 from '@/assets/PLANOVOLUMETRICO-SALV02.jpg';
-import immagine6 from '@/assets/Prova.jpg';
-import immagine7 from '@/assets/slide_1.jpg';
-import immagine8 from '@/assets/slide_2.jpg';
-import immagine9 from '@/assets/slide_6.jpg';
+import immagine1 from '@/assets/home/817321E2-3ABC-453A-9336-C1A5A0DFDAAE-homepage.jpeg';
+import immagine2 from '@/assets/home/IMG_9243-homepage.jpg';
+import immagine3 from '@/assets/home/M_03-homepage.jpg';
+import immagine4 from '@/assets/home/Netti-10-bis.jpg';
+import immagine5 from '@/assets/home/PLANOVOLUMETRICO-SALV02.jpg';
+import immagine6 from '@/assets/home/Prova.jpg';
+import immagine7 from '@/assets/home/slide_1.jpg';
+import immagine8 from '@/assets/home/slide_2.jpg';
+import immagine9 from '@/assets/home/slide_6.jpg';
 
 import { randomHeight } from '@/utils/gridUtils';
 
