@@ -13,7 +13,6 @@
       </v-card>
     </v-dialog>
     <div v-if="isMobile">
-      <div class="red-band"></div>
       <v-row>
         <v-col cols="12" v-for="(element, index) in content" :key="index">
           <ImageElement :index="index" :element="element" @showDetails="showDetails" />
@@ -83,14 +82,5 @@
 
   .item {
     margin-bottom: 20px;
-  }
-
-  .red-band {
-    background-color: #ff0000;
-    height: 10%;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 1;
   }
 </style>
