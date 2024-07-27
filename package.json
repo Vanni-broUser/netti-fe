@@ -19,6 +19,7 @@
     "pinia": "^2.1.7",
     "roboto-fontface": "*",
     "vue": "^3.3.4",
+    "vue-markdown-render": "^2.2.1",
     "vue-masonry": "^0.16.0",
     "vue-masonry-css": "^1.0.3",
     "vue-router": "^4.0.0",

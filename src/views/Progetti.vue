@@ -1,5 +1,5 @@
 <template>
-	<ImageGrid :content = "images" :numCols = "2"/>
+	<ImageGrid :content = "images" :numCols = "3"/>
 </template>
 
 <script setup>

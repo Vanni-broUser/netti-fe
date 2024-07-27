@@ -16,7 +16,13 @@ const routes = [
         beforeEnter() {
           window.location.href = 'https://fastsite.it/login';
         }
-      }
+      },
+      {
+        path: '/dettaglio/:id',
+        name: 'Dettaglio',
+        component: () => import('@/views/Dettaglio.vue'),
+        props: true
+      },
     ]
   },
   {
@@ -37,12 +43,6 @@ const routes = [
         path: '/ricerche',
         name: 'Ricerche',
         component: () => import('@/views/Ricerche.vue'),
-      },
-      {
-        path: '/dettaglio/:id',
-        name: 'Dettaglio',
-        component: () => import('@/views/Dettaglio.vue'),
-        props: true
       },
       {
         path: '/chi-siamo',
