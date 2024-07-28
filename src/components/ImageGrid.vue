@@ -1,14 +1,15 @@
 <template>
   <div>
-    <v-dialog v-model="dialog" max-width="500px">
-      <v-card :title="selectedImage.title" :text="selectedImage.longDescription">
-        <v-card-actions>
-          <v-btn 
-            color="#ff0000" 
-            icon="mdi-close-circle-outline" 
-            @click="dialog = false"
-            size="x-small"
-          />
+    <v-dialog v-model="dialog" max-width="1000px">
+      <v-card :title="selectedImage.title">
+        <v-card-text>
+          <VueMarkdown :source="selectedImage.content" />
+        </v-card-text>
+        <v-card-actions class="red">
+          <v-btn icon="mdi-close-circle-outline" @click="dialog = false"/>
+          <router-link :to="`/dettaglio/${selectedImage.id}`">
+            <v-btn icon="mdi-arrow-right-circle-outline" class="red" />
+          </router-link>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -37,17 +38,16 @@
 
 <script setup>
   import { ref } from 'vue';
+  import { randomHeight } from '@/utils/gridUtils';
   import { setupMobileUtils } from '@/utils/mobile.js';
 
+  import VueMarkdown from 'vue-markdown-render';
   import ImageElement from '@/components/ImageElement';
 
   const gutter = 13;
   const dialog = ref(false);
   const isMobile = setupMobileUtils();
-  const selectedImage = ref({
-    title: '',
-    longDescription: ''
-  });
+  const selectedImage = ref({});
 
   const props = defineProps({
     content: {
@@ -64,12 +64,13 @@
     if (props.numCols < 1) props.numCols = 1;
     return {
       width: `${(100/props.numCols) - 1}%`,
-      height: image.height + 'px',
+      height: `${randomHeight()}px`,
       backgroundColor: image.backgroundColor || 'transparent'
     };
   };
 
   const showDetails = (element) => {
+    console.log(element)
     selectedImage.value = element;
     dialog.value = true;
   };

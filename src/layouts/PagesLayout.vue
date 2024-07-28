@@ -4,7 +4,7 @@
       <LateralMenu v-if="isMobile" :modelValue="drawer" @update:modelValue="handleDrawerUpdate" />
       <AlwaysMenu v-else />
       <v-main>
-        <MainTitle @toggleDrawer="toggleDrawer" v-if="isMobile" />
+        <MainTitle @toggleDrawer="toggleDrawer" v-if="isMobile" :alwaysMenu="true" />
         <router-view style="margin-top: 12vh"/>
       </v-main>
     </v-layout>

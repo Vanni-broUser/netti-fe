@@ -16,7 +16,13 @@ const routes = [
         beforeEnter() {
           window.location.href = 'https://fastsite.it/login';
         }
-      }
+      },
+      {
+        path: '/dettaglio/:id',
+        name: 'Dettaglio',
+        component: () => import('@/views/Dettaglio.vue'),
+        props: true
+      },
     ]
   },
   {
@@ -39,12 +45,6 @@ const routes = [
         component: () => import('@/views/Ricerche.vue'),
       },
       {
-        path: '/dettaglio/:id',
-        name: 'Dettaglio',
-        component: () => import('@/views/Dettaglio.vue'),
-        props: true
-      },
-      {
         path: '/chi-siamo',
         name: 'ChiSiamo',
         component: () => import('@/views/ChiSiamo.vue')
@@ -53,6 +53,11 @@ const routes = [
         path: '/agenda',
         name: 'Agenda',
         component: () => import('@/views/Agenda.vue')
+      },
+      {
+        path: '/agenda/:id',
+        name: 'Dettaglio Agenda',
+        component: () => import('@/views/DettaglioAgenda.vue')
       },
       {
         path: '/contatti',

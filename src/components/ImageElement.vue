@@ -1,11 +1,10 @@
 <template>
   <div
-    v-if="isMobile"
     class="image-container"
-    :style="{ backgroundColor: element.backgroundColor || 'transparent' }"
+    :style="isMobile ? { backgroundColor: element.backgroundColor || 'transparent' } : {}"
   >
-    <router-link :to="`/dettaglio/${index}`">
-      <img :src="element.src" :alt="`Image ${index}`" />
+    <div @click="emits('showDetails', element)">
+      <img :src="element.files ? element.files[0] : 'default'" :alt="`Image ${index}`" />
       <div 
         :class="['overlay', element.backgroundColor ? 'colored-overlay' : 'red-overlay']" 
         :style="element.backgroundColor ? { '--overlay-color': element.backgroundColor } : {}"
@@ -16,49 +15,16 @@
           <div v-if="element.year" class="year">{{ element.year }}</div>
         </div>
       </div>
-    </router-link>
-    <v-btn
-      color="#ff0000"
-      class="details-button-mobile"
-      @click="emits('showDetails', element)"
-      size="x-small"
-    >
-      <svg-icon type="mdi" :path="mdiInformationSlabCircleOutline"></svg-icon>
-    </v-btn>
-  </div>
-  <div v-else class="image-container">
-    <router-link :to="`/dettaglio/${index}`">
-      <img :src="element.src" :alt="`Image ${index}`" />
-      <div 
-        :class="['overlay', element.backgroundColor ? 'colored-overlay' : 'red-overlay']" 
-        :style="element.backgroundColor ? { '--overlay-color': element.backgroundColor } : {}"
-      >
-        <div class="text-container">
-          <div v-if="!element.year" class="description-little">{{ element.title }}</div>
-          <div v-if="element.year" class="description">{{ element.title }}</div>
-          <div v-if="element.year" class="year">{{ element.year }}</div>
-        </div>
-      </div>
-    </router-link>
-    <v-btn
-      color="#ff0000"
-      class="details-button"
-      @click="emits('showDetails', element)"
-      size="x-small"
-    >
-      <svg-icon type="mdi" :path="mdiInformationSlabCircleOutline" />
-    </v-btn>
+    </div>
   </div>
 </template>
 
 <script setup>
-  import SvgIcon from '@jamescoyle/vue-icon';
   import { setupMobileUtils } from '@/utils/mobile.js';
-  import { mdiInformationSlabCircleOutline } from '@mdi/js';
 
   const isMobile = setupMobileUtils();
 
-  const emits = defineEmits(['toggleDrawer']);
+  const emits = defineEmits(['showDetails']);
 
   const props = defineProps({
     index: {
@@ -71,34 +37,8 @@
     }
   });
 </script>
+
 <style scoped>
-  .details-button {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background-color: #ff0000;
-    margin: -07px 0px 0 0;
-    color: white;
-    border-radius: 0px;
-    padding: 0;
-    width: 30px;
-    height: 30px;
-  }
-
-  .details-button-mobile {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    background-color: #ff0000;
-    color: white;
-    width: 30px;
-    height: 30px;
-    margin: -07px 0px 0 0;
-    border-radius: 0;
-    min-width: 0;
-    padding: 0;
-  }
-
   .image-container {
     width: 100%;
     height: 100%;

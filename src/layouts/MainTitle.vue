@@ -1,5 +1,5 @@
 <template>
-  <div :class="isMobile ? 'container red-band' : 'container'">
+  <div class="container">
     <div class="second_layer">
       <router-link to="/" class="title-link">
         <p v-if="alwaysMenu" class="black title"><b class="red">netti</b>architetti</p>
@@ -12,22 +12,16 @@
 </template>
 
 <script setup>
-import mobile from '@/utils/mobile';
+  import mobile from '@/utils/mobile';
 
-const isMobile = mobile.setupMobileUtils();
+  const isMobile = mobile.setupMobileUtils();
 
-const emits = defineEmits(['toggleDrawer']);
+  const emits = defineEmits(['toggleDrawer']);
 
-const { year, alwaysMenu } = defineProps(['year', 'alwaysMenu']);
+  const { year, alwaysMenu } = defineProps(['year', 'alwaysMenu']);
 </script>
 
 <style scoped>
-.red-band {
-  background-color: #ff0000;
-  height: 110px;
-  width: 100%;
-}
-
 .container {
   z-index: 3;
   position: fixed;
