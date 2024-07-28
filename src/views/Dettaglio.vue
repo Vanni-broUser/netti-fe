@@ -14,9 +14,9 @@
   const route = useRoute();
   const router = useRouter();
 
-  function goBack() {
+  const goBack = () => {
     router.back();
-  }
+  };
 
   http.getRequest(`post/${route.params.id}`, {}, function (data) {
     images.value = data.post.files;
