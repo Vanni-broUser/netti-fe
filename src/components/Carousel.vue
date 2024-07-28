@@ -12,9 +12,9 @@
     hide-delimiters
     tabindex="0"
   >
-    <v-carousel-item v-for="(img, index) in content" :key="index" :src="img.src" cover />
+    <v-carousel-item v-for="(img, index) in content" :key="index" :src="img" cover />
     <template #prev>
-      <!-- Empty template to remove default arrows -->
+      <v-btn v-if="player" icon="mdi-arrow-left-drop-circle" />
     </template>
     <template #next>
       <!-- Empty template to remove default arrows -->

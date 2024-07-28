@@ -1,52 +1,37 @@
 <template>
   <Carousel mode="detail" :player="true" :content="images" />
-  <v-btn class="close-button" icon="mdi-close" />
+  <v-btn class="close-button" icon="mdi-arrow-left" @click="goBack" />
 </template>
 
 <script setup>
-import Carousel from '@/components/Carousel.vue';
+  import Carousel from '@/components/Carousel.vue';
 
-const { id, content } = defineProps(['id', 'content']);
+  import { ref } from 'vue';
+  import http from '@/utils/http';
+  import { useRoute, useRouter } from 'vue-router';
 
-import immagine1 from '@/assets/home/817321E2-3ABC-453A-9336-C1A5A0DFDAAE-homepage.jpeg';
-import immagine2 from '@/assets/home/IMG_9243-homepage.jpg';
-import immagine3 from '@/assets/home/M_03-homepage.jpg';
-import immagine4 from '@/assets/home/Netti-10-bis.jpg';
-import immagine6 from '@/assets/home/Prova.jpg';
-import immagine7 from '@/assets/home/slide_1.jpg';
-import immagine8 from '@/assets/home/slide_2.jpg';
-import immagine9 from '@/assets/home/slide_6.jpg';
+  const images = ref([]);
+  const route = useRoute();
+  const router = useRouter();
 
-const images = [
-  { src: immagine1 },
-  { src: immagine2 },
-  { src: immagine3 },
-  { src: immagine4 },
-  { src: immagine6 },
-  { src: immagine7 },
-  { src: immagine8 },
-  { src: immagine9 },
-];
+  const goBack = () => {
+    router.back();
+  };
+
+  http.getRequest(`post/${route.params.id}`, {}, function (data) {
+    images.value = data.post.files;
+  });
 </script>
 
 <style scoped>
 .close-button {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #ff0000;  /* Sfondo rosso */
-  color: white;  /* Testo bianco */
-  border-radius: 4px;  /* Angoli arrotondati per rendere il bottone quadrato */
-  width: 36px;  /* Larghezza del bottone */
-  height: 36px;  /* Altezza del bottone */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.close-button .v-icon {
-  font-size: 24px;  /* Dimensione della "x" */
-  color: white;  /* Colore della "x" */
+  top: 45px;
+  right: 15px;
+  background-color: #ff0000;
+  color: white;
+  border-radius: 0px;
+  width: 25px;
+  height: 25px;
 }
 </style>
-
