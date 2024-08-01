@@ -12,6 +12,11 @@
         </v-row>
         <v-row>
           <v-col cols="12" md="12">
+            <v-text-field v-model="subject" :rules="validation.requiredRules" variant="outlined" label="Oggetto" />
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12" md="12">
             <v-textarea label="Testo" rows="4" v-model="body" :rules="validation.requiredRules" variant="outlined" />
           </v-col>
         </v-row><br>
@@ -29,15 +34,7 @@
   const name = ref('');
   const body = ref('');
   const email = ref('');
-
-  const CONTACT_ICON_MAP = {
-    Phone: 'mdi-phone',
-    Address: 'mdi-map-marker'
-  };
-
-  const getContactTypes = (contacts) => {
-    return Object.keys(contacts).filter(contact => CONTACT_ICON_MAP[contact]);
-  };
+  const subject = ref('');
 
   const mail = import.meta.env.VITE_FORM_MAIL;
 
@@ -45,25 +42,20 @@
     if (
       !validation.validateInput(email.value, validation.emailRules) &&
       !validation.validateInput(name.value, validation.requiredRules) &&
-      !validation.validateInput(body.value, validation.requiredRules)
+      !validation.validateInput(body.value, validation.requiredRules) &&
+      !validation.validateInput(subject.value, validation.requiredRules)
     ) {
-      http.postRequestGenericBE('send-mail', {
+      http.postRequest('send-mail', {
         email: mail,
         subject: 'Qualcuno ho usato il form del sito',
         body: 'Buongiorno,\nSono il tuo mailer, hai ricevuto il seguente messaggio:\n\n' +
           `Nominativo: ${name.value}\n` +
-          `Mail: ${email.value}\n\n` +
+          `Mail: ${email.value}\n` +
+          `Oggetto: ${subject.value}\n\n` +
           `Testo:\n${body.value}`
       }, function () {
         alert("Mail inviata\nTi ringraziamo per il contatto");
-      }, 'POST', router);
+      }, 'POST');
     }
   };
 </script>
-
-<style scoped>
-  .contact__text {
-    margin-left: 10px;
-    float: left;
-  }
-</style>
