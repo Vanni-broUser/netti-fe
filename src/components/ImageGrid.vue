@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-dialog v-model="dialog" max-width="1000px">
-      <v-card :title="selectedImage.title">
+      <v-card :title="`${selectedImage.enrichment.year} ${selectedImage.title} - ${selectedImage.enrichment.place}`">
         <v-card-text>
           <VueMarkdown :source="selectedImage.content" />
         </v-card-text>
@@ -16,7 +16,7 @@
     <div v-if="isMobile">
       <v-row>
         <v-col cols="12" v-for="(element, index) in content" :key="index">
-          <ImageElement :index="index" :element="element" @showDetails="showDetails" />
+          <ImageElement :element="element" @showDetails="showDetails" />
         </v-col>
       </v-row>
     </div>
@@ -29,7 +29,7 @@
           :key="index" 
           :style="getStyle(element)"
         >
-          <ImageElement :index="index" :element="element" @showDetails="showDetails" />
+          <ImageElement :element="element" @showDetails="showDetails" />
         </div>
       </center>
     </div>

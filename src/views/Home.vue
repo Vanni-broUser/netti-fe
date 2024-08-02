@@ -1,5 +1,5 @@
 <template>
-  <Carousel mode="home" :player="false" :content="images" />
+  <Carousel mode="home" :content="images" />
 </template>
 
 <script setup>

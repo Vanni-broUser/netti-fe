@@ -14,36 +14,28 @@
   >
     <v-carousel-item v-for="(img, index) in content" :key="index" :src="img" cover />
     <template #prev>
-      <v-btn v-if="player" icon="mdi-arrow-left-drop-circle" />
+      <v-btn v-if="mode == 'detail'" icon="mdi-arrow-left-drop-circle" @click="prev" variant="text" color="red" size="x-large" />
     </template>
     <template #next>
-      <!-- Empty template to remove default arrows -->
+      <v-btn v-if="mode == 'detail'" icon="mdi-arrow-right-drop-circle" @click="next" variant="text" color="red" size="x-large" />
     </template>
     <v-row v-if="mode === 'home'" class="custom-controls" align="end" justify="end">
       <div v-for="(img, index) in content" :key="index"
         :class="['mx-1', 'my-3', 'custom-dot', { 'custom-dot--active': selected === index }]"
         @click="selected = index; resetTimer()"></div>
     </v-row>
-    <v-row v-if="player" class="player-controls" align="center" justify="center">
-      <PlayerControls :isPlaying="isPlaying" :speed="speed" @prev="prev" @next="next" @togglePlay="togglePlay" @stopPlay="stopPlay" @toggleSpeed="toggleSpeed" />
-    </v-row>
   </v-carousel>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount, watch } from 'vue';
-import PlayerControls from './Player.vue'; // Importa il componente PlayerControls
-import { carousel, focusCarousel } from '@/utils/focusCarousel.js'; // Importa il riferimento e la funzione focusCarousel
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { carousel, focusCarousel } from '@/utils/focusCarousel.js';
 
 const props = defineProps({
   mode: {
     type: String,
     default: 'home',
     validator: value => ['home', 'detail'].includes(value)
-  },
-  player: {
-    type: Boolean,
-    default: false
   },
   content: {
     type: Array,
@@ -98,27 +90,6 @@ const handleWheel = (event) => {
   }
 };
 
-const togglePlay = () => {
-  isPlaying.value = !isPlaying.value;
-  if (isPlaying.value) {
-    startTimer();
-  } else {
-    clearInterval(intervalId.value);
-  }
-};
-
-const stopPlay = () => {
-  isPlaying.value = false;
-  clearInterval(intervalId.value);
-};
-
-const toggleSpeed = () => {
-  speed.value = speed.value === 3 ? 1 : speed.value + 1;
-  if (isPlaying.value) {
-    resetTimer();
-  }
-};
-
 // Imposta il riferimento al carosello e avvia il timer all'avvio
 onMounted(() => {
   carousel.value = document.querySelector('.v-carousel');
@@ -168,12 +139,5 @@ onBeforeUnmount(() => {
 .custom-dot--active {
   background-color: #ff0000;
   /* Cambia il colore del pallino attivo */
-}
-
-.player-controls {
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
 }
 </style>

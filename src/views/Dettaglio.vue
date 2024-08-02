@@ -1,5 +1,5 @@
 <template>
-  <Carousel mode="detail" :player="true" :content="images" />
+  <Carousel mode="detail" :content="images" />
   <v-btn class="close-button" icon="mdi-arrow-left" @click="goBack" />
 </template>
 
@@ -27,7 +27,7 @@
 .close-button {
   position: absolute;
   top: 45px;
-  right: 15px;
+  right: 27px;
   background-color: #ff0000;
   color: white;
   border-radius: 0px;

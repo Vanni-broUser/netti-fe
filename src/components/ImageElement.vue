@@ -1,18 +1,20 @@
 <template>
   <div
     class="image-container"
-    :style="isMobile ? { backgroundColor: element.backgroundColor || 'transparent' } : {}"
+    :style="isMobile ? { backgroundColor: element.enrichment.backgroundColor || 'transparent' } : {}"
   >
     <div @click="emits('showDetails', element)">
-      <img :src="element.files ? element.files[0] : 'default'" :alt="`Image ${index}`" />
+      <img :src="element.files ? element.files[0] : 'default'" :alt="`Image ${element.id}`" />
       <div 
-        :class="['overlay', element.backgroundColor ? 'colored-overlay' : 'red-overlay']" 
-        :style="element.backgroundColor ? { '--overlay-color': element.backgroundColor } : {}"
+        :class="['overlay', element.enrichment.backgroundColor ? 'colored-overlay' : 'red-overlay']" 
+        :style="element.enrichment.backgroundColor ? { '--overlay-color': element.enrichment.backgroundColor } : {}"
       >
-        <div class="text-container">
-          <div v-if="!element.year" class="description-little">{{ element.title }}</div>
-          <div v-if="element.year" class="description">{{ element.title }}</div>
-          <div v-if="element.year" class="year">{{ element.year }}</div>
+        <div class="text-container" v-if="!element.enrichment.didacticalArea">
+          {{ `${element.enrichment.year} ${element.title} - ${element.enrichment.place}` }}
+        </div>
+        <div class="text-container" v-else>
+          <h1>{{ element.enrichment.didacticalArea }}</h1>
+          {{ element.enrichment.year }}
         </div>
       </div>
     </div>
@@ -27,10 +29,6 @@
   const emits = defineEmits(['showDetails']);
 
   const props = defineProps({
-    index: {
-      type: Number,
-      required: true
-    },
     element: {
       type: Object,
       required: true
@@ -93,22 +91,5 @@
 
   .colored-overlay {
     background-color: rgba(0, 0, 0, 0);
-  }
-
-  .description {
-    font-size: 5rem;
-    margin: 0;
-  }
-
-  .description-little {
-    font-size: 1.2rem;
-    margin: 0;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .year {
-    font-size: 1rem;
-    margin: 0;
   }
 </style>
