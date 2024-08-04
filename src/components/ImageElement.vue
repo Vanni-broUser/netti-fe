@@ -9,12 +9,15 @@
         :class="['overlay', element.enrichment.backgroundColor ? 'colored-overlay' : 'red-overlay']" 
         :style="element.enrichment.backgroundColor ? { '--overlay-color': element.enrichment.backgroundColor } : {}"
       >
-        <div class="text-container" v-if="!element.enrichment.didacticalArea">
+        <div class="text-container" v-if="element.enrichment.place">
           {{ `${element.enrichment.year} ${element.title} - ${element.enrichment.place}` }}
         </div>
-        <div class="text-container" v-else>
+        <div class="text-container" v-else-if="element.enrichment.didacticalArea">
           <h1>{{ element.enrichment.didacticalArea }}</h1>
           {{ element.enrichment.year }}
+        </div>
+        <div class="text-container" v-else>
+          {{ element.title }}
         </div>
       </div>
     </div>

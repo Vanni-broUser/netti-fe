@@ -64,7 +64,7 @@
     if (props.numCols < 1) props.numCols = 1;
     return {
       width: `${(100/props.numCols) - 1}%`,
-      height: `${randomHeight()}px`,
+      maxHeight: `${randomHeight()}px`,
       backgroundColor: image.backgroundColor || 'transparent'
     };
   };
