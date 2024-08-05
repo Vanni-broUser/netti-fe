@@ -51,7 +51,7 @@
   const settings = {
     primaryColor: '#ff0000',
     coordinates: [16.865323, 41.127601],
-    zoom: 15
+    zoom: 14
   };
 
   function updateMapStyle() {
