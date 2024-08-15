@@ -11,6 +11,7 @@
 </template>
 
 <script setup>
+  import { useTheme } from 'vuetify';
   import { ref, onMounted } from 'vue';
   import 'ol/ol.css';
   import Map from 'ol/Map';
@@ -24,6 +25,7 @@
   import VectorLayer from 'ol/layer/Vector';
   import VectorSource from 'ol/source/Vector';
 
+  const theme = useTheme();
   const mapContainer = ref(null);
   const selectedStyle = ref('osm-standard');
   let map;
@@ -49,7 +51,7 @@
   };
 
   const settings = {
-    primaryColor: '#ff0000',
+    primaryColor: theme.current.value.primary,
     coordinates: [16.865323, 41.127601],
     zoom: 14
   };

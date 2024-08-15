@@ -4,7 +4,7 @@
     @update:model-value="$emit('update:modelValue', $event)"
     @click-outside="$emit('update:modelValue', false); $emit('close')" 
     temporary 
-    color="#ff0000" 
+    :color="theme.current.value.primary"
     app
     :style="{width: isMobile ? '100%' : '360px'}"
   >
@@ -44,8 +44,10 @@
   import SocialLinks from './SocialLinks';
   import MenuOperations from './MenuOperaions';
 
+  import { useTheme } from 'vuetify';
   import mobile from '@/utils/mobile';
 
+  const theme = useTheme();
   const isMobile = mobile.setupMobileUtils();
 
   const props = defineProps({

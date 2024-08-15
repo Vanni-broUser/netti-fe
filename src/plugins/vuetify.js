@@ -6,7 +6,9 @@ import { createVuetify } from 'vuetify';
 export default createVuetify({
   theme: {
     themes: {
-      light: {}
+      light: {
+        primary: '#fb2831'
+      }
     }
   }
 });

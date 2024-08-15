@@ -1,6 +1,6 @@
 <template>
-  <Carousel mode="detail" :content="images" />
-  <v-btn class="close-button" icon="mdi-arrow-left" @click="goBack" />
+  <Carousel :content="images" />
+  <v-btn class="background-red close-button" icon="mdi-arrow-left" @click="goBack" />
 </template>
 
 <script setup>
@@ -28,7 +28,6 @@
   position: absolute;
   top: 45px;
   right: 27px;
-  background-color: #ff0000;
   color: white;
   border-radius: 0px;
   width: 25px;

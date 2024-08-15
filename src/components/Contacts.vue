@@ -45,7 +45,7 @@
           block
           :text="$t('Contacts.button')"
           type="submit"
-          color="red"
+          :color="theme.current.value.primary"
         />
       </v-form>
     </v-container>
@@ -55,12 +55,14 @@
 <script setup>
   import { ref } from 'vue';
   import http from '@/utils/http';
+  import { useTheme } from 'vuetify';
   import validation from '@/utils/validation';
 
   const name = ref('');
   const body = ref('');
   const email = ref('');
   const subject = ref('');
+  const theme = useTheme();
 
   const mail = import.meta.env.VITE_FORM_MAIL;
 

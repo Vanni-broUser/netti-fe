@@ -2,7 +2,6 @@
   <v-carousel
     ref="carousel"
     style="height: 100vh;"
-    :show-arrows="mode === 'detail'"
     @keydown.left="prev"
     @keydown.right="next"
     @click="resetTimer"
@@ -13,13 +12,9 @@
     tabindex="0"
   >
     <v-carousel-item v-for="(img, index) in content" :key="index" :src="img" cover />
-    <template #prev>
-      <v-btn v-if="mode == 'detail'" icon="mdi-arrow-left-drop-circle" @click="prev" variant="text" color="red" size="x-large" />
-    </template>
-    <template #next>
-      <v-btn v-if="mode == 'detail'" icon="mdi-arrow-right-drop-circle" @click="next" variant="text" color="red" size="x-large" />
-    </template>
-    <v-row v-if="mode === 'home'" class="custom-controls" align="end" justify="end">
+    <template #prev></template>
+    <template #next></template>
+    <v-row class="custom-controls" align="end" justify="end">
       <div v-for="(img, index) in content" :key="index"
         :class="['mx-1', 'my-3', 'custom-dot', { 'custom-dot--active': selected === index }]"
         @click="selected = index; resetTimer()"></div>
@@ -32,11 +27,6 @@ import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { carousel, focusCarousel } from '@/utils/focusCarousel.js';
 
 const props = defineProps({
-  mode: {
-    type: String,
-    default: 'home',
-    validator: value => ['home', 'detail'].includes(value)
-  },
   content: {
     type: Array,
     required: true
@@ -45,7 +35,6 @@ const props = defineProps({
 
 const selected = ref(0);
 const intervalId = ref(null);
-const isPlaying = ref(false);
 const speed = ref(1);
 let isThrottled = false; // Variabile per gestire il throttling degli eventi wheel
 
@@ -94,9 +83,7 @@ const handleWheel = (event) => {
 onMounted(() => {
   carousel.value = document.querySelector('.v-carousel');
   focusCarousel();
-  if (props.mode === 'home') {
-    startTimer();
-  }
+  startTimer();
 
   // Aggiungi ascoltatori globali per resettare il timer su qualsiasi interazione dell'utente
   window.addEventListener('mousemove', handleUserInteraction);
@@ -137,7 +124,6 @@ onBeforeUnmount(() => {
 }
 
 .custom-dot--active {
-  background-color: #ff0000;
-  /* Cambia il colore del pallino attivo */
+  background-color: #fb2831;
 }
 </style>

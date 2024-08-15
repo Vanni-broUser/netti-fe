@@ -1,7 +1,3 @@
-.v-btn--active{
-  color: #ff0000;
-}
-
 html, body, #app {
   overflow: auto;
 }
@@ -14,8 +10,16 @@ html, body, #app {
   color: black;
 }
 
+.v-btn--active{
+  color: #fb2831;
+}
+
 .red {
-  color: red;
+  color: #fb2831;
+}
+
+.background-red {
+  background-color: #fb2831;
 }
 
 .white {

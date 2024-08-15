@@ -5,7 +5,11 @@
         <p v-if="alwaysMenu" class="black title"><b class="red">netti</b>architetti</p>
         <p v-else class="white title"><b>netti</b>architetti</p>
       </router-link>
-      <v-btn v-if="!alwaysMenu || isMobile" variant="text" color="white" icon="mdi-reorder-horizontal" @click.stop="emits('toggleDrawer')" class="square-btn" />
+      <v-btn
+        v-if="!alwaysMenu || isMobile" variant="text" color="white" icon="mdi-reorder-horizontal"
+        @click.stop="emits('toggleDrawer')"
+        class="background-red square-btn"
+      />
       <p v-if="year && !isMobile" class="white year">2024</p>
     </div>
   </div>
@@ -40,7 +44,6 @@
 }
 
 .square-btn {
-  background-color: red;
   width: 25px;
   height: 25px;
   border-radius: 0px;
