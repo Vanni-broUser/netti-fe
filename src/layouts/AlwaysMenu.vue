@@ -28,8 +28,8 @@
         {{ $t('Menu.pagina6') }}
       </v-list-item>
     </v-list>
-    <MenuOperations />
     <ResearchLegend v-if="isRicerchePage" />
+    <MenuOperations v-else />
     <div class="bottom-section">
       <SocialLinks :invertColor="true" />
     </div>

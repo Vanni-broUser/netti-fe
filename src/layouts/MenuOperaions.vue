@@ -1,11 +1,11 @@
 <template>
   <v-dialog max-width="500">
     <template v-slot:activator="{ props: activatorProps }">
-      <br><v-btn text="IT" variant="text" @click="setLanguage('it')" />
-      <v-btn text="EN" variant="text" @click="setLanguage('en')" />
-      <br><v-btn :text="$t('MenuOperations.searchButton')" variant="text" v-bind="activatorProps" />
-      <br><v-container>
-        <a href="/portfolio.pdf">
+      <v-container>
+        <br><v-btn text="IT" variant="text" @click="setLanguage('it')" />
+        <v-btn text="EN" variant="text" @click="setLanguage('en')" />
+        <br><v-btn :text="$t('MenuOperations.searchButton')" variant="text" v-bind="activatorProps" />
+        <br><a href="/portfolio.pdf">
           <v-card width="150" elevation="5">
             <v-img :src="portfolio" />
           </v-card>
