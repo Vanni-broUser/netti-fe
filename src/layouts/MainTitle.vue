@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="second_layer">
-      <router-link to="/" class="title-link">
+      <router-link to="/" class="link">
         <p v-if="alwaysMenu" class="black title"><b class="red">netti</b>architetti</p>
         <p v-else class="white title"><b>netti</b>architetti</p>
       </router-link>
@@ -51,9 +51,5 @@
 .year {
   font-size: 40px;
   margin-left: 15px;
-}
-
-.title-link {
-  text-decoration: none;
 }
 </style>

@@ -10,24 +10,25 @@
         <MainTitle :alwaysMenu="true" />
       </v-list-item><br><br>
       <v-list-item to="/architetture">
-        <b>Architetture</b>
+        <b>{{ $t('Menu.pagina1') }}</b>
       </v-list-item>
       <v-list-item to="/progetti">
-        <b>Progetti</b>
+        <b>{{ $t('Menu.pagina2') }}</b>
       </v-list-item>
       <v-list-item to="/ricerche">
-        <b>Ricerche</b>
+        <b>{{ $t('Menu.pagina3') }}</b>
       </v-list-item>
       <v-list-item to="/chi-siamo">
-        Chi siamo
+        {{ $t('Menu.pagina4') }}
       </v-list-item>
       <v-list-item to="/agenda">
-        Agenda
+        {{ $t('Menu.pagina5') }}
       </v-list-item>
       <v-list-item to="/contatti">
-        Contatti
+        {{ $t('Menu.pagina6') }}
       </v-list-item>
     </v-list>
+    <MenuOperations />
     <ResearchLegend v-if="isRicerchePage" />
     <div class="bottom-section">
       <SocialLinks :invertColor="true" />
@@ -38,6 +39,7 @@
 <script setup>
   import MainTitle from './MainTitle';
   import SocialLinks from './SocialLinks';
+  import MenuOperations from './MenuOperaions';
   import ResearchLegend from './ResearchLegend';
 
   import { useRoute } from 'vue-router';

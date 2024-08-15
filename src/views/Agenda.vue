@@ -30,9 +30,3 @@
     posts.value = data.posts;
   });
 </script>
-
-<style scoped>
-  .link {
-    text-decoration: none;
-  }
-</style>

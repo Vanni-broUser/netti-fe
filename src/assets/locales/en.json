@@ -1,0 +1,26 @@
+{
+  "Menu": {
+    "pagina1": "Architectures",
+    "pagina2": "Projects",
+    "pagina3": "Research",
+    "pagina4": "About Us",
+    "pagina5": "Agenda",
+    "pagina6": "Contacts",
+    "bottomText": "Designing architectures for the real world while also exploring new expressive forms, with attention to history, the environment, and urban and non-urban landscapes, is the commitment that makes us aware of the responsibility of being architects.<br><br><b>Lorenzo Netti &nbsp; Gloria Valente</b>"
+  },
+  "Contacts": {
+    "label1": "Name",
+    "label2": "Email",
+    "label3": "Subject",
+    "label4": "Message",
+    "button": "Send"
+  },
+  "ChiSiamo": {
+    "lorenzoNetti": "Graduated cum laude in Architecture from Florence, he is a professor of Architectural Drawing and Composition at the Polytechnic University of Bari. He has taught courses at the Academy of Fine Arts in Bari. He is an editor of the architecture, art, communication, and design magazine 'Il Progetto'.<br>He was a professor of Architectural Drawing in the Architecture degree program from 1993 to 2003, of Drawing in the Industrial Design degree program from 2003 to 2014, and of Architecture and Architectural Composition since 2008 in the Building Engineering-Architecture degree program, where Lorenzo Netti teaches his courses in Architectural Drawing.<br>He is featured in the collection of Italian architectural drawings by Francesco Moschini (AAM Architettura Arte Moderna).",
+    "gloriaValente": "Graduated cum laude in Architecture from Florence, she has taught design and interior architecture. In 1990, she was invited by Alessi for the research 'Memory Containers', in 1991 she participated in the exhibition 'Women's Design', and in 1992 she was selected for the exhibition 'Nuovo Bel Design, 200 new objects for the home'.<br>Engaged in research on identity forms on the theme of 'Italian Interiors', Gloria Valente writes about architecture for magazines and blogs. In 2012, she participated in the exhibition 'Diverso Design', and in 2013 in the exhibition 'Empathy' for the 'Author's Production' series. Her upcoming book will collect the results of her activities as an architect, designer, and visionary photographer of the everyday, as her research has expanded into the field of artistic photography, which she exhibited in the 2015 exhibition 'Tempografie'."
+  },
+  "MenuOperations": {
+    "searchButton": "Search the site",
+    "searchBoxTtile": "Search site content"
+  }
+}

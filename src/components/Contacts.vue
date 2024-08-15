@@ -4,23 +4,49 @@
       <v-form fast-fail @submit.prevent="sendMail">
         <v-row>
           <v-col cols="12" md="6">
-            <v-text-field v-model="name" :rules="validation.requiredRules" variant="outlined" label="Nominativo" />
+            <v-text-field
+              v-model="name"
+              :rules="validation.requiredRules"
+              variant="outlined"
+              :label="$t('Contacts.label1')"
+            />
           </v-col>
           <v-col cols="12" md="6">
-            <v-text-field v-model="email" :rules="validation.emailRules" variant="outlined" label="Email" />
+            <v-text-field
+              v-model="email"
+              :rules="validation.emailRules"
+              variant="outlined"
+              :label="$t('Contacts.label2')"
+            />
           </v-col>
         </v-row>
         <v-row>
           <v-col cols="12" md="12">
-            <v-text-field v-model="subject" :rules="validation.requiredRules" variant="outlined" label="Oggetto" />
+            <v-text-field
+              v-model="subject"
+              :rules="validation.requiredRules"
+              variant="outlined"
+              :label="$t('Contacts.label3')"
+            />
           </v-col>
         </v-row>
         <v-row>
           <v-col cols="12" md="12">
-            <v-textarea label="Testo" rows="4" v-model="body" :rules="validation.requiredRules" variant="outlined" />
+            <v-textarea
+              :label="$t('Contacts.label4')"
+              rows="4"
+              v-model="body"
+              :rules="validation.requiredRules"
+              variant="outlined"
+            />
           </v-col>
         </v-row><br>
-        <v-btn block text="Invia" type="submit" color="red" />
+        <v-btn
+          block
+          :text="$t('Contacts.button')"
+          type="submit"
+          color="red"
+        />
       </v-form>
     </v-container>
   </v-container>

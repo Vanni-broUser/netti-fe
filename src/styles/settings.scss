@@ -22,6 +22,15 @@ html, body, #app {
   color: white;
 }
 
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.v-btn {
+  text-transform: none;
+}
+
 @font-face {
   font-family: 'ITCAvantGarde';
   src: url('/woff2/ITC - ITCAvantGardeStd-Bk.woff2') format('woff2'),

@@ -13,75 +13,61 @@
         <MainTitle @toggleDrawer="closeDrawer" />
       </v-list-item><br><br>
       <v-list-item to="/architetture">
-        <b>Architetture</b>
+        <b>{{ $t('Menu.pagina1') }}</b>
       </v-list-item>
       <v-list-item to="/progetti">
-        <b>Progetti</b>
+        <b>{{ $t('Menu.pagina2') }}</b>
       </v-list-item>
       <v-list-item to="/ricerche">
-        <b>Ricerche</b>
+        <b>{{ $t('Menu.pagina3') }}</b>
       </v-list-item>
       <v-list-item to="/chi-siamo">
-        Chi siamo
+        {{ $t('Menu.pagina4') }}
       </v-list-item>
       <v-list-item to="/agenda">
-        Agenda
+        {{ $t('Menu.pagina5') }}
       </v-list-item>
       <v-list-item to="/contatti">
-        Contatti
+        {{ $t('Menu.pagina6') }}
       </v-list-item>
     </v-list>
-    <v-divider />
-    <div class="bottom-section">
-      <p class="white_text">
-        Progettare architetture per il mondo reale e al contempo ricercare
-        nuove forme espressive, attenti ai temi della storia,
-        dell’ambiente, del paesaggio urbano ed extraurbano, è l'impegno che ci
-        rende consapevoli della responsabilità dell'essere architetti.<br /><br />
-        <b>Lorenzo Netti &nbsp; Gloria Valente</b>
-      </p>
+    <MenuOperations />
+    <div>
+      <p class="white_text" v-html="$t('Menu.bottomText')" />
       <SocialLinks />
     </div>
   </v-navigation-drawer>
 </template>
 
 <script setup>
-import MainTitle from './MainTitle';
-import SocialLinks from './SocialLinks';
+  import MainTitle from './MainTitle';
+  import SocialLinks from './SocialLinks';
+  import MenuOperations from './MenuOperaions';
 
-import mobile from '@/utils/mobile';
+  import mobile from '@/utils/mobile';
 
-const isMobile = mobile.setupMobileUtils();
+  const isMobile = mobile.setupMobileUtils();
 
-const props = defineProps({
-  modelValue: {
-    type: Boolean,
-    required: true
-  }
-});
+  const props = defineProps({
+    modelValue: {
+      type: Boolean,
+      required: true
+    }
+  });
 
-const emit = defineEmits(["update:modelValue", "close"]);
+  const emit = defineEmits(["update:modelValue", "close"]);
 
-const closeDrawer = () => {
-  emit("update:modelValue", false);
-  emit("close");
-};
+  const closeDrawer = () => {
+    emit("update:modelValue", false);
+    emit("close");
+  };
 </script>
 
 <style scoped>
-.white_text {
-  font-size: small;
-  color: white;
-  margin-left: 8px;
-  margin-right: 8px;
-}
-
-.bottom-section {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 5px;
-  box-sizing: border-box;
-  overflow: auto;
-}
+  .white_text {
+    font-size: small;
+    color: white;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
 </style>
