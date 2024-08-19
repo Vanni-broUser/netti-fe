@@ -38,7 +38,6 @@
 
 <script setup>
   import { ref } from 'vue';
-  import { randomHeight } from '@/utils/gridUtils';
   import { setupMobileUtils } from '@/utils/mobile.js';
 
   import VueMarkdown from 'vue-markdown-render';
@@ -64,7 +63,6 @@
     if (props.numCols < 1) props.numCols = 1;
     return {
       width: `${(100/props.numCols) - 1}%`,
-      maxHeight: `${randomHeight()}px`,
       backgroundColor: image.backgroundColor || 'transparent'
     };
   };
