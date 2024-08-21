@@ -1,7 +1,7 @@
 <template>
   <v-app>
+    <LateralMenu :modelValue="drawer" @update:modelValue="handleDrawerUpdate" />
     <v-layout>
-      <LateralMenu :modelValue="drawer" @update:modelValue="handleDrawerUpdate" />
       <v-main>
         <MainTitle @toggleDrawer="toggleDrawer" :year="true" />
         <router-view />

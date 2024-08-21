@@ -1,8 +1,6 @@
 <template>
   <v-navigation-drawer
     permanent
-    color="#ffffff" 
-    app
     width="360"
   >
     <v-list density="compact" nav>

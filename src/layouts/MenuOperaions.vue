@@ -2,17 +2,23 @@
   <v-dialog max-width="500">
     <template v-slot:activator="{ props: activatorProps }">
       <v-container>
-        <br><v-btn text="IT" variant="text" @click="setLanguage('it')" />
-        <v-btn text="EN" variant="text" @click="setLanguage('en')" />
-        <br><v-btn :text="$t('MenuOperations.searchButton')" variant="text" v-bind="activatorProps" />
-        <br><a href="/portfolio.pdf">
+        <br>
+        <div @click="setLanguage('it')" style="float: left; margin-left: 2px; cursor: pointer;">IT</div>
+        <div @click="setLanguage('en')" style="float: left; margin-left: 20px; cursor: pointer;">EN</div>
+        <br><br>
+        <a href="/portfolio.pdf">
           <v-card width="150" elevation="5">
             <v-img :src="portfolio" />
           </v-card>
         </a>
-      </v-container><br>
+        <br>
+        <div v-bind="activatorProps" style="cursor: pointer;">
+          {{ $t('MenuOperations.searchButton') }}
+        </div>
+      </v-container>
+      <br>
     </template>
-    <template v-slot:default="{ isActive }">
+    <template v-slot:default="">
       <v-card :title="$t('MenuOperations.searchBoxTtile')">
         <v-timeline>
           <v-timeline-item>Ricerca testuale</v-timeline-item>

@@ -1,11 +1,11 @@
 <template>
   <v-app>
+    <LateralMenu v-if="isMobile" :modelValue="drawer" @update:modelValue="handleDrawerUpdate" />
+    <AlwaysMenu v-if="!isMobile" />
     <v-layout>
-      <LateralMenu v-if="isMobile" :modelValue="drawer" @update:modelValue="handleDrawerUpdate" />
-      <AlwaysMenu v-else />
       <v-main>
         <MainTitle @toggleDrawer="toggleDrawer" v-if="isMobile" :alwaysMenu="true" />
-        <router-view style="margin-top: 12vh"/>
+        <router-view :class="{ 'desktop-view': !isMobile }" style="margin-top: 100px;" />
       </v-main>
     </v-layout>
   </v-app>
@@ -39,3 +39,9 @@ onMounted(() => {
 
 const isMobile = mobile.setupMobileUtils();
 </script>
+
+<style scoped>
+.desktop-view {
+  margin-left: 360px;
+}
+</style>

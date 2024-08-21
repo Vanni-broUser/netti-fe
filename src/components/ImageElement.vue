@@ -61,11 +61,11 @@
   }
 
   .image-container:hover .red-overlay {
-    background-color: rgba(255, 0, 0, 0.7);
+    background-color: rgba(0, 0, 255, 0.7);
   }
 
   .image-container:hover .colored-overlay {
-    background-color: var(--overlay-color, rgba(255, 0, 0, 0.7));
+    background-color: var(--overlay-color, rgba(0, 0, 255, 0.7));
     opacity: 0.7;
   }
 
@@ -89,7 +89,7 @@
   }
 
   .red-overlay {
-    background-color: rgba(255, 0, 0, 0);
+    background-color: rgba(0, 0, 255, 0);
   }
 
   .colored-overlay {

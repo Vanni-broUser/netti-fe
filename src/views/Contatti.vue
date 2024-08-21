@@ -4,7 +4,17 @@
       <Map />
     </v-col>
     <v-col cols="12" md="6">
-      <Contacts />
+      <v-container>
+        <v-typography style="color: black;">
+          Contatti di prova riga 1
+          <br>
+          Contatti di prova riga 2
+          <br>
+          Contatti di prova riga 3
+        </v-typography>
+        <br><br><br>
+        <Contacts />
+      </v-container>
     </v-col>
   </v-row>
 </template>
