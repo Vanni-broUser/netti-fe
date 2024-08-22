@@ -1,32 +1,29 @@
 <template>
-  <v-navigation-drawer
-    permanent
-    width="360"
-  >
+  <v-navigation-drawer permanent width="338">
     <v-list density="compact" nav>
       <v-list-item>
         <MainTitle :alwaysMenu="true" />
       </v-list-item><br><br>
-      <v-list-item to="/architetture">
-        <b>{{ $t('Menu.pagina1') }}</b>
-      </v-list-item>
-      <v-list-item to="/progetti">
-        <b>{{ $t('Menu.pagina2') }}</b>
-      </v-list-item>
-      <v-list-item to="/ricerche">
-        <b>{{ $t('Menu.pagina3') }}</b>
-      </v-list-item>
-      <v-list-item to="/chi-siamo">
-        {{ $t('Menu.pagina4') }}
-      </v-list-item>
-      <v-list-item to="/agenda">
-        {{ $t('Menu.pagina5') }}
-      </v-list-item>
-      <v-list-item to="/contatti">
-        {{ $t('Menu.pagina6') }}
-      </v-list-item>
+      <router-link class="link" to="/architetture">
+        <div :class="getClasses('/architetture')"><b>{{ $t('Menu.pagina1') }}</b></div>
+      </router-link>
+      <router-link class="link" to="/progetti">
+        <div :class="getClasses('/progetti')"><b>{{ $t('Menu.pagina2') }}</b></div>
+      </router-link>
+      <router-link class="link" to="/ricerche">
+        <div :class="getClasses('/ricerche')"><b>{{ $t('Menu.pagina3') }}</b></div>
+      </router-link>
+      <router-link class="link" to="/chi-siamo">
+        <div :class="getClasses('/chi-siamo')">{{ $t('Menu.pagina4') }}</div>
+      </router-link>
+      <router-link class="link" to="/agenda">
+        <div :class="getClasses('/agenda')">{{ $t('Menu.pagina5') }}</div>
+      </router-link>
+      <router-link class="link" to="/contatti">
+        <div :class="getClasses('/contatti')">{{ $t('Menu.pagina6') }}</div>
+      </router-link>
     </v-list>
-    <ResearchLegend v-if="isRicerchePage" />
+    <ResearchLegend v-if="route.path == '/ricerche'" />
     <MenuOperations v-else />
     <div class="bottom-section">
       <SocialLinks :invertColor="true" />
@@ -41,43 +38,28 @@
   import ResearchLegend from './ResearchLegend';
 
   import { useRoute } from 'vue-router';
-  import { computed } from 'vue';
 
   const route = useRoute();
-  const isRicerchePage = computed(() => route.path === '/ricerche');
+
+  const getClasses = (page) => {
+    const classes = ['ml-2', 'font-size', 'mt-3'];
+    if (route.path == page)
+      classes.push('red');
+    return classes;
+  }
 </script>
 
 <style scoped>
-.list-item {
-  margin-top: 16px;
-  padding: 0 16px;
-}
+  .bottom-section {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow: auto;
+  }
 
-.title-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.color-title {
-  font-size: 40px;
-  padding: 10px;
-  padding-top: 13px;
-  border-radius: 4px;
-}
-
-.flex-grow-1 {
-  flex-grow: 1;
-  overflow-y: auto;
-}
-
-.bottom-section {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 5px;
-  box-sizing: border-box;
-  overflow: auto;
-}
+  .font-size {
+    font-size: large;
+  }
 </style>

@@ -41,4 +41,9 @@
       years.push(year);
     return years;
   };
+
+  const searchPosts = () => {
+    if (searchType.value == 1)
+      location.href = `/ricerca-post?name=year&value=${year.value}`;
+  };
 </script>

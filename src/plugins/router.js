@@ -30,6 +30,11 @@ const routes = [
     component: () => import('@/layouts/PagesLayout.vue'),
     children: [
       {
+        path: '/ricerca-post',
+        name: 'Ricerca Post',
+        component: () => import('@/views/RicercaPost.vue')
+      },
+      {
         path: '/architetture',
         name: 'Architetture',
         component: () => import('@/views/Architetture.vue')

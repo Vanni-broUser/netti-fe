@@ -1,25 +1,22 @@
 <template>
   <div
     class="image-container"
-    :style="isMobile ? { backgroundColor: element.enrichment.backgroundColor || 'transparent' } : {}"
+    :style="isMobile ? { backgroundColor: 'transparent' } : {}"
   >
     <div @click="emits('showDetails', element)">
       <img :src="element.files ? element.files[0] : 'default'" :alt="`Image ${element.id}`" />
       <div 
-        :class="['overlay', element.enrichment.backgroundColor ? 'colored-overlay' : 'red-overlay']" 
-        :style="element.enrichment.backgroundColor ? { '--overlay-color': element.enrichment.backgroundColor } : {}"
+        class="overlay red-overlay" 
         @mouseover="showText = true" @mouseleave="showText = false"
       >
         <div v-if="showText || isMobile">
-          <div class="text-container" v-if="element.enrichment.place">
-            {{ `${element.enrichment.year} ${element.title} - ${element.enrichment.place}` }}
-          </div>
-          <div class="text-container" v-else-if="element.enrichment.didacticalArea">
+          <div class="text-container" v-if="element.enrichment.didacticalArea">
             <h1>{{ element.enrichment.didacticalArea }}</h1>
             {{ element.enrichment.year }}
           </div>
           <div class="text-container" v-else>
-            {{ element.title }}
+            <b>{{ element.enrichment.year }}</b>
+            {{element.title}} - {{element.enrichment.place}}
           </div>
         </div>
       </div>
@@ -69,11 +66,6 @@
     background-color: rgba(0, 0, 255, 0.7);
   }
 
-  .image-container:hover .colored-overlay {
-    background-color: var(--overlay-color, rgba(0, 0, 255, 0.7));
-    opacity: 0.7;
-  }
-
   .image-container:hover .description-little {
     opacity: 1;
   }
@@ -95,9 +87,5 @@
 
   .red-overlay {
     background-color: rgba(0, 0, 255, 0);
-  }
-
-  .colored-overlay {
-    background-color: rgba(0, 0, 0, 0);
   }
 </style>
