@@ -10,7 +10,7 @@
         @click.stop="emits('toggleDrawer')"
         class="background-red square-btn"
       />
-      <p v-if="year && !isMobile" class="white year">2024</p>
+      <p v-if="year && !isMobile" class="white year">{{ new Date().getFullYear() }}</p>
     </div>
   </div>
 </template>

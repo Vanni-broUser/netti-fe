@@ -13,7 +13,7 @@
           Contatti di prova riga 3
         </v-typography>
         <br><br><br>
-        <Contacts />
+        <Contacts style="margin-right: 30px;" />
       </v-container>
     </v-col>
   </v-row>

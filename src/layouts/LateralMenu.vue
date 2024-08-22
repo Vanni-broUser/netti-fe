@@ -5,7 +5,7 @@
     @click-outside="$emit('update:modelValue', false); $emit('close')" 
     temporary 
     :color="theme.current.value.primary"
-    :style="{width: isMobile ? '100%' : '360px'}"
+    :style="{width: isMobile ? '100%' : '338px'}"
   >
   <v-list density="compact" nav>
       <v-list-item>
@@ -66,7 +66,7 @@
 
 <style scoped>
   .white_text {
-    font-size: small;
+    font-size: 12.5px;
     color: white;
     margin-left: 15px;
     margin-right: 15px;

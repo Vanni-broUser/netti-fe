@@ -8,16 +8,19 @@
       <div 
         :class="['overlay', element.enrichment.backgroundColor ? 'colored-overlay' : 'red-overlay']" 
         :style="element.enrichment.backgroundColor ? { '--overlay-color': element.enrichment.backgroundColor } : {}"
+        @mouseover="showText = true" @mouseleave="showText = false"
       >
-        <div class="text-container" v-if="element.enrichment.place">
-          {{ `${element.enrichment.year} ${element.title} - ${element.enrichment.place}` }}
-        </div>
-        <div class="text-container" v-else-if="element.enrichment.didacticalArea">
-          <h1>{{ element.enrichment.didacticalArea }}</h1>
-          {{ element.enrichment.year }}
-        </div>
-        <div class="text-container" v-else>
-          {{ element.title }}
+        <div v-if="showText || isMobile">
+          <div class="text-container" v-if="element.enrichment.place">
+            {{ `${element.enrichment.year} ${element.title} - ${element.enrichment.place}` }}
+          </div>
+          <div class="text-container" v-else-if="element.enrichment.didacticalArea">
+            <h1>{{ element.enrichment.didacticalArea }}</h1>
+            {{ element.enrichment.year }}
+          </div>
+          <div class="text-container" v-else>
+            {{ element.title }}
+          </div>
         </div>
       </div>
     </div>
@@ -25,8 +28,10 @@
 </template>
 
 <script setup>
+  import { ref } from 'vue';
   import { setupMobileUtils } from '@/utils/mobile.js';
 
+  const showText = ref(false);
   const isMobile = setupMobileUtils();
 
   const emits = defineEmits(['showDetails']);
