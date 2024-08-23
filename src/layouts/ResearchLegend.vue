@@ -19,9 +19,9 @@
 
 <style scoped>
 .central-section {
-  padding: 16px;
-  border-radius: 4px;
-  margin: 16px 0;
+  margin-left: 16px;
+  margin-right: 60px;
+  margin-top: 30px;
 }
 
 .small-text {
