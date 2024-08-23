@@ -1,12 +1,9 @@
 <template>
-  <div
-    class="image-container"
-    :style="isMobile ? { backgroundColor: 'transparent' } : {}"
-  >
+  <div class="image-container">
     <div @click="emits('showDetails', element)">
       <img :src="element.files ? element.files[0] : 'default'" :alt="`Image ${element.id}`" />
       <div 
-        class="overlay red-overlay" 
+        :class="!isMobile ? 'overlay red-overlay' : 'overlay'" 
         @mouseover="showText = true" @mouseleave="showText = false"
       >
         <div v-if="showText || isMobile">
@@ -16,7 +13,7 @@
           </div>
           <div class="text-container" v-else>
             <b>{{ element.enrichment.year }}</b>
-            {{element.title}} - {{element.enrichment.place}}
+            <p style="text-align: start;">{{element.title}} - {{element.enrichment.place}}</p>
           </div>
         </div>
       </div>
