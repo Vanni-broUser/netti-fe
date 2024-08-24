@@ -26,6 +26,7 @@
     "searchBoxTtile": "Ricerca contenuti nel sito",
     "titleCard1": "Ricerca testuale",
     "titleCard2": "Ricerca per anno",
-    "titleCard3": "Ricerca per luogo"
+    "titleCard3": "Ricerca per luogo",
+    "button": "Cerca"
   }
 }

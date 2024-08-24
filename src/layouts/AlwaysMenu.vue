@@ -40,10 +40,11 @@
   import { useRoute } from 'vue-router';
 
   const route = useRoute();
+  console.log(route.path)
 
   const getClasses = (page) => {
     const classes = ['ml-2', 'font-size', 'mt-3'];
-    if (route.path == page)
+    if (route.path.includes(page))
       classes.push('red');
     return classes;
   }

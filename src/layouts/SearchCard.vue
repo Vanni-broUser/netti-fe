@@ -19,7 +19,7 @@
         </v-window>
       </v-card-text>
       <v-card-actions>
-        <v-btn text="Cerca" type="submit" :color="theme.current.value.primary" />
+        <v-btn :text="$t('SearchCard.button')" type="submit" :color="theme.current.value.primary" />
       </v-card-actions>
     </v-form>
   </v-card>

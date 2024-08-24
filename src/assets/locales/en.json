@@ -26,6 +26,7 @@
     "searchBoxTtile": "Search Site Content",
     "titleCard1": "Textual Search",
     "titleCard2": "Search by Year",
-    "titleCard3": "Search by Location"
+    "titleCard3": "Search by Location",
+    "button": "Search"
   }
 }
