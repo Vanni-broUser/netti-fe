@@ -1,9 +1,6 @@
 <template>
   <v-row>
-    <v-col cols="12" md="6">
-      <Map />
-    </v-col>
-    <v-col cols="12" md="6">
+    <v-col cols="12" md="5">
       <v-container>
         <v-typography style="color: black;">
           Contatti di prova riga 1
@@ -13,8 +10,11 @@
           Contatti di prova riga 3
         </v-typography>
         <br><br><br>
-        <Contacts style="margin-right: 30px;" />
+        <Contacts/>
       </v-container>
+    </v-col>
+    <v-col cols="12" md="5">
+      <Map />
     </v-col>
   </v-row>
 </template>
