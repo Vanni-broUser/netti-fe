@@ -23,10 +23,10 @@
     "searchButton": "Cerca sul sito"
   },
   "SearchCard": {
-    "searchBoxTtile": "Ricerca contenuti nel sito",
-    "titleCard1": "Ricerca testuale",
-    "titleCard2": "Ricerca per anno",
-    "titleCard3": "Ricerca per luogo",
+    "searchBoxTitle": "Ricerca contenuti nel sito",
+    "titleCardText": "Ricerca testuale",
+    "titleCardYear": "Ricerca per anno",
+    "titleCardPlace": "Ricerca per luogo",
     "button": "Cerca"
   }
 }
