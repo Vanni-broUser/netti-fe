@@ -40,7 +40,6 @@
   import { useRoute } from 'vue-router';
 
   const route = useRoute();
-  console.log(route.path)
 
   const getClasses = (page) => {
     const classes = ['ml-2', 'font-size', 'mt-3'];

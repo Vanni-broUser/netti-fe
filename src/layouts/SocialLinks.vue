@@ -29,7 +29,7 @@
   import devisare from '@/assets/social/devisare.png';
   import archilovers from '@/assets/social/archilovers2.png';
 
-  const { props } = defineProps({
+  const { invertColor } = defineProps({
     invertColor: Boolean
   });
 
@@ -39,7 +39,7 @@
       backgroundSize: 'contain',
       backgroundRepeat: 'no-repeat'
     };
-    if (props.invertColor) style.filter = 'invert(100%)';
+    if (invertColor) style.filter = 'invert(100%)';
     return style;
   };
 </script>

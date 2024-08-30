@@ -6,7 +6,12 @@
     "pagina4": "About Us",
     "pagina5": "Agenda",
     "pagina6": "Contacts",
-    "bottomText": "Designing architectures for the real world<br>while also exploring new expressive forms,<br>with attention to the themes of history, the environment,<br>and urban and extra-urban landscapes,<br>this is the commitment that makes us aware<br>of the responsibility of being architects.<br><br><b>Lorenzo Netti &nbsp; Gloria Valente</b>"
+    "bottomTextLine1": "Designing architectures for the real world",
+    "bottomTextLine2": "while researching new expressive forms,",
+    "bottomTextLine3": "paying attention to the themes of history,",
+    "bottomTextLine4": "the environment, urban and suburban landscapes,",
+    "bottomTextLine5": "this is the commitment that makes us aware",
+    "bottomTextLine6": "of the responsibility of being architects."
   },
   "Contacts": {
     "label1": "Name",

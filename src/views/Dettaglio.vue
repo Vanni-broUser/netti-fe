@@ -1,6 +1,5 @@
 <template>
   <Carousel :content="images" />
-  <v-btn class="background-red close-button" icon="mdi-arrow-left" @click="goBack" />
 </template>
 
 <script setup>
@@ -8,29 +7,12 @@
 
   import { ref } from 'vue';
   import http from '@/utils/http';
-  import { useRoute, useRouter } from 'vue-router';
+  import { useRoute } from 'vue-router';
 
   const images = ref([]);
   const route = useRoute();
-  const router = useRouter();
-
-  const goBack = () => {
-    router.back();
-  };
 
   http.getRequest(`post/${route.params.id}`, {}, function (data) {
     images.value = data.post.files;
   });
 </script>
-
-<style scoped>
-.close-button {
-  position: absolute;
-  top: 45px;
-  right: 27px;
-  color: white;
-  border-radius: 0px;
-  width: 25px;
-  height: 25px;
-}
-</style>

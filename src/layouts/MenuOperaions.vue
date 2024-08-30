@@ -14,6 +14,7 @@
         <div v-bind="activatorProps" style="cursor: pointer;">
           {{ $t('MenuOperations.searchButton') }}
         </div>
+        <br>
       </v-container>
     </template>
     <template v-slot:default="">

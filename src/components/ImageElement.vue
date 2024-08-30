@@ -1,12 +1,12 @@
 <template>
-  <div class="image-container">
+  <div :class="{'image-container': true, 'mobile-container': isMobile}">
     <div @click="emits('showDetails', element)">
       <img :src="element.files ? element.files[0] : 'default'" :alt="`Image ${element.id}`" />
       <div 
         :class="!isMobile ? 'overlay red-overlay' : 'overlay'" 
         @mouseover="showText = true" @mouseleave="showText = false"
       >
-        <div v-if="showText || isMobile">
+        <div v-if="showText && !isMobile">
           <div class="text-container" v-if="element.enrichment.didacticalArea">
             <h1>{{ element.enrichment.didacticalArea }}</h1>
             {{ element.enrichment.year }}
@@ -17,6 +17,16 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div v-if="isMobile" class="mobile-title">
+    <div v-if="element.enrichment.didacticalArea">
+      <h1>{{ element.enrichment.didacticalArea }}</h1>
+      {{ element.enrichment.year }}
+    </div>
+    <div v-else>
+      <b>{{ element.enrichment.year }}</b>
+      {{element.title}} - {{element.enrichment.place}}
     </div>
   </div>
 </template>
@@ -36,11 +46,22 @@
 </script>
 
 <style scoped>
+  .mobile-title {
+    margin-top: -17px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+  }
+  .mobile-container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
   .image-container {
     width: 100%;
     height: 100%;
     overflow: hidden;
     position: relative;
+    cursor: pointer;
   }
 
   .text-container {
@@ -57,7 +78,7 @@
   }
 
   .image-container:hover .red-overlay {
-    background-color: rgba(0, 0, 255, 0.7);
+    background-color: rgba(0, 0, 255, 0.5);
   }
 
   .image-container:hover .description-little {

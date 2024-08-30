@@ -19,19 +19,18 @@
           <ImageElement :element="element" @showDetails="showDetails" />
         </v-col>
       </v-row>
+      <br>
     </div>
     <div v-else v-masonry class="masonry" item-selector=".item" originLeft:false horizontalOrder:true :gutter="gutter">
-      <center>
-        <div  
-          v-masonry-tile
-          class="item"
-          v-for="(element, index) in content" 
-          :key="index" 
-          :style="getStyle(element)"
-        >
-          <ImageElement :element="element" @showDetails="showDetails" />
-        </div>
-      </center>
+      <div  
+        v-masonry-tile
+        class="item"
+        v-for="(element, index) in content" 
+        :key="index" 
+        :style="getStyle(element)"
+      >
+        <ImageElement :element="element" @showDetails="showDetails" />
+      </div>
     </div>
   </div>
 </template>

@@ -11,28 +11,31 @@
       <v-list-item>
         <MainTitle @toggleDrawer="closeDrawer" />
       </v-list-item><br><br>
-      <v-list-item to="/architetture">
-        <b>{{ $t('Menu.pagina1') }}</b>
-      </v-list-item>
-      <v-list-item to="/progetti">
-        <b>{{ $t('Menu.pagina2') }}</b>
-      </v-list-item>
-      <v-list-item to="/ricerche">
-        <b>{{ $t('Menu.pagina3') }}</b>
-      </v-list-item>
-      <v-list-item to="/chi-siamo">
-        {{ $t('Menu.pagina4') }}
-      </v-list-item>
-      <v-list-item to="/agenda">
-        {{ $t('Menu.pagina5') }}
-      </v-list-item>
-      <v-list-item to="/contatti">
-        {{ $t('Menu.pagina6') }}
-      </v-list-item>
+      <router-link class="link" to="/architetture">
+        <div :class="getClasses('/architetture')"><b>{{ $t('Menu.pagina1') }}</b></div>
+      </router-link>
+      <router-link class="link" to="/progetti">
+        <div :class="getClasses('/progetti')"><b>{{ $t('Menu.pagina2') }}</b></div>
+      </router-link>
+      <router-link class="link" to="/ricerche">
+        <div :class="getClasses('/ricerche')"><b>{{ $t('Menu.pagina3') }}</b></div>
+      </router-link>
+      <router-link class="link" to="/chi-siamo">
+        <div :class="getClasses('/chi-siamo')">{{ $t('Menu.pagina4') }}</div>
+      </router-link>
+      <router-link class="link" to="/agenda">
+        <div :class="getClasses('/agenda')">{{ $t('Menu.pagina5') }}</div>
+      </router-link>
+      <router-link class="link" to="/contatti">
+        <div :class="getClasses('/contatti')">{{ $t('Menu.pagina6') }}</div>
+      </router-link>
     </v-list>
     <MenuOperations />
     <div>
-      <p class="white_text" v-html="$t('Menu.bottomText')" />
+      <p class="white-text" v-for="n in 6">
+        {{ $t(`Menu.bottomTextLine${n}`) }}
+      </p>
+      <br><p class="white-text"><b>Lorenzo Netti &nbsp; Gloria Valente</b></p>
       <SocialLinks />
     </div>
   </v-navigation-drawer>
@@ -45,8 +48,10 @@
 
   import { useTheme } from 'vuetify';
   import mobile from '@/utils/mobile';
+  import { useRoute } from 'vue-router';
 
   const theme = useTheme();
+  const route = useRoute();
   const isMobile = mobile.setupMobileUtils();
 
   const props = defineProps({
@@ -59,13 +64,24 @@
     emit("update:modelValue", false);
     emit("close");
   };
+
+  const getClasses = (page) => {
+    const classes = ['ml-2', 'font-size', 'mt-3'];
+    if (route.path.includes(page))
+      classes.push('black');
+    return classes;
+  }
 </script>
 
 <style scoped>
-  .white_text {
+  .white-text {
     font-size: 12.5px;
     color: white;
     margin-left: 15px;
     margin-right: 15px;
+  }
+
+  .font-size {
+    font-size: large;
   }
 </style>

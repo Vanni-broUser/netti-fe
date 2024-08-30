@@ -6,7 +6,12 @@
     "pagina4": "Chi siamo",
     "pagina5": "Agenda",
     "pagina6": "Contatti",
-    "bottomText": "Progettare architetture per il mondo reale<br>e al contempo ricercare nuove forme espressive,<br>attenti ai temi della storia, dell’ambiente,<br>del paesaggio urbano ed extraurbano,<br>questo l'impegno che ci rende consapevoli<br>della responsabilità di essere architetti.<br><br><b>Lorenzo Netti &nbsp; Gloria Valente</b>"
+    "bottomTextLine1": "Progettare architetture per il mondo reale",
+    "bottomTextLine2": "e al contempo ricercare nuove forme espressive,",
+    "bottomTextLine3": "attenti ai temi della storia, dell’ambiente,",
+    "bottomTextLine4": "del paesaggio urbano ed extraurbano,",
+    "bottomTextLine5": "questo l'impegno che ci rende consapevoli",
+    "bottomTextLine6": "della responsabilità di essere architetti."
   },
   "Contacts": {
     "label1": "Nominativo",
