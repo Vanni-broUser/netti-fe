@@ -16,7 +16,7 @@
   import { ref } from 'vue';
   import http from '@/utils/http';
   import { useRoute } from 'vue-router';
-  import { setupMobileUtils } from '@/utils/mobile.js';
+  import { setupMobileUtils } from '@/utils/mobile';
 
   const posts = ref([]);
   const route = useRoute();

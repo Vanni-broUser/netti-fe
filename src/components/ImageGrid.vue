@@ -37,7 +37,7 @@
 
 <script setup>
   import { ref } from 'vue';
-  import { setupMobileUtils } from '@/utils/mobile.js';
+  import { setupMobileUtils } from '@/utils/mobile';
 
   import VueMarkdown from 'vue-markdown-render';
   import ImageElement from '@/components/ImageElement';

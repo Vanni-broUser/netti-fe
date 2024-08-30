@@ -15,14 +15,16 @@
   },
   "Contacts": {
     "label1": "Name",
-    "label2": "Email",
     "label3": "Subject",
     "label4": "Message",
     "button": "Send"
   },
   "ChiSiamo": {
-    "lorenzoNetti": "Graduated cum laude in Architecture from Florence, he is a professor of Drawing and Architectural Composition at the Polytechnic University of Bari. He has taught courses at the Academy of Fine Arts in Bari. He is an editor of the magazine of architecture, art, communication, and design 'Il Progetto'.<br>He was a professor of Architectural Drawing at the Architecture degree program from 1993 to 2003, of Drawing at the Industrial Design degree program from 2003 to 2014, and of Architecture and Architectural Composition since 2008 at the Civil Engineering and Architecture degree program, where Lorenzo Netti teaches his courses in Architectural Drawing.<br>His work is included in the collection of Italian architectural drawings by Francesco Moschini (AAM Architettura Arte Moderna).",
-    "gloriaValente": "Graduated cum laude in Architecture from Florence, she has taught design and interior architecture. In 1990 she was invited by Alessi for the research 'Memory Containers', in 1991 she participated in the exhibition 'Design by Women', and in 1992 she was selected for the exhibition 'New Beautiful Design, 200 New Objects for the Home'.<br>Engaged in the research of identity forms on the theme of 'Italian Interiors', Gloria Valente writes about architecture for magazines and blogs. In 2012 she participated in the exhibition 'Diverso Design' and in 2013 in the exhibition 'Empathy' for the series 'Author's Production'. Her upcoming book collects the results of her activities as an architect, designer, and visionary photographer of everyday life; her research has indeed expanded into the field of art photography, which she exhibited in the 2015 exhibition 'Tempografie'."
+    "lorenzoNettiLine1": "Graduated cum laude in Architecture from Florence, he is a professor of Drawing and Architectural Composition at the Polytechnic University of Bari. He has taught courses at the Academy of Fine Arts in Bari. He is an editor of the magazine of architecture, art, communication, and design 'Il Progetto'.",
+    "lorenzoNettiLine2": "He was a professor of Architectural Drawing at the Architecture degree program from 1993 to 2003, of Drawing at the Industrial Design degree program from 2003 to 2014, and of Architecture and Architectural Composition since 2008 at the Civil Engineering and Architecture degree program, where Lorenzo Netti teaches his courses in Architectural Drawing.",
+    "lorenzoNettiLine3": "His work is included in the collection of Italian architectural drawings by Francesco Moschini (AAM Architettura Arte Moderna).",
+    "gloriaValenteLine1": "Graduated cum laude in Architecture from Florence, she has taught design and interior architecture. In 1990 she was invited by Alessi for the research 'Memory Containers', in 1991 she participated in the exhibition 'Design by Women', and in 1992 she was selected for the exhibition 'New Beautiful Design, 200 New Objects for the Home'.",
+    "gloriaValenteLine2": "Engaged in the research of identity forms on the theme of 'Italian Interiors', Gloria Valente writes about architecture for magazines and blogs. In 2012 she participated in the exhibition 'Diverso Design' and in 2013 in the exhibition 'Empathy' for the series 'Author's Production'. Her upcoming book collects the results of her activities as an architect, designer, and visionary photographer of everyday life; her research has indeed expanded into the field of art photography, which she exhibited in the 2015 exhibition 'Tempografie'."
   },
   "MenuOperations": {
     "searchButton": "Search on the Site"

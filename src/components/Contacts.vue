@@ -14,7 +14,7 @@
           v-model="email"
           :rules="validation.emailRules"
           variant="outlined"
-          :label="$t('Contacts.label2')"
+          label="Email"
         />
       </v-col>
     </v-row>

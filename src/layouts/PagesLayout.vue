@@ -40,7 +40,7 @@
 </script>
 
 <style scoped>
-.desktop-view {
-  margin-left: 338px;
-}
+  .desktop-view {
+    margin-left: 338px;
+  }
 </style>

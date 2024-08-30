@@ -1,24 +1,37 @@
 <template>
-    <v-row style="margin-right: 5px;">
-      <v-col cols="12" md="4" v-for="post in posts">
-        <router-link :to="`/agenda/${post.id}`" class="link">
-          <v-card height="560">
-            <v-img :src="post.files[0]" height="400" />
-            <v-card-text>
-              <p class="red truncate-title" style="font-size: x-large;">{{ post.title }}</p>
-              <br><p class="truncate-text">{{ post.content }}</p>
-            </v-card-text>
-          </v-card>
-        </router-link>
+  <v-container>
+    <v-row v-if="!isMobile" style="margin-right: 250px;">
+      <v-col cols="8">
+        <AgendaItem :post="posts[0]" :height="600" />
+      </v-col>
+      <v-col cols="4">
+        <AgendaItem :post="posts[1]" :height="200" />
+        <AgendaItem :post="posts[2]" :height="200" />
       </v-col>
     </v-row>
+    <v-row v-if="!isMobile" style="margin-right: 250px;">
+      <v-col cols="4" v-for="post in posts.slice(3)">
+        <AgendaItem :post="post" :height="200" />
+      </v-col>
+    </v-row>
+    <v-row v-else>
+      <v-col cols="12" md="12" v-for="post in posts">
+        <AgendaItem :post="post" />
+        <hr class="dotted-hr red" v-if="isMobile && posts.indexOf(post) != posts.length - 1">
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script setup>
   import { ref } from 'vue';
   import http from '@/utils/http';
+  import { setupMobileUtils } from '@/utils/mobile';
+
+  import AgendaItem from '@/components/AgendaItem';
 
   const posts = ref([]);
+  const isMobile = setupMobileUtils();
 
   http.getRequest('blog/post', {
     'topics': ['Agenda']
@@ -28,25 +41,11 @@
 </script>
 
 <style scoped>
-  .truncate-text {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    max-height: 3.9em;
-    line-height: 1.5em;
-  }
-
-  .truncate-title {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    max-height: 4.5em;
-    line-height: 1.0em;
+  .dotted-hr {
+    border: 3px dotted;
+    border-top: none;
+    height: 0;
+    margin: 20px 0;
+    width: 100%;
   }
 </style>

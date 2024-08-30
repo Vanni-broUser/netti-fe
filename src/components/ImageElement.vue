@@ -33,7 +33,7 @@
 
 <script setup>
   import { ref } from 'vue';
-  import { setupMobileUtils } from '@/utils/mobile.js';
+  import { setupMobileUtils } from '@/utils/mobile';
 
   const showText = ref(false);
   const isMobile = setupMobileUtils();
