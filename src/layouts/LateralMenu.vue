@@ -50,10 +50,7 @@
   const isMobile = mobile.setupMobileUtils();
 
   const props = defineProps({
-    modelValue: {
-      type: Boolean,
-      required: true
-    }
+    modelValue: Boolean
   });
 
   const emit = defineEmits(["update:modelValue", "close"]);

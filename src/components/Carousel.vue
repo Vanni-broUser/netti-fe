@@ -27,10 +27,7 @@ import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { carousel, focusCarousel } from '@/utils/focusCarousel.js';
 
 const props = defineProps({
-  content: {
-    type: Array,
-    required: true
-  }
+  content: Array
 });
 
 const selected = ref(0);

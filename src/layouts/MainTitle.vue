@@ -22,7 +22,10 @@
 
   const emits = defineEmits(['toggleDrawer']);
 
-  const { year, alwaysMenu } = defineProps(['year', 'alwaysMenu']);
+  const { props } = defineProps({
+    year: Boolean,
+    alwaysMenu: Boolean
+  });
 </script>
 
 <style scoped>

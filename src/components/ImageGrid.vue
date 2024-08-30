@@ -49,14 +49,8 @@
   const selectedImage = ref({});
 
   const props = defineProps({
-    content: {
-      type: Array,
-      required: true
-    },
-    numCols: {
-      type: Number,
-      default: 4
-    },
+    content: Array,
+    numCols: Number
   });
 
   const getStyle = (image) => {

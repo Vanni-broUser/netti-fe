@@ -31,10 +31,7 @@
   const emits = defineEmits(['showDetails']);
 
   const props = defineProps({
-    element: {
-      type: Object,
-      required: true
-    }
+    element: Object
   });
 </script>
 
