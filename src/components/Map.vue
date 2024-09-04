@@ -8,17 +8,18 @@
   import 'ol/ol.css';
   import Map from 'ol/Map';
   import View from 'ol/View';
-  import TileLayer from 'ol/layer/Tile';
   import XYZ from 'ol/source/XYZ';
   import Feature from 'ol/Feature';
   import Point from 'ol/geom/Point';
   import { fromLonLat } from 'ol/proj';
+  import TileLayer from 'ol/layer/Tile';
   import { Icon, Style } from 'ol/style';
   import VectorLayer from 'ol/layer/Vector';
   import VectorSource from 'ol/source/Vector';
 
   import { useTheme } from 'vuetify';
   import { ref, onMounted } from 'vue';
+  import marker from '@/assets/marker.png';
 
   const theme = useTheme();
   const mapContainer = ref(null);
@@ -40,7 +41,7 @@
         anchor: [0.5, 46],
         anchorXUnits: 'fraction',
         anchorYUnits: 'pixels',
-        src: `${import.meta.env.VITE_HOSTNAME}colorize-image?color=%23${settings.primaryColor.substring(1)}`
+        src: marker
       })
     });
 

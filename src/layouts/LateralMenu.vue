@@ -17,7 +17,7 @@
       <router-link class="link" to="/progetti">
         <div :class="getClasses('/progetti')"><b>{{ $t('Menu.pagina2') }}</b></div>
       </router-link>
-      <router-link class="link" to="/ricerche">
+      <router-link class="link" to="/ricerche/didattica">
         <div :class="getClasses('/ricerche')"><b>{{ $t('Menu.pagina3') }}</b></div>
       </router-link>
       <router-link class="link" to="/chi-siamo">
