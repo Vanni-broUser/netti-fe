@@ -2,9 +2,15 @@
   <div :class="{ margin: !isMobile }">
     <v-container>
       <h2>
-        {{ $t(`SearchCard.titleCard${capitalize(route.query.name)}`) }}:
-        {{ route.query.value }}
+        {{ $t('RicercaPost.header') }}
       </h2>
+      <h3>
+        <span v-for="filter in filters">
+          <span v-if="route.query[filter]">
+            {{ `${$t(`RicercaPost.${filter}`)}: ${route.query[filter]} ` }}
+          </span>
+        </span>
+      </h3>
     </v-container>
     <ImageGrid v-if="loading" :content="posts" :numCols="3"/>
   </div>
@@ -23,24 +29,17 @@
   const loading = ref(false);
   const isMobile = setupMobileUtils();
 
-  const args = {};
-  if (route.query.name == 'text')
-    args.title = route.query.value;
-  else {
-    args.enrichment_name = route.query.name;
-    args.enrichment_value = route.query.value;
-    if (route.query.name == 'place')
-      args.enrichment_like = true;
+  const filters = ['text', 'year', 'place'];
+  let args = {};
+  for (const filter of filters) {
+    if (route.query[filter])
+      args[filter] = route.query[filter];
   }
 
   http.getRequest('blog/post', args, function (data) {
     posts.value = data.posts;
     loading.value = true;
   });
-
-  const capitalize = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  };
 </script>
 
 <style scoped>

@@ -35,5 +35,11 @@
     "titleCardYear": "Ricerca per anno",
     "titleCardPlace": "Ricerca per luogo",
     "button": "Cerca"
+  },
+  "RicercaPost": {
+    "header": "Ricerca contenuti",
+    "text": "Testo",
+    "year": "Anno",
+    "place": "Posto"
   }
 }
