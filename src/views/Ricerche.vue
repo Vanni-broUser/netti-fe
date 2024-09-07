@@ -7,12 +7,16 @@
 
   import { ref } from 'vue';
   import http from '@/utils/http';
+  import { useRoute } from 'vue-router';
 
   const posts = ref([]);
+  const route = useRoute();
   const loading = ref(false);
 
   http.getRequest('blog/post', {
-    'topics': ['Ricerche']
+    'topics': [
+      route.path.includes('/extra') ? 'Extra' : 'Ricerche'
+    ]
   }, function (data) {
     posts.value = data.posts;
     loading.value = true;

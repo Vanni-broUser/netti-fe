@@ -15,15 +15,12 @@
     <div v-if="route.path.includes('/extra')">
       <v-img :src="extra" alt="Extra" />
       <p class="central-text mt-5">
-        Qui sono raccolti i contributi e le ricerche di netti architetti sul design e i cambiamenti in atto nell’architettura e nelle città mediterranee. 
+        Qui sono raccolti i contributi e le ricerche di <b>netti architetti</b> sul design e i cambiamenti in atto nell’architettura e nelle città mediterranee. 
         <br>
         In questa sezione, video, fotografie e immagini non convenzionali di un’attività esplorativa e autonoma sui nuovi linguaggi e sull’evoluzione delle arti del progetto alle diverse scale.
       </p>
-    </div>
-    <router-link
-      :to="route.path.includes('/extra') ? '/ricerche/didattica' : '/ricerche/extra'"
-      class="link"
-    >
+    </div><br>
+    <div @click="reload()" class="link">
       <v-img
         :src="route.path.includes('/extra') ? dinettica : extra"
         alt="Extra"
@@ -31,7 +28,7 @@
       <p class="central-text">
         <b>Vedi anche...</b>
       </p>
-    </router-link>
+    </div>
   </div>
 </template>
 
@@ -42,6 +39,10 @@
   import { useRoute } from 'vue-router';
 
   const route = useRoute();
+
+  const reload = () => {
+    window.location.href = route.path.includes('/extra') ? '/ricerche/didattica' : '/ricerche/extra';
+  };
 </script>
 
 <style scoped>
