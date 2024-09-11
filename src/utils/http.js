@@ -1,4 +1,3 @@
-const apiKey = import.meta.env.VITE_API_KEY;
 const hostname = import.meta.env.VITE_HOSTNAME;
 
 
@@ -6,7 +5,6 @@ const postRequest = (endpoint, body, func, method = 'POST') => {
   fetch(`${hostname}${endpoint}`, {
     method: method,
     headers: {
-      'Authorization': apiKey,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(body)
@@ -29,7 +27,6 @@ const getRequest = (endpoint, params, func, method = 'GET') => {
   fetch(url, {
     method: method,
     headers: {
-      'Authorization': apiKey,
       'Content-Type': 'application/json'
     }
   }).then(response => {

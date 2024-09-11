@@ -12,7 +12,8 @@
   const loading = ref(false);
 
   http.getRequest('blog/post', {
-    'topics': ['Architetture']
+    project: 'nettiarchitetti.it',
+    topics: ['Architetture']
   }, function (data) {
     posts.value = data.posts;
     loading.value = true;

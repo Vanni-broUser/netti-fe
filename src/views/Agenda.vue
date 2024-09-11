@@ -34,7 +34,8 @@
   const isMobile = setupMobileUtils();
 
   http.getRequest('blog/post', {
-    'topics': ['Agenda']
+    project: 'nettiarchitetti.it',
+    topics: ['Agenda']
   }, function (data) {
     posts.value = data.posts;
   });

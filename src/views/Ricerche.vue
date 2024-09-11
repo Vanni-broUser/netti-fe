@@ -14,7 +14,8 @@
   const loading = ref(false);
 
   http.getRequest('blog/post', {
-    'topics': [
+    project: 'nettiarchitetti.it',
+    topics: [
       route.path.includes('/extra') ? 'Extra' : 'Ricerche'
     ]
   }, function (data) {
