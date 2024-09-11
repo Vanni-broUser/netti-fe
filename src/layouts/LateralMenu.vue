@@ -1,15 +1,12 @@
 <template>
   <v-navigation-drawer 
     :model-value="modelValue" 
-    @update:model-value="$emit('update:modelValue', $event)"
-    @click-outside="$emit('update:modelValue', false); $emit('close')" 
-    temporary 
     :color="theme.current.value.primary"
     :style="{width: isMobile ? '100%' : '338px'}"
   >
-  <v-list density="compact" nav>
+    <v-list density="compact" nav>
       <v-list-item>
-        <MainTitle @toggleDrawer="closeDrawer" />
+        <MainTitle @toggleDrawer="emit('toggleDrawer')" />
       </v-list-item><br><br>
       <router-link class="link" to="/architetture">
         <div :class="getClasses('/architetture')"><b>{{ $t('Menu.pagina1') }}</b></div>
@@ -58,12 +55,7 @@
     modelValue: Boolean
   });
 
-  const emit = defineEmits(["update:modelValue", "close"]);
-
-  const closeDrawer = () => {
-    emit("update:modelValue", false);
-    emit("close");
-  };
+  const emit = defineEmits(['toggleDrawer']);
 
   const getClasses = (page) => {
     const classes = ['ml-2', 'font-size', 'mt-3'];

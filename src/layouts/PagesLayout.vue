@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <LateralMenu v-if="isMobile" :modelValue="drawer" @update:modelValue="handleDrawerUpdate" />
+    <LateralMenu v-if="isMobile" :modelValue="drawer" @toggleDrawer="toggleDrawer" />
     <AlwaysMenu v-if="!isMobile" />
     <v-layout>
       <v-main>
@@ -16,27 +16,15 @@
   import AlwaysMenu from './AlwaysMenu';
   import LateralMenu from './LateralMenu';
 
+  import { ref } from 'vue';
   import mobile from '@/utils/mobile';
-  import { ref, onMounted } from 'vue';
-  import { focusCarousel, carousel } from '@/utils/focusCarousel';
 
   const drawer = ref(false);
   const isMobile = mobile.setupMobileUtils();
 
   const toggleDrawer = () => {
     drawer.value = !drawer.value;
-    if (!drawer.value) focusCarousel();
   };
-
-  const handleDrawerUpdate = (value) => {
-    drawer.value = value;
-    if (!value) focusCarousel();
-  };
-
-  onMounted(() => {
-    carousel.value = document.querySelector('.v-carousel');
-    focusCarousel();
-  });
 </script>
 
 <style scoped>
