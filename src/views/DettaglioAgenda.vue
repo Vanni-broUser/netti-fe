@@ -4,7 +4,7 @@
       {{ post.title }}
     </h1>
     <v-breadcrumbs :items="breadcrumbs" style="padding: 0px; margin-top: 20px;" />
-    <v-img v-if="post.files" width="800" :src="post.files[0]" />
+    <v-img v-if="post.cover" width="800" :src="post.cover" />
     <br><VueMarkdown v-if="post.content" :source="post.content" /><br>
   </v-container>
 </template>

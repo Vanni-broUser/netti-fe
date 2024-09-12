@@ -8,13 +8,15 @@
   import { ref } from 'vue';
   import http from '@/utils/http';
   import { useRoute } from 'vue-router';
+  import { setupMobileUtils } from '@/utils/mobile';
 
   const images = ref([]);
   const route = useRoute();
+  const isMobile = setupMobileUtils();
 
   http.getRequest(`post/${route.params.id}`, {
     project: 'nettiarchitetti.it'
   }, function (data) {
-    images.value = data.post.files;
+    images.value = isMobile.value ? data.post.mobile_files : data.post.desktop_files;
   });
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div :class="{'image-container': true, 'mobile-container': isMobile}">
     <div @click="emits('showDetails', element)">
-      <img :src="element.files ? element.files[0] : 'default'" :alt="`Image ${element.id}`" />
+      <img :src="element.cover" :alt="`Image ${element.id}`" />
       <div 
         :class="!isMobile ? 'overlay red-overlay' : 'overlay'" 
         @mouseover="showText = true" @mouseleave="showText = false"
