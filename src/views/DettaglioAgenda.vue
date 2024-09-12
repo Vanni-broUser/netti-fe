@@ -23,7 +23,9 @@
   const breadcrumbs = ref([]);
   const isMobile = mobile.setupMobileUtils();
 
-  http.getRequest(`post/${route.params.id}`, {}, function (data) {
+  http.getRequest(`post/${route.params.id}`, {
+    project: 'nettiarchitetti.it'
+  }, function (data) {
     post.value = data.post;
     breadcrumbs.value = [
       {

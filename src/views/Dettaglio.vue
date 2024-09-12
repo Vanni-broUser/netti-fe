@@ -12,7 +12,9 @@
   const images = ref([]);
   const route = useRoute();
 
-  http.getRequest(`post/${route.params.id}`, {}, function (data) {
+  http.getRequest(`post/${route.params.id}`, {
+    project: 'nettiarchitetti.it'
+  }, function (data) {
     images.value = data.post.files;
   });
 </script>
