@@ -105,8 +105,8 @@ onBeforeUnmount(() => {
 <style scoped>
 .custom-controls {
   position: absolute;
-  bottom: 1vh;
-  right: 1vw;
+  bottom: 25px;
+  right: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
