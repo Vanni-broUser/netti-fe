@@ -39,7 +39,6 @@
   const isMobile = setupMobileUtils();
 
   const emits = defineEmits(['showDetails']);
-
   const props = defineProps({
     element: Object
   });

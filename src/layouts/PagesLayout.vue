@@ -6,12 +6,14 @@
       <v-main>
         <MainTitle @toggleDrawer="toggleDrawer" v-if="isMobile" :alwaysMenu="true" />
         <router-view :class="{ 'desktop-view': !isMobile }" style="margin-top: 100px;" />
+        <Footer :class="{ 'desktop-view': !isMobile }" />
       </v-main>
     </v-layout>
   </v-app>
 </template>
 
 <script setup>
+  import Footer from './Footer';
   import MainTitle from './MainTitle';
   import AlwaysMenu from './AlwaysMenu';
   import LateralMenu from './LateralMenu';

@@ -1,5 +1,5 @@
 <template>
-  <Carousel :content="images" />
+  <Carousel :content="images" :notScroll="true" />
 </template>
 
 <script setup>

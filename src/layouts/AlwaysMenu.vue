@@ -35,7 +35,7 @@
   import MainTitle from './MainTitle';
   import SocialLinks from './SocialLinks';
   import MenuOperations from './MenuOperaions';
-  import ResearchLegend from './ResearchLegend';
+  import ResearchLegend from '@/components/ResearchLegend';
 
   import { useRoute } from 'vue-router';
 

@@ -21,13 +21,13 @@
       </p>
     </div><br>
     <div @click="reload()" class="link">
+      <p class="central-text">
+        <b>Vedi anche...</b>
+      </p>
       <v-img
         :src="route.path.includes('/extra') ? dinettica : extra"
         alt="Extra"
       />
-      <p class="central-text">
-        <b>Vedi anche...</b>
-      </p>
     </div>
   </div>
 </template>

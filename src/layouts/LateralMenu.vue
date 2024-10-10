@@ -6,7 +6,7 @@
   >
     <v-list density="compact" nav>
       <v-list-item>
-        <MainTitle @toggleDrawer="emit('toggleDrawer')" />
+        <MainTitle @toggleDrawer="emits('toggleDrawer')" />
       </v-list-item><br><br>
       <router-link class="link" to="/architetture">
         <div :class="getClasses('/architetture')"><b>{{ $t('Menu.pagina1') }}</b></div>
@@ -54,8 +54,7 @@
   const props = defineProps({
     modelValue: Boolean
   });
-
-  const emit = defineEmits(['toggleDrawer']);
+  const emits = defineEmits(['toggleDrawer']);
 
   const getClasses = (page) => {
     const classes = ['ml-2', 'font-size', 'mt-3'];

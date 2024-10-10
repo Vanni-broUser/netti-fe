@@ -30,9 +30,7 @@
   const isMobile = setupMobileUtils();
 
   const filters = ['text', 'year', 'place'];
-  let args = {
-    project: 'nettiarchitetti.it'
-  };
+  let args = { project: 'nettiarchitetti.it' };
   for (const filter of filters) {
     if (route.query[filter])
       args[filter] = route.query[filter];

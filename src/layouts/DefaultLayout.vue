@@ -3,14 +3,16 @@
     <LateralMenu :modelValue="drawer" @toggleDrawer="toggleDrawer" />
     <v-layout>
       <v-main>
-        <MainTitle @toggleDrawer="toggleDrawer" :year="true" :details="route.path.includes('/dettaglio/')" />
+        <MainTitle @toggleDrawer="toggleDrawer" :details="route.path.includes('/dettaglio/')" />
         <router-view />
+        <Footer />
       </v-main>
     </v-layout>
   </v-app>
 </template>
 
 <script setup>
+  import Footer from './Footer';
   import MainTitle from './MainTitle';
   import LateralMenu from './LateralMenu';
 
