@@ -18,7 +18,10 @@
         class="background-red square-btn detail-button"
       />
       <router-link to="/" class="link">
-        <p v-if="alwaysMenu" class="black title"><b class="red">netti</b>architetti</p>
+        <p v-if="alwaysMenu" :class="{
+          'black title': true,
+          'always-menu-position': !isMobile
+        }"><b class="red">netti</b>architetti</p>
         <p v-else :class="{
           'white title': true,
           'detail-position': details
@@ -54,13 +57,12 @@
     width: 100%;
     display: flex;
     align-items: center;
-
   }
 
   .title {
     position: fixed;
     font-size: 40px;
-    left: 50px;
+    left: 45px;
   }
 
   .square-btn {
@@ -83,5 +85,9 @@
 
   .detail-position {
     margin-left: 40px;
+  }
+
+  .always-menu-position {
+    left: 15px;
   }
 </style>

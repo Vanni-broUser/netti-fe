@@ -1,5 +1,9 @@
 <template>
-  <v-footer :color="theme.current.value.primary" elevation="2">
+  <v-footer
+    :color="theme.current.value.primary"
+    elevation="2"
+    style="max-height: max-content;"
+  >
     <v-row>
       <v-col cols="12" md="4">
         NETTI ARCHITETTI © {{ new Date().getFullYear() }}

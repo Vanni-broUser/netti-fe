@@ -1,14 +1,14 @@
 <template>
   <v-app>
     <LateralMenu v-if="isMobile" :modelValue="drawer" @toggleDrawer="toggleDrawer" />
-    <AlwaysMenu v-if="!isMobile" />
+    <AlwaysMenu v-else />
     <v-layout>
       <v-main>
         <MainTitle @toggleDrawer="toggleDrawer" v-if="isMobile" :alwaysMenu="true" />
         <router-view :class="{ 'desktop-view': !isMobile }" style="margin-top: 100px;" />
-        <Footer :class="{ 'desktop-view': !isMobile }" />
       </v-main>
     </v-layout>
+    <Footer :class="{ 'desktop-view': !isMobile }" />
   </v-app>
 </template>
 
@@ -32,5 +32,9 @@
 <style scoped>
   .desktop-view {
     margin-left: 338px;
+  }
+
+  .content {
+    height: 100vh;
   }
 </style>
