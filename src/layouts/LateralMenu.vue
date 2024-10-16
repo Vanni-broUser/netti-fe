@@ -2,7 +2,7 @@
   <v-navigation-drawer 
     :model-value="modelValue" 
     :color="theme.current.value.primary"
-    :style="{width: isMobile ? '100%' : '338px'}"
+    :style="{width: isMobile ? '100%' : '335px'}"
   >
     <v-list density="compact" nav>
       <v-list-item>

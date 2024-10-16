@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer permanent width="338">
+  <v-navigation-drawer permanent width="305">
     <v-list density="compact" nav>
       <v-list-item>
         <MainTitle :alwaysMenu="true" />

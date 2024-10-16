@@ -62,7 +62,7 @@
   .title {
     position: fixed;
     font-size: 40px;
-    left: 45px;
+    left: 50px;
   }
 
   .square-btn {

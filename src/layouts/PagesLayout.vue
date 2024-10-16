@@ -31,7 +31,7 @@
 
 <style scoped>
   .desktop-view {
-    margin-left: 338px;
+    margin-left: 305px;
   }
 
   .content {
