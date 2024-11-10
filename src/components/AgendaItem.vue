@@ -50,6 +50,6 @@
     -webkit-line-clamp: 2;
     line-clamp: 2;
     max-height: 4.5em;
-    line-height: 1.5em;
+    line-height: 1.1em;
   }
 </style>

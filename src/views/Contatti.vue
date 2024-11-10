@@ -3,11 +3,11 @@
     <v-col cols="12" md="5">
       <v-container>
         <p style="color: black;">
-          Contatti di prova riga 1
+          Netti Architetti Associazione Professionale
           <br>
-          Contatti di prova riga 2
+          Piazza Giuseppe Massari 36, Bari
           <br>
-          Contatti di prova riga 3
+          Identificativo IVA IT04211070729
         </p>
         <br><br><br>
         <Contacts :class="{'mt-10': !isMobile}"/>

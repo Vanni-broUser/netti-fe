@@ -81,4 +81,9 @@
   .item {
     margin-bottom: 14px;
   }
+
+  .v-btn--icon.v-btn--density-default {
+    width: 36px;
+    height: 36px;
+  }
 </style>

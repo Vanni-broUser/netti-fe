@@ -3,7 +3,7 @@
     elevation="2"
     style="max-height: max-content;"
   >
-    NETTI ARCHITETTI © {{ new Date().getFullYear() }}  |  Bari-Italia  |  studio@nettiarchitetti.it
+    NETTI ARCHITETTI © {{ new Date().getFullYear() }} | Bari &mdash; Italia | studio@nettiarchitetti.it
   </v-footer>
 </template>
 

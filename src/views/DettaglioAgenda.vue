@@ -1,8 +1,8 @@
 <template>
   <v-container style="padding-top: 0px;">
-    <h1 :class="{red: true, 'margin-desktop': !isMobile}">
+    <p :class="{red: true, 'margin-desktop': !isMobile}">
       {{ post.title }}
-    </h1>
+    </p>
     <v-breadcrumbs :items="breadcrumbs" style="padding: 0px; margin-top: 20px;" />
     <v-img v-if="post.cover" width="800" :src="post.cover" />
     <br><VueMarkdown v-if="post.content" :source="post.content" /><br>

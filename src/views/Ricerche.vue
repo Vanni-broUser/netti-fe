@@ -20,7 +20,7 @@
   http.getRequest('blog/post', {
     project: 'nettiarchitetti.it',
     topics: [
-      route.path.includes('/extra') ? 'Extra' : 'Ricerche'
+      route.path.includes('/extra') ? 'Extra' : 'Dinettica'
     ]
   }, function (data) {
     posts.value = data.posts;

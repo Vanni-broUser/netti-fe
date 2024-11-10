@@ -2,7 +2,7 @@
   <v-navigation-drawer 
     :model-value="modelValue" 
     :color="theme.current.value.primary"
-    :style="{width: isMobile ? '100%' : '335px'}"
+    :style="getWidth()"
   >
     <v-list density="compact" nav>
       <v-list-item>
@@ -61,7 +61,14 @@
     if (route.path.includes(page))
       classes.push('black');
     return classes;
-  }
+  };
+
+  const getWidth = () => {
+    const style = {width: '335px'};
+    if (isMobile.value) style.width = '100%';
+    else if (route.path.includes('dettaglio')) style.width = '360px';
+    return style;
+  };
 </script>
 
 <style scoped>
