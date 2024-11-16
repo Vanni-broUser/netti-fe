@@ -1,29 +1,31 @@
 <template>
-  <ResearchLegend v-if="isMobile" style="margin-top: 80px;" />
-  <ImageGrid v-if="loading" :content="posts" :numCols="3" style="margin-top: 25px;"/>
+  <v-container>
+    <v-row>
+      <v-col cols="12" md="4">
+        <router-link class="link" to="/dinettica">
+          <v-img :src="dinettica" style="height: 200px; width: 600px;" />
+          <br>
+          <p style="color: black; font-size: x-large;">Dinettica</p>
+          <p style="color: black;">
+            {{ $t('Ricerche.dinettica') }}
+          </p>
+        </router-link>
+      </v-col>
+      <v-col cols="12" md="4">
+        <router-link class="link" to="/extra">
+          <v-img :src="extra" style="height: 200px; width: 600px;" />
+          <br>
+          <p style="color: black; font-size: x-large;">Extra</p>
+          <p style="color: black;" v-for="n in 2">
+            {{ $t(`Ricerche.extraLine${n}`) }}
+          </p>
+        </router-link>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script setup>
-  import ImageGrid from '@/components/ImageGrid';
-  import ResearchLegend from '@/components/ResearchLegend';
-
-  import { ref } from 'vue';
-  import http from '@/utils/http';
-  import { useRoute } from 'vue-router';
-  import { setupMobileUtils } from '@/utils/mobile';
-
-  const posts = ref([]);
-  const route = useRoute();
-  const loading = ref(false);
-  const isMobile = setupMobileUtils();
-
-  http.getRequest('blog/post', {
-    project: 'nettiarchitetti.it',
-    topics: [
-      route.path.includes('/extra') ? 'Extra' : 'Dinettica'
-    ]
-  }, function (data) {
-    posts.value = data.posts;
-    loading.value = true;
-  });
+  import extra from '@/assets/extra.gif';
+  import dinettica from '@/assets/dinettica.gif';
 </script>

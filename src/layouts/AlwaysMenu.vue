@@ -23,8 +23,7 @@
         <div :class="getClasses('/contatti')">{{ $t('Menu.pagina6') }}</div>
       </router-link>
     </v-list>
-    <ResearchLegend v-if="route.path.includes('/ricerche')" />
-    <MenuOperations v-else />
+    <MenuOperations />
     <div class="bottom-section">
       <SocialLinks :invertColor="true" />
     </div>
@@ -35,7 +34,6 @@
   import MainTitle from './MainTitle';
   import SocialLinks from './SocialLinks';
   import MenuOperations from './MenuOperaions';
-  import ResearchLegend from '@/components/ResearchLegend';
 
   import { useRoute } from 'vue-router';
 

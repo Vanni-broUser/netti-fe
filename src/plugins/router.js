@@ -68,6 +68,16 @@ const routes = [
         path: '/contatti',
         name: 'Contatti',
         component: () => import('@/views/Contatti.vue')
+      },
+      {
+        path: '/dinettica',
+        name: 'Dinettica',
+        component: () => import('@/views/Dinettica.vue')
+      },
+      {
+        path: '/extra',
+        name: 'Extra',
+        component: () => import('@/views/Extra.vue')
       }
     ]
   }

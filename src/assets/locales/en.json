@@ -41,5 +41,10 @@
     "text": "Text",
     "year": "Year",
     "place": "Place"
+  },
+  "Ricerche": {
+    "dinettica": "Teaching activities of the Composition and Architecture Drawing courses by Lorenzo Netti at the Politecnico di Bari.",
+    "extraLine1": "Here are collected the contributions and research by Netti Architetti on design and the ongoing changes in Mediterranean architecture and cities.",
+    "extraLine2": "In this section, videos, photographs, and unconventional images of an exploratory and independent activity on new languages and the evolution of design arts at different scales."
   }
 }
