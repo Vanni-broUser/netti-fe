@@ -45,7 +45,7 @@ const routes = [
         component: () => import('@/views/Progetti.vue')
       },
       {
-        path: '/ricerche/:type',
+        path: '/ricerche',
         name: 'Ricerche',
         component: () => import('@/views/Ricerche.vue'),
       },
