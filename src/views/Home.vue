@@ -8,7 +8,6 @@
   const images = [
     '/home/M_03-homepage.jpg',
     '/home/IMG_9243-homepage.jpg',
-    '/home/817321E2-3ABC-453A-9336-C1A5A0DFDAAE-homepage.jpeg',
     '/home/Netti-10-bis.jpg',
     '/home/slide_2.jpg',
     '/home/Prova.jpg',
