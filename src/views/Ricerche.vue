@@ -3,7 +3,7 @@
     <v-row>
       <v-col cols="12" md="4">
         <router-link class="link" to="/dinettica">
-          <v-img :src="dinettica" style="height: 200px; width: 600px;" />
+          <v-img :src="dinettica" style="height: 200px; width: 500px;" />
           <br>
           <p style="color: black; font-size: x-large;">Dinettica</p>
           <p style="color: black;">
