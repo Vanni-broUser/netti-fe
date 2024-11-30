@@ -3,14 +3,14 @@
     <v-dialog v-model="dialog" max-width="1000px">
       <v-card>
         <v-card-title>
-          <router-link :to="`/dettaglio/${selectedImage.id}`" v-if="!isMobile">
+          <router-link :to="`/dettaglio/${selectedImage.id}`" v-if="!isMobile && selectedImage.mobile_files && selectedImage.desktop_files">
             <v-btn icon="mdi-arrow-right-circle-outline" class="red" variant="text"/>
           </router-link>
           <v-btn icon="mdi-close-circle-outline" @click="dialog = false" class="red" variant="text" v-if="!isMobile" />
           {{ `${selectedImage.enrichment.year} ${selectedImage.title} - ${selectedImage.enrichment.place}` }}
         </v-card-title>
         <v-card-actions class="red" v-if="isMobile">
-          <router-link :to="`/dettaglio/${selectedImage.id}`">
+          <router-link :to="`/dettaglio/${selectedImage.id}`" v-if="selectedImage.mobile_files && selectedImage.desktop_files">
             <v-btn icon="mdi-arrow-right-circle-outline" class="red" />
           </router-link>
           <v-btn icon="mdi-close-circle-outline" @click="dialog = false"/>
