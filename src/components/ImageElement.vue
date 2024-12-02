@@ -7,11 +7,7 @@
         @mouseover="showText = true" @mouseleave="showText = false"
       >
         <div v-if="showText && !isMobile">
-          <div class="text-container" v-if="element.enrichment.didacticalArea">
-            <h1>{{ element.enrichment.didacticalArea }}</h1>
-            {{ element.enrichment.year }}
-          </div>
-          <div class="text-container" v-else>
+          <div class="text-container">
             <b>{{ element.enrichment.year }}</b>
             <p style="text-align: start;">{{element.title}} - {{element.enrichment.place}}</p>
           </div>
@@ -20,11 +16,7 @@
     </div>
   </div>
   <div v-if="isMobile" class="mobile-title">
-    <div v-if="element.enrichment.didacticalArea">
-      <h1>{{ element.enrichment.didacticalArea }}</h1>
-      {{ element.enrichment.year }}
-    </div>
-    <div v-else>
+    <div>
       <b>{{ element.enrichment.year }}</b>
       {{element.title}} - {{element.enrichment.place}}
     </div>
