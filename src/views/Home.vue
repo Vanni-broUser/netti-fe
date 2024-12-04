@@ -12,7 +12,6 @@
     '/home/slide_2.jpg',
     '/home/Prova.jpg',
     '/home/slide_6.jpg',
-    '/home/PLANOVOLUMETRICO-SALV02.jpg',
     '/home/slide_1.jpg'
   ];
 </script>
