@@ -40,3 +40,21 @@ export const breadcrumbs = [
     position: 8,
   },
 ];
+
+// Mapper per generare il JSON-LD
+export const getBreadcrumbJSONLD = () => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://nettiarchitetti.it/#breadcrumb",
+  itemListElement: breadcrumbs.map((breadcrumb) => ({
+    "@type": "ListItem",
+    position: breadcrumb.position,
+    name: breadcrumb.name,
+    item: {
+      "@type": "WebPage",
+      "@id": breadcrumb.url,
+      url: breadcrumb.url,
+      name: breadcrumb.name,
+    },
+  })),
+});
