@@ -5,6 +5,7 @@
 <script setup>
 import Carousel from '@/components/Carousel.vue';
 import { useHead } from '@vueuse/head';
+import { breadcrumbs } from '@/utils/breadcrumbs';
 const images = [
   '/home/M_03-homepage.jpg',
   '/home/IMG_9243-homepage.jpg',
@@ -15,6 +16,18 @@ const images = [
   '/home/PLANOVOLUMETRICO-SALV02.jpg',
   '/home/slide_1.jpg'
 ];
+
+const breadcrumbJSONLD = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "@id": "https://nettiarchitetti.it/#breadcrumb",
+  "itemListElement": breadcrumbs.map((breadcrumb) => ({
+    "@type": "ListItem",
+    "position": breadcrumb.position,
+    "name": breadcrumb.name,
+    "item": breadcrumb.url
+  }))
+};
 
 useHead({
   "title": "Netti Architetti - Architettura per il Mondo Reale | Bari, Puglia",
@@ -62,32 +75,10 @@ useHead({
     { "name": "viewport", "content": "width=device-width, initial-scale=1" },
     { "name": "theme-color", "content": "#fb2831" }
   ],
-
-
-
-
-
-
-
-
-
-
-
   "link": [
-    { "rel": "icon", "href": "/favicon.ico" },
-    { "rel": "apple-touch-icon", "href": "/apple-touch-icon.png" }
+    { "rel": "icon", "href": "/logo.png" },
+    { "rel": "apple-touch-icon", "href": "/logo.png" }
   ],
-
-
-
-
-
-
-
-
-
-
-
   "script": [
     {
       "type": "application/ld+json",
@@ -193,47 +184,7 @@ useHead({
             "datePublished": "2023-10-01",
             "dateModified": "2023-10-01"
           },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          {
-            "@type": "BreadcrumbList",
-            "@id": "https://nettiarchitetti.it/#breadcrumb",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://nettiarchitetti.it"
-              }
-            ]
-          }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          breadcrumbJSONLD
         ]
       }
     }
