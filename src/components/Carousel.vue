@@ -1,6 +1,6 @@
 <template>
   <v-carousel
-    style="height: 100vh; background-color: whitesmoke;"
+    style="height: 100vh; background-color: whitesmoke; padding: 20px; box-sizing: border-box;"
     @keydown.left="prev"
     @keydown.right="next"
     @click="resetTimer"
@@ -8,7 +8,11 @@
     hide-delimiters
     tabindex="0"
   >
-    <v-carousel-item v-for="img in content" :src="img" />
+    <v-carousel-item v-for="(img, index) in content" :key="index">
+      <div class="carousel-item-wrapper">
+        <img :src="img" alt="carousel item" class="carousel-image" />
+      </div>
+    </v-carousel-item>
     <template #prev></template>
     <template #next></template>
     <v-row class="custom-controls" align="end" justify="end">
@@ -61,8 +65,20 @@ if (!props.notScroll)
 </script>
 
 <style scoped>
-.carousel {
-  
+.carousel-item-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 95%;
+  background-color: whitesmoke;
+  overflow: hidden;
+  padding-top: 10px;
+}
+
+.carousel-image {
+  height: 100%;
+  width: auto;
+  object-fit: cover;
 }
 
 .custom-controls {
