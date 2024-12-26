@@ -43,7 +43,7 @@ const next = () => {
 const startTimer = () => {
   intervalId.value = setInterval(() => {
     next();
-  }, 3000);
+  }, 5000);
 };
 
 const resetTimer = () => {
