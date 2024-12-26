@@ -1,7 +1,6 @@
 <template>
   <v-carousel
-    ref="carousel"
-    style="height: 100vh;"
+    style="height: 100vh; background-color: whitesmoke;"
     @keydown.left="prev"
     @keydown.right="next"
     @click="resetTimer"
@@ -9,12 +8,12 @@
     hide-delimiters
     tabindex="0"
   >
-    <v-carousel-item v-for="img in content" :src="img" cover />
+    <v-carousel-item v-for="img in content" :src="img" />
     <template #prev></template>
     <template #next></template>
     <v-row class="custom-controls" align="end" justify="end">
       <div
-        v-for="(img, index) in content"
+        v-for="(_img, index) in content"
         :class="['mx-1', 'my-3', 'custom-dot', { 'custom-dot--active': selected == index }]"
         @click="selected = index"
       />
@@ -23,64 +22,67 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue';
-  import { carousel } from '@/utils/focusCarousel.js';
+import { ref } from 'vue';
 
-  const props = defineProps({
-    content: Array,
-    notScroll: Boolean
-  });
+const props = defineProps({
+  content: Array,
+  notScroll: Boolean
+});
 
-  const selected = ref(0);
-  const intervalId = ref(null);
+const selected = ref(0);
+const intervalId = ref(null);
 
-  const prev = () => {
-    selected.value = (selected.value + props.content.length - 1) % props.content.length;
-  };
+const prev = () => {
+  selected.value = (selected.value + props.content.length - 1) % props.content.length;
+};
 
-  const next = () => {
-    selected.value = (selected.value + 1) % props.content.length;
-  };
+const next = () => {
+  selected.value = (selected.value + 1) % props.content.length;
+};
 
-  const startTimer = () => {
-    intervalId.value = setInterval(() => {
-      next();
-    }, 3000);
-  };
+const startTimer = () => {
+  intervalId.value = setInterval(() => {
+    next();
+  }, 3000);
+};
 
-  const resetTimer = () => {
-    if (!props.notScroll) {
-      if (intervalId.value) {
-        clearInterval(intervalId.value);
-        intervalId.value = null;
-      } else
-        startTimer();
-    }
-  };
+const resetTimer = () => {
+  if (!props.notScroll) {
+    if (intervalId.value) {
+      clearInterval(intervalId.value);
+      intervalId.value = null;
+    } else
+      startTimer();
+  }
+};
 
-  if (!props.notScroll)
-    startTimer();
+if (!props.notScroll)
+  startTimer();
 </script>
 
 <style scoped>
-  .custom-controls {
-    position: absolute;
-    bottom: 25px;
-    right: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+.carousel {
+  
+}
 
-  .custom-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: white;
-    cursor: pointer;
-  }
+.custom-controls {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .custom-dot--active {
-    background-color: #fb2831;
-  }
+.custom-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+}
+
+.custom-dot--active {
+  background-color: #fb2831;
+}
 </style>
