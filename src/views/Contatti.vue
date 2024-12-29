@@ -20,10 +20,10 @@
 </template>
 
 <script setup>
-  import Map from '@/components/Map';
-  import Contacts from '@/components/Contacts';
+import Map from '@/components/Map';
+import Contacts from '@/components/Contacts';
 
-  import mobile from '@/utils/mobile';
+import mobile from '@/utils/mobile';
 
-  const isMobile = mobile.setupMobileUtils();
+const isMobile = mobile.setupMobileUtils();
 </script>

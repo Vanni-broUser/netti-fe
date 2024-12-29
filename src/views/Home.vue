@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import Carousel from '@/components/Carousel.vue';
+import Carousel from '@/components/HomeCarousel.vue';
 import { useHead } from '@vueuse/head';
 import { head } from "@/utils/SEO";
 

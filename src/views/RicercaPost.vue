@@ -17,33 +17,33 @@
 </template>
 
 <script setup>
-  import ImageGrid from '@/components/ImageGrid';
+import ImageGrid from '@/components/ImageGrid';
 
-  import { ref } from 'vue';
-  import http from '@/utils/http';
-  import { useRoute } from 'vue-router';
-  import { setupMobileUtils } from '@/utils/mobile';
+import { ref } from 'vue';
+import http from '@/utils/http';
+import { useRoute } from 'vue-router';
+import { setupMobileUtils } from '@/utils/mobile';
 
-  const posts = ref([]);
-  const route = useRoute();
-  const loading = ref(false);
-  const isMobile = setupMobileUtils();
+const posts = ref([]);
+const route = useRoute();
+const loading = ref(false);
+const isMobile = setupMobileUtils();
 
-  const filters = ['text', 'year', 'place'];
-  let args = { project: 'nettiarchitetti.it' };
-  for (const filter of filters) {
-    if (route.query[filter])
-      args[filter] = route.query[filter];
-  }
+const filters = ['text', 'year', 'place'];
+let args = { project: 'nettiarchitetti.it' };
+for (const filter of filters) {
+  if (route.query[filter])
+    args[filter] = route.query[filter];
+}
 
-  http.getRequest('blog/post', args, function (data) {
-    posts.value = data.posts;
-    loading.value = true;
-  });
+http.getRequest('blog/post', args, function (data) {
+  posts.value = data.posts;
+  loading.value = true;
+});
 </script>
 
 <style scoped>
-  .margin {
-    margin-left: 305px;
-  }
+.margin {
+  margin-left: 305px;
+}
 </style>

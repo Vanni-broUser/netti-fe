@@ -1,6 +1,6 @@
 <template>
   <v-carousel
-    style="height: 100vh; background-color: whitesmoke; padding: 20px; box-sizing: border-box;"
+    style="height: 100vh;"
     @keydown.left="prev"
     @keydown.right="next"
     @click="resetTimer"
@@ -8,16 +8,12 @@
     hide-delimiters
     tabindex="0"
   >
-    <v-carousel-item v-for="(img, index) in content" :key="index">
-      <div class="carousel-item-wrapper">
-        <img :src="img" alt="carousel item" class="carousel-image" />
-      </div>
-    </v-carousel-item>
+    <v-carousel-item v-for="img in content" :src="img" cover />
     <template #prev></template>
     <template #next></template>
     <v-row class="custom-controls" align="end" justify="end">
       <div
-        v-for="(_img, index) in content"
+        v-for="(img, index) in content"
         :class="['mx-1', 'my-3', 'custom-dot', { 'custom-dot--active': selected == index }]"
         @click="selected = index"
       />
@@ -29,8 +25,7 @@
 import { ref } from 'vue';
 
 const props = defineProps({
-  content: Array,
-  notScroll: Boolean
+  content: Array
 });
 
 const selected = ref(0);
@@ -51,36 +46,17 @@ const startTimer = () => {
 };
 
 const resetTimer = () => {
-  if (!props.notScroll) {
-    if (intervalId.value) {
-      clearInterval(intervalId.value);
-      intervalId.value = null;
-    } else
-      startTimer();
-  }
+  if (intervalId.value) {
+    clearInterval(intervalId.value);
+    intervalId.value = null;
+  } else
+    startTimer();
 };
 
-if (!props.notScroll)
-  startTimer();
+startTimer();
 </script>
 
 <style scoped>
-.carousel-item-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 95%;
-  background-color: whitesmoke;
-  overflow: hidden;
-  padding-top: 10px;
-}
-
-.carousel-image {
-  height: 100%;
-  width: auto;
-  object-fit: cover;
-}
-
 .custom-controls {
   position: absolute;
   bottom: 25px;

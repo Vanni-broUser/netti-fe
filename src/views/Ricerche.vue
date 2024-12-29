@@ -26,6 +26,6 @@
 </template>
 
 <script setup>
-  import extra from '@/assets/extra.gif';
-  import dinettica from '@/assets/dinettica.gif';
+import extra from '@/assets/extra.gif';
+import dinettica from '@/assets/dinettica.gif';
 </script>

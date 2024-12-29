@@ -3,19 +3,19 @@
 </template>
 
 <script setup>
-  import ImageGrid from '@/components/ImageGrid';
+import ImageGrid from '@/components/ImageGrid';
 
-  import { ref } from 'vue';
-  import http from '@/utils/http';
+import { ref } from 'vue';
+import http from '@/utils/http';
 
-  const posts = ref([]);
-  const loading = ref(false);
+const posts = ref([]);
+const loading = ref(false);
 
-  http.getRequest('blog/post', {
-    project: 'nettiarchitetti.it',
-    topics: ['Architetture']
-  }, function (data) {
-    posts.value = data.posts;
-    loading.value = true;
-  });
+http.getRequest('blog/post', {
+  project: 'nettiarchitetti.it',
+  topics: ['Architetture']
+}, function (data) {
+  posts.value = data.posts;
+  loading.value = true;
+});
 </script>

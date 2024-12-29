@@ -24,21 +24,21 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue';
-  import http from '@/utils/http';
-  import { setupMobileUtils } from '@/utils/mobile';
+import { ref } from 'vue';
+import http from '@/utils/http';
+import { setupMobileUtils } from '@/utils/mobile';
 
-  import AgendaItem from '@/components/AgendaItem';
+import AgendaItem from '@/components/AgendaItem';
 
-  const posts = ref([]);
-  const isMobile = setupMobileUtils();
+const posts = ref([]);
+const isMobile = setupMobileUtils();
 
-  http.getRequest('blog/post', {
-    project: 'nettiarchitetti.it',
-    topics: ['Agenda']
-  }, function (data) {
-    posts.value = data.posts;
-  });
+http.getRequest('blog/post', {
+  project: 'nettiarchitetti.it',
+  topics: ['Agenda']
+}, function (data) {
+  posts.value = data.posts;
+});
 </script>
 
 <style scoped>

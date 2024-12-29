@@ -10,42 +10,42 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue';
-  import http from '@/utils/http';
-  import i18n from '@/plugins/i18n';
-  import mobile from '@/utils/mobile';
-  import { useRoute } from 'vue-router';
+import { ref } from 'vue';
+import http from '@/utils/http';
+import i18n from '@/plugins/i18n';
+import mobile from '@/utils/mobile';
+import { useRoute } from 'vue-router';
 
-  import VueMarkdown from 'vue-markdown-render';
+import VueMarkdown from 'vue-markdown-render';
 
-  const post = ref({});
-  const route = useRoute();
-  const breadcrumbs = ref([]);
-  const isMobile = mobile.setupMobileUtils();
+const post = ref({});
+const route = useRoute();
+const breadcrumbs = ref([]);
+const isMobile = mobile.setupMobileUtils();
 
-  http.getRequest(`post/${route.params.id}`, {
-    project: 'nettiarchitetti.it'
-  }, function (data) {
-    post.value = data.post;
-    breadcrumbs.value = [
-      {
-        title: 'Home',
-        disabled: false,
-        href: '/'
-      }, {
-        title: i18n.global.t('Menu.pagina5'),
-        disabled: false,
-        href: '/agenda'
-      }, {
-        title: data.post.title,
-        disabled: true
-      }
-    ];
-  });
+http.getRequest(`post/${route.params.id}`, {
+  project: 'nettiarchitetti.it'
+}, function (data) {
+  post.value = data.post;
+  breadcrumbs.value = [
+    {
+      title: 'Home',
+      disabled: false,
+      href: '/'
+    }, {
+      title: i18n.global.t('Menu.pagina5'),
+      disabled: false,
+      href: '/agenda'
+    }, {
+      title: data.post.title,
+      disabled: true
+    }
+  ];
+});
 </script>
 
 <style scoped>
-  .margin-desktop {
-    margin-right: 500px;
-  }
+.margin-desktop {
+  margin-right: 500px;
+}
 </style>
