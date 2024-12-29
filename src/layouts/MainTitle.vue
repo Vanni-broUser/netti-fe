@@ -32,62 +32,56 @@
 </template>
 
 <script setup>
-  import mobile from '@/utils/mobile';
-  import { useRouter } from 'vue-router';
+import mobile from '@/utils/mobile';
+import { useRouter } from 'vue-router';
 
-  const router = useRouter();
-  const isMobile = mobile.setupMobileUtils();
+const router = useRouter();
+const isMobile = mobile.setupMobileUtils();
 
-  const emits = defineEmits(['toggleDrawer']);
-  const props = defineProps({
-    alwaysMenu: Boolean,
-    details: Boolean
-  });
+const emits = defineEmits(['toggleDrawer']);
+const props = defineProps({
+  alwaysMenu: Boolean,
+  details: Boolean
+});
 </script>
 
 <style scoped>
-  .container {
-    z-index: 3;
-    position: fixed;
-  }
+.container {
+  z-index: 3;
+  position: fixed;
+}
 
-  .second_layer {
-    position: fixed;
-    top: 30px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-  }
+.second_layer {
+  position: fixed;
+  top: 30px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
 
-  .title {
-    position: fixed;
-    font-size: 40px;
-    left: 50px;
-  }
+.title {
+  position: fixed;
+  font-size: 40px;
+  left: 50px;
+}
 
-  .square-btn {
-    width: 25px;
-    height: 25px;
-    border-radius: 0px;
-  }
+.main-button {
+  position: fixed;
+  left: 15px;
+  top: 45px;
+}
 
-  .main-button {
-    position: fixed;
-    left: 15px;
-    top: 45px;
-  }
+.detail-button {
+  position: fixed;
+  left: 50px;
+  top: 45px;
+}
 
-  .detail-button {
-    position: fixed;
-    left: 50px;
-    top: 45px;
-  }
+.detail-position {
+  margin-left: 40px;
+}
 
-  .detail-position {
-    margin-left: 40px;
-  }
-
-  .always-menu-position {
-    left: 15px;
-  }
+.always-menu-position {
+  left: 15px;
+}
 </style>

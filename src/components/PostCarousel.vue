@@ -13,8 +13,24 @@
         <img :src="img" alt="carousel item" class="carousel-image" />
       </div>
     </v-carousel-item>
-    <template #prev></template>
-    <template #next></template>
+    <template #prev>
+      <v-btn
+        variant="text"
+        color="white"
+        icon="mdi-arrow-left"
+        class="background-red square-btn"
+        @click="prev"
+      />
+    </template>
+    <template #next>
+      <v-btn
+        variant="text"
+        color="white"
+        icon="mdi-arrow-right"
+        class="background-red square-btn"
+        @click="next"
+      />
+    </template>
     <v-row class="custom-controls" align="end" justify="end">
       <div
         v-for="(_img, index) in content"
