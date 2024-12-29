@@ -97,4 +97,10 @@ const next = () => {
 .custom-dot--active {
   background-color: #fb2831;
 }
+
+.square-btn {
+  width: 25px;
+  height: 25px;
+  border-radius: 0px;
+}
 </style>

@@ -51,6 +51,12 @@ const props = defineProps({
   position: fixed;
 }
 
+.square-btn {
+  width: 25px;
+  height: 25px;
+  border-radius: 0px;
+}
+
 .second_layer {
   position: fixed;
   top: 30px;
