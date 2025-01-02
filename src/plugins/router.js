@@ -78,6 +78,16 @@ const routes = [
         path: '/extra',
         name: 'Extra',
         component: () => import('@/views/Extra.vue')
+      },
+      {
+        path: '/portfolio',
+        name: 'Portfolio',
+        component: () => import('@/views/PortfolioViewer.vue')
+      },
+      {
+        path: '/portfolio2',
+        name: 'Portfolio (Scroll)',
+        component: () => import('@/views/PortfolioViewerScroll.vue')
       }
     ]
   }
