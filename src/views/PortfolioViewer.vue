@@ -2,17 +2,15 @@
 <div>
   <v-container>
     <v-row>
-      <v-col class="debug-col">
-        <v-btn @click="goToPage(curPageNo - 1)">
+      <v-col>
+        <v-btn class="mx-2" @click="goToPage(curPageNo - 1)">
           Pagina Precedente
         </v-btn>
-      </v-col>
-      <v-col class="debug-col">
-        <v-btn @click="goToPage(curPageNo + 1)">
+        <v-btn class="mx-2" @click="goToPage(curPageNo + 1)">
           Pagina Successiva
         </v-btn>
       </v-col>
-    </v-row>
+  </v-row>
     <v-row class="debug-row">
       <v-col cols="12" md="8" class="debug-col">
         <VuePDF ref="pdfRef" :pdf="pdf" :page="Math.round(curPageNo)" fit-parent/>
@@ -65,10 +63,4 @@ const goToPage = (pageNo) => {
 </script>
 
 <style>
-.debug-col{
-  border: 1px solid red;
-}
-.debug-row{
-  border: 1px solid rgb(38, 0, 255);
-}
 </style>
