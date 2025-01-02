@@ -5,11 +5,11 @@
         <div @click="setLanguage('it')" style="float: left; margin-left: 2px; cursor: pointer;">IT</div>
         <div @click="setLanguage('en')" style="float: left; margin-left: 20px; cursor: pointer;">EN</div>
         <br><br>
-        <a href="/portfolio.pdf">
+        <router-link class="link" to="/portfolio">
           <v-card width="150" elevation="5">
             <v-img :src="portfolio" />
           </v-card>
-        </a>
+        </router-link>
         <br>
         <div v-bind="activatorProps" style="cursor: pointer;">
           {{ $t('MenuOperations.searchButton') }}
