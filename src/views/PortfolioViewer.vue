@@ -2,17 +2,19 @@
 <div>
   <v-container>
     <v-row>
-      <v-col>
+      <v-col cols="auto">
         <v-btn class="mx-2" @click="goToPage(curPageNo - 1)">
           Pagina Precedente
         </v-btn>
+      </v-col>
+      <v-col cols="auto" >
         <v-btn class="mx-2" @click="goToPage(curPageNo + 1)">
           Pagina Successiva
         </v-btn>
       </v-col>
   </v-row>
-    <v-row class="debug-row">
-      <v-col cols="12" md="8" class="debug-col">
+    <v-row>
+      <v-col cols="12" md="8">
         <VuePDF ref="pdfRef" :pdf="pdf" :page="Math.round(curPageNo)" fit-parent/>
       </v-col>
     </v-row>
