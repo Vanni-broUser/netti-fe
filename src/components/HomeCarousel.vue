@@ -1,12 +1,9 @@
 <template>
   <v-carousel
     style="height: 100vh;"
-    @keydown.left="prev"
-    @keydown.right="next"
     @click="resetTimer"
     v-model="selected"
     hide-delimiters
-    tabindex="0"
   >
     <v-carousel-item v-for="img in content" :src="img" cover />
     <template #prev></template>
@@ -22,7 +19,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
 const props = defineProps({
   content: Array
@@ -53,7 +50,25 @@ const resetTimer = () => {
     startTimer();
 };
 
-startTimer();
+const handleKeydown = (event) => {
+  if (event.key === 'ArrowLeft') {
+    prev();
+    resetTimer();
+  } else if (event.key === 'ArrowRight') {
+    next();
+    resetTimer();
+  }
+};
+
+onMounted(() => {
+  window.addEventListener('keydown', handleKeydown);
+  startTimer();
+});
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleKeydown);
+  clearInterval(intervalId.value);
+});
 </script>
 
 <style scoped>

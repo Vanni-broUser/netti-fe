@@ -1,12 +1,9 @@
 <template>
   <v-carousel
     style="height: 97vh; background-color: whitesmoke; padding: 20px; box-sizing: border-box;"
-    @keydown.left="prev"
-    @keydown.right="next"
     @click="resetTimer"
     v-model="selected"
     hide-delimiters
-    tabindex="0"
   >
     <v-carousel-item v-for="(img, index) in content" :key="index">
       <div class="carousel-item-wrapper">
@@ -16,18 +13,16 @@
     <template #prev>
       <v-btn
         variant="text"
-        color="white"
+        color="black"
         icon="mdi-arrow-left"
-        class="background-red square-btn"
         @click="prev"
       />
     </template>
     <template #next>
       <v-btn
         variant="text"
-        color="white"
+        color="black"
         icon="mdi-arrow-right"
-        class="background-red square-btn"
         @click="next"
       />
     </template>
@@ -42,7 +37,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 
 const props = defineProps({
   content: Array
@@ -57,6 +52,21 @@ const prev = () => {
 const next = () => {
   selected.value = (selected.value + 1) % props.content.length;
 };
+
+const handleKeydown = (event) => {
+  if (event.key === 'ArrowLeft')
+    prev();
+  else if (event.key === 'ArrowRight')
+    next();
+};
+
+onMounted(() => {
+  window.addEventListener('keydown', handleKeydown);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleKeydown);
+});
 </script>
 
 <style scoped>
@@ -96,11 +106,5 @@ const next = () => {
 
 .custom-dot--active {
   background-color: #fb2831;
-}
-
-.square-btn {
-  width: 25px;
-  height: 25px;
-  border-radius: 0px;
 }
 </style>
