@@ -18,5 +18,5 @@ const images = [
   '/home/slide_1.jpg'
 ];
 
-//useHead(head);
+useHead(head);
 </script>
