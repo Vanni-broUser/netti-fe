@@ -18,14 +18,26 @@
         class="background-red square-btn detail-button"
       />
       <router-link to="/" class="link">
-        <p v-if="alwaysMenu" :class="{
-          'black title': true,
-          'always-menu-position': !isMobile
-        }"><b class="red">netti</b>architetti</p>
-        <p v-else :class="{
+        <p
+          v-if="alwaysMenu"
+          :class="{
+            'black title': true,
+            'always-menu-position': !isMobile,
+          }"
+          :style="{'text-shadow': '2px 2px 4px rgba(0, 0, 0, 0.1)'}"
+        >
+          <b class="red">netti</b>architetti
+        </p>
+        <p
+          v-else
+          :class="{
           'white title': true,
-          'detail-position': details
-        }"><b>netti</b>architetti</p>
+          'detail-position': details,
+          }"
+          :style="{'text-shadow': '2px 2px 4px rgba(0, 0, 0, 0.2)'}"
+        > 
+        <b>netti</b>architetti
+      </p>
       </router-link>
     </div>
   </div>
