@@ -13,20 +13,27 @@
 </template>
 
 <script setup>
-  import Footer from './Footer';
-  import MainTitle from './MainTitle';
-  import AlwaysMenu from './AlwaysMenu';
-  import LateralMenu from './LateralMenu';
+import Footer from './Footer';
+import MainTitle from './MainTitle';
+import AlwaysMenu from './AlwaysMenu';
+import LateralMenu from './LateralMenu';
 
-  import { ref } from 'vue';
-  import mobile from '@/utils/mobile';
+import { ref } from 'vue';
+import mobile from '@/utils/mobile';
+import { useRouter } from 'vue-router';
 
-  const drawer = ref(false);
-  const isMobile = mobile.setupMobileUtils();
+const drawer = ref(false);
+const router = useRouter();
+const isMobile = mobile.setupMobileUtils();
 
-  const toggleDrawer = () => {
-    drawer.value = !drawer.value;
-  };
+const toggleDrawer = () => {
+  drawer.value = !drawer.value;
+};
+
+router.beforeEach((_to, _from, next) => {
+  drawer.value = false;
+  next();
+});
 </script>
 
 <style scoped>
