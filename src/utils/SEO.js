@@ -1,3 +1,5 @@
+import { baseUrl, pagePaths } from "./urls";
+
 const breadcrumbs = [
   {
     name: "Home",
@@ -16,7 +18,7 @@ const breadcrumbs = [
   },
   {
     name: "Ricerche",
-    url: "https://nettiarchitetti.it/ricerche",
+    url: `${baseUrl}/${pagePaths.ricerche}`,
     position: 4,
   },
   {
@@ -31,12 +33,12 @@ const breadcrumbs = [
   },
   {
     name: "Dinettica",
-    url: "https://nettiarchitetti.it/dinettica",
+    url: `${baseUrl}/${pagePaths.dinettica}`,
     position: 7,
   },
   {
     name: "Extra",
-    url: "https://nettiarchitetti.it/extra",
+    url: `${baseUrl}/${pagePaths.extra}`,
     position: 8,
   },
 ];

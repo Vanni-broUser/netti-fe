@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import { pagePaths } from '../utils/urls';
 
 const routes = [
   {
@@ -45,7 +46,7 @@ const routes = [
         component: () => import('@/views/Progetti.vue')
       },
       {
-        path: '/ricerche',
+        path: pagePaths.ricerche,
         name: 'Ricerche',
         component: () => import('@/views/Ricerche.vue'),
       },
@@ -70,12 +71,12 @@ const routes = [
         component: () => import('@/views/Contatti.vue')
       },
       {
-        path: '/dinettica',
+        path: pagePaths.dinettica,
         name: 'Dinettica',
         component: () => import('@/views/Dinettica.vue')
       },
       {
-        path: '/extra',
+        path: pagePaths.extra,
         name: 'Extra',
         component: () => import('@/views/Extra.vue')
       },
