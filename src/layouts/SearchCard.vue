@@ -3,11 +3,11 @@
     <v-form @submit.prevent="searchPosts">
       <v-card-text class="margin">
         {{ $t('SearchCard.titleCardText') }}
-        <v-text-field v-model="text" variant="outlined"/>
+        <v-text-field v-model="text" variant="outlined" clearable/>
         {{ $t('SearchCard.titleCardYear') }}
-        <v-select v-model="year" variant="outlined" :items="getYears()" />
+        <v-select v-model="year" variant="outlined" :items="getYears()" clearable/>
         {{ $t('SearchCard.titleCardPlace') }}
-        <v-text-field v-model="place" variant="outlined" />
+        <v-text-field v-model="place" variant="outlined" clearable/>
       </v-card-text>
       <v-card-actions class="margin">
         <v-btn :text="$t('SearchCard.button')" type="submit" :color="theme.current.value.primary" />
