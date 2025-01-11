@@ -15,10 +15,9 @@ import mobile from '@/utils/mobile';
 
 const router = useRouter();
 const isMobile = mobile.setupMobileUtils();
-
 </script>
 
-<style>
+<style scoped>
 .square-btn {
   width: 25px;
   height: 25px;

@@ -12,7 +12,7 @@ import ImageGrid from '@/components/ImageGrid';
 
 import { ref } from 'vue';
 import http from '@/utils/http';
-import BackButton from '../components/BackButton.vue';
+import BackButton from '@/components/BackButton.vue';
 
 const posts = ref([]);
 const loading = ref(false);
