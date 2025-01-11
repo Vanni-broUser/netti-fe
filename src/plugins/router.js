@@ -70,12 +70,12 @@ const routes = [
         component: () => import('@/views/Contatti.vue')
       },
       {
-        path: '/dinettica',
+        path: '/ricerche/dinettica',
         name: 'Dinettica',
         component: () => import('@/views/Dinettica.vue')
       },
       {
-        path: '/extra',
+        path: '/ricerche/extra',
         name: 'Extra',
         component: () => import('@/views/Extra.vue')
       },

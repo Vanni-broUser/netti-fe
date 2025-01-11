@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
       <v-col cols="12" md="4">
-        <router-link class="link" to="/dinettica">
+        <router-link class="link" to="/ricerche/dinettica">
           <v-img :src="dinettica" style="width: 100%;" />
           <br>
           <p style="color: black;">
@@ -13,7 +13,7 @@
         <br>
       </v-col>
       <v-col cols="12" md="4">
-        <router-link class="link" to="/extra">
+        <router-link class="link" to="/ricerche/extra">
           <v-img :src="extra" style="width: 100%;" />
           <br>
           <p style="color: black;" v-for="n in 2">

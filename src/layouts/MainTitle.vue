@@ -10,7 +10,7 @@
         class="background-red square-btn main-button"
       />
       <v-btn
-        v-if="details"
+        v-if="details || (route.path.includes('ricerche/') && alwaysMenu && isMobile)"
         variant="text"
         color="white"
         icon="mdi-arrow-left"
@@ -23,14 +23,13 @@
           :class="{
             'black title': true,
             'always-menu-position': !isMobile,
+            'detail-position': isMobile && route.path.includes('ricerche/')
           }"
           :style="{'text-shadow': '2px 2px 4px rgba(0, 0, 0, 0.1)'}"
         >
           <b class="red">netti</b>architetti
         </p>
-        <p
-          v-else
-          :class="{
+        <p v-else :class="{
           'white title': true,
           'detail-position': details,
           }"
@@ -45,8 +44,9 @@
 
 <script setup>
 import mobile from '@/utils/mobile';
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 
+const route = useRoute();
 const router = useRouter();
 const isMobile = mobile.setupMobileUtils();
 
