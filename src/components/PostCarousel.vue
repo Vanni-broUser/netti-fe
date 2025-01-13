@@ -10,20 +10,24 @@
         <img :src="img" alt="carousel item" class="carousel-image" />
       </div>
     </v-carousel-item>
-    <template #prev>
-      <v-btn
-        variant="text"
-        color="black"
-        icon="mdi-arrow-left"
-        @click="prev"
-      />
-    </template>
     <template #next>
       <v-btn
+        v-if="!isMobile"
         variant="text"
-        color="black"
+        color="#5F5F5F"
         icon="mdi-arrow-right"
         @click="next"
+        class="right-arrow"
+      />
+    </template>
+    <template #prev>
+      <v-btn
+        v-if="!isMobile"
+        variant="text"
+        color="#5F5F5F"
+        icon="mdi-arrow-left"
+        @click="prev"
+        class="left-arrow"
       />
     </template>
     <v-row class="custom-controls" align="end" justify="end">
@@ -37,6 +41,7 @@
 </template>
 
 <script setup>
+import mobile from '@/utils/mobile';
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const props = defineProps({
@@ -44,6 +49,7 @@ const props = defineProps({
 });
 
 const selected = ref(0);
+const isMobile = mobile.setupMobileUtils();
 
 const prev = () => {
   selected.value = (selected.value + props.content.length - 1) % props.content.length;
@@ -77,7 +83,7 @@ onUnmounted(() => {
   height: 100%;
   background-color: whitesmoke;
   overflow: hidden;
-  padding-top: 60px;
+  padding-top: 75px;
 }
 
 .carousel-image {
@@ -106,5 +112,21 @@ onUnmounted(() => {
 
 .custom-dot--active {
   background-color: #fb2831;
+}
+
+.left-arrow {
+  position: absolute;
+  right: -15px;
+  font-size: 50px;
+  min-width: 75px;
+  min-height: 75px;
+}
+
+.right-arrow {
+  position: absolute;
+  left: -15px;
+  font-size: 50px;
+  min-width: 75px;
+  min-height: 75px;
 }
 </style>
