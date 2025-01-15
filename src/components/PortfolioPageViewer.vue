@@ -33,7 +33,8 @@ const pdfRef = ref(null);
 
 let windowResizeDebounceTimeout;
 
-const updatePageSize = () => {    
+const updatePageSize = () => {
+  if (!pdfRef.value) return;
   pdfRef.value.reload();
 }
 

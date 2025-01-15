@@ -1,10 +1,8 @@
 <template>
 <div>
-  <v-row v-for="(page, index) in pages" :key="page">
-    <v-col>
-      <VuePDF :ref="pageRef => pdfRef[index]=pageRef" :pdf="pdf" :page="page" fit-parent />
-    </v-col>
-  </v-row>
+  <div v-for="(page, index) in pages" :key="page">
+    <VuePDF :ref="pageRef => pdfRef[index]=pageRef" :pdf="pdf" :page="page" fit-parent />
+  </div>
 </div>
 </template>
 
@@ -18,6 +16,8 @@ const pdfRef = ref([]);
 let windowResizeDebounceTimeout;
 
 const updatePageSize = () => {    
+  if (!pdfRef.value) return;
+
   pdfRef.value.forEach((ref) => {
     if (ref) {
       ref.reload();

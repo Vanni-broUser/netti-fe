@@ -82,13 +82,8 @@ const routes = [
       {
         path: '/portfolio',
         name: 'Portfolio',
-        component: () => import('@/views/PortfolioViewer.vue')
+        component: () => import('@/views/Portfolio.vue')
       },
-      {
-        path: '/portfolio2',
-        name: 'Portfolio (Scroll)',
-        component: () => import('@/views/PortfolioViewerScroll.vue')
-      }
     ]
   }
 ];
