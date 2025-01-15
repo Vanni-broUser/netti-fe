@@ -5,21 +5,42 @@
     v-model="selected"
     hide-delimiters
   >
-    <v-carousel-item v-for="img in content" :src="img" cover />
+    <v-carousel-item v-for="img in content" :src="img.path" cover/>
     <template #prev></template>
     <template #next></template>
-    <v-row class="custom-controls" align="end" justify="end">
-      <div
-        v-for="(img, index) in content"
-        :class="['mx-1', 'my-3', 'custom-dot', { 'custom-dot--active': selected == index }]"
-        @click="selected = index"
-      />
+    <v-row align="end" justify="end">
+      <div v-for="(img, index) in content">
+        <div v-if="!isMobile" >
+          <div
+            v-if="selected == index"
+            :class="['caption']">
+          {{ img.caption }}
+          </div>
+        </div>
+        <div v-else>
+          <div v-if="selected == index"
+            :class="['caption-mobile']">
+          {{ img.caption }}
+          </div>
+        </div>
+      </div>
+      <div class="custom-controls">
+        <div v-for="(img, index) in content">
+          <div
+            :class="['mx-1', 'my-3', 'custom-dot', { 'custom-dot--active': selected == index }]"
+            @click="selected = index">
+          </div>
+        </div>
+      </div>
     </v-row>
   </v-carousel>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import { setupMobileUtils } from '@/utils/mobile';
+
+const isMobile = setupMobileUtils();
 
 const props = defineProps({
   content: Array
@@ -72,6 +93,23 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+.caption {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  color: white;
+  font-size: larger;
+}
+
+.caption-mobile {
+  position: absolute;
+  bottom: 60px;
+  right: 25px;
+  text-align: right;
+  color: white;
+  font-size: larger;
+}
+
 .custom-controls {
   position: absolute;
   bottom: 25px;
