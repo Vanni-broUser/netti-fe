@@ -25,7 +25,6 @@
             'always-menu-position': !isMobile,
             'detail-position': isMobile && route.path.includes('ricerche/')
           }"
-          :style="{'text-shadow': '2px 2px 4px rgba(0, 0, 0, 0.1)'}"
         >
           <b class="red">netti</b>architetti
         </p>
@@ -33,7 +32,6 @@
           'white title': true,
           'detail-position': details,
           }"
-          :style="{'text-shadow': '2px 2px 4px rgba(0, 0, 0, 0.2)'}"
         > 
         <b>netti</b>architetti
       </p>
