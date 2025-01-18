@@ -15,8 +15,8 @@
         v-if="!isMobile"
         variant="text"
         color="#5F5F5F"
-        icon="mdi-arrow-right"
-        @click="next"
+        icon="mdi-arrow-left-circle-outline"
+        @click="prev"
         class="right-arrow"
       />
     </template>
@@ -25,8 +25,8 @@
         v-if="!isMobile"
         variant="text"
         color="#5F5F5F"
-        icon="mdi-arrow-left"
-        @click="prev"
+        icon="mdi-arrow-right-circle-outline"
+        @click="next"
         class="left-arrow"
       />
     </template>
