@@ -15,7 +15,7 @@
   </v-row>
     <v-row>
       <v-col cols="12" md="8">
-        <VuePDF ref="pdfRef" :pdf="pdf" :page="Math.round(curPageNo)" fit-parent/>
+        <VuePDF ref="pdfRef" :pdf="pdf" :page="Math.round(curPageNo)" fit-parent />
       </v-col>
     </v-row>
   </v-container>
