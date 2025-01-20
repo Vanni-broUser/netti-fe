@@ -1,19 +1,18 @@
 <template>
 <div>
-  <div v-for="(page, index) in pages" :key="page">
+  <div v-for="(page, index) in pages">
     <VuePDF :ref="pageRef => pdfRef[index]=pageRef" :pdf="pdf" :page="page" fit-parent />
   </div>
 </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
-import { VuePDF, usePDF } from '@tato30/vue-pdf'
-
-const { pdf, pages } = usePDF('/portfolio.pdf');
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { VuePDF, usePDF } from '@tato30/vue-pdf';
 
 const pdfRef = ref([]);
 let windowResizeDebounceTimeout;
+const { pdf, pages } = usePDF('/portfolio.pdf');
 
 const updatePageSize = () => {    
   if (!pdfRef.value) return;
@@ -23,7 +22,7 @@ const updatePageSize = () => {
       ref.reload();
     }
   });
-}
+};
 
 const debounceUpdatePageSize = () => {
   clearTimeout(windowResizeDebounceTimeout);
@@ -33,9 +32,9 @@ const debounceUpdatePageSize = () => {
 onMounted(() => {
   updatePageSize();
   window.addEventListener('resize', debounceUpdatePageSize);
-})
+});
 
 onBeforeUnmount(() => {
   window.removeEventListener('resize', debounceUpdatePageSize);
-})
+});
 </script>

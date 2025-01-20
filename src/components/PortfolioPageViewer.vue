@@ -23,20 +23,18 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
-import { VuePDF, usePDF } from '@tato30/vue-pdf'
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { VuePDF, usePDF } from '@tato30/vue-pdf';
 
 const curPageNo = ref(1);
-const { pdf, pages } = usePDF('/portfolio.pdf');
-
 const pdfRef = ref(null);
-
 let windowResizeDebounceTimeout;
+const { pdf, pages } = usePDF('/portfolio.pdf');
 
 const updatePageSize = () => {
   if (!pdfRef.value) return;
   pdfRef.value.reload();
-}
+};
 
 const debounceUpdatePageSize = () => {
   clearTimeout(windowResizeDebounceTimeout);
@@ -46,11 +44,11 @@ const debounceUpdatePageSize = () => {
 onMounted(() => {
   updatePageSize();
   window.addEventListener('resize', debounceUpdatePageSize);
-})
+});
 
 onBeforeUnmount(() => {
   window.removeEventListener('resize', debounceUpdatePageSize);
-})
+});
 
 const goToPage = (pageNo) => {
   if (pageNo < 1) {
@@ -62,8 +60,5 @@ const goToPage = (pageNo) => {
     return;
   }
   curPageNo.value = pageNo;
-}
+};
 </script>
-
-<style>
-</style>
