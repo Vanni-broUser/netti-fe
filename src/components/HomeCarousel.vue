@@ -21,8 +21,8 @@
         <div v-for="(img, index) in content">
           <div
             :class="['mx-1', 'my-3', 'custom-dot', { 'custom-dot--active': selected == index }]"
-            @click="selected = index">
-          </div>
+            @click="selected = index"
+          ></div>
         </div>
       </div>
     </v-row>
