@@ -9,19 +9,12 @@
     <template #prev></template>
     <template #next></template>
     <v-row align="end" justify="end">
-      <div v-for="(img, index) in content">
-        <div v-if="!isMobile" >
-          <div
-            v-if="selected == index"
-            :class="['caption']">
-          {{ img.caption }}
-          </div>
+      <div>
+        <div v-if="!isMobile" :class="['caption']" >
+          {{ content[selected].caption }}
         </div>
-        <div v-else>
-          <div v-if="selected == index"
-            :class="['caption-mobile']">
-          {{ img.caption }}
-          </div>
+        <div v-else :class="['caption-mobile']">
+          {{ content[selected].caption }}
         </div>
       </div>
       <div class="custom-controls">
