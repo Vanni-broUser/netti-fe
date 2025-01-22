@@ -17,7 +17,7 @@
         color="#5F5F5F"
         icon="mdi-arrow-right"
         @click="next"
-        class="right-arrow"
+        class="left-arrow"
       />
     </template>
     <template #prev>
@@ -27,7 +27,7 @@
         color="#5F5F5F"
         icon="mdi-arrow-left"
         @click="prev"
-        class="left-arrow"
+        class="right-arrow"
       />
     </template>
     <v-row class="custom-controls" align="end" justify="end">
