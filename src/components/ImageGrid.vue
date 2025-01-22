@@ -43,47 +43,47 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue';
-  import { setupMobileUtils } from '@/utils/mobile';
+import { ref } from 'vue';
+import { setupMobileUtils } from '@/utils/mobile';
 
-  import VueMarkdown from 'vue-markdown-render';
-  import ImageElement from '@/components/ImageElement';
+import VueMarkdown from 'vue-markdown-render';
+import ImageElement from '@/components/ImageElement';
 
-  const gutter = 13;
-  const dialog = ref(false);
-  const isMobile = setupMobileUtils();
-  const selectedImage = ref({});
+const gutter = 13;
+const dialog = ref(false);
+const isMobile = setupMobileUtils();
+const selectedImage = ref({});
 
-  const props = defineProps({
-    content: Array,
-    numCols: Number
-  });
+const props = defineProps({
+  content: Array,
+  numCols: Number
+});
 
-  const getStyle = (image) => {
-    if (props.numCols < 1) props.numCols = 1;
-    return {
-      width: `${(100/props.numCols) - 1}%`,
-      backgroundColor: image.backgroundColor || 'transparent'
-    };
+const getStyle = (image) => {
+  if (props.numCols < 1) props.numCols = 1;
+  return {
+    width: `${(100/props.numCols) - 1}%`,
+    backgroundColor: image.backgroundColor || 'transparent'
   };
+};
 
-  const showDetails = (element) => {
-    selectedImage.value = element;
-    dialog.value = true;
-  };
+const showDetails = (element) => {
+  selectedImage.value = element;
+  dialog.value = true;
+};
 </script>
 
 <style scoped>
-  .masonry {
-    margin-left: 13px;
-  }
+.masonry {
+  margin-left: 13px;
+}
 
-  .item {
-    margin-bottom: 14px;
-  }
+.item {
+  margin-bottom: 14px;
+}
 
-  .v-btn--icon.v-btn--density-default {
-    width: 36px;
-    height: 36px;
-  }
+.v-btn--icon.v-btn--density-default {
+  width: 36px;
+  height: 36px;
+}
 </style>
