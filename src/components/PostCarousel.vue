@@ -1,7 +1,6 @@
 <template>
   <v-carousel
     style="height: 97vh; background-color: whitesmoke; padding: 20px; box-sizing: border-box;"
-    @click="resetTimer"
     v-model="selected"
     hide-delimiters
   >
@@ -15,7 +14,7 @@
         v-if="!isMobile"
         variant="text"
         color="#5F5F5F"
-        icon="mdi-arrow-right"
+        icon="mdi-arrow-right-circle-outline"
         @click="next"
         class="left-arrow"
       />
@@ -25,7 +24,7 @@
         v-if="!isMobile"
         variant="text"
         color="#5F5F5F"
-        icon="mdi-arrow-left"
+        icon="mdi-arrow-left-circle-outline"
         @click="prev"
         class="right-arrow"
       />
@@ -60,10 +59,8 @@ const next = () => {
 };
 
 const handleKeydown = (event) => {
-  if (event.key === 'ArrowLeft')
-    prev();
-  else if (event.key === 'ArrowRight')
-    next();
+  if (event.key === 'ArrowLeft') prev();
+  else if (event.key === 'ArrowRight') next();
 };
 
 onMounted(() => {
@@ -87,10 +84,9 @@ onUnmounted(() => {
 }
 
 .carousel-image {
-  height: 100%;
-  padding-bottom: 55px;
-  width: auto;
-  object-fit: cover;
+  max-height: 90%;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .custom-controls {
