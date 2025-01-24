@@ -10,12 +10,12 @@
         class="background-red square-btn main-button"
       />
       <v-btn
-        v-if="details || (route.path.includes('ricerche/') && alwaysMenu && isMobile)"
+        v-if="details || (route.path.includes('ricerche/') && alwaysMenu)"
         variant="text"
         color="white"
         icon="mdi-arrow-left"
         @click.stop="router.back()"
-        class="background-red square-btn detail-button"
+        :class="isMobile ? 'background-red square-btn detail-button': 'background-red desktop-back-button'"
       />
       <router-link to="/" class="link">
         <p v-if="alwaysMenu" :class="{
@@ -95,5 +95,14 @@ const props = defineProps({
 
 .always-menu-position {
   left: 15px;
+}
+
+.desktop-back-button {
+  position: fixed;
+  left: 320px;
+  top: 35px;
+  width: 50px;
+  height: 50px;
+  border-radius: 0px;
 }
 </style>
