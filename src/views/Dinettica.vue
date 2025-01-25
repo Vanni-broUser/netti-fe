@@ -1,5 +1,7 @@
 <template>
-  <ImageGrid v-if="loading" :content="posts" :numCols="3"/>
+  <div>
+    <ImageGrid v-if="loading" :content="posts" :numCols="3"/>
+  </div>
 </template>
 
 <script setup>

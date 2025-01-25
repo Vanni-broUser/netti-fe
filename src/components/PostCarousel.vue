@@ -1,7 +1,6 @@
 <template>
   <v-carousel
     style="height: 97vh; background-color: whitesmoke; padding: 20px; box-sizing: border-box;"
-    @click="resetTimer"
     v-model="selected"
     hide-delimiters
   >
@@ -10,20 +9,24 @@
         <img :src="img" alt="carousel item" class="carousel-image" />
       </div>
     </v-carousel-item>
-    <template #prev>
-      <v-btn
-        variant="text"
-        color="black"
-        icon="mdi-arrow-left"
-        @click="prev"
-      />
-    </template>
     <template #next>
       <v-btn
+        v-if="!isMobile"
         variant="text"
-        color="black"
-        icon="mdi-arrow-right"
+        color="#5F5F5F"
+        icon="mdi-arrow-right-circle-outline"
         @click="next"
+        class="next-element-arrow"
+      />
+    </template>
+    <template #prev>
+      <v-btn
+        v-if="!isMobile"
+        variant="text"
+        color="#5F5F5F"
+        icon="mdi-arrow-left-circle-outline"
+        @click="prev"
+        class="previous-element-arrow"
       />
     </template>
     <v-row class="custom-controls" align="end" justify="end">
@@ -37,6 +40,7 @@
 </template>
 
 <script setup>
+import mobile from '@/utils/mobile';
 import { ref, onMounted, onUnmounted } from 'vue';
 
 const props = defineProps({
@@ -44,6 +48,7 @@ const props = defineProps({
 });
 
 const selected = ref(0);
+const isMobile = mobile.setupMobileUtils();
 
 const prev = () => {
   selected.value = (selected.value + props.content.length - 1) % props.content.length;
@@ -54,10 +59,8 @@ const next = () => {
 };
 
 const handleKeydown = (event) => {
-  if (event.key === 'ArrowLeft')
-    prev();
-  else if (event.key === 'ArrowRight')
-    next();
+  if (event.key === 'ArrowLeft') prev();
+  else if (event.key === 'ArrowRight') next();
 };
 
 onMounted(() => {
@@ -77,14 +80,13 @@ onUnmounted(() => {
   height: 100%;
   background-color: whitesmoke;
   overflow: hidden;
-  padding-top: 60px;
+  padding-top: 75px;
 }
 
 .carousel-image {
-  height: 100%;
-  padding-bottom: 55px;
-  width: auto;
-  object-fit: cover;
+  max-height: 90%;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 .custom-controls {

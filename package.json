@@ -2,7 +2,7 @@
   "name": "generic_frontend",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "serve": "node server.js"
   },
@@ -10,6 +10,7 @@
     "@jamescoyle/vue-icon": "^0.1.2",
     "@mdi/font": "^7.0.96",
     "@mdi/js": "^7.4.47",
+    "@tato30/vue-pdf": "^1.11.3",
     "@vueuse/head": "^2.0.0",
     "core-js": "^3.29.0",
     "crypto-js": "^4.2.0",
