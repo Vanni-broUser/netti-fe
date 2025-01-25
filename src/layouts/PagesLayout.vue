@@ -37,11 +37,11 @@ router.beforeEach((_to, _from, next) => {
 </script>
 
 <style scoped>
-  .desktop-view {
-    margin-left: 305px;
-  }
+.desktop-view {
+  margin-left: 305px;
+}
 
-  .content {
-    height: 100vh;
-  }
+.content {
+  height: 100vh;
+}
 </style>

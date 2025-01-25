@@ -1,9 +1,9 @@
-import i18n from "./i18n";
-import pinia from "./pinia";
-import router from "./router";
-import vuetify from "./vuetify";
-import head from "./head";
-import vueMasonryPlugin from "./vue-masonry";
+import head from './head';
+import i18n from './i18n';
+import pinia from './pinia';
+import router from './router';
+import vuetify from './vuetify';
+import vueMasonryPlugin from './vue-masonry';
 
 export function registerPlugins(app) {
   app
@@ -13,4 +13,4 @@ export function registerPlugins(app) {
     .use(pinia)
     .use(head)
     .use(vueMasonryPlugin);
-}
+};

@@ -31,33 +31,33 @@
 </template>
 
 <script setup>
-  import MainTitle from './MainTitle';
-  import SocialLinks from './SocialLinks';
-  import MenuOperations from './MenuOperaions';
+import MainTitle from './MainTitle';
+import SocialLinks from './SocialLinks';
+import MenuOperations from './MenuOperaions';
 
-  import { useRoute } from 'vue-router';
+import { useRoute } from 'vue-router';
 
-  const route = useRoute();
+const route = useRoute();
 
-  const getClasses = (page) => {
-    const classes = ['ml-2', 'font-size', 'mt-3'];
-    if (route.path.includes(page))
-      classes.push('red');
-    return classes;
-  }
+const getClasses = (page) => {
+  const classes = ['ml-2', 'font-size', 'mt-3'];
+  if (route.path.includes(page))
+    classes.push('red');
+  return classes;
+}
 </script>
 
 <style scoped>
-  .bottom-section {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 5px;
-    box-sizing: border-box;
-    overflow: auto;
-  }
+.bottom-section {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  overflow: auto;
+}
 
-  .font-size {
-    font-size: large;
-  }
+.font-size {
+  font-size: large;
+}
 </style>

@@ -39,47 +39,47 @@
 </template>
 
 <script setup>
-  import MainTitle from './MainTitle';
-  import SocialLinks from './SocialLinks';
-  import MenuOperations from './MenuOperaions';
+import MainTitle from './MainTitle';
+import SocialLinks from './SocialLinks';
+import MenuOperations from './MenuOperaions';
 
-  import { useTheme } from 'vuetify';
-  import mobile from '@/utils/mobile';
-  import { useRoute } from 'vue-router';
+import { useTheme } from 'vuetify';
+import mobile from '@/utils/mobile';
+import { useRoute } from 'vue-router';
 
-  const theme = useTheme();
-  const route = useRoute();
-  const isMobile = mobile.setupMobileUtils();
+const theme = useTheme();
+const route = useRoute();
+const isMobile = mobile.setupMobileUtils();
 
-  const props = defineProps({
-    modelValue: Boolean
-  });
-  const emits = defineEmits(['toggleDrawer']);
+const props = defineProps({
+  modelValue: Boolean
+});
+const emits = defineEmits(['toggleDrawer']);
 
-  const getClasses = (page) => {
-    const classes = ['ml-2', 'font-size', 'mt-3'];
-    if (route.path.includes(page))
-      classes.push('black');
-    return classes;
-  };
+const getClasses = (page) => {
+  const classes = ['ml-2', 'font-size', 'mt-3'];
+  if (route.path.includes(page))
+    classes.push('black');
+  return classes;
+};
 
-  const getWidth = () => {
-    const style = {width: '335px'};
-    if (isMobile.value) style.width = '100%';
-    else if (route.path.includes('dettaglio')) style.width = '360px';
-    return style;
-  };
+const getWidth = () => {
+  const style = {width: '335px'};
+  if (isMobile.value) style.width = '100%';
+  else if (route.path.includes('dettaglio')) style.width = '360px';
+  return style;
+};
 </script>
 
 <style scoped>
-  .white-text {
-    font-size: 12.5px;
-    color: white;
-    margin-left: 15px;
-    margin-right: 15px;
-  }
+.white-text {
+  font-size: 12.5px;
+  color: white;
+  margin-left: 15px;
+  margin-right: 15px;
+}
 
-  .font-size {
-    font-size: large;
-  }
+.font-size {
+  font-size: large;
+}
 </style>

@@ -27,7 +27,7 @@ const routes = [
         path: '/portfolio',
         name: 'Portfolio',
         component: () => import('@/views/Portfolio.vue')
-      },
+      }
     ]
   },
   {
@@ -83,7 +83,7 @@ const routes = [
         path: '/ricerche/extra',
         name: 'Extra',
         component: () => import('@/views/Extra.vue')
-      },
+      }
     ]
   }
 ];
@@ -95,14 +95,11 @@ const router = createRouter({
     if (to.hash) {
       return {
         el: to.hash,
-        behavior: 'smooth',
+        behavior: 'smooth'
       };
-    } else if (savedPosition) {
-      return savedPosition;
-    } else {
-      return { left: 0, top: 0 };
-    }
-  },
+    } else if (savedPosition) return savedPosition;
+    else return { left: 0, top: 0 };
+  }
 });
 
 export default router;

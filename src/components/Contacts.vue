@@ -49,37 +49,37 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue';
-  import http from '@/utils/http';
-  import { useTheme } from 'vuetify';
-  import validation from '@/utils/validation';
+import { ref } from 'vue';
+import http from '@/utils/http';
+import { useTheme } from 'vuetify';
+import validation from '@/utils/validation';
 
-  const name = ref('');
-  const body = ref('');
-  const email = ref('');
-  const subject = ref('');
-  const theme = useTheme();
+const name = ref('');
+const body = ref('');
+const email = ref('');
+const subject = ref('');
+const theme = useTheme();
 
-  const mail = import.meta.env.VITE_FORM_MAIL;
+const mail = import.meta.env.VITE_FORM_MAIL;
 
-  const sendMail = () => {
-    if (
-      !validation.validateInput(email.value, validation.emailRules) &&
-      !validation.validateInput(name.value, validation.requiredRules) &&
-      !validation.validateInput(body.value, validation.requiredRules) &&
-      !validation.validateInput(subject.value, validation.requiredRules)
-    ) {
-      http.postRequest('send-mail', {
-        email: mail,
-        subject: 'Qualcuno ho usato il form del sito',
-        body: 'Buongiorno,\nSono il tuo mailer, hai ricevuto il seguente messaggio:\n\n' +
-          `Nominativo: ${name.value}\n` +
-          `Mail: ${email.value}\n` +
-          `Oggetto: ${subject.value}\n\n` +
-          `Testo:\n${body.value}`
-      }, function () {
-        alert("Mail inviata\nTi ringraziamo per il contatto");
-      }, 'POST');
-    }
-  };
+const sendMail = () => {
+  if (
+    !validation.validateInput(email.value, validation.emailRules) &&
+    !validation.validateInput(name.value, validation.requiredRules) &&
+    !validation.validateInput(body.value, validation.requiredRules) &&
+    !validation.validateInput(subject.value, validation.requiredRules)
+  ) {
+    http.postRequest('send-mail', {
+      email: mail,
+      subject: 'Qualcuno ho usato il form del sito',
+      body: 'Buongiorno,\nSono il tuo mailer, hai ricevuto il seguente messaggio:\n\n' +
+        `Nominativo: ${name.value}\n` +
+        `Mail: ${email.value}\n` +
+        `Oggetto: ${subject.value}\n\n` +
+        `Testo:\n${body.value}`
+    }, function () {
+      alert("Mail inviata\nTi ringraziamo per il contatto");
+    }, 'POST');
+  }
+};
 </script>

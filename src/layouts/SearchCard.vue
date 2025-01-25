@@ -17,37 +17,37 @@
 </template>
 
 <script setup>
-  import { ref } from 'vue';
-  import { useTheme } from 'vuetify';
+import { ref } from 'vue';
+import { useTheme } from 'vuetify';
 
-  const text = ref('');
-  const year = ref('');
-  const place = ref('');
-  const theme = useTheme();
+const text = ref('');
+const year = ref('');
+const place = ref('');
+const theme = useTheme();
 
-  const getYears = () => {
-    const years = [];
-    for (let year = 2000; year <= (new Date()).getFullYear(); year++)
-      years.push(year);
-    return years;
-  };
+const getYears = () => {
+  const years = [];
+  for (let year = 2000; year <= (new Date()).getFullYear(); year++)
+    years.push(year);
+  return years;
+};
 
-  const searchPosts = () => {
-    const params = new URLSearchParams();
-    if (text.value)
-      params.append('text', text.value);
-    if (year.value)
-      params.append('year', year.value);
-    if (place.value)
-      params.append('place', place.value);
-    if (params.toString())
-      location.href = `/ricerca-post?${params.toString()}`;
-  };
+const searchPosts = () => {
+  const params = new URLSearchParams();
+  if (text.value)
+    params.append('text', text.value);
+  if (year.value)
+    params.append('year', year.value);
+  if (place.value)
+    params.append('place', place.value);
+  if (params.toString())
+    location.href = `/ricerca-post?${params.toString()}`;
+};
 </script>
 
 <style scoped>
-  .margin {
-    margin-left: 7px;
-    margin-right: 7px;
-  }
+.margin {
+  margin-left: 7px;
+  margin-right: 7px;
+}
 </style>

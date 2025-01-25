@@ -26,42 +26,42 @@
 </template>
 
 <script setup>
-  import devisare from '@/assets/social/devisare.png';
-  import archilovers from '@/assets/social/archilovers2.png';
+import devisare from '@/assets/social/devisare.png';
+import archilovers from '@/assets/social/archilovers2.png';
 
-  const props = defineProps({
-    invertColor: Boolean
-  });
+const props = defineProps({
+  invertColor: Boolean
+});
 
-  const getStyle = (image) => {
-    let style = {
-      backgroundImage: `url(${image})`,
-      backgroundSize: 'contain',
-      backgroundRepeat: 'no-repeat'
-    };
-    if (props.invertColor) style.filter = 'invert(100%)';
-    return style;
+const getStyle = (image) => {
+  let style = {
+    backgroundImage: `url(${image})`,
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat'
   };
+  if (props.invertColor) style.filter = 'invert(100%)';
+  return style;
+};
 </script>
 
 <style scoped>
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
-  a:hover {
-    text-decoration: none;
-    color: inherit;
-  }
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
 
-  a:active {
-    text-decoration: none;
-    color: inherit;
-  }
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
 
-  a:visited {
-    text-decoration: none;
-    color: inherit;
-  }
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
 </style>

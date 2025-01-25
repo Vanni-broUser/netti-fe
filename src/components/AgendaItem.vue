@@ -7,49 +7,49 @@
 </template>
 
 <script setup>
-  import { setupMobileUtils } from '@/utils/mobile';
+import { setupMobileUtils } from '@/utils/mobile';
 
-  const isMobile = setupMobileUtils();
+const isMobile = setupMobileUtils();
 
-  const props = defineProps({
-    post: Object,
-    height: Number
-  });
+const props = defineProps({
+  post: Object,
+  height: Number
+});
 
-  const getStyle = () => {
-    let styleValue = 'px';
-    if (props.height)
-      styleValue = props.height + styleValue;
-    else
-      styleValue = '400' + styleValue;
-    return isMobile.value ? {
-      maxHeight: styleValue
-    } : {
-      height: styleValue
-    };
+const getStyle = () => {
+  let styleValue = 'px';
+  if (props.height)
+    styleValue = props.height + styleValue;
+  else
+    styleValue = '400' + styleValue;
+  return isMobile.value ? {
+    maxHeight: styleValue
+  } : {
+    height: styleValue
   };
+};
 </script>
 
 <style scoped>
-  .truncate-text {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
-    max-height: 4.5em;
-    line-height: 1.5em;
-  }
+.truncate-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  max-height: 4.5em;
+  line-height: 1.5em;
+}
 
-  .truncate-title {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    max-height: 4.5em;
-    line-height: 1.1em;
-  }
+.truncate-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  max-height: 4.5em;
+  line-height: 1.1em;
+}
 </style>

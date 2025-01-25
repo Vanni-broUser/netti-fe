@@ -24,12 +24,12 @@
 </template>
 
 <script setup>
-  import i18n from '@/plugins/i18n';
-  import portfolio from '@/assets/portfolio.jpg';
+import i18n from '@/plugins/i18n';
+import portfolio from '@/assets/portfolio.jpg';
 
-  import SearchCard from './SearchCard';
+import SearchCard from './SearchCard';
 
-  const setLanguage = (language) => {
-    i18n.global.locale = language;
-  };
+const setLanguage = (language) => {
+  i18n.global.locale = language;
+};
 </script>

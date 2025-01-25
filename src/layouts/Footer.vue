@@ -8,15 +8,15 @@
 </template>
 
 <script setup>
-  //
+//
 </script>
 
 <style scoped>
-  .center {
-    text-align: center;
-  }
+.center {
+  text-align: center;
+}
 
-  .right {
-    text-align: right;
-  }
+.right {
+  text-align: right;
+}
 </style>
