@@ -23,6 +23,11 @@ const routes = [
         component: () => import('@/views/Dettaglio.vue'),
         props: true
       },
+      {
+        path: '/portfolio',
+        name: 'Portfolio',
+        component: () => import('@/views/Portfolio.vue')
+      },
     ]
   },
   {
@@ -78,11 +83,6 @@ const routes = [
         path: '/ricerche/extra',
         name: 'Extra',
         component: () => import('@/views/Extra.vue')
-      },
-      {
-        path: '/portfolio',
-        name: 'Portfolio',
-        component: () => import('@/views/Portfolio.vue')
       },
     ]
   }

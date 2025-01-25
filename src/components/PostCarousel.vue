@@ -16,7 +16,7 @@
         color="#5F5F5F"
         icon="mdi-arrow-right-circle-outline"
         @click="next"
-        class="left-arrow"
+        class="next-element-arrow"
       />
     </template>
     <template #prev>
@@ -26,7 +26,7 @@
         color="#5F5F5F"
         icon="mdi-arrow-left-circle-outline"
         @click="prev"
-        class="right-arrow"
+        class="previous-element-arrow"
       />
     </template>
     <v-row class="custom-controls" align="end" justify="end">
@@ -108,21 +108,5 @@ onUnmounted(() => {
 
 .custom-dot--active {
   background-color: #fb2831;
-}
-
-.left-arrow {
-  position: absolute;
-  right: -15px;
-  font-size: 50px;
-  min-width: 75px;
-  min-height: 75px;
-}
-
-.right-arrow {
-  position: absolute;
-  left: -15px;
-  font-size: 50px;
-  min-width: 75px;
-  min-height: 75px;
 }
 </style>

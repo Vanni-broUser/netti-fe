@@ -1,25 +1,19 @@
 <template>
-<div>
-  <v-container>
-    <v-row>
-      <v-col cols="auto">
-        <v-btn class="mx-2" @click="goToPage(curPageNo - 1)">
-          Pagina Precedente
-        </v-btn>
-      </v-col>
-      <v-col cols="auto" >
-        <v-btn class="mx-2" @click="goToPage(curPageNo + 1)">
-          Pagina Successiva
-        </v-btn>
-      </v-col>
-  </v-row>
-    <v-row>
-      <v-col cols="12" md="8">
-        <VuePDF ref="pdfRef" :pdf="pdf" :page="Math.round(curPageNo)" fit-parent />
-      </v-col>
-    </v-row>
-  </v-container>
-</div>
+  <v-btn
+    variant="text"
+    color="#5F5F5F"
+    icon="mdi-arrow-left-circle-outline"
+    @click="prev"
+    class="previous-element-arrow"
+  />
+  <v-btn
+    variant="text"
+    color="#5F5F5F"
+    icon="mdi-arrow-right-circle-outline"
+    @click="next"
+    class="next-element-arrow"
+  />
+  <VuePDF ref="pdfRef" :pdf="pdf" :page="Math.round(curPageNo)" fit-parent />
 </template>
 
 <script setup>
@@ -41,24 +35,35 @@ const debounceUpdatePageSize = () => {
   windowResizeDebounceTimeout = setTimeout(updatePageSize, 150);
 };
 
+const prev = () => {
+  curPageNo.value -= 1;
+  if (curPageNo.value < 1) {
+    curPageNo.value = pages.value;
+  }
+};
+
+const next = () => {
+  curPageNo.value += 1;
+  if (curPageNo.value > pages.value) {
+    curPageNo.value = 1;
+  }
+};
+
+const handleArrowKeys = (event) => {
+  if (event.key === 'ArrowLeft')
+    prev();
+  else if (event.key === 'ArrowRight')
+    next();
+};
+
 onMounted(() => {
   updatePageSize();
   window.addEventListener('resize', debounceUpdatePageSize);
+  window.addEventListener('keydown', handleArrowKeys);
 });
 
 onBeforeUnmount(() => {
   window.removeEventListener('resize', debounceUpdatePageSize);
+  window.removeEventListener('keydown', handleArrowKeys);
 });
-
-const goToPage = (pageNo) => {
-  if (pageNo < 1) {
-    curPageNo.value = 1;
-    return;
-  }
-  if (pageNo > pages.value) {
-    curPageNo.value = pages.value;
-    return;
-  }
-  curPageNo.value = pageNo;
-};
 </script>
