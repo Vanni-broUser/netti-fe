@@ -10,7 +10,15 @@
         class="background-red square-btn main-button"
       />
       <v-btn
-        v-if="details || (route.path.includes('ricerche/') && alwaysMenu)"
+        v-if="details"
+        variant="text"
+        color="white"
+        icon="mdi-arrow-left"
+        @click.stop="router.back()"
+        class="background-red square-btn detail-button"
+      />
+      <v-btn
+        v-if="(route.path.includes('ricerche/') && alwaysMenu)"
         variant="text"
         color="white"
         icon="mdi-arrow-left"
