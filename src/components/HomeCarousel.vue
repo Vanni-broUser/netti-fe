@@ -1,6 +1,6 @@
 <template>
   <v-carousel
-    style="height: 100vh;"
+    style="height: 96vh;"
     @click="resetTimer"
     v-model="selected"
     hide-delimiters

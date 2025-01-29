@@ -1,6 +1,6 @@
 <template>
   <v-carousel
-    style="height: 97vh; background-color: whitesmoke; padding: 20px; box-sizing: border-box;"
+    style="height: 96vh; background-color: whitesmoke; padding: 20px; box-sizing: border-box;"
     v-model="selected"
     hide-delimiters
   >
@@ -13,8 +13,8 @@
       <v-btn
         v-if="!isMobile"
         variant="text"
-        color="#5F5F5F"
-        icon="mdi-arrow-right-circle-outline"
+        color="#fb2831"
+        icon="mdi-arrow-right-thin"
         @click="next"
         class="next-element-arrow"
       />
@@ -23,8 +23,8 @@
       <v-btn
         v-if="!isMobile"
         variant="text"
-        color="#5F5F5F"
-        icon="mdi-arrow-left-circle-outline"
+        color="#fb2831"
+        icon="mdi-arrow-left-thin"
         @click="prev"
         class="previous-element-arrow"
       />

@@ -1,15 +1,15 @@
 <template>
   <v-btn
     variant="text"
-    color="#5F5F5F"
-    icon="mdi-arrow-left-circle-outline"
+    color="#fb2831"
+    icon="mdi-arrow-left-thin"
     @click="prev"
     class="previous-element-arrow"
   />
   <v-btn
     variant="text"
-    color="#5F5F5F"
-    icon="mdi-arrow-right-circle-outline"
+    color="#fb2831"
+    icon="mdi-arrow-right-thin"
     @click="next"
     class="next-element-arrow"
   />

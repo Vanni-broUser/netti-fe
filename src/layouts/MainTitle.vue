@@ -33,7 +33,7 @@
         }">
           <b class="red">netti</b>architetti
         </p>
-        <p v-else :class="{
+        <p v-else-if="lateralMenu || !route.path.includes('portfolio')" :class="{
           'white title': true,
           'detail-position': details,
         }"> 
@@ -55,7 +55,8 @@ const isMobile = mobile.setupMobileUtils();
 const emits = defineEmits(['toggleDrawer']);
 const props = defineProps({
   alwaysMenu: Boolean,
-  details: Boolean
+  details: Boolean,
+  lateralMenu: Boolean
 });
 </script>
 
@@ -107,10 +108,10 @@ const props = defineProps({
 
 .desktop-back-button {
   position: fixed;
-  left: 320px;
-  top: 35px;
-  width: 50px;
-  height: 50px;
+  left: 318px;
+  top: 45px;
+  width: 25px;
+  height: 25px;
   border-radius: 0px;
 }
 </style>

@@ -6,7 +6,7 @@
   >
     <v-list density="compact" nav>
       <v-list-item>
-        <MainTitle @toggleDrawer="emits('toggleDrawer')" />
+        <MainTitle @toggleDrawer="emits('toggleDrawer')" :lateralMenu="true" />
       </v-list-item><br><br>
       <router-link class="link" to="/architetture">
         <div :class="getClasses('/architetture')"><b>{{ $t('Menu.pagina1') }}</b></div>
