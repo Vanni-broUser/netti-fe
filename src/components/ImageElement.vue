@@ -14,9 +14,7 @@
         </div>
       </div>
     </div>
-  </div>
-  <div v-if="isMobile" class="mobile-title">
-    <div>
+    <div v-if="isMobile" class="mobile-title">
       <b>{{ element.enrichment.year }}</b>
       {{element.title}} - {{element.enrichment.place}}
     </div>
@@ -38,9 +36,8 @@ const props = defineProps({
 
 <style scoped>
 .mobile-title {
-  margin-top: -17px;
-  margin-bottom: 20px;
-  margin-left: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .mobile-container {
   padding-left: 15px;
