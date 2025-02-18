@@ -1,14 +1,14 @@
 <template>
   <v-btn
     variant="text"
-    color="#fb2831"
+    color="#5f5f5f"
     icon="mdi-arrow-left-thin"
     @click="prev"
     class="previous-element-arrow"
   />
   <v-btn
     variant="text"
-    color="#fb2831"
+    color="#5f5f5f"
     icon="mdi-arrow-right-thin"
     @click="next"
     class="next-element-arrow"
