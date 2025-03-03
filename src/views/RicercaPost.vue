@@ -7,7 +7,7 @@
       <h3>
         <span v-for="filter in filters">
           <span v-if="route.query[filter]">
-            {{ `${$t(`RicercaPost.${filter}`)}: ${route.query[filter]} ` }}
+            {{ `${route.query[filter]} ` }}
           </span>
         </span>
       </h3>

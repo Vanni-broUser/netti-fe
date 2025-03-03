@@ -37,10 +37,7 @@
     "button": "Cerca"
   },
   "RicercaPost": {
-    "header": "Ricerca contenuti",
-    "text": "Testo",
-    "year": "Anno",
-    "place": "Posto"
+    "header": "Ricerca contenuti"
   },
   "Ricerche": {
     "dinettica": "Attività didattiche dei corsi di Composizione e Disegno dell’Architettura di Lorenzo Netti al Politecnico di Bari.",

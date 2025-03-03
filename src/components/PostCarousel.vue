@@ -9,25 +9,27 @@
         <img :src="img" alt="carousel item" class="carousel-image" />
       </div>
     </v-carousel-item>
-    <template #next>
-      <v-btn
-        v-if="!isMobile"
-        variant="text"
-        color="#5f5f5f"
-        icon="mdi-arrow-right-thin"
-        @click="next"
-        class="next-element-arrow"
-      />
-    </template>
     <template #prev>
       <v-btn
         v-if="!isMobile"
         variant="text"
         color="#5f5f5f"
-        icon="mdi-arrow-left-thin"
         @click="prev"
         class="previous-element-arrow"
-      />
+      >
+        <img src="/arrow1.png" width="50" />
+      </v-btn>
+    </template>
+    <template #next>
+      <v-btn
+        v-if="!isMobile"
+        variant="text"
+        color="#5f5f5f"
+        @click="next"
+        class="next-element-arrow"
+      >
+        <img src="/arrow2.png" width="50" />
+      </v-btn>
     </template>
     <v-row class="custom-controls" align="end" justify="end">
       <div
@@ -80,7 +82,7 @@ onUnmounted(() => {
   height: 100%;
   background-color: whitesmoke;
   overflow: hidden;
-  padding-top: 75px;
+  padding-top: 40px;
 }
 
 .carousel-image {

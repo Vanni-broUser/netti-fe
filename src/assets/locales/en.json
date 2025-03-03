@@ -37,10 +37,7 @@
     "button": "Search"
   },
   "RicercaPost": {
-    "header": "Research contents",
-    "text": "Text",
-    "year": "Year",
-    "place": "Place"
+    "header": "Research contents"
   },
   "Ricerche": {
     "dinettica": "Teaching activities of the Composition and Architecture Drawing courses by Lorenzo Netti at the Politecnico di Bari.",
