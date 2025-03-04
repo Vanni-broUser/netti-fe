@@ -10,15 +10,15 @@
     <template #next></template>
     <v-row align="end" justify="end">
       <div>
-        <div v-if="!isMobile" :class="['caption']" >
+        <div v-if="!isMobile" class="caption" >
           {{ content[selected].caption }}
         </div>
-        <div v-else :class="['caption-mobile']">
+        <div v-else class="caption-mobile">
           {{ content[selected].caption }}
         </div>
       </div>
       <div class="custom-controls">
-        <div v-for="(img, index) in content">
+        <div v-for="(_img, index) in content">
           <div
             :class="['mx-1', 'my-3', 'custom-dot', { 'custom-dot--active': selected == index }]"
             @click="selected = index"
@@ -89,7 +89,7 @@ onUnmounted(() => {
 .caption {
   position: absolute;
   bottom: 25px;
-  left: 25px;
+  left: 15px;
   color: white;
   font-size: larger;
 }
