@@ -1,17 +1,14 @@
 <template>
   <div :class="{ margin: !isMobile }">
-    <v-container>
-      <h2>
-        {{ $t('RicercaPost.header') }}
-      </h2>
-      <h3>
-        <span v-for="filter in filters">
-          <span v-if="route.query[filter]">
-            {{ `${route.query[filter]} ` }}
-          </span>
+    <div style="font-size: large; margin-left: 13px;">
+      {{ $t('RicercaPost.header') }}:
+      <span v-for="filter in filters">
+        <span v-if="route.query[filter]">
+          {{ `${route.query[filter]} ` }}
         </span>
-      </h3>
-    </v-container>
+      </span>
+      <br><br>
+    </div>
     <ImageGrid v-if="loading" :content="posts" :numCols="3"/>
   </div>
 </template>
