@@ -1,5 +1,5 @@
 <template>
-  <div style="height: 96vh; padding: 30px; background-color: whitesmoke;">
+  <div style="padding: 30px; background-color: whitesmoke; overflow-x: auto;">
     <v-btn
       variant="text"
       color="#5f5f5f"
