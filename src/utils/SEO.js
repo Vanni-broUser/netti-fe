@@ -26,6 +26,7 @@ const breadcrumbs = [
 ];
 
 const getBreadcrumb = () => ({
+  "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "@id": "https://nettiarchitetti.it/#breadcrumb",
   itemListElement: breadcrumbs.map((item) => ({
@@ -99,111 +100,113 @@ export const head = {
   script: [
     {
       type: "application/ld+json",
-      json: JSON.stringify({
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "Organization",
+      children: JSON.stringify(
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": "https://nettiarchitetti.it/#organization",
+          name: "Netti Architetti",
+          url: "https://nettiarchitetti.it",
+          logo: "https://nettiarchitetti.it/home/M_03-homepage.jpg",
+          email: "mailto:studio@nettiarchitetti.it",
+          telephone: "+39 0805241767",
+          sameAs: [
+            "https://www.facebook.com/nettiarchitetti/",
+            "https://www.instagram.com/nettiarchitetti/",
+            "https://www.archilovers.com/lorenzo-netti/",
+            "https://divisare.com/authors/10021575-netti-architetti",
+          ],
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Piazza Giuseppe Massari, 36",
+            addressLocality: "Bari",
+            postalCode: "70122",
+            addressCountry: "IT",
+          },
+        },
+        null,
+        2
+      ),
+    },
+    {
+      type: "application/ld+json",
+      children: JSON.stringify(
+        {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "@id": "https://nettiarchitetti.it/#localbusiness",
+          name: "Netti Architetti",
+          image: "https://nettiarchitetti.it/home/M_03-homepage.jpg",
+          url: "https://nettiarchitetti.it",
+          telephone: "+39 0805241767",
+          email: "mailto:studio@nettiarchitetti.it",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "Piazza Giuseppe Massari, 36",
+            addressLocality: "Bari",
+            postalCode: "70122",
+            addressCountry: "IT",
+          },
+          geo: {
+            "@type": "GeoCoordinates",
+            latitude: 41.12765160469907,
+            longitude: 16.865408873701487,
+          },
+          openingHoursSpecification: [
+            {
+              "@type": "OpeningHoursSpecification",
+              dayOfWeek: [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+              ],
+              opens: "09:00",
+              closes: "18:00",
+            },
+          ],
+          priceRange: "$$$",
+          sameAs: [
+            "https://www.facebook.com/nettiarchitetti/",
+            "https://www.instagram.com/nettiarchitetti/",
+            "https://www.archilovers.com/lorenzo-netti/",
+            "https://divisare.com/authors/10021575-netti-architetti",
+          ],
+          parentOrganization: {
             "@id": "https://nettiarchitetti.it/#organization",
-            name: "Netti Architetti",
-            url: "https://nettiarchitetti.it",
-            logo: "https://nettiarchitetti.it/home/M_03-homepage.jpg",
-            email: "mailto:studio@nettiarchitetti.it",
-            telephone: "+39 0805241767",
-            sameAs: [
-              "https://www.facebook.com/nettiarchitetti/",
-              "https://www.instagram.com/nettiarchitetti/",
-              "https://www.archilovers.com/lorenzo-netti/",
-              "https://divisare.com/authors/10021575-netti-architetti",
-            ],
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "Piazza Giuseppe Massari, 36",
-              addressLocality: "Bari",
-              postalCode: "70122",
-              addressCountry: "IT",
-            },
           },
-          {
-            "@type": "LocalBusiness",
-            "@id": "https://nettiarchitetti.it/#localbusiness",
-            name: "Netti Architetti",
-            image: "https://nettiarchitetti.it/home/M_03-homepage.jpg",
-            url: "https://nettiarchitetti.it",
-            telephone: "+39 0805241767",
-            email: "mailto:studio@nettiarchitetti.it",
-            address: {
-              "@type": "PostalAddress",
-              streetAddress: "Piazza Giuseppe Massari, 36",
-              addressLocality: "Bari",
-              postalCode: "70122",
-              addressCountry: "IT",
-            },
-            geo: {
-              "@type": "GeoCoordinates",
-              latitude: 41.12765160469907,
-              longitude: 16.865408873701487,
-            },
-            openingHoursSpecification: [
-              {
-                "@type": "OpeningHoursSpecification",
-                dayOfWeek: [
-                  "Monday",
-                  "Tuesday",
-                  "Wednesday",
-                  "Thursday",
-                  "Friday",
-                ],
-                opens: "09:00",
-                closes: "18:00",
-              },
-            ],
-            priceRange: "$$$",
-            parentOrganization: {
-              "@id": "https://nettiarchitetti.it/#organization",
-            },
-            sameAs: [
-              "https://www.facebook.com/nettiarchitetti/",
-              "https://www.instagram.com/nettiarchitetti/",
-              "https://www.archilovers.com/lorenzo-netti/",
-              "https://divisare.com/authors/10021575-netti-architetti",
-            ],
+        },
+        null,
+        2
+      ),
+    },
+    {
+      type: "application/ld+json",
+      children: JSON.stringify(
+        {
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://nettiarchitetti.it/#website",
+          url: "https://nettiarchitetti.it",
+          name: "Netti Architetti - Architettura per il Mondo Reale | Bari, Puglia",
+          publisher: {
+            "@id": "https://nettiarchitetti.it/#organization",
           },
-          {
-            "@type": "WebSite",
-            "@id": "https://nettiarchitetti.it/#website",
-            url: "https://nettiarchitetti.it",
-            name: "Netti Architetti - Architettura per il Mondo Reale | Bari, Puglia",
-            inLanguage: "it-IT",
-            publisher: {
-              "@id": "https://nettiarchitetti.it/#organization",
-            },
-            potentialAction: {
-              "@type": "SearchAction",
-              target: "https://nettiarchitetti.it/?s={search_term_string}",
-              "query-input": "required name=search_term_string",
-            },
+          inLanguage: "it-IT",
+          potentialAction: {
+            "@type": "SearchAction",
+            target: "https://nettiarchitetti.it/?s={search_term_string}",
+            "query-input": "required name=search_term_string",
           },
-          {
-            "@type": "WebPage",
-            "@id": "https://nettiarchitetti.it/#webpage",
-            url: "https://nettiarchitetti.it",
-            name: "Netti Architetti - Architettura per il Mondo Reale | Bari, Puglia",
-            description:
-              "Netti Architetti offre progettazione architettonica innovativa a Bari, ricercando nuove forme espressive con attenzione alla storia, all'ambiente e al paesaggio urbano ed extraurbano.",
-            isPartOf: {
-              "@id": "https://nettiarchitetti.it/#website",
-            },
-            breadcrumb: {
-              "@id": "https://nettiarchitetti.it/#breadcrumb",
-            },
-            inLanguage: "it-IT",
-            datePublished: "2023-10-01",
-            dateModified: "2023-10-01",
-          },
-          getBreadcrumb(),
-        ],
-      }),
+        },
+        null,
+        2
+      ),
+    },
+    {
+      type: "application/ld+json",
+      children: JSON.stringify(getBreadcrumb(), null, 2),
     },
   ],
 };
