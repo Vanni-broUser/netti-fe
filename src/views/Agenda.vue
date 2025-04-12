@@ -32,6 +32,18 @@ import AgendaItem from '@/components/AgendaItem';
 
 const posts = ref([]);
 const isMobile = setupMobileUtils();
+import { useHead } from '@vueuse/head'
+import { generateSeoHead } from '@/utils/seoHelper'
+
+useHead(generateSeoHead({
+  title: "Agenda - Netti Architetti | Architettura Contemporanea a Bari",
+  description: "Agenda. Il blog di Netti Architetti.",
+  slug: "agenda",
+  breadcrumbs: [
+    { name: "Home", url: "https://nettiarchitetti.it" },
+    { name: "Agenda", url: "https://nettiarchitetti.it/agenda" }
+  ]
+}))
 
 http.getRequest('blog/post', {
   project: 'nettiarchitetti.it',
@@ -42,11 +54,11 @@ http.getRequest('blog/post', {
 </script>
 
 <style scoped>
-  .dotted-hr {
-    border: 3px dotted;
-    border-top: none;
-    height: 0;
-    margin: 20px 0;
-    width: 100%;
-  }
+.dotted-hr {
+  border: 3px dotted;
+  border-top: none;
+  height: 0;
+  margin: 20px 0;
+  width: 100%;
+}
 </style>
