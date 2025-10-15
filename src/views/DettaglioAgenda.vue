@@ -23,7 +23,7 @@ const route = useRoute();
 const breadcrumbs = ref([]);
 const isMobile = mobile.setupMobileUtils();
 
-http.getRequest(`post/${route.params.id}`, {
+http.getRequest(`blog/post/${route.params.id}`, {
   project: 'nettiarchitetti.it'
 }, function (data) {
   post.value = data.post;
