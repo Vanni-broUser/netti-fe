@@ -17,6 +17,6 @@ const isMobile = setupMobileUtils();
 http.getRequest(`blog/post/${route.params.id}`, {
   project: 'nettiarchitetti.it'
 }, function (data) {
-  images.value = isMobile.value ? data.post.mobile_files : data.post.desktop_files;
+  images.value = isMobile.value ? data.post.files.filter(image => image.type == 'mobile') : data.post.files.filter(image => image.type == 'desktop');
 });
 </script>
