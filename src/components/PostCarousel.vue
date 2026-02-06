@@ -6,7 +6,7 @@
   >
     <v-carousel-item v-for="(img, index) in content" :key="index">
       <div class="carousel-item-wrapper">
-        <img :src="img" alt="carousel item" class="carousel-image" />
+        <img :src="img.preview" alt="carousel item" class="carousel-image" />
       </div>
     </v-carousel-item>
     <template #prev>
