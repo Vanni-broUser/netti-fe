@@ -12,7 +12,14 @@ import { VuePDF, usePDF } from '@tato30/vue-pdf';
 
 const pdfRef = ref([]);
 let windowResizeDebounceTimeout;
-const { pdf, pages } = usePDF('/portfolio.pdf');
+
+const props = defineProps({
+  pdf: {
+    type: String,
+    required: true
+  }
+})
+const { pdf, pages } = usePDF(props.pdf);
 
 const updatePageSize = () => {    
   if (!pdfRef.value) return;

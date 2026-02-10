@@ -35,7 +35,14 @@ import { ref, onMounted, onBeforeUnmount } from 'vue';
 const curPageNo = ref(1);
 const pdfRef = ref(null);
 let windowResizeDebounceTimeout;
-const { pdf, pages } = usePDF('/portfolio.pdf');
+
+const props = defineProps({
+  pdf: {
+    type: String,
+    required: true
+  }
+})
+const { pdf, pages } = usePDF(props.pdf);
 
 const updatePageSize = () => {
   if (!pdfRef.value) return;
