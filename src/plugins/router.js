@@ -24,9 +24,14 @@ const routes = [
         props: true
       },
       {
-        path: '/portfolio',
-        name: 'Portfolio',
-        component: () => import('@/views/Portfolio.vue')
+        path: '/portfolio-15',
+        name: 'Portfolio 2015',
+        component: () => import('@/views/Portfolio15.vue')
+      },
+      {
+        path: '/portfolio-25',
+        name: 'Portfolio 2025',
+        component: () => import('@/views/Portfolio25.vue')
       }
     ]
   },
