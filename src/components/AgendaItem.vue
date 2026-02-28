@@ -1,6 +1,6 @@
 <template>
   <router-link v-if="post" :to="`/agenda/${post.id}`" class="link">
-    <v-img :src="post.files[0].preview" :style="getStyle()" />
+    <v-img :src="post.files.find(p => p.type == 'cover').preview" :style="getStyle()" />
     <p class="red truncate-title mt-5" style="font-size: x-large;">{{ post.title }}</p>
     <p class="truncate-text">{{ post.content }}</p>
   </router-link>
