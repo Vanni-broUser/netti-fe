@@ -1,22 +1,22 @@
 <template>
   <div :class="{'image-container': true, 'mobile-container': isMobile}">
     <div @click="emits('showDetails', element)">
-      <img :src="element.files.find(p => p.type == 'cover').preview" :alt="`Image ${element.id}`" />
+      <img :src="element.files.find(p => p.type == 'cover')?.preview" :alt="`Image ${element.id}`" />
       <div 
         :class="!isMobile ? 'overlay red-overlay' : 'overlay'" 
         @mouseover="showText = true" @mouseleave="showText = false"
       >
         <div v-if="showText && !isMobile">
           <div class="text-container">
-            <b>{{ element.enrichment.year }}</b>
-            <p style="text-align: start;">{{element.title}} - {{element.enrichment.place}}</p>
+            <b>{{ element.enrichment?.year }}</b>
+            <p style="text-align: start;">{{element.title}} - {{element.enrichment?.place}}</p>
           </div>
         </div>
       </div>
     </div>
     <div v-if="isMobile" class="mobile-title">
-      <b>{{ element.enrichment.year }}</b>
-      {{element.title}} - {{element.enrichment.place}}
+      <b>{{ element.enrichment?.year }}</b>
+      {{element.title}} - {{element.enrichment?.place}}
     </div>
   </div>
 </template>

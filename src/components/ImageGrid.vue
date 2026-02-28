@@ -7,7 +7,7 @@
             <v-btn icon="mdi-arrow-right-circle-outline" class="red" variant="text"/>
           </router-link>
           <v-btn icon="mdi-close-circle-outline" @click="dialog = false" class="red" variant="text" v-if="!isMobile" />
-          {{ `${selectedImage.enrichment.year} ${selectedImage.title} - ${selectedImage.enrichment.place}` }}
+          {{ `${selectedImage.enrichment?.year} ${selectedImage.title} - ${selectedImage.enrichment?.place}` }}
         </v-card-title>
         <v-card-actions class="red" v-if="isMobile">
           <router-link :to="`/dettaglio/${selectedImage.id}`" v-if="getImages('mobile') && getImages('desktop')">
