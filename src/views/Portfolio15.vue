@@ -3,6 +3,7 @@
     variant="text"
     color="white"
     icon="mdi-download"
+    :style="getMargin()"
     class="background-red square-btn main-button"
     @click="downloadPDF('/portfolio-15.pdf')"
   />
@@ -15,6 +16,9 @@ import { setupMobileUtils } from '@/utils/mobile';
 import PortfolioPageViewer from '@/components/PortfolioPageViewer.vue';
 import PortfolioFullViewer from '@/components/PortfolioFullViewer.vue';
 
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
 const isMobile = setupMobileUtils();
 
 const downloadPDF = (pdfUrl) => {
@@ -24,6 +28,13 @@ const downloadPDF = (pdfUrl) => {
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
+};
+
+const getMargin = () => {
+  const style = {marginLeft: '55px'};
+  if (isMobile.value) style.marginRight = '100%';
+  else if (route.path.includes('dettaglio')) style.marginRight = '360px';
+  return style;
 };
 </script>
 
@@ -36,7 +47,7 @@ const downloadPDF = (pdfUrl) => {
 
 .main-button {
   position: fixed;
-  right: 15px;
+  /* left: 55px; */
   top: 45px;
   z-index: 999;
 }

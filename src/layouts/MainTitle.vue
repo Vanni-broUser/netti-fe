@@ -6,7 +6,7 @@
         variant="text"
         color="white"
         icon="mdi-reorder-horizontal"
-        @click.stop="emits('toggleDrawer')"
+        @click.stop="visible = !visible"
         class="background-red square-btn main-button"
       />
       <v-btn
@@ -48,11 +48,16 @@
 import mobile from '@/utils/mobile';
 import { useRouter, useRoute } from 'vue-router';
 
+import { storeToRefs } from 'pinia';
+import { useDrawerStore } from '@/stores/drawer';
+
 const route = useRoute();
 const router = useRouter();
 const isMobile = mobile.setupMobileUtils();
 
-const emits = defineEmits(['toggleDrawer']);
+const drawerStore = useDrawerStore();
+const { visible } = storeToRefs(drawerStore);
+
 const props = defineProps({
   alwaysMenu: Boolean,
   details: Boolean,

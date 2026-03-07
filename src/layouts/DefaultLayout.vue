@@ -1,9 +1,9 @@
 <template>
   <v-app>
-    <LateralMenu :modelValue="drawer" @toggleDrawer="toggleDrawer" />
+    <LateralMenu />
     <v-layout>
       <v-main>
-        <MainTitle @toggleDrawer="toggleDrawer" :details="route.path.includes('/dettaglio/')" />
+        <MainTitle :details="route.path.includes('/dettaglio/')" />
         <router-view />
         <Footer />
       </v-main>
@@ -16,19 +16,18 @@ import Footer from './Footer';
 import MainTitle from './MainTitle';
 import LateralMenu from './LateralMenu';
 
-import { ref } from 'vue';
+import { storeToRefs } from 'pinia';
+import { useDrawerStore } from '@/stores/drawer';
 import { useRoute, useRouter } from 'vue-router';
 
-const drawer = ref(false);
+const drawerStore = useDrawerStore();
+const { visible } = storeToRefs(drawerStore);
+
 const route = useRoute();
 const router = useRouter();
 
-const toggleDrawer = () => {
-  drawer.value = !drawer.value;
-};
-
 router.beforeEach((_to, _from, next) => {
-  drawer.value = false;
+  visible.value = false;
   next();
 });
 </script>

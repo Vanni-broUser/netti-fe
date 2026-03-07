@@ -1,10 +1,10 @@
 <template>
   <v-app>
-    <LateralMenu v-if="isMobile" :modelValue="drawer" @toggleDrawer="toggleDrawer" />
+    <LateralMenu v-if="isMobile" />
     <AlwaysMenu v-else />
     <v-layout>
       <v-main>
-        <MainTitle @toggleDrawer="toggleDrawer" v-if="isMobile" :alwaysMenu="true" />
+        <MainTitle v-if="isMobile" :alwaysMenu="true" />
         <router-view :class="{ 'desktop-view': !isMobile }" style="margin-top: 100px;" />
       </v-main>
     </v-layout>
@@ -18,20 +18,21 @@ import MainTitle from './MainTitle';
 import AlwaysMenu from './AlwaysMenu';
 import LateralMenu from './LateralMenu';
 
-import { ref } from 'vue';
 import mobile from '@/utils/mobile';
 import { useRouter } from 'vue-router';
 
-const drawer = ref(false);
-const router = useRouter();
+import { storeToRefs } from 'pinia';
+import { useDrawerStore } from '@/stores/drawer';
+
 const isMobile = mobile.setupMobileUtils();
 
-const toggleDrawer = () => {
-  drawer.value = !drawer.value;
-};
+const drawerStore = useDrawerStore();
+const { visible } = storeToRefs(drawerStore);
+
+const router = useRouter();
 
 router.beforeEach((_to, _from, next) => {
-  drawer.value = false;
+  visible.value = false;
   next();
 });
 </script>

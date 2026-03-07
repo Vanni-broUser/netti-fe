@@ -1,12 +1,11 @@
 <template>
   <v-navigation-drawer 
-    :model-value="modelValue" 
     :color="theme.current.value.primary"
     :style="getWidth()"
   >
     <v-list density="compact" nav>
       <v-list-item>
-        <MainTitle @toggleDrawer="emits('toggleDrawer')" :lateralMenu="true" />
+        <MainTitle :lateralMenu="true" />
       </v-list-item><br><br>
       <router-link class="link" to="/architetture">
         <div :class="getClasses('/architetture')"><b>{{ $t('Menu.pagina1') }}</b></div>
@@ -50,11 +49,6 @@ import { useRoute } from 'vue-router';
 const theme = useTheme();
 const route = useRoute();
 const isMobile = mobile.setupMobileUtils();
-
-const props = defineProps({
-  modelValue: Boolean
-});
-const emits = defineEmits(['toggleDrawer']);
 
 const getClasses = (page) => {
   const classes = ['ml-2', 'font-size', 'mt-3'];
