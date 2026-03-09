@@ -191,3 +191,8 @@ body {
   max-width: 100%;
   object-fit: contain;
 }
+
+.v-card-text ol,
+.v-card-text ul {
+  padding-left: 30px;
+}
