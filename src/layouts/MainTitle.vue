@@ -29,7 +29,7 @@
         v-if="!lateralMenu && (route.path.includes('portfolio-15') || route.path.includes('portfolio-25'))"
         variant="text"
         color="white"
-        icon="mdi-arrow-down"
+        icon="mdi-tray-arrow-down"
         @click.stop="downloadPDF()"
         class="background-red square-btn detail-button"
       />
