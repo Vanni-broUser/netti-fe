@@ -30,7 +30,7 @@
         class="background-red square-btn detail-button d-flex justify-center align-center"
         @click.stop="downloadPDF()"
       >
-        <img src="/arrow-down.png" width="19" height="19">
+        <img src="/arrow-down.png" width="25" height="25" style="margin-top: -3px;">
       </button>
       <router-link to="/" class="link">
         <p v-if="alwaysMenu" :class="{
