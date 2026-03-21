@@ -25,13 +25,15 @@
         @click.stop="router.back()"
         :class="isMobile ? 'background-red square-btn detail-button': 'background-red desktop-back-button'"
       />
-      <button
+      <v-btn
         v-if="!lateralMenu && (route.path.includes('portfolio-15') || route.path.includes('portfolio-25'))"
-        class="background-red square-btn detail-button d-flex justify-center align-center"
+        variant="text"
+        color="white"
+        icon="mdi-arrow-collapse-down"
         @click.stop="downloadPDF()"
-      >
-        <img src="/arrow-down.png" width="25" height="25" style="margin-top: -3px;">
-      </button>
+        class="background-red square-btn detail-button"
+        style="font-size: 13px;"
+      />
       <router-link to="/" class="link">
         <p v-if="alwaysMenu" :class="{
           'black title': true,
