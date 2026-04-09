@@ -15,7 +15,7 @@ http.getRequest('blog/post', {
   project: 'nettiarchitetti.it',
   topics: ['Dinettica']
 }, function (data) {
-  posts.value = data.posts;
+  posts.value = data.posts.sort((a, b) => a.ordinal - b.ordinal);
   loading.value = true;
 });
 </script>

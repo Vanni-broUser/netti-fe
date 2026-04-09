@@ -37,7 +37,7 @@ http.getRequest('blog/post', {
   project: 'nettiarchitetti.it',
   topics: ['Agenda']
 }, function (data) {
-  posts.value = data.posts;
+  posts.value = data.posts.sort((a, b) => a.ordinal - b.ordinal);
 });
 </script>
 
