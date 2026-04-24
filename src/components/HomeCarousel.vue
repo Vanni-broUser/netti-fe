@@ -5,16 +5,20 @@
     v-model="selected"
     hide-delimiters
   >
-    <v-carousel-item v-for="img in content" :src="img.path" cover/>
+    <v-carousel-item
+      v-for="(text, index) in content"
+      :src="`/home/${isMobile ? 'mobile' : 'desktop'}/${index + 1}.jpg`"
+      cover
+    />
     <template #prev></template>
     <template #next></template>
     <v-row align="end" justify="end">
       <div>
         <div v-if="!isMobile" class="caption" >
-          {{ content[selected].caption }}
+          {{ content[selected] }}
         </div>
         <div v-else class="caption-mobile">
-          {{ content[selected].caption }}
+          {{ content[selected] }}
         </div>
       </div>
       <div class="custom-controls">

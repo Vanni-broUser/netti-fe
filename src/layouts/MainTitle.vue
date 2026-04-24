@@ -29,11 +29,7 @@
         v-if="!lateralMenu && (route.path.includes('portfolio-15') || route.path.includes('portfolio-25'))"
         class="background-red square-btn detail-button"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down-to-line-icon lucide-arrow-down-to-line">
-          <path d="M12 17V3"/>
-          <path d="m6 11 6 6 6-6"/>
-          <path d="M19 21H5"/>
-        </svg>
+        <img src="/portfolio-icon.svg" width="24" height="24" />
       </button>
       <router-link to="/" class="link">
         <p v-if="alwaysMenu" :class="{
