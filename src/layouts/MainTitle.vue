@@ -25,6 +25,12 @@
         @click.stop="router.back()"
         :class="isMobile ? 'background-red square-btn detail-button': 'background-red desktop-back-button'"
       />
+      <button
+        v-if="!lateralMenu && (route.path.includes('portfolio-15') || route.path.includes('portfolio-25'))"
+        class="background-red square-btn detail-button"
+      >
+        <img src="/portfolio-icon.svg" width="24" height="24" />
+      </button>
       <router-link to="/" class="link">
         <p v-if="alwaysMenu" :class="{
           'black title': true,
@@ -58,6 +64,23 @@ const props = defineProps({
   details: Boolean,
   lateralMenu: Boolean
 });
+
+const downloadPDF = () => {
+  let pdfUrl = '';
+
+  if (route.path.includes('portfolio-15')) {
+    pdfUrl = '/portfolio-15.pdf';
+  } else if (route.path.includes('portfolio-25')) {
+    pdfUrl = '/portfolio-25.pdf';
+  }
+
+  const link = document.createElement('a');
+  link.href = pdfUrl;
+  link.download = pdfUrl.split('/').pop();
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 </script>
 
 <style scoped>
