@@ -1,28 +1,5 @@
 const breadcrumbs = [
-  { name: "Home", url: "https://nettiarchitetti.it", position: 1 },
-  {
-    name: "Architetture",
-    url: "https://nettiarchitetti.it/architetture",
-    position: 2,
-  },
-  { name: "Progetti", url: "https://nettiarchitetti.it/progetti", position: 3 },
-  { name: "Ricerche", url: "https://nettiarchitetti.it/ricerche", position: 4 },
-  { name: "Agenda", url: "https://nettiarchitetti.it/agenda", position: 5 },
-  {
-    name: "Chi Siamo",
-    url: "https://nettiarchitetti.it/chi-siamo",
-    position: 6,
-  },
-  {
-    name: "Dinettica",
-    url: "https://nettiarchitetti.it/ricerche/dinettica",
-    position: 7,
-  },
-  {
-    name: "Extra",
-    url: "https://nettiarchitetti.it/ricerche/extra",
-    position: 8,
-  },
+  { name: "Home", url: "https://nettiarchitetti.it", position: 1 }
 ];
 
 const getBreadcrumb = () => ({
@@ -194,11 +171,40 @@ export const head = {
             "@id": "https://nettiarchitetti.it/#organization",
           },
           inLanguage: "it-IT",
+
+          hasPart: [
+            {
+              "@type": "WebPage",
+              "name": "Architetture",
+              "url": "https://nettiarchitetti.it/architetture"
+            },
+            {
+              "@type": "WebPage",
+              "name": "Progetti",
+              "url": "https://nettiarchitetti.it/progetti"
+            },
+            {
+              "@type": "WebPage",
+              "name": "Ricerche",
+              "url": "https://nettiarchitetti.it/ricerche"
+            },
+            {
+              "@type": "WebPage",
+              "name": "Agenda",
+              "url": "https://nettiarchitetti.it/agenda"
+            },
+            {
+              "@type": "WebPage",
+              "name": "Chi Siamo",
+              "url": "https://nettiarchitetti.it/chi-siamo"
+            }
+          ],
+
           potentialAction: {
             "@type": "SearchAction",
             target: "https://nettiarchitetti.it/?s={search_term_string}",
             "query-input": "required name=search_term_string",
-          },
+          }
         },
         null,
         2
