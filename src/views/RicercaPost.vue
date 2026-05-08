@@ -9,7 +9,11 @@
       </span>
       <br><br>
     </div>
-    <ImageGrid v-if="loading" :content="posts" :numCols="3"/>
+    <ImageGrid
+      v-if="loading"
+      :content="posts"
+      :num-cols="3"
+    />
   </div>
 </template>
 

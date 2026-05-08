@@ -1,6 +1,9 @@
 <template>
   <v-container>
-    <div ref="mapContainer" style="width: 100%; height: 600px;" />
+    <div
+      ref="mapContainer"
+      style="width: 100%; height: 600px;"
+    />
   </v-container>
 </template>
 

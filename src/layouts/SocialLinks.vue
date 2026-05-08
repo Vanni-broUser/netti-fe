@@ -2,22 +2,34 @@
   <v-container>
     <v-row>
       <v-col>
-        <a href="https://www.facebook.com/nettiarchitetti/" target="_blank">
+        <a
+          href="https://www.facebook.com/nettiarchitetti/"
+          target="_blank"
+        >
           <v-icon icon="mdi-facebook" />
         </a>
       </v-col>
       <v-col>
-        <a href="https://www.instagram.com/nettiarchitetti/" target="_blank">
+        <a
+          href="https://www.instagram.com/nettiarchitetti/"
+          target="_blank"
+        >
           <v-icon icon="mdi-instagram" />
         </a>
       </v-col>
       <v-col>
-        <a href="https://divisare.com/authors/10021575-netti-architetti" target="_blank">
+        <a
+          href="https://divisare.com/authors/10021575-netti-architetti"
+          target="_blank"
+        >
           <v-icon :style="getStyle(devisare)" />
         </a>
       </v-col>
       <v-col>
-        <a href="https://www.archilovers.com/lorenzo-netti/" target="_blank">
+        <a
+          href="https://www.archilovers.com/lorenzo-netti/"
+          target="_blank"
+        >
           <v-icon :style="getStyle(archilovers)" />
         </a>
       </v-col>

@@ -1,11 +1,22 @@
 <template>
   <v-app>
-    <LateralMenu v-if="isMobile" :modelValue="drawer" @toggleDrawer="toggleDrawer" />
+    <LateralMenu
+      v-if="isMobile"
+      :model-value="drawer"
+      @toggle-drawer="toggleDrawer"
+    />
     <AlwaysMenu v-else />
     <v-layout>
       <v-main>
-        <MainTitle @toggleDrawer="toggleDrawer" v-if="isMobile" :alwaysMenu="true" />
-        <router-view :class="{ 'desktop-view': !isMobile }" style="margin-top: 100px;" />
+        <MainTitle
+          v-if="isMobile"
+          :always-menu="true"
+          @toggle-drawer="toggleDrawer"
+        />
+        <router-view
+          :class="{ 'desktop-view': !isMobile }"
+          style="margin-top: 100px;"
+        />
       </v-main>
     </v-layout>
     <Footer :class="{ 'desktop-view': !isMobile }" />

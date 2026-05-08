@@ -1,12 +1,19 @@
 <template>
   <v-carousel
-    style="height: 96vh; background-color: whitesmoke; padding: 20px; box-sizing: border-box;"
     v-model="selected"
+    style="height: 96vh; background-color: whitesmoke; padding: 20px; box-sizing: border-box;"
     hide-delimiters
   >
-    <v-carousel-item v-for="(img, index) in content" :key="index">
+    <v-carousel-item
+      v-for="(img, index) in content"
+      :key="index"
+    >
       <div class="carousel-item-wrapper">
-        <img :src="img.preview" alt="carousel item" class="carousel-image" />
+        <img
+          :src="img.preview"
+          alt="carousel item"
+          class="carousel-image"
+        >
       </div>
     </v-carousel-item>
     <template #prev>
@@ -14,10 +21,13 @@
         v-if="!isMobile"
         variant="text"
         color="#5f5f5f"
-        @click="prev"
         class="previous-element-arrow"
+        @click="prev"
       >
-        <img src="/arrow1.png" width="50" />
+        <img
+          src="/arrow1.png"
+          width="50"
+        >
       </v-btn>
     </template>
     <template #next>
@@ -25,13 +35,20 @@
         v-if="!isMobile"
         variant="text"
         color="#5f5f5f"
-        @click="next"
         class="next-element-arrow"
+        @click="next"
       >
-        <img src="/arrow2.png" width="50" />
+        <img
+          src="/arrow2.png"
+          width="50"
+        >
       </v-btn>
     </template>
-    <v-row class="custom-controls" align="end" justify="end">
+    <v-row
+      class="custom-controls"
+      align="end"
+      justify="end"
+    >
       <div
         v-for="(_img, index) in content"
         :class="['mx-1', 'my-3', 'custom-dot', { 'custom-dot--active': selected == index }]"

@@ -1,10 +1,10 @@
 const hostname = import.meta.env.VITE_HOSTNAME;
 
-const postRequest = (endpoint, body, func, method = "POST") => {
+const postRequest = (endpoint, body, func, method = 'POST') => {
   fetch(`${hostname}${endpoint}`, {
     method: method,
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(body),
   })
@@ -19,11 +19,11 @@ const postRequest = (endpoint, body, func, method = "POST") => {
       func(data);
     })
     .catch((error) => {
-      console.error("Errore nella richiesta:", error);
+      console.error('Errore nella richiesta:', error);
     });
 };
 
-const getRequest = (endpoint, params, func, method = "GET") => {
+const getRequest = (endpoint, params, func, method = 'GET') => {
   const url = new URL(`${hostname}${endpoint}`);
   Object.keys(params).forEach((key) =>
     url.searchParams.append(key, params[key])
@@ -32,7 +32,7 @@ const getRequest = (endpoint, params, func, method = "GET") => {
   fetch(url, {
     method: method,
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
   })
     .then((response) => {
@@ -46,7 +46,7 @@ const getRequest = (endpoint, params, func, method = "GET") => {
       func(data);
     })
     .catch((error) => {
-      console.error("Errore nella richiesta:", error);
+      console.error('Errore nella richiesta:', error);
     });
 };
 

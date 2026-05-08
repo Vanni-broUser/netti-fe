@@ -1,23 +1,32 @@
 <template>
   <v-carousel
-    style="height: 96vh;"
-    @click="resetTimer"
     v-model="selected"
+    style="height: 96vh;"
     hide-delimiters
+    @click="resetTimer"
   >
     <v-carousel-item
       v-for="(text, index) in content"
       :src="`/home/${isMobile ? 'mobile' : 'desktop'}/${index + 1}.jpg`"
       cover
     />
-    <template #prev></template>
-    <template #next></template>
-    <v-row align="end" justify="end">
+    <template #prev />
+    <template #next />
+    <v-row
+      align="end"
+      justify="end"
+    >
       <div>
-        <div v-if="!isMobile" class="caption" >
+        <div
+          v-if="!isMobile"
+          class="caption"
+        >
           {{ content[selected] }}
         </div>
-        <div v-else class="caption-mobile">
+        <div
+          v-else
+          class="caption-mobile"
+        >
           {{ content[selected] }}
         </div>
       </div>
@@ -26,7 +35,7 @@
           <div
             :class="['mx-1', 'my-3', 'custom-dot', { 'custom-dot--active': selected == index }]"
             @click="selected = index"
-          ></div>
+          />
         </div>
       </div>
     </v-row>

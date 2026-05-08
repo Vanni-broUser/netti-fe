@@ -1,9 +1,15 @@
 <template>
   <v-app>
-    <LateralMenu :modelValue="drawer" @toggleDrawer="toggleDrawer" />
+    <LateralMenu
+      :model-value="drawer"
+      @toggle-drawer="toggleDrawer"
+    />
     <v-layout>
       <v-main>
-        <MainTitle @toggleDrawer="toggleDrawer" :details="route.path.includes('/dettaglio/')" />
+        <MainTitle
+          :details="route.path.includes('/dettaglio/')"
+          @toggle-drawer="toggleDrawer"
+        />
         <router-view />
         <Footer />
       </v-main>

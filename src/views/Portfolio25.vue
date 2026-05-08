@@ -1,6 +1,12 @@
 <template>
-  <PortfolioPageViewer :pdf="'/portfolio-25.pdf'" v-if="!isMobile" />
-  <PortfolioFullViewer :pdf="'/portfolio-25.pdf'" v-else />
+  <PortfolioPageViewer
+    v-if="!isMobile"
+    :pdf="'/portfolio-25.pdf'"
+  />
+  <PortfolioFullViewer
+    v-else
+    :pdf="'/portfolio-25.pdf'"
+  />
 </template>
 
 <script setup>

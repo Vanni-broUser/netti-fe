@@ -14,12 +14,12 @@ export function generateSeoHead({
   description,
   slug,
   breadcrumbs = [],
-  image = "https://nettiarchitetti.it/home/M_03-homepage.jpg",
+  image = 'https://nettiarchitetti.it/home/M_03-homepage.jpg',
 }) {
   const pageUrl = `https://nettiarchitetti.it/${slug}`;
 
   const breadcrumbList = breadcrumbs.map((item, index) => ({
-    "@type": "ListItem",
+    '@type': 'ListItem',
     position: index + 1,
     name: item.name,
     item: item.url,
@@ -28,45 +28,45 @@ export function generateSeoHead({
   return {
     title,
     meta: [
-      { name: "description", content: description },
-      { name: "robots", content: "index, follow" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: 'description', content: description },
+      { name: 'robots', content: 'index, follow' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
 
       // Open Graph
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
-      { property: "og:url", content: pageUrl },
-      { property: "og:image", content: image },
-      { property: "og:type", content: "website" },
+      { property: 'og:title', content: title },
+      { property: 'og:description', content: description },
+      { property: 'og:url', content: pageUrl },
+      { property: 'og:image', content: image },
+      { property: 'og:type', content: 'website' },
 
       // Twitter
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: title },
-      { name: "twitter:description", content: description },
-      { name: "twitter:image", content: image },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:title', content: title },
+      { name: 'twitter:description', content: description },
+      { name: 'twitter:image', content: image },
     ],
     link: [
-      { rel: "canonical", href: pageUrl },
-      { rel: "icon", href: "/logo.png" },
-      { rel: "apple-touch-icon", href: "/logo.png" },
+      { rel: 'canonical', href: pageUrl },
+      { rel: 'icon', href: '/logo.png' },
+      { rel: 'apple-touch-icon', href: '/logo.png' },
     ],
     script: [
       {
-        type: "application/ld+json",
+        type: 'application/ld+json',
         innerHTML: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebPage",
-          "@id": `${pageUrl}#webpage`,
+          '@context': 'https://schema.org',
+          '@type': 'WebPage',
+          '@id': `${pageUrl}#webpage`,
           url: pageUrl,
           name: title,
           description,
-          inLanguage: "it-IT",
+          inLanguage: 'it-IT',
           isPartOf: {
-            "@id": "https://nettiarchitetti.it/#website",
+            '@id': 'https://nettiarchitetti.it/#website',
           },
           breadcrumb: {
-            "@type": "BreadcrumbList",
-            "@id": `${pageUrl}#breadcrumb`,
+            '@type': 'BreadcrumbList',
+            '@id': `${pageUrl}#breadcrumb`,
             itemListElement: breadcrumbList,
           },
         }),

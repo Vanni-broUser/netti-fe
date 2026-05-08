@@ -1,6 +1,9 @@
 <template>
   <v-row>
-    <v-col cols="12" md="5">
+    <v-col
+      cols="12"
+      md="5"
+    >
       <v-container>
         <p style="color: black;">
           Netti Architetti Associazione Professionale
@@ -10,10 +13,13 @@
           Identificativo IVA IT04211070729
         </p>
         <br><br><br>
-        <Contacts :class="{'mt-10': !isMobile}"/>
+        <Contacts :class="{'mt-10': !isMobile}" />
       </v-container>
     </v-col>
-    <v-col cols="12" md="5">
+    <v-col
+      cols="12"
+      md="5"
+    >
       <Map />
     </v-col>
   </v-row>

@@ -1,5 +1,9 @@
 <template>
-  <ImageGrid v-if="loading" :content="posts" :numCols="3" />
+  <ImageGrid
+    v-if="loading"
+    :content="posts"
+    :num-cols="3"
+  />
 </template>
 
 <script setup>
@@ -11,17 +15,17 @@ import http from '@/utils/http';
 const posts = ref([]);
 const loading = ref(false);
 import { useHead } from '@vueuse/head';
-import { generateSeoHead } from '@/utils/seoHelper'
+import { generateSeoHead } from '@/utils/seoHelper';
 
 useHead(generateSeoHead({
-  title: "Extra - Netti Architetti | Architettura Contemporanea a Bari",
-  description: "Extra. Scopri i nostri progetti bonus.",
-  slug: "extra",
+  title: 'Extra - Netti Architetti | Architettura Contemporanea a Bari',
+  description: 'Extra. Scopri i nostri progetti bonus.',
+  slug: 'extra',
   breadcrumbs: [
-    { name: "Home", url: "https://nettiarchitetti.it" },
-    { name: "Extra", url: "https://nettiarchitetti.it/extra" }
+    { name: 'Home', url: 'https://nettiarchitetti.it' },
+    { name: 'Extra', url: 'https://nettiarchitetti.it/extra' }
   ]
-}))
+}));
 
 http.getRequest('blog/post', {
   project: 'nettiarchitetti.it',
