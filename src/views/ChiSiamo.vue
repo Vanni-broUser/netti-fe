@@ -14,7 +14,8 @@
           Lorenzo Netti
         </p>
         <p
-          v-for="n in 3"
+          v-for="(n, index) in 3"
+          :key="index"
           style="color: black;"
         >
           {{ $t(`ChiSiamo.lorenzoNettiLine${n}`) }}
@@ -33,7 +34,8 @@
           Gloria Valente
         </p>
         <p
-          v-for="n in 2"
+          v-for="(n, index) in 2"
+          :key="index"
           style="color: black;"
         >
           {{ $t(`ChiSiamo.gloriaValenteLine${n}`) }}

@@ -51,8 +51,4 @@ router.beforeEach((_to, _from, next) => {
 .desktop-view {
   margin-left: 305px;
 }
-
-.content {
-  height: 100vh;
-}
 </style>

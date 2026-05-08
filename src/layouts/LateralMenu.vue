@@ -66,7 +66,8 @@
     <MenuOperations />
     <div>
       <p
-        v-for="n in 6"
+        v-for="(n, index) in 6"
+        :key="index"
         class="white-text"
       >
         {{ $t(`Menu.bottomTextLine${n}`) }}

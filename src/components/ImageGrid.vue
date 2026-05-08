@@ -134,6 +134,7 @@ const getImages = (type)  => {
   margin-bottom: 14px;
 }
 
+/* eslint-disable-next-line vue-scoped-css/no-unused-selector */
 .v-btn--icon.v-btn--density-default {
   width: 36px;
   height: 36px;

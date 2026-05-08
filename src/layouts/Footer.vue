@@ -14,13 +14,3 @@
 import { setupMobileUtils } from '@/utils/mobile';
 const isMobile = setupMobileUtils();
 </script>
-
-<style scoped>
-.center {
-  text-align: center;
-}
-
-.right {
-  text-align: right;
-}
-</style>

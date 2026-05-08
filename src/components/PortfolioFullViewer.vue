@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div v-for="(page, index) in pages">
+    <div
+      v-for="(page, index) in pages"
+      :key="index"
+    >
       <VuePDF
         :ref="pageRef => pdfRef[index]=pageRef"
         :pdf="pdf"

@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 const hostname = import.meta.env.VITE_HOSTNAME;
 
 const postRequest = (endpoint, body, func, method = 'POST') => {

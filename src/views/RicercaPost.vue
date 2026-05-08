@@ -2,7 +2,10 @@
   <div :class="{ margin: !isMobile }">
     <div style="font-size: large; margin-left: 13px;">
       {{ $t('RicercaPost.header') }}:
-      <span v-for="filter in filters">
+      <span
+        v-for="(filter, index) in filters"
+        :key="index"
+      >
         <span v-if="route.query[filter]">
           {{ `${route.query[filter]} ` }}
         </span>

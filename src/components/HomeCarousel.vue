@@ -7,6 +7,7 @@
   >
     <v-carousel-item
       v-for="(text, index) in content"
+      :key="index"
       :src="`/home/${isMobile ? 'mobile' : 'desktop'}/${index + 1}.jpg`"
       cover
     />
@@ -31,7 +32,10 @@
         </div>
       </div>
       <div class="custom-controls">
-        <div v-for="(_img, index) in content">
+        <div
+          v-for="(_img, index) in content"
+          :key="index"
+        >
           <div
             :class="['mx-1', 'my-3', 'custom-dot', { 'custom-dot--active': selected == index }]"
             @click="selected = index"

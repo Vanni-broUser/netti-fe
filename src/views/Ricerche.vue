@@ -35,7 +35,8 @@
           />
           <br>
           <p
-            v-for="n in 2"
+            v-for="(n, index) in 2"
+            :key="index"
             style="color: black;"
           >
             {{ $t(`Ricerche.extraLine${n}`) }}

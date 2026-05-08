@@ -26,7 +26,8 @@
       style="margin-right: 250px;"
     >
       <v-col
-        v-for="post in posts.slice(3)"
+        v-for="(post, index) in posts.slice(3)"
+        :key="index"
         cols="4"
       >
         <AgendaItem
@@ -37,7 +38,8 @@
     </v-row>
     <v-row v-else>
       <v-col
-        v-for="post in posts"
+        v-for="(post, index) in posts"
+        :key="index"
         cols="12"
         md="12"
       >
