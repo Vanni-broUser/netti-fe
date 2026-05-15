@@ -5,7 +5,7 @@
 <script setup>
 import Carousel from '@/components/HomeCarousel.vue';
 
-import { head } from '@/utils/SEO';
+import { head } from '@/utils/seo';
 import { useHead } from '@vueuse/head';
 
 const images = [

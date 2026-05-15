@@ -11,7 +11,7 @@ import { ref } from 'vue';
 import { useHead } from '@vueuse/head';
 import ImageGrid from '@/components/ImageGrid';
 import http from '@/utils/http';
-import { generateSeoHead } from '@/utils/seoHelper';
+import { generateSeoHead } from '@/utils/seo';
 
 useHead(generateSeoHead({
   title: 'Architetture - Netti Architetti | Architettura Contemporanea a Bari',

@@ -63,7 +63,7 @@ import AgendaItem from '@/components/AgendaItem';
 const posts = ref([]);
 const isMobile = setupMobileUtils();
 import { useHead } from '@vueuse/head';
-import { generateSeoHead } from '@/utils/seoHelper';
+import { generateSeoHead } from '@/utils/seo';
 
 useHead(generateSeoHead({
   title: 'Agenda - Netti Architetti | Architettura Contemporanea a Bari',

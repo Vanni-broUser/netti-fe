@@ -51,7 +51,7 @@
 import extra from '@/assets/extra.gif';
 import dinettica from '@/assets/dinettica.gif';
 import { useHead } from '@vueuse/head';
-import { generateSeoHead } from '@/utils/seoHelper';
+import { generateSeoHead } from '@/utils/seo';
 
 useHead(generateSeoHead({
   title: 'Ricerche - Netti Architetti | Architettura Contemporanea a Bari',

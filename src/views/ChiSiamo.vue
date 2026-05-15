@@ -47,7 +47,7 @@
 
 <script setup>
 import { useHead } from '@vueuse/head';
-import { generateSeoHead } from '@/utils/seoHelper';
+import { generateSeoHead } from '@/utils/seo';
 
 useHead(generateSeoHead({
   title: 'Chi Siamo - Netti Architetti | Architettura Contemporanea a Bari',

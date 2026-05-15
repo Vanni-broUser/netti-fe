@@ -15,7 +15,7 @@ import http from '@/utils/http';
 const posts = ref([]);
 const loading = ref(false);
 import { useHead } from '@vueuse/head';
-import { generateSeoHead } from '@/utils/seoHelper';
+import { generateSeoHead } from '@/utils/seo';
 
 useHead(generateSeoHead({
   title: 'Progetti - Netti Architetti | Architettura Contemporanea a Bari',
