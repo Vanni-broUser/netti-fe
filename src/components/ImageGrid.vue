@@ -91,7 +91,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { setupMobileUtils } from '@/utils/mobile';
 
 import VueMarkdown from 'vue-markdown-render';
@@ -103,14 +103,23 @@ const isMobile = setupMobileUtils();
 const selectedImage = ref({});
 
 const props = defineProps({
-  content: Array,
-  numCols: Number
+  content: {
+    type: Array,
+    required: true
+  },
+  numCols: {
+    type: Number,
+    required: true
+  },
+});
+
+const safeNumCols = computed(() => {
+  return props.numCols < 1 ? 1 : props.numCols;
 });
 
 const getStyle = (image) => {
-  if (props.numCols < 1) props.numCols = 1;
   return {
-    width: `${(100/props.numCols) - 1}%`,
+    width: `${(100/safeNumCols.value) - 1}%`,
     backgroundColor: image.backgroundColor || 'transparent'
   };
 };
@@ -121,7 +130,7 @@ const showDetails = (element) => {
 };
 
 const getImages = (type)  => {
-  return selectedImage.value. files.filter(image => image.type == type);
+  return selectedImage.value.files.filter(image => image.type == type);
 };
 </script>
 
