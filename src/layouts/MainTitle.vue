@@ -28,6 +28,7 @@
       <button
         v-if="!lateralMenu && (route.path.includes('portfolio-15') || route.path.includes('portfolio-25'))"
         class="background-red square-btn detail-button"
+        @click.stop="downloadPDF"
       >
         <img
           src="/portfolio-icon.svg"
@@ -72,7 +73,7 @@ const router = useRouter();
 const isMobile = mobile.setupMobileUtils();
 
 const emits = defineEmits(['toggleDrawer']);
-const props = defineProps({
+defineProps({
   alwaysMenu: Boolean,
   details: Boolean,
   lateralMenu: Boolean

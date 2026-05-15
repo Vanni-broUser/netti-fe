@@ -38,8 +38,11 @@ const showText = ref(false);
 const isMobile = setupMobileUtils();
 
 const emits = defineEmits(['showDetails']);
-const props = defineProps({
-  element: Object
+defineProps({
+  element: {
+    type: Object,
+    required: true
+  }
 });
 </script>
 
@@ -76,10 +79,6 @@ const props = defineProps({
 
 .image-container:hover .red-overlay {
   background-color: rgba(0, 0, 255, 0.5);
-}
-
-.image-container:hover .description-little {
-  opacity: 1;
 }
 
 .overlay {

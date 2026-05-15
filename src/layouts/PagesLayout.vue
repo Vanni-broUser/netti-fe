@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-import Footer from './Footer';
+import Footer from './FooterBar';
 import MainTitle from './MainTitle';
 import AlwaysMenu from './AlwaysMenu';
 import LateralMenu from './LateralMenu';

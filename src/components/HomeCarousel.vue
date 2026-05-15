@@ -52,19 +52,22 @@ import { setupMobileUtils } from '@/utils/mobile';
 
 const isMobile = setupMobileUtils();
 
-const props = defineProps({
-  content: Array
+const { content } = defineProps({
+  content: {
+    type: Array,
+    required: true
+  }
 });
 
 const selected = ref(0);
 const intervalId = ref(null);
 
 const prev = () => {
-  selected.value = (selected.value + props.content.length - 1) % props.content.length;
+  selected.value = (selected.value + content.length - 1) % content.length;
 };
 
 const next = () => {
-  selected.value = (selected.value + 1) % props.content.length;
+  selected.value = (selected.value + 1) % content.length;
 };
 
 const startTimer = () => {

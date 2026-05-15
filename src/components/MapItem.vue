@@ -26,7 +26,6 @@ import marker from '@/assets/marker.png';
 
 const theme = useTheme();
 const mapContainer = ref(null);
-let map;
 
 const settings = {
   primaryColor: theme.current.value.primary,
@@ -58,7 +57,7 @@ onMounted(() => {
     source: vectorSource
   });
 
-  map = new Map({
+  new Map({
     target: mapContainer.value,
     layers: [
       new TileLayer({

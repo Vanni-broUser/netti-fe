@@ -13,21 +13,21 @@
           Identificativo IVA IT04211070729
         </p>
         <br><br><br>
-        <Contacts :class="{'mt-10': !isMobile}" />
+        <ContactsItem :class="{'mt-10': !isMobile}" />
       </v-container>
     </v-col>
     <v-col
       cols="12"
       md="5"
     >
-      <Map />
+      <MapItem />
     </v-col>
   </v-row>
 </template>
 
 <script setup>
-import Map from '@/components/Map';
-import Contacts from '@/components/Contacts';
+import MapItem from '@/components/MapItem';
+import ContactsItem from '@/components/ContactsItem';
 
 import mobile from '@/utils/mobile';
 

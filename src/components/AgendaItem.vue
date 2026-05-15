@@ -25,15 +25,21 @@ import { setupMobileUtils } from '@/utils/mobile';
 
 const isMobile = setupMobileUtils();
 
-const props = defineProps({
-  post: Object,
-  height: Number
+const { post, height } = defineProps({
+  post: {
+    type: Object,
+    required: true
+  },
+  height: {
+    type: Number,
+    required: true
+  },
 });
 
 const getStyle = () => {
   let styleValue = 'px';
-  if (props.height)
-    styleValue = props.height + styleValue;
+  if (height)
+    styleValue = height + styleValue;
   else
     styleValue = '400' + styleValue;
   return isMobile.value ? {

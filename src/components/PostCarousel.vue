@@ -51,6 +51,7 @@
     >
       <div
         v-for="(_img, index) in content"
+        :key="index"
         :class="['mx-1', 'my-3', 'custom-dot', { 'custom-dot--active': selected == index }]"
         @click="selected = index"
       />
@@ -62,19 +63,22 @@
 import mobile from '@/utils/mobile';
 import { ref, onMounted, onUnmounted } from 'vue';
 
-const props = defineProps({
-  content: Array
+const { content } = defineProps({
+  content: {
+    type: Array,
+    required: true
+  }
 });
 
 const selected = ref(0);
 const isMobile = mobile.setupMobileUtils();
 
 const prev = () => {
-  selected.value = (selected.value + props.content.length - 1) % props.content.length;
+  selected.value = (selected.value + content.length - 1) % content.length;
 };
 
 const next = () => {
-  selected.value = (selected.value + 1) % props.content.length;
+  selected.value = (selected.value + 1) % content.length;
 };
 
 const handleKeydown = (event) => {

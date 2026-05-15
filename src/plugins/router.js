@@ -8,7 +8,7 @@ const routes = [
       {
         path: '/',
         name: 'Home',
-        component: () => import('@/views/Home.vue')
+        component: () => import('@/views/HomePage.vue')
       },
       {
         path: '/admin',
@@ -20,18 +20,18 @@ const routes = [
       {
         path: '/dettaglio/:id',
         name: 'Dettaglio',
-        component: () => import('@/views/Dettaglio.vue'),
+        component: () => import('@/views/DettaglioPage.vue'),
         props: true
       },
       {
         path: '/portfolio-15',
         name: 'Portfolio 2015',
-        component: () => import('@/views/Portfolio15.vue')
+        component: () => import('@/views/Portfolio15Page.vue')
       },
       {
         path: '/portfolio-25',
         name: 'Portfolio 2025',
-        component: () => import('@/views/Portfolio25.vue')
+        component: () => import('@/views/Portfolio25Page.vue')
       }
     ]
   },
@@ -47,17 +47,17 @@ const routes = [
       {
         path: '/architetture',
         name: 'Architetture',
-        component: () => import('@/views/Architetture.vue')
+        component: () => import('@/views/ArchitetturePage.vue')
       },
       {
         path: '/progetti',
         name: 'Progetti',
-        component: () => import('@/views/Progetti.vue')
+        component: () => import('@/views/ProgettiPage.vue')
       },
       {
         path: '/ricerche',
         name: 'Ricerche',
-        component: () => import('@/views/Ricerche.vue'),
+        component: () => import('@/views/RicerchePage.vue'),
       },
       {
         path: '/chi-siamo',
@@ -67,7 +67,7 @@ const routes = [
       {
         path: '/agenda',
         name: 'Agenda',
-        component: () => import('@/views/Agenda.vue')
+        component: () => import('@/views/AgendaPage.vue')
       },
       {
         path: '/agenda/:id',
@@ -77,17 +77,17 @@ const routes = [
       {
         path: '/contatti',
         name: 'Contatti',
-        component: () => import('@/views/Contatti.vue')
+        component: () => import('@/views/ContattiPage.vue')
       },
       {
         path: '/ricerche/dinettica',
         name: 'Dinettica',
-        component: () => import('@/views/Dinettica.vue')
+        component: () => import('@/views/DinetticaPage.vue')
       },
       {
         path: '/ricerche/extra',
         name: 'Extra',
-        component: () => import('@/views/Extra.vue')
+        component: () => import('@/views/ExtraPage.vue')
       }
     ]
   }

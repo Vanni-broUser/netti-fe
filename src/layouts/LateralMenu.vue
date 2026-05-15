@@ -93,7 +93,7 @@ const theme = useTheme();
 const route = useRoute();
 const isMobile = mobile.setupMobileUtils();
 
-const props = defineProps({
+defineProps({
   modelValue: Boolean
 });
 const emits = defineEmits(['toggleDrawer']);

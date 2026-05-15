@@ -6,16 +6,19 @@
     >
       <v-col cols="8">
         <AgendaItem
+          v-if="posts[0]"
           :post="posts[0]"
           :height="600"
         />
       </v-col>
       <v-col cols="4">
         <AgendaItem
+          v-if="posts[1]"
           :post="posts[1]"
           :height="200"
         />
         <AgendaItem
+          v-if="posts[2]"
           :post="posts[2]"
           :height="200"
         />
@@ -31,6 +34,7 @@
         cols="4"
       >
         <AgendaItem
+          v-if="post"
           :post="post"
           :height="200"
         />
