@@ -1,7 +1,13 @@
 <template>
-  <v-form fast-fail @submit.prevent="sendMail">
+  <v-form
+    fast-fail
+    @submit.prevent="sendMail"
+  >
     <v-row>
-      <v-col cols="12" md="6">
+      <v-col
+        cols="12"
+        md="6"
+      >
         <v-text-field
           v-model="name"
           :rules="validation.requiredRules"
@@ -9,7 +15,10 @@
           :label="$t('Contacts.label1')"
         />
       </v-col>
-      <v-col cols="12" md="6">
+      <v-col
+        cols="12"
+        md="6"
+      >
         <v-text-field
           v-model="email"
           :rules="validation.emailRules"
@@ -19,7 +28,10 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="12" md="12">
+      <v-col
+        cols="12"
+        md="12"
+      >
         <v-text-field
           v-model="subject"
           :rules="validation.requiredRules"
@@ -29,11 +41,14 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="12" md="12">
+      <v-col
+        cols="12"
+        md="12"
+      >
         <v-textarea
+          v-model="body"
           :label="$t('Contacts.label4')"
           rows="4"
-          v-model="body"
           :rules="validation.requiredRules"
           variant="outlined"
         />
@@ -78,7 +93,7 @@ const sendMail = () => {
         `Oggetto: ${subject.value}\n\n` +
         `Testo:\n${body.value}`
     }, function () {
-      alert("Mail inviata\nTi ringraziamo per il contatto");
+      alert('Mail inviata\nTi ringraziamo per il contatto');
     }, 'POST');
   }
 };

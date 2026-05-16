@@ -34,8 +34,8 @@ const passwordRules = requiredRules.concat([
     return 'La password deve contenere almeno un numero.';
   },
   (value) => {
-      if (value.length >= 8) return true;
-      return 'La password deve contenere almeno 8 caratteri.';
+    if (value.length >= 8) return true;
+    return 'La password deve contenere almeno 8 caratteri.';
   }
 ]);
 
@@ -46,7 +46,7 @@ const validateInput = (value, rules) => {
     if (result !== true) errors.push(result);
   }
   return errors.length === 0 ? null : errors;
-}
+};
 
 export default {
   validateInput,

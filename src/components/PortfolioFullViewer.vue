@@ -1,9 +1,17 @@
 <template>
-<div>
-  <div v-for="(page, index) in pages">
-    <VuePDF :ref="pageRef => pdfRef[index]=pageRef" :pdf="pdf" :page="page" fit-parent />
+  <div>
+    <div
+      v-for="(page, index) in pages"
+      :key="index"
+    >
+      <VuePDF
+        :ref="pageRef => pdfRef[index]=pageRef"
+        :pdf="pdf"
+        :page="page"
+        fit-parent
+      />
+    </div>
   </div>
-</div>
 </template>
 
 <script setup>
@@ -18,7 +26,7 @@ const props = defineProps({
     type: String,
     required: true
   }
-})
+});
 const { pdf, pages } = usePDF(props.pdf);
 
 const updatePageSize = () => {    

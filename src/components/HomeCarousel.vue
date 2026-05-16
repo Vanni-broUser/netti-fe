@@ -1,32 +1,45 @@
 <template>
   <v-carousel
-    style="height: 96vh;"
-    @click="resetTimer"
     v-model="selected"
+    style="height: 96vh;"
     hide-delimiters
+    @click="resetTimer"
   >
     <v-carousel-item
       v-for="(text, index) in content"
+      :key="index"
       :src="`/home/${isMobile ? 'mobile' : 'desktop'}/${index + 1}.jpg`"
       cover
     />
-    <template #prev></template>
-    <template #next></template>
-    <v-row align="end" justify="end">
+    <template #prev />
+    <template #next />
+    <v-row
+      align="end"
+      justify="end"
+    >
       <div>
-        <div v-if="!isMobile" class="caption" >
+        <div
+          v-if="!isMobile"
+          class="caption"
+        >
           {{ content[selected] }}
         </div>
-        <div v-else class="caption-mobile">
+        <div
+          v-else
+          class="caption-mobile"
+        >
           {{ content[selected] }}
         </div>
       </div>
       <div class="custom-controls">
-        <div v-for="(_img, index) in content">
+        <div
+          v-for="(_img, index) in content"
+          :key="index"
+        >
           <div
             :class="['mx-1', 'my-3', 'custom-dot', { 'custom-dot--active': selected == index }]"
             @click="selected = index"
-          ></div>
+          />
         </div>
       </div>
     </v-row>
@@ -39,19 +52,22 @@ import { setupMobileUtils } from '@/utils/mobile';
 
 const isMobile = setupMobileUtils();
 
-const props = defineProps({
-  content: Array
+const { content } = defineProps({
+  content: {
+    type: Array,
+    required: true
+  }
 });
 
 const selected = ref(0);
 const intervalId = ref(null);
 
 const prev = () => {
-  selected.value = (selected.value + props.content.length - 1) % props.content.length;
+  selected.value = (selected.value + content.length - 1) % content.length;
 };
 
 const next = () => {
-  selected.value = (selected.value + 1) % props.content.length;
+  selected.value = (selected.value + 1) % content.length;
 };
 
 const startTimer = () => {

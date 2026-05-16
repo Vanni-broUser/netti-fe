@@ -1,11 +1,22 @@
 <template>
   <v-app>
-    <LateralMenu v-if="isMobile" :modelValue="drawer" @toggleDrawer="toggleDrawer" />
+    <LateralMenu
+      v-if="isMobile"
+      :model-value="drawer"
+      @toggle-drawer="toggleDrawer"
+    />
     <AlwaysMenu v-else />
     <v-layout>
       <v-main>
-        <MainTitle @toggleDrawer="toggleDrawer" v-if="isMobile" :alwaysMenu="true" />
-        <router-view :class="{ 'desktop-view': !isMobile }" style="margin-top: 100px;" />
+        <MainTitle
+          v-if="isMobile"
+          :always-menu="true"
+          @toggle-drawer="toggleDrawer"
+        />
+        <router-view
+          :class="{ 'desktop-view': !isMobile }"
+          style="margin-top: 100px;"
+        />
       </v-main>
     </v-layout>
     <Footer :class="{ 'desktop-view': !isMobile }" />
@@ -13,7 +24,7 @@
 </template>
 
 <script setup>
-import Footer from './Footer';
+import Footer from './FooterBar';
 import MainTitle from './MainTitle';
 import AlwaysMenu from './AlwaysMenu';
 import LateralMenu from './LateralMenu';
@@ -39,9 +50,5 @@ router.beforeEach((_to, _from, next) => {
 <style scoped>
 .desktop-view {
   margin-left: 305px;
-}
-
-.content {
-  height: 100vh;
 }
 </style>

@@ -1,34 +1,59 @@
 <template>
   <v-dialog max-width="500">
-    <template v-slot:activator="{ props: activatorProps }">
+    <template #activator="{ props: activatorProps }">
       <v-container>
-        <div @click="setLanguage('it')" style="float: left; margin-left: 2px; cursor: pointer;">IT</div>
-        <div @click="setLanguage('en')" style="float: left; margin-left: 20px; cursor: pointer;">EN</div>
+        <div
+          style="float: left; margin-left: 2px; cursor: pointer;"
+          @click="setLanguage('it')"
+        >
+          IT
+        </div>
+        <div
+          style="float: left; margin-left: 20px; cursor: pointer;"
+          @click="setLanguage('en')"
+        >
+          EN
+        </div>
         <br><br>
         <v-row dense>
-          <v-col cols="12" sm="6">
-            <router-link class="link" to="/portfolio-15">
+          <v-col
+            cols="12"
+            sm="6"
+          >
+            <router-link
+              class="link"
+              to="/portfolio-15"
+            >
               <v-card elevation="5">
                 <v-img :src="portfolio15" />
               </v-card>
             </router-link>
           </v-col>
-          <v-col cols="12" sm="6">
-            <router-link class="link" to="/portfolio-25">
+          <v-col
+            cols="12"
+            sm="6"
+          >
+            <router-link
+              class="link"
+              to="/portfolio-25"
+            >
               <v-card elevation="5">
-                <v-img :src="portfolio25"  />
+                <v-img :src="portfolio25" />
               </v-card>
             </router-link>
           </v-col>
         </v-row>
         <br>
-        <div v-bind="activatorProps" style="cursor: pointer;">
+        <div
+          v-bind="activatorProps"
+          style="cursor: pointer;"
+        >
           {{ $t('MenuOperations.searchButton') }}
         </div>
         <br>
       </v-container>
     </template>
-    <template v-slot:default="">
+    <template #default="">
       <SearchCard />
     </template>
   </v-dialog>

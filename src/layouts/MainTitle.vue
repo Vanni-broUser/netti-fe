@@ -6,45 +6,59 @@
         variant="text"
         color="white"
         icon="mdi-reorder-horizontal"
-        @click.stop="emits('toggleDrawer')"
         class="background-red square-btn main-button"
+        @click.stop="emits('toggleDrawer')"
       />
       <v-btn
         v-if="details"
         variant="text"
         color="white"
         icon="mdi-arrow-left"
-        @click.stop="router.back()"
         class="background-red square-btn detail-button"
+        @click.stop="router.back()"
       />
       <v-btn
         v-if="(route.path.includes('ricerche/') && alwaysMenu)"
         variant="text"
         color="white"
         icon="mdi-arrow-left"
-        @click.stop="router.back()"
         :class="isMobile ? 'background-red square-btn detail-button': 'background-red desktop-back-button'"
+        @click.stop="router.back()"
       />
       <button
         v-if="!lateralMenu && (route.path.includes('portfolio-15') || route.path.includes('portfolio-25'))"
         class="background-red square-btn detail-button"
+        @click.stop="downloadPDF"
       >
-        <img src="/portfolio-icon.svg" width="24" height="24" />
+        <img
+          src="/portfolio-icon.svg"
+          width="24"
+          height="24"
+        >
       </button>
-      <router-link to="/" class="link">
-        <p v-if="alwaysMenu" :class="{
-          'black title': true,
-          'always-menu-position': !isMobile,
-          'detail-position': isMobile && route.path.includes('ricerche/')
-        }">
+      <router-link
+        to="/"
+        class="link"
+      >
+        <p
+          v-if="alwaysMenu"
+          :class="{
+            'black title': true,
+            'always-menu-position': !isMobile,
+            'detail-position': isMobile && route.path.includes('ricerche/')
+          }"
+        >
           <b class="red">netti</b>architetti
         </p>
-        <p v-else-if="lateralMenu || !route.path.includes('portfolio')" :class="{
-          'white title': true,
-          'detail-position': details,
-        }"> 
+        <p
+          v-else-if="lateralMenu || !route.path.includes('portfolio')"
+          :class="{
+            'white title': true,
+            'detail-position': details,
+          }"
+        > 
           <b>netti</b>architetti
-      </p>
+        </p>
       </router-link>
     </div>
   </div>
@@ -59,7 +73,7 @@ const router = useRouter();
 const isMobile = mobile.setupMobileUtils();
 
 const emits = defineEmits(['toggleDrawer']);
-const props = defineProps({
+defineProps({
   alwaysMenu: Boolean,
   details: Boolean,
   lateralMenu: Boolean
