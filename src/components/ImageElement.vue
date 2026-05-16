@@ -1,22 +1,31 @@
 <template>
   <div :class="{'image-container': true, 'mobile-container': isMobile}">
     <div @click="emits('showDetails', element)">
-      <img :src="element.files.find(p => p.type == 'cover')?.preview" :alt="`Image ${element.id}`" />
+      <img
+        :src="element.files.find(p => p.type == 'cover')?.preview"
+        :alt="`Image ${element.id}`"
+      >
       <div 
         :class="!isMobile ? 'overlay red-overlay' : 'overlay'" 
-        @mouseover="showText = true" @mouseleave="showText = false"
+        @mouseover="showText = true"
+        @mouseleave="showText = false"
       >
         <div v-if="showText && !isMobile">
           <div class="text-container">
             <b>{{ element.enrichment?.year }}</b>
-            <p style="text-align: start;">{{element.title}} - {{element.enrichment?.place}}</p>
+            <p style="text-align: start;">
+              {{ element.title }} - {{ element.enrichment?.place }}
+            </p>
           </div>
         </div>
       </div>
     </div>
-    <div v-if="isMobile" class="mobile-title">
+    <div
+      v-if="isMobile"
+      class="mobile-title"
+    >
       <b>{{ element.enrichment?.year }}</b>
-      {{element.title}} - {{element.enrichment?.place}}
+      {{ element.title }} - {{ element.enrichment?.place }}
     </div>
   </div>
 </template>
@@ -29,8 +38,11 @@ const showText = ref(false);
 const isMobile = setupMobileUtils();
 
 const emits = defineEmits(['showDetails']);
-const props = defineProps({
-  element: Object
+defineProps({
+  element: {
+    type: Object,
+    required: true
+  }
 });
 </script>
 
@@ -67,10 +79,6 @@ const props = defineProps({
 
 .image-container:hover .red-overlay {
   background-color: rgba(0, 0, 255, 0.5);
-}
-
-.image-container:hover .description-little {
-  opacity: 1;
 }
 
 .overlay {

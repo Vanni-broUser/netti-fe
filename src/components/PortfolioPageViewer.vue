@@ -3,23 +3,29 @@
     <v-btn
       variant="text"
       color="#5f5f5f"
-      @click="prev"
       class="previous-element-arrow"
+      @click="prev"
     >
-      <img src="/arrow1.png" width="50" />
+      <img
+        src="/arrow1.png"
+        width="50"
+      >
     </v-btn>
     <v-btn
       variant="text"
       color="#5f5f5f"
-      @click="next"
       class="next-element-arrow"
+      @click="next"
     >
-      <img src="/arrow2.png" width="50" />
+      <img
+        src="/arrow2.png"
+        width="50"
+      >
     </v-btn>
     <div style="width: 1250px; margin: auto; padding-top: 60px;">
       <VuePDF
-        class="carousel-image"
         ref="pdfRef"
+        class="carousel-image"
         :pdf="pdf"
         :page="Math.round(curPageNo)"
         fit-parent
@@ -41,7 +47,7 @@ const props = defineProps({
     type: String,
     required: true
   }
-})
+});
 const { pdf, pages } = usePDF(props.pdf);
 
 const updatePageSize = () => {

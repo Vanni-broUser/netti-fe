@@ -4,35 +4,77 @@
     :color="theme.current.value.primary"
     :style="getWidth()"
   >
-    <v-list density="compact" nav>
+    <v-list
+      density="compact"
+      nav
+    >
       <v-list-item>
-        <MainTitle @toggleDrawer="emits('toggleDrawer')" :lateralMenu="true" />
+        <MainTitle
+          :lateral-menu="true"
+          @toggle-drawer="emits('toggleDrawer')"
+        />
       </v-list-item><br><br>
-      <router-link class="link" to="/architetture">
-        <div :class="getClasses('/architetture')"><b>{{ $t('Menu.pagina1') }}</b></div>
+      <router-link
+        class="link"
+        to="/architetture"
+      >
+        <div :class="getClasses('/architetture')">
+          <b>{{ $t('Menu.pagina1') }}</b>
+        </div>
       </router-link>
-      <router-link class="link" to="/progetti">
-        <div :class="getClasses('/progetti')"><b>{{ $t('Menu.pagina2') }}</b></div>
+      <router-link
+        class="link"
+        to="/progetti"
+      >
+        <div :class="getClasses('/progetti')">
+          <b>{{ $t('Menu.pagina2') }}</b>
+        </div>
       </router-link>
-      <router-link class="link" to="/ricerche">
-        <div :class="getClasses('/ricerche')"><b>{{ $t('Menu.pagina3') }}</b></div>
+      <router-link
+        class="link"
+        to="/ricerche"
+      >
+        <div :class="getClasses('/ricerche')">
+          <b>{{ $t('Menu.pagina3') }}</b>
+        </div>
       </router-link>
-      <router-link class="link" to="/chi-siamo">
-        <div :class="getClasses('/chi-siamo')">{{ $t('Menu.pagina4') }}</div>
+      <router-link
+        class="link"
+        to="/chi-siamo"
+      >
+        <div :class="getClasses('/chi-siamo')">
+          {{ $t('Menu.pagina4') }}
+        </div>
       </router-link>
-      <router-link class="link" to="/agenda">
-        <div :class="getClasses('/agenda')">{{ $t('Menu.pagina5') }}</div>
+      <router-link
+        class="link"
+        to="/agenda"
+      >
+        <div :class="getClasses('/agenda')">
+          {{ $t('Menu.pagina5') }}
+        </div>
       </router-link>
-      <router-link class="link" to="/contatti">
-        <div :class="getClasses('/contatti')">{{ $t('Menu.pagina6') }}</div>
+      <router-link
+        class="link"
+        to="/contatti"
+      >
+        <div :class="getClasses('/contatti')">
+          {{ $t('Menu.pagina6') }}
+        </div>
       </router-link>
     </v-list>
     <MenuOperations />
     <div>
-      <p class="white-text" v-for="n in 6">
+      <p
+        v-for="(n, index) in 6"
+        :key="index"
+        class="white-text"
+      >
         {{ $t(`Menu.bottomTextLine${n}`) }}
       </p>
-      <br><p class="white-text"><b>Lorenzo Netti &nbsp; Gloria Valente</b></p>
+      <br><p class="white-text">
+        <b>Lorenzo Netti &nbsp; Gloria Valente</b>
+      </p>
       <SocialLinks />
     </div>
   </v-navigation-drawer>
@@ -51,7 +93,7 @@ const theme = useTheme();
 const route = useRoute();
 const isMobile = mobile.setupMobileUtils();
 
-const props = defineProps({
+defineProps({
   modelValue: Boolean
 });
 const emits = defineEmits(['toggleDrawer']);

@@ -1,8 +1,22 @@
 <template>
-  <router-link v-if="post" :to="`/agenda/${post.id}`" class="link">
-    <v-img :src="post.files.find(p => p.type == 'cover')?.preview" :style="getStyle()" />
-    <p class="red truncate-title mt-5" style="font-size: x-large;">{{ post.title }}</p>
-    <p class="truncate-text">{{ post.content }}</p>
+  <router-link
+    v-if="post"
+    :to="`/agenda/${post.id}`"
+    class="link"
+  >
+    <v-img
+      :src="post.files.find(p => p.type == 'cover')?.preview"
+      :style="getStyle()"
+    />
+    <p
+      class="red truncate-title mt-5"
+      style="font-size: x-large;"
+    >
+      {{ post.title }}
+    </p>
+    <p class="truncate-text">
+      {{ post.content }}
+    </p>
   </router-link>
 </template>
 
@@ -11,15 +25,21 @@ import { setupMobileUtils } from '@/utils/mobile';
 
 const isMobile = setupMobileUtils();
 
-const props = defineProps({
-  post: Object,
-  height: Number
+const { post, height } = defineProps({
+  post: {
+    type: Object,
+    required: true
+  },
+  height: {
+    type: Number,
+    required: true
+  },
 });
 
 const getStyle = () => {
   let styleValue = 'px';
-  if (props.height)
-    styleValue = props.height + styleValue;
+  if (height)
+    styleValue = height + styleValue;
   else
     styleValue = '400' + styleValue;
   return isMobile.value ? {

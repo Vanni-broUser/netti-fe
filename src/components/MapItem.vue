@@ -1,6 +1,9 @@
 <template>
   <v-container>
-    <div ref="mapContainer" style="width: 100%; height: 600px;" />
+    <div
+      ref="mapContainer"
+      style="width: 100%; height: 600px;"
+    />
   </v-container>
 </template>
 
@@ -23,7 +26,6 @@ import marker from '@/assets/marker.png';
 
 const theme = useTheme();
 const mapContainer = ref(null);
-let map;
 
 const settings = {
   primaryColor: theme.current.value.primary,
@@ -55,7 +57,7 @@ onMounted(() => {
     source: vectorSource
   });
 
-  map = new Map({
+  new Map({
     target: mapContainer.value,
     layers: [
       new TileLayer({

@@ -1,31 +1,67 @@
 <template>
-  <v-navigation-drawer permanent width="305">
-    <v-list density="compact" nav>
+  <v-navigation-drawer
+    permanent
+    width="305"
+  >
+    <v-list
+      density="compact"
+      nav
+    >
       <v-list-item>
-        <MainTitle :alwaysMenu="true" />
+        <MainTitle :always-menu="true" />
       </v-list-item><br><br>
-      <router-link class="link" to="/architetture">
-        <div :class="getClasses('/architetture')"><b>{{ $t('Menu.pagina1') }}</b></div>
+      <router-link
+        class="link"
+        to="/architetture"
+      >
+        <div :class="getClasses('/architetture')">
+          <b>{{ $t('Menu.pagina1') }}</b>
+        </div>
       </router-link>
-      <router-link class="link" to="/progetti">
-        <div :class="getClasses('/progetti')"><b>{{ $t('Menu.pagina2') }}</b></div>
+      <router-link
+        class="link"
+        to="/progetti"
+      >
+        <div :class="getClasses('/progetti')">
+          <b>{{ $t('Menu.pagina2') }}</b>
+        </div>
       </router-link>
-      <router-link class="link" to="/ricerche">
-        <div :class="getClasses('/ricerche')"><b>{{ $t('Menu.pagina3') }}</b></div>
+      <router-link
+        class="link"
+        to="/ricerche"
+      >
+        <div :class="getClasses('/ricerche')">
+          <b>{{ $t('Menu.pagina3') }}</b>
+        </div>
       </router-link>
-      <router-link class="link" to="/chi-siamo">
-        <div :class="getClasses('/chi-siamo')">{{ $t('Menu.pagina4') }}</div>
+      <router-link
+        class="link"
+        to="/chi-siamo"
+      >
+        <div :class="getClasses('/chi-siamo')">
+          {{ $t('Menu.pagina4') }}
+        </div>
       </router-link>
-      <router-link class="link" to="/agenda">
-        <div :class="getClasses('/agenda')">{{ $t('Menu.pagina5') }}</div>
+      <router-link
+        class="link"
+        to="/agenda"
+      >
+        <div :class="getClasses('/agenda')">
+          {{ $t('Menu.pagina5') }}
+        </div>
       </router-link>
-      <router-link class="link" to="/contatti">
-        <div :class="getClasses('/contatti')">{{ $t('Menu.pagina6') }}</div>
+      <router-link
+        class="link"
+        to="/contatti"
+      >
+        <div :class="getClasses('/contatti')">
+          {{ $t('Menu.pagina6') }}
+        </div>
       </router-link>
     </v-list>
     <MenuOperations />
     <div class="bottom-section">
-      <SocialLinks :invertColor="true" />
+      <SocialLinks :invert-color="true" />
     </div>
   </v-navigation-drawer>
 </template>
@@ -44,7 +80,7 @@ const getClasses = (page) => {
   if (route.path.includes(page))
     classes.push('red');
   return classes;
-}
+};
 </script>
 
 <style scoped>
