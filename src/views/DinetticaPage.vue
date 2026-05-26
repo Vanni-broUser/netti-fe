@@ -18,13 +18,14 @@ import { useHead } from '@vueuse/head';
 import { generateSeoHead } from '@/utils/seo';
 
 useHead(generateSeoHead({
-  title: 'Dinettica - Netti Architetti | Architettura Contemporanea a Bari',
-  description: 'Dinettica. Scopri i nostri progetti didattici di architettura.',
-  slug: 'dinettica',
+  title: 'Dinettica - Netti Architetti | Ricerca sul Progetto',
+  description: 'Dinettica è il percorso di ricerca di Netti Architetti sulla relazione tra forma, funzione e linguaggio nell\'architettura contemporanea.',
+  slug: 'ricerche/dinettica',
   breadcrumbs: [
     { name: 'Home', url: 'https://nettiarchitetti.it' },
-    { name: 'Dinettica', url: 'https://nettiarchitetti.it/dinettica' }
-  ]
+    { name: 'Ricerche', url: 'https://nettiarchitetti.it/ricerche' },
+    { name: 'Dinettica', url: 'https://nettiarchitetti.it/ricerche/dinettica' },
+  ],
 }));
 
 http.getRequest('blog/post', {

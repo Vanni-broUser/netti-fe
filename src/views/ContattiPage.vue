@@ -30,6 +30,19 @@ import MapItem from '@/components/MapItem';
 import ContactsItem from '@/components/ContactsItem';
 
 import mobile from '@/utils/mobile';
+import { useHead } from '@vueuse/head';
+import { generateSeoHead } from '@/utils/seo';
 
 const isMobile = mobile.setupMobileUtils();
+
+useHead(generateSeoHead({
+  title: 'Contatti - Netti Architetti | Studio a Bari',
+  description: 'Contatta Netti Architetti: lo studio è in Piazza Giuseppe Massari 36, Bari. Telefono, email e modulo di contatto.',
+  slug: 'contatti',
+  type: 'ContactPage',
+  breadcrumbs: [
+    { name: 'Home', url: 'https://nettiarchitetti.it' },
+    { name: 'Contatti', url: 'https://nettiarchitetti.it/contatti' },
+  ],
+}));
 </script>

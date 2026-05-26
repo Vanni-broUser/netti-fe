@@ -70,13 +70,14 @@ import { useHead } from '@vueuse/head';
 import { generateSeoHead } from '@/utils/seo';
 
 useHead(generateSeoHead({
-  title: 'Agenda - Netti Architetti | Architettura Contemporanea a Bari',
-  description: 'Agenda. Il blog di Netti Architetti.',
+  title: 'Agenda - Netti Architetti | News e Pubblicazioni',
+  description: 'Aggiornamenti, mostre, pubblicazioni e notizie dallo studio di architettura Netti Architetti di Bari.',
   slug: 'agenda',
+  type: 'CollectionPage',
   breadcrumbs: [
     { name: 'Home', url: 'https://nettiarchitetti.it' },
-    { name: 'Agenda', url: 'https://nettiarchitetti.it/agenda' }
-  ]
+    { name: 'Agenda', url: 'https://nettiarchitetti.it/agenda' },
+  ],
 }));
 
 http.getRequest('blog/post', {

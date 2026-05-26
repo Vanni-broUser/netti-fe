@@ -50,12 +50,13 @@ import { useHead } from '@vueuse/head';
 import { generateSeoHead } from '@/utils/seo';
 
 useHead(generateSeoHead({
-  title: 'Chi Siamo - Netti Architetti | Architettura Contemporanea a Bari',
-  description: 'Chi Siamo. Scopri chi siamo e la nostra storia.',
+  title: 'Chi Siamo - Netti Architetti | Studio di Architettura a Bari',
+  description: 'Netti Architetti è uno studio di architettura fondato a Bari. Scopri la storia, la filosofia progettuale e il team dello studio.',
   slug: 'chi-siamo',
+  type: 'AboutPage',
   breadcrumbs: [
     { name: 'Home', url: 'https://nettiarchitetti.it' },
-    { name: 'Chi Siamo', url: 'https://nettiarchitetti.it/chi-siamo' }
-  ]
+    { name: 'Chi Siamo', url: 'https://nettiarchitetti.it/chi-siamo' },
+  ],
 }));
 </script>

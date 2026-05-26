@@ -14,15 +14,16 @@ import http from '@/utils/http';
 import { generateSeoHead } from '@/utils/seo';
 
 useHead(generateSeoHead({
-  title: 'Architetture - Netti Architetti | Architettura Contemporanea a Bari',
-  description: 'Ecco le nostre architetture contemporanee a Bari e in Puglia. Scopri i nostri progetti di architettura.',
+  title: 'Architetture - Netti Architetti | Opere Realizzate',
+  description: 'Le opere di architettura realizzate da Netti Architetti: edifici residenziali, religiosi, scolastici e pubblici in Italia.',
   slug: 'architetture',
+  type: 'CollectionPage',
+  keywords: ['architetture realizzate', 'opere architettoniche', 'edifici Bari', 'architettura residenziale'],
   breadcrumbs: [
     { name: 'Home', url: 'https://nettiarchitetti.it' },
-    { name: 'Architetture', url: 'https://nettiarchitetti.it/architetture' }
-  ]
+    { name: 'Architetture', url: 'https://nettiarchitetti.it/architetture' },
+  ],
 }));
-
 // Caricamento dati
 const posts = ref([]);
 const loading = ref(false);

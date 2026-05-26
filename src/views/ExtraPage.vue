@@ -18,13 +18,14 @@ import { useHead } from '@vueuse/head';
 import { generateSeoHead } from '@/utils/seo';
 
 useHead(generateSeoHead({
-  title: 'Extra - Netti Architetti | Architettura Contemporanea a Bari',
-  description: 'Extra. Scopri i nostri progetti bonus.',
-  slug: 'extra',
+  title: 'Extra - Netti Architetti | Ricerca Espressiva',
+  description: 'Extra è il percorso di ricerca di Netti Architetti oltre i confini della disciplina: sperimentazioni visive e progettuali.',
+  slug: 'ricerche/extra',
   breadcrumbs: [
     { name: 'Home', url: 'https://nettiarchitetti.it' },
-    { name: 'Extra', url: 'https://nettiarchitetti.it/extra' }
-  ]
+    { name: 'Ricerche', url: 'https://nettiarchitetti.it/ricerche' },
+    { name: 'Extra', url: 'https://nettiarchitetti.it/ricerche/extra' },
+  ],
 }));
 
 http.getRequest('blog/post', {

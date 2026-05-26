@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "lint": "eslint \"src/**/*.{js,vue}\" --fix",
-    "build": "vite build",
+    "generate:sitemap": "node src/utils/generate-sitemap.js",
+    "build": "npm run generate:sitemap && vite build",
     "serve": "node server.js"
   },
   "dependencies": {
