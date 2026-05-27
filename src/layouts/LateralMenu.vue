@@ -81,8 +81,6 @@
 </template>
 
 <script setup>
-import { watch, onMounted } from 'vue';
-
 import MainTitle from './MainTitle';
 import SocialLinks from './SocialLinks';
 import MenuOperations from './MenuOperaions';
