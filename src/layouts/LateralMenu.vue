@@ -106,7 +106,6 @@ const getClasses = (page) => {
 };
 
 const getWidth = () => {
-  if (isMobile.value) return '100%';
   if (route.path.includes('dettaglio')) return 360;
   return 335;
 };

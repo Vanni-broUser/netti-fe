@@ -104,8 +104,8 @@ const downloadPDF = () => {
 }
 
 .square-btn {
-  width: 25px;
-  height: 25px;
+  width: 25px !important;
+  height: 25px !important;
   border-radius: 0px;
 }
 
