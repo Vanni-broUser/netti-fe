@@ -2,7 +2,7 @@
   <v-navigation-drawer 
     :model-value="modelValue" 
     :color="theme.current.value.primary"
-    :style="getWidth()"
+    :width="getWidth()"
   >
     <v-list
       density="compact"
@@ -106,10 +106,9 @@ const getClasses = (page) => {
 };
 
 const getWidth = () => {
-  const style = {width: '335px'};
-  if (isMobile.value) style.width = '100%';
-  else if (route.path.includes('dettaglio')) style.width = '360px';
-  return style;
+  if (isMobile.value) return '100%';
+  if (route.path.includes('dettaglio')) return 360;
+  return 335;
 };
 </script>
 
