@@ -54,9 +54,11 @@ import { useHead } from '@vueuse/head';
 import { generateSeoHead } from '@/utils/seo';
 
 useHead(generateSeoHead({
-  title: 'Ricerche - Netti Architetti | Architettura Contemporanea a Bari',
-  description: 'Ricerche. La parola chiave è ricerca.',
-  slug: 'ricerca',
+  title: 'Ricerche — Netti Architetti | Dinettica e Ricerca sul Design Mediterraneo',
+  description: 'Le ricerche di Netti Architetti: Dinettica, le attività didattiche al Politecnico di Bari, ed Extra, esplorazioni sul design, l\'architettura e le città mediterranee contemporanee.',
+  slug: 'ricerche',
+  pageType: 'CollectionPage',
+  keywords: 'ricerca architettura, Dinettica Politecnico Bari, design mediterraneo, architettura contemporanea ricerca',
   breadcrumbs: [
     { name: 'Home', url: 'https://nettiarchitetti.it' },
     { name: 'Ricerche', url: 'https://nettiarchitetti.it/ricerche' }

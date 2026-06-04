@@ -50,9 +50,12 @@ import { useHead } from '@vueuse/head';
 import { generateSeoHead } from '@/utils/seo';
 
 useHead(generateSeoHead({
-  title: 'Chi Siamo - Netti Architetti | Architettura Contemporanea a Bari',
-  description: 'Chi Siamo. Scopri chi siamo e la nostra storia.',
+  title: 'Chi Siamo — Netti Architetti | Lorenzo Netti e Gloria Valente, Architetti a Bari',
+  description: 'Netti Architetti è lo studio fondato da Lorenzo Netti, docente al Politecnico di Bari, e Gloria Valente. Architettura contemporanea a Bari con oltre 30 anni di ricerca progettuale.',
   slug: 'chi-siamo',
+  pageType: 'AboutPage',
+  image: 'https://nettiarchitetti.it/chiSiamo/lorenzo_netti.jpg',
+  keywords: 'Lorenzo Netti architetto, Gloria Valente architetto, studio architettura Bari, Politecnico Bari architettura',
   breadcrumbs: [
     { name: 'Home', url: 'https://nettiarchitetti.it' },
     { name: 'Chi Siamo', url: 'https://nettiarchitetti.it/chi-siamo' }

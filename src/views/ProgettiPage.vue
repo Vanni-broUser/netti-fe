@@ -18,9 +18,11 @@ import { useHead } from '@vueuse/head';
 import { generateSeoHead } from '@/utils/seo';
 
 useHead(generateSeoHead({
-  title: 'Progetti - Netti Architetti | Architettura Contemporanea a Bari',
-  description: 'Progetti. Scopri i nostri progetti di architettura contemporanea a Bari e in Puglia.',
+  title: 'Progetti — Netti Architetti | Progettazione Architettonica a Bari',
+  description: 'I progetti di Netti Architetti: concorsi, studi preliminari e proposte per la trasformazione del territorio. Architettura contemporanea a Bari e in Puglia tra innovazione e identità dei luoghi.',
   slug: 'progetti',
+  pageType: 'CollectionPage',
+  keywords: 'progetti architettura Bari, concorsi architettura, progettazione urbana Puglia, studi architettonici',
   breadcrumbs: [
     { name: 'Home', url: 'https://nettiarchitetti.it' },
     { name: 'Progetti', url: 'https://nettiarchitetti.it/progetti' }

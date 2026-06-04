@@ -25,6 +25,8 @@ import http from '@/utils/http';
 import i18n from '@/plugins/i18n';
 import mobile from '@/utils/mobile';
 import { useRoute } from 'vue-router';
+import { useHead } from '@vueuse/head';
+import { generateAgendaSeoHead } from '@/utils/seo';
 
 import VueMarkdown from 'vue-markdown-render';
 
@@ -33,10 +35,19 @@ const route = useRoute();
 const breadcrumbs = ref([]);
 const isMobile = mobile.setupMobileUtils();
 
+const headData = ref({
+  title: 'Agenda — Netti Architetti',
+  meta: [{ name: 'robots', content: 'index, follow' }]
+});
+useHead(headData);
+
 http.getRequest(`blog/post/${route.params.id}`, {
   project: 'nettiarchitetti.it'
 }, function (data) {
   post.value = data.post;
+
+  headData.value = generateAgendaSeoHead({ post: data.post });
+
   breadcrumbs.value = [
     {
       title: 'Home',
