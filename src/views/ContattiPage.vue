@@ -26,6 +26,7 @@
 </template>
 
 <script setup>
+import { useHead } from '@vueuse/head';
 import MapItem from '@/components/MapItem';
 import { generateSeoHead } from '@/utils/seo';
 import ContactsItem from '@/components/ContactsItem';

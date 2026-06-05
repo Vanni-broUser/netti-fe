@@ -86,12 +86,10 @@ import SocialLinks from './SocialLinks';
 import MenuOperations from './MenuOperaions';
 
 import { useTheme } from 'vuetify';
-import mobile from '@/utils/mobile';
 import { useRoute } from 'vue-router';
 
 const theme = useTheme();
 const route = useRoute();
-const isMobile = mobile.setupMobileUtils();
 
 defineProps({
   modelValue: Boolean
