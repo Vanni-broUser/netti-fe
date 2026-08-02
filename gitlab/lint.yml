@@ -1,10 +1,7 @@
 lint_frontend:
   stage: lint
   image: node:22
-  interruptible: true
   allow_failure: true
-  tags:
-    - test
   rules:
     - if: '$CI_COMMIT_BRANCH != "main"'
   script:
