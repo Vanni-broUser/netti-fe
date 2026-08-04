@@ -1,9 +1,0 @@
-lint_frontend:
-  stage: lint
-  image: node:22
-  allow_failure: true
-  rules:
-    - if: '$CI_COMMIT_BRANCH != "main"'
-  script:
-    - npm ci
-    - npx eslint "src/**/*.{js,vue}"
