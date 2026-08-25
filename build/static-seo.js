@@ -1,14 +1,14 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-// Import namespace: SITE_JSON_LD e' opzionale e non tutti i siti lo definiscono.
-import * as seo from '../src/utils/seo.routes.js';
-
-const { DEFAULT_IMAGE, SITE_NAME, SITE_URL, breadcrumbsOf, seoRoutes } = seo;
-
-// Dati strutturati dell'attivita' (Organization, LocalBusiness, WebSite):
-// valgono per tutto il sito, quindi li emettiamo solo sulla home.
-const SITE_JSON_LD = seo.SITE_JSON_LD ?? null;
+import {
+  DEFAULT_IMAGE,
+  SITE_JSON_LD,
+  SITE_NAME,
+  SITE_URL,
+  breadcrumbsOf,
+  seoRoutes
+} from '../src/utils/seo.routes.js';
 
 // L'app e' una SPA: il server manda un index.html vuoto e Vue lo riempie dopo.
 // Chi non esegue JavaScript - anteprime social, assistenti AI, e Googlebot
@@ -82,6 +82,8 @@ const metaTags = (route) => {
     `    <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`
   ];
 
+  // Dati strutturati dell'attivita' (Organization, LocalBusiness, WebSite):
+  // valgono per tutto il sito, quindi vanno emessi solo sulla home.
   if (SITE_JSON_LD && route.path === '/')
     blocks.push(`    <script type="application/ld+json">${JSON.stringify(SITE_JSON_LD)}</script>`);
 

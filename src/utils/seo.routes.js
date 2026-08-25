@@ -14,6 +14,10 @@ export const SITE_NAME = 'Netti Architetti';
 
 export const DEFAULT_IMAGE = `${SITE_URL}/home/M_03-homepage.jpg`;
 
+// Dati strutturati dell'attivita' emessi sulla home. Qui non ce ne sono:
+// il plugin di build si aspetta comunque l'export.
+export const SITE_JSON_LD = null;
+
 // `path` e' la rotta reale definita in src/plugins/router.js: da qui derivano
 // sia il canonical sia la sitemap, quindi non puo' divergere dal router.
 export const seoRoutes = [
