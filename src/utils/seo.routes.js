@@ -10,6 +10,8 @@
 
 export const SITE_URL = 'https://nettiarchitetti.it';
 
+export const SITE_NAME = 'Netti Architetti';
+
 export const DEFAULT_IMAGE = `${SITE_URL}/home/M_03-homepage.jpg`;
 
 // `path` e' la rotta reale definita in src/plugins/router.js: da qui derivano

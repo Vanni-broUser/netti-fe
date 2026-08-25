@@ -1,20 +1,22 @@
 import fs from 'node:fs';
 import path from 'node:path';
 
-import {
-  DEFAULT_IMAGE,
-  SITE_URL,
-  breadcrumbsOf,
-  seoRoutes
-} from '../src/utils/seo.routes.js';
+// Import namespace: SITE_JSON_LD e' opzionale e non tutti i siti lo definiscono.
+import * as seo from '../src/utils/seo.routes.js';
+
+const { DEFAULT_IMAGE, SITE_NAME, SITE_URL, breadcrumbsOf, seoRoutes } = seo;
+
+// Dati strutturati dell'attivita' (Organization, LocalBusiness, WebSite):
+// valgono per tutto il sito, quindi li emettiamo solo sulla home.
+const SITE_JSON_LD = seo.SITE_JSON_LD ?? null;
 
 // L'app e' una SPA: il server manda un index.html vuoto e Vue lo riempie dopo.
-// Chi non esegue JavaScript - anteprime social, assistenti AI, Googlebot prima
-// del render - vede quindi una pagina senza testo ne' metadati.
+// Chi non esegue JavaScript - anteprime social, assistenti AI, e Googlebot
+// prima del render - vede quindi una pagina senza testo ne' metadati.
 //
-// Questo plugin, a build finita, scrive un index.html per ogni rotta statica con
-// i tag della rotta gia' dentro. server.js monta express.static su dist/, che
-// serve dist/architetture/index.html per /architetture senza modifiche.
+// Questo plugin, a build finita, scrive un index.html per ogni rotta pubblica
+// con i tag della rotta gia' dentro. server.js li serve da dist/ senza doverli
+// generare a runtime.
 //
 // Il markup iniettato nel body e' solo un fallback per i crawler: al mount Vue
 // azzera il contenuto di #app (runtime-dom fa container.innerHTML = ''), quindi
@@ -30,6 +32,7 @@ const escapeHtml = (value) =>
 const metaTags = (route) => {
   const url = `${SITE_URL}${route.path}`;
   const breadcrumbs = breadcrumbsOf(route);
+  const robots = route.noindex ? 'noindex, follow' : 'index, follow';
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -57,9 +60,9 @@ const metaTags = (route) => {
 
   const tags = [
     ['name', 'description', route.description],
-    ['name', 'robots', 'index, follow'],
+    ['name', 'robots', robots],
     ['property', 'og:type', 'website'],
-    ['property', 'og:site_name', 'Netti Architetti'],
+    ['property', 'og:site_name', SITE_NAME],
     ['property', 'og:locale', 'it_IT'],
     ['property', 'og:title', route.title],
     ['property', 'og:description', route.description],
@@ -73,18 +76,23 @@ const metaTags = (route) => {
     .map(([attr, key, value]) => `    <meta ${attr}="${key}" content="${escapeHtml(value)}" />`)
     .join('\n');
 
-  return [
+  const blocks = [
     tags,
     `    <link rel="canonical" href="${url}" />`,
     `    <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`
-  ].join('\n');
+  ];
+
+  if (SITE_JSON_LD && route.path === '/')
+    blocks.push(`    <script type="application/ld+json">${JSON.stringify(SITE_JSON_LD)}</script>`);
+
+  return blocks.join('\n');
 };
 
 // Testo leggibile senza JavaScript, con i link interni per far scoprire le
 // altre pagine a chi non manda in esecuzione il router.
 const fallbackBody = (route) => {
   const links = seoRoutes
-    .filter((item) => item.path !== route.path)
+    .filter((item) => item.path !== route.path && !item.noindex)
     .map((item) => `<li><a href="${item.path}">${escapeHtml(item.heading)}</a></li>`)
     .join('');
 
@@ -103,25 +111,28 @@ const renderRoute = (template, route) =>
     .replace('</head>', `${metaTags(route)}\n  </head>`)
     .replace('<div id="app"></div>', fallbackBody(route));
 
+// Nella sitemap vanno solo le pagine che vogliamo far indicizzare.
 const renderSitemap = () =>
   [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
-    ...seoRoutes.map((route) =>
-      [
-        '  <url>',
-        `    <loc>${SITE_URL}${route.path}</loc>`,
-        `    <priority>${route.priority.toFixed(1)}</priority>`,
-        '  </url>'
-      ].join('\n')
-    ),
+    ...seoRoutes
+      .filter((route) => !route.noindex)
+      .map((route) =>
+        [
+          '  <url>',
+          `    <loc>${SITE_URL}${route.path}</loc>`,
+          `    <priority>${route.priority.toFixed(1)}</priority>`,
+          '  </url>'
+        ].join('\n')
+      ),
     '</urlset>',
     ''
   ].join('\n');
 
 export default function staticSeo() {
   return {
-    name: 'netti-static-seo',
+    name: 'static-seo',
     apply: 'build',
     closeBundle() {
       const outDir = path.resolve(process.cwd(), 'dist');
