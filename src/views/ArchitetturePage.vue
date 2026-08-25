@@ -12,16 +12,9 @@ import { useHead } from '@vueuse/head';
 import ImageGrid from '@/components/ImageGrid';
 import http from '@/utils/http';
 import { generateSeoHead } from '@/utils/seo';
+import { seoFor } from '@/utils/seo.routes';
 
-useHead(generateSeoHead({
-  title: 'Architetture - Netti Architetti | Architettura Contemporanea a Bari',
-  description: 'Ecco le nostre architetture contemporanee a Bari e in Puglia. Scopri i nostri progetti di architettura.',
-  slug: 'architetture',
-  breadcrumbs: [
-    { name: 'Home', url: 'https://nettiarchitetti.it' },
-    { name: 'Architetture', url: 'https://nettiarchitetti.it/architetture' }
-  ]
-}));
+useHead(generateSeoHead(seoFor('/architetture')));
 
 // Caricamento dati
 const posts = ref([]);
