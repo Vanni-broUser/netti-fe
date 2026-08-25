@@ -33,6 +33,9 @@ const metaTags = (route) => {
   const url = `${SITE_URL}${route.path}`;
   const breadcrumbs = breadcrumbsOf(route);
   const robots = route.noindex ? 'noindex, follow' : 'index, follow';
+  // I siti sono in italiano; `locale` serve alle poche rotte tradotte.
+  const locale = route.locale ?? 'it_IT';
+  const language = locale.replace('_', '-');
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -41,7 +44,7 @@ const metaTags = (route) => {
     url,
     name: route.title,
     description: route.description,
-    inLanguage: 'it-IT',
+    inLanguage: language,
     isPartOf: { '@id': `${SITE_URL}/#website` }
   };
 
@@ -63,7 +66,7 @@ const metaTags = (route) => {
     ['name', 'robots', robots],
     ['property', 'og:type', 'website'],
     ['property', 'og:site_name', SITE_NAME],
-    ['property', 'og:locale', 'it_IT'],
+    ['property', 'og:locale', locale],
     ['property', 'og:title', route.title],
     ['property', 'og:description', route.description],
     ['property', 'og:url', url],
@@ -109,6 +112,9 @@ const fallbackBody = (route) => {
 
 const renderRoute = (template, route) =>
   template
+    // Il lang dell'HTML deve seguire la rotta, non il template: le pagine
+    // tradotte altrimenti si dichiarerebbero in italiano.
+    .replace(/<html lang="[^"]*"/, `<html lang="${(route.locale ?? 'it_IT').split('_')[0]}"`)
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(route.title)}</title>`)
     .replace('</head>', `${metaTags(route)}\n  </head>`)
     .replace('<div id="app"></div>', fallbackBody(route));
