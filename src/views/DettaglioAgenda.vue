@@ -33,10 +33,10 @@ const route = useRoute();
 const breadcrumbs = ref([]);
 const isMobile = mobile.setupMobileUtils();
 
-http.getRequest(`blog/post/${route.params.id}`, {
+http.getRequest(`article/${route.params.id}`, {
   project: 'nettiarchitetti.it'
 }, function (data) {
-  post.value = data.post;
+  post.value = data.data;
   breadcrumbs.value = [
     {
       title: 'Home',
@@ -47,7 +47,7 @@ http.getRequest(`blog/post/${route.params.id}`, {
       disabled: false,
       href: '/agenda'
     }, {
-      title: data.post.title,
+      title: data.data.title,
       disabled: true
     }
   ];

@@ -17,9 +17,9 @@ const images = ref([]);
 const route = useRoute();
 const isMobile = setupMobileUtils();
 
-http.getRequest(`blog/post/${route.params.id}`, {
+http.getRequest(`article/${route.params.id}`, {
   project: 'nettiarchitetti.it'
 }, function (data) {
-  images.value = isMobile.value ? data.post.files.filter(image => image.type == 'mobile') : data.post.files.filter(image => image.type == 'desktop');
+  images.value = isMobile.value ? data.data.files.filter(image => image.type == 'mobile') : data.data.files.filter(image => image.type == 'desktop');
 });
 </script>

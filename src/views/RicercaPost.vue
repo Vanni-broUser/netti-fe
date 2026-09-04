@@ -40,8 +40,8 @@ for (const filter of filters) {
     args[filter] = route.query[filter];
 }
 
-http.getRequest('blog/post', args, function (data) {
-  posts.value = data.posts;
+http.getRequest('article', args, function (data) {
+  posts.value = data.data;
   loading.value = true;
 });
 </script>
