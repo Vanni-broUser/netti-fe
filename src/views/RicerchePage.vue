@@ -52,14 +52,7 @@ import extra from '@/assets/extra.gif';
 import dinettica from '@/assets/dinettica.gif';
 import { useHead } from '@vueuse/head';
 import { generateSeoHead } from '@/utils/seo';
+import { seoFor } from '@/utils/seo.routes';
 
-useHead(generateSeoHead({
-  title: 'Ricerche - Netti Architetti | Architettura Contemporanea a Bari',
-  description: 'Ricerche. La parola chiave è ricerca.',
-  slug: 'ricerca',
-  breadcrumbs: [
-    { name: 'Home', url: 'https://nettiarchitetti.it' },
-    { name: 'Ricerche', url: 'https://nettiarchitetti.it/ricerche' }
-  ]
-}));
+useHead(generateSeoHead(seoFor('/ricerche')));
 </script>

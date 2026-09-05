@@ -16,16 +16,9 @@ const posts = ref([]);
 const loading = ref(false);
 import { useHead } from '@vueuse/head';
 import { generateSeoHead } from '@/utils/seo';
+import { seoFor } from '@/utils/seo.routes';
 
-useHead(generateSeoHead({
-  title: 'Dinettica - Netti Architetti | Architettura Contemporanea a Bari',
-  description: 'Dinettica. Scopri i nostri progetti didattici di architettura.',
-  slug: 'dinettica',
-  breadcrumbs: [
-    { name: 'Home', url: 'https://nettiarchitetti.it' },
-    { name: 'Dinettica', url: 'https://nettiarchitetti.it/dinettica' }
-  ]
-}));
+useHead(generateSeoHead(seoFor('/ricerche/dinettica')));
 
 http.getRequest('blog/post', {
   project: 'nettiarchitetti.it',

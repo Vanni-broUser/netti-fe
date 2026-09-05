@@ -68,16 +68,9 @@ const posts = ref([]);
 const isMobile = setupMobileUtils();
 import { useHead } from '@vueuse/head';
 import { generateSeoHead } from '@/utils/seo';
+import { seoFor } from '@/utils/seo.routes';
 
-useHead(generateSeoHead({
-  title: 'Agenda - Netti Architetti | Architettura Contemporanea a Bari',
-  description: 'Agenda. Il blog di Netti Architetti.',
-  slug: 'agenda',
-  breadcrumbs: [
-    { name: 'Home', url: 'https://nettiarchitetti.it' },
-    { name: 'Agenda', url: 'https://nettiarchitetti.it/agenda' }
-  ]
-}));
+useHead(generateSeoHead(seoFor('/agenda')));
 
 http.getRequest('blog/post', {
   project: 'nettiarchitetti.it',
