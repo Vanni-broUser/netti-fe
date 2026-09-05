@@ -16,16 +16,9 @@ const posts = ref([]);
 const loading = ref(false);
 import { useHead } from '@vueuse/head';
 import { generateSeoHead } from '@/utils/seo';
+import { seoFor } from '@/utils/seo.routes';
 
-useHead(generateSeoHead({
-  title: 'Extra - Netti Architetti | Architettura Contemporanea a Bari',
-  description: 'Extra. Scopri i nostri progetti bonus.',
-  slug: 'extra',
-  breadcrumbs: [
-    { name: 'Home', url: 'https://nettiarchitetti.it' },
-    { name: 'Extra', url: 'https://nettiarchitetti.it/extra' }
-  ]
-}));
+useHead(generateSeoHead(seoFor('/ricerche/extra')));
 
 http.getRequest('blog/post', {
   project: 'nettiarchitetti.it',

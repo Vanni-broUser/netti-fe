@@ -48,14 +48,7 @@
 <script setup>
 import { useHead } from '@vueuse/head';
 import { generateSeoHead } from '@/utils/seo';
+import { seoFor } from '@/utils/seo.routes';
 
-useHead(generateSeoHead({
-  title: 'Chi Siamo - Netti Architetti | Architettura Contemporanea a Bari',
-  description: 'Chi Siamo. Scopri chi siamo e la nostra storia.',
-  slug: 'chi-siamo',
-  breadcrumbs: [
-    { name: 'Home', url: 'https://nettiarchitetti.it' },
-    { name: 'Chi Siamo', url: 'https://nettiarchitetti.it/chi-siamo' }
-  ]
-}));
+useHead(generateSeoHead(seoFor('/chi-siamo')));
 </script>
