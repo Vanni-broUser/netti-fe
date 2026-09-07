@@ -36,6 +36,11 @@ const isMobile = mobile.setupMobileUtils();
 http.getRequest(`article/${route.params.id}`, {
   project: 'nettiarchitetti.it'
 }, function (data) {
+  // Con il passaggio ad `article` gli id sono cambiati: un vecchio link salvato o
+  // indicizzato risponde "non trovato", e senza questa guardia la pagina resterebbe
+  // bianca per un errore JavaScript invece di mostrarsi vuota.
+  if (!data || !data.data) return;
+
   post.value = data.data;
   breadcrumbs.value = [
     {
