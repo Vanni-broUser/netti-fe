@@ -41,7 +41,7 @@ for (const filter of filters) {
 }
 
 http.getRequest('article', args, function (data) {
-  posts.value = data.data;
+  posts.value = data.data || [];
   loading.value = true;
 });
 </script>

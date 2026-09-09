@@ -83,7 +83,7 @@ http.getRequest('article', {
   project: 'nettiarchitetti.it',
   categories: ['Agenda']
 }, function (data) {
-  posts.value = data.data;
+  posts.value = data.data || [];
 });
 </script>
 
