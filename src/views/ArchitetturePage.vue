@@ -20,11 +20,11 @@ useHead(generateSeoHead(seoFor('/architetture')));
 const posts = ref([]);
 const loading = ref(false);
 
-http.getRequest('blog/post', {
+http.getRequest('article', {
   project: 'nettiarchitetti.it',
-  topics: ['Architetture']
+  categories: ['Architetture']
 }, function (data) {
-  posts.value = data.posts;
+  posts.value = data.data || [];
   loading.value = true;
 });
 </script>
