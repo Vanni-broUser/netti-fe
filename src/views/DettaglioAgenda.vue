@@ -33,10 +33,15 @@ const route = useRoute();
 const breadcrumbs = ref([]);
 const isMobile = mobile.setupMobileUtils();
 
-http.getRequest(`blog/post/${route.params.id}`, {
+http.getRequest(`article/${route.params.id}`, {
   project: 'nettiarchitetti.it'
 }, function (data) {
-  post.value = data.post;
+  // Con il passaggio ad `article` gli id sono cambiati: un vecchio link salvato o
+  // indicizzato risponde "non trovato", e senza questa guardia la pagina resterebbe
+  // bianca per un errore JavaScript invece di mostrarsi vuota.
+  if (!data || !data.data) return;
+
+  post.value = data.data;
   breadcrumbs.value = [
     {
       title: 'Home',
@@ -47,7 +52,7 @@ http.getRequest(`blog/post/${route.params.id}`, {
       disabled: false,
       href: '/agenda'
     }, {
-      title: data.post.title,
+      title: data.data.title,
       disabled: true
     }
   ];

@@ -72,11 +72,11 @@ import { seoFor } from '@/utils/seo.routes';
 
 useHead(generateSeoHead(seoFor('/agenda')));
 
-http.getRequest('blog/post', {
+http.getRequest('article', {
   project: 'nettiarchitetti.it',
-  topics: ['Agenda']
+  categories: ['Agenda']
 }, function (data) {
-  posts.value = data.posts;
+  posts.value = data.data || [];
 });
 </script>
 

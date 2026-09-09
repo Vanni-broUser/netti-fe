@@ -17,9 +17,13 @@ const images = ref([]);
 const route = useRoute();
 const isMobile = setupMobileUtils();
 
-http.getRequest(`blog/post/${route.params.id}`, {
+http.getRequest(`article/${route.params.id}`, {
   project: 'nettiarchitetti.it'
 }, function (data) {
-  images.value = isMobile.value ? data.post.files.filter(image => image.type == 'mobile') : data.post.files.filter(image => image.type == 'desktop');
+  // Con il passaggio ad `article` gli id sono cambiati: un vecchio link risponde
+  // "non trovato" e senza questa guardia il carosello farebbe saltare la pagina.
+  const files = data?.data?.files || [];
+
+  images.value = files.filter(image => image.type == (isMobile.value ? 'mobile' : 'desktop'));
 });
 </script>

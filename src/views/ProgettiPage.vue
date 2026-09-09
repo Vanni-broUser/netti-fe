@@ -20,11 +20,11 @@ import { seoFor } from '@/utils/seo.routes';
 
 useHead(generateSeoHead(seoFor('/progetti')));
 
-http.getRequest('blog/post', {
+http.getRequest('article', {
   project: 'nettiarchitetti.it',
-  topics: ['Progetti']
+  categories: ['Progetti']
 }, function (data) {
-  posts.value = data.posts;
+  posts.value = data.data || [];
   loading.value = true;
 });
 </script>
