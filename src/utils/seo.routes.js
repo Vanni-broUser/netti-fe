@@ -14,6 +14,11 @@ export const SITE_NAME = 'Netti Architetti';
 
 export const DEFAULT_IMAGE = `${SITE_URL}/home/M_03-homepage.jpg`;
 
+// Sfondo del brand sul primo frame, prima che Vue monti (vedi
+// build/static-seo.js). Qui non serve: lo sfondo reale della pagina e'
+// bianco (verificato dal vivo su nettiarchitetti.it), come il default del browser.
+export const SPLASH_BG = null;
+
 // Dati strutturati dell'attivita' emessi sulla home. Qui non ce ne sono:
 // il plugin di build si aspetta comunque l'export.
 export const SITE_JSON_LD = null;
